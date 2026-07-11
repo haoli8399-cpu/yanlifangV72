@@ -66,8 +66,8 @@ function QuotationDetail() {
           }}
           styles={{ body: { padding: "var(--yl-space-4)" } }}
         >
-          <Space size="var(--yl-space-4)" align="center" style={{ width: "100%", justifyContent: "space-between", flexWrap: "wrap" }}>
-            <Space size="var(--yl-space-3)">
+          <Space size={16} align="center" style={{ width: "100%", justifyContent: "space-between", flexWrap: "wrap" }}>
+            <Space size={12}>
               <ClockCircleOutlined style={{ fontSize: 26, color: urgent ? "#F5222D" : "var(--yl-primary)" }} />
               <div>
                 <div style={{ font: "var(--yl-text-caption)", color: "var(--yl-text-tertiary)" }}>报价有效期倒计时</div>
@@ -126,7 +126,7 @@ function QuotationDetail() {
               <VersionView v={current} />
             ) : (
               <div>
-                <Space size="var(--yl-space-3)" style={{ marginBottom: "var(--yl-space-3)" }}>
+                <Space size={12} style={{ marginBottom: "var(--yl-space-3)" }}>
                   <Typography.Text>版本对比：</Typography.Text>
                   <Segmented options={quotation.versions.map((v) => v.version)} value={compareA} onChange={(v) => setCompareA(v as string)} />
                   <Typography.Text>vs</Typography.Text>
@@ -153,7 +153,7 @@ function QuotationDetail() {
         </Col>
 
         <Col xs={24} lg={7}>
-          <Space orientation="vertical" size="var(--yl-space-4)" style={{ width: "100%" }}>
+          <Space orientation="vertical" size={16} style={{ width: "100%" }}>
             <Card styles={{ body: { padding: "var(--yl-space-4)" } }}>
               <Statistic
                 title="报价总额"
@@ -228,7 +228,7 @@ function QuotationDetail() {
           message.success("已提交拒绝原因，运营会在 4 小时内重新出方案");
         }}
       >
-        <Space orientation="vertical" style={{ width: "100%" }} size="var(--yl-space-3)">
+        <Space orientation="vertical" style={{ width: "100%" }} size={12}>
           <Space wrap>
             {["预算超出", "档期冲突", "艺人不合适", "方案偏离需求", "已选择其他供应商"].map((r) => (
               <Tag.CheckableTag

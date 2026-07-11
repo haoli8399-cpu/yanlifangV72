@@ -155,7 +155,7 @@ function ProposalCenter() {
       width: 180,
       fixed: "right",
       render: (_, record) => (
-        <Space size="var(--yl-space-sm)">
+        <Space size={4}>
           <Button
             size="small"
             type="link"

@@ -235,7 +235,7 @@ function LeadCenter() {
       width: 180,
       fixed: "right",
       render: (_, l) => (
-        <Space size="var(--yl-space-sm)">
+        <Space size={4}>
           <Button
             size="small"
             type="link"
@@ -285,7 +285,7 @@ function LeadCenter() {
         </Space>
 
         {/* 筛选栏 */}
-        <Space size="var(--yl-space-3)" wrap style={{ marginBottom: "var(--yl-space-3)" }}>
+        <Space size={12} wrap style={{ marginBottom: "var(--yl-space-3)" }}>
           <Segmented
             block
             options={STATUS_TABS.map((k) => ({ label: STATUS_LABELS[k], value: k }))}
@@ -293,7 +293,7 @@ function LeadCenter() {
             onChange={(v) => setStatus(v as string)}
           />
         </Space>
-        <Space size="var(--yl-space-3)" wrap>
+        <Space size={12} wrap>
           <Select
             allowClear
             placeholder="优先级筛选"

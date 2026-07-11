@@ -11,7 +11,7 @@ function AdminLogin() {
   return (
     <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "radial-gradient(700px 500px at 30% 20%, rgba(75,52,209,.18), transparent), #0B0E1E" }}>
       <Card style={{ width: 420, background: "#141830", border: "1px solid #1E2138", borderRadius: "var(--yl-radius-lg)" }} styles={{ body: { padding: 36 } }}>
-        <Space size="var(--yl-space-3)">
+        <Space size={12}>
           <div style={{ width: 40, height: 40, borderRadius: "var(--yl-radius-md)", background: "linear-gradient(135deg, var(--yl-primary-active), var(--yl-primary))", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 800 }}>演</div>
           <div>
             <div style={{ color: "#fff", fontWeight: 700 }}>演立方 · Admin Console</div>

@@ -44,7 +44,7 @@ function QuotationList() {
     {
       title: "客户",
       render: (_, r) => (
-        <Space size="var(--yl-space-2)">
+        <Space size={8}>
           <Avatar size={28} style={{ background: r.opp?.customer.avatarColor ?? "var(--yl-primary)", fontSize: "var(--yl-text-caption)" }}>
             {r.q.customerName.slice(0, 1)}
           </Avatar>

@@ -207,7 +207,7 @@ function SupplierQuotation() {
                     message={v.changeNote}
                     description={
                       v.changes.length > 0 && (
-                        <Space wrap size="var(--yl-space-sm)" style={{ marginTop: 4 }}>
+                        <Space wrap size={4} style={{ marginTop: 4 }}>
                           {v.changes.map((c, i) => (
                             <Tag key={i} color="gold" style={{ borderRadius: "var(--yl-radius-sm)" }}>{c}</Tag>
                           ))}
@@ -272,7 +272,7 @@ function SupplierQuotation() {
               style={{ marginTop: "var(--yl-space-4)" }}
               styles={{ body: { padding: "var(--yl-space-3)" } }}
             >
-              <Space orientation="vertical" size="var(--yl-space-2)" style={{ width: "100%" }}>
+              <Space orientation="vertical" size={8} style={{ width: "100%" }}>
                 {q.versions.map((v) => (
                   <div
                     key={v.version}
@@ -590,7 +590,7 @@ function VersionDiffView({
           style={{ marginTop: "var(--yl-space-3)" }}
           message={`版本 ${versionB.version} 相对上一版的变更`}
           description={
-            <Space wrap size="var(--yl-space-sm)">
+            <Space wrap size={4}>
               {versionB.changes.map((c, i) => (
                 <Tag key={i} color="orange">{c}</Tag>
               ))}

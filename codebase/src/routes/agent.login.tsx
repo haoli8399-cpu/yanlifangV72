@@ -51,7 +51,7 @@ function AgentLogin() {
           justifyContent: "space-between",
         }}
       >
-        <Space size="var(--yl-space-3)">
+        <Space size={12}>
           <div style={{ width: 44, height: 44, borderRadius: "var(--yl-radius-lg)", background: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", font: "var(--yl-text-heading-2)", fontWeight: 800 }}>
             演
           </div>

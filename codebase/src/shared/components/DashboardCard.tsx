@@ -14,7 +14,7 @@ export function DashboardCard({ metric, subLabel }: { metric: DashboardMetric; s
   const Arrow = metric.trend === "up" ? ArrowUpOutlined : metric.trend === "down" ? ArrowDownOutlined : null;
   return (
     <Card styles={{ body: { padding: "var(--yl-space-4)" } }} style={{ borderRadius: "var(--yl-radius-lg)", borderColor: "var(--yl-border-default)" }}>
-      <Space orientation="vertical" size="var(--yl-space-1)" style={{ width: "100%" }}>
+      <Space orientation="vertical" size={4} style={{ width: "100%" }}>
         <Typography.Text style={{ fontSize: "var(--yl-font-body-sm)", color: "var(--yl-text-secondary)" }}>
           {metric.label}
         </Typography.Text>

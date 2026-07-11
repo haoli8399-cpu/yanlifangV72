@@ -34,7 +34,7 @@ function AgentHome() {
         }}
         styles={{ body: { padding: "var(--yl-space-10)" } }}
       >
-        <Space size="var(--yl-space-3)">
+        <Space size={12}>
           <div
             style={{
               width: 44,
@@ -89,7 +89,7 @@ function AgentHome() {
 
         <div style={{ marginTop: "var(--yl-space-6)" }}>
           <div style={{ font: "var(--yl-text-caption)", color: "rgba(255,255,255,.7)", marginBottom: 10 }}>热门场景 · 一键开始</div>
-          <Space wrap size="var(--yl-space-2)">
+          <Space wrap size={8}>
             {scenarioQuickPicks.map((s) => (
               <Button
                 key={s.key}
@@ -151,7 +151,7 @@ function AgentHome() {
               styles={{ body: { padding: "var(--yl-space-4)" } }}
               style={{ borderRadius: "var(--yl-radius-lg)" }}
             >
-              <Space orientation="vertical" size="var(--yl-space-2)" style={{ width: "100%" }}>
+              <Space orientation="vertical" size={8} style={{ width: "100%" }}>
                 <Space style={{ width: "100%", justifyContent: "space-between" }}>
                   <Tag color="purple" style={{ borderRadius: "var(--yl-radius-sm)", margin: 0 }}>
                     {o.code}

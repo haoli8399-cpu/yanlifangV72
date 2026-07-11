@@ -83,7 +83,7 @@ function OpportunityDetail() {
               style={{ borderRadius: "var(--yl-radius-lg)" }}
               styles={{ body: { padding: "var(--yl-space-5)" } }}
               title={
-                <Space size="var(--yl-space-3)">
+                <Space size={12}>
                   <Avatar size={40} style={{ background: opp.customer.avatarColor }}>
                     {opp.customer.companyName.slice(0, 1)}
                   </Avatar>
@@ -158,7 +158,7 @@ function OpportunityDetail() {
                 </Space>
               }
             >
-              <Space orientation="vertical" size="var(--yl-space-3)" style={{ width: "100%" }}>
+              <Space orientation="vertical" size={12} style={{ width: "100%" }}>
                 {aiSolutions.map((s, i) => (
                   <div key={`${s.id}-${i}`}>
                     <SolutionCard
@@ -189,7 +189,7 @@ function OpportunityDetail() {
               {relatedQuotes.length === 0 ? (
                 <Typography.Text type="secondary">暂无报价，选择方案后自动生成</Typography.Text>
               ) : (
-                <Space orientation="vertical" size="var(--yl-space-2)" style={{ width: "100%" }}>
+                <Space orientation="vertical" size={8} style={{ width: "100%" }}>
                   {relatedQuotes.map((q) => {
                     const cur = q.versions.find((v) => v.version === q.currentVersion) ?? q.versions[0]!;
                     return (

@@ -54,7 +54,7 @@ function OpportunityCenter() {
       title: "客户",
       dataIndex: ["customer", "companyName"],
       render: (_, o) => (
-        <Space size="var(--yl-space-2)">
+        <Space size={8}>
           <Avatar size={30} style={{ background: o.customer.avatarColor, fontSize: "var(--yl-text-caption)" }}>
             {o.customer.companyName.slice(0, 1)}
           </Avatar>
@@ -88,7 +88,7 @@ function OpportunityCenter() {
       width: 140,
       fixed: "right",
       render: (_, o) => (
-        <Space size="var(--yl-space-sm)">
+        <Space size={4}>
           <Button size="small" type="link" onClick={() => nav({ to: "/supplier/opportunities/$id", params: { id: o.id } })}>
             详情
           </Button>

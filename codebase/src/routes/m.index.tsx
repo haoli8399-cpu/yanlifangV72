@@ -31,7 +31,7 @@ function MHome() {
           borderBottomRightRadius: "var(--yl-radius-xl)",
         }}
       >
-        <Space size="var(--yl-space-2)" align="center">
+        <Space size={8} align="center">
           <RobotFilled style={{ font: "var(--yl-text-heading-4)" }} />
           <div>
             <div style={{ font: "var(--yl-text-heading-3)", fontWeight: 700 }}>AI 活动方案助手</div>

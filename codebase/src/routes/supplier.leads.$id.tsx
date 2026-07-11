@@ -249,7 +249,7 @@ function LeadDetail() {
               style={{ borderRadius: "var(--yl-radius-lg)", marginBottom: "var(--yl-space-4)" }}
               styles={{ body: { padding: "var(--yl-space-5)" } }}
               title={
-                <Space size="var(--yl-space-3)">
+                <Space size={12}>
                   <Avatar
                     size={40}
                     style={{ background: "var(--yl-primary)" }}
@@ -384,7 +384,7 @@ function LeadDetail() {
               styles={{ body: { padding: "var(--yl-space-4)" } }}
               title={<Typography.Text strong>线索管理</Typography.Text>}
             >
-              <Space orientation="vertical" size="var(--yl-space-3)" style={{ width: "100%" }}>
+              <Space orientation="vertical" size={12} style={{ width: "100%" }}>
                 <div>
                   <Typography.Text type="secondary" style={{ fontSize: "var(--yl-text-caption)", display: "block", marginBottom: "var(--yl-space-sm)" }}>
                     状态

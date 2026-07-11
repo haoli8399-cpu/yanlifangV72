@@ -19,7 +19,7 @@ function LandingPage() {
     >
       <div style={{ maxWidth: 1120, margin: "0 auto" }}>
         {/* 品牌Logo */}
-        <Space size="var(--yl-space-3)">
+        <Space size={12}>
           <div
             style={{
               width: 44,

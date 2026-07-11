@@ -106,7 +106,7 @@ function SolutionsPage() {
             />
           </Col>
           <Col xs={24}>
-            <Space size="var(--yl-space-4)" style={{ width: "100%" }}>
+            <Space size={16} style={{ width: "100%" }}>
               <Typography.Text type="secondary" style={{ minWidth: 100 }}>
                 预算 (万元)
               </Typography.Text>
