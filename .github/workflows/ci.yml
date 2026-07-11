@@ -1,0 +1,64 @@
+# 演立方 V4.7 — CI Workflow（阶段 B 启用）
+#
+# GitHub 仓库建立后自动生效。当前阶段 A：手动运行 npm run check。
+#
+# 触发：push main / PR → main
+# 检查：TypeScript + Build（后端 + 前端）
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  backend-check:
+    name: Backend — TypeScript Check
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+
+  frontend-check:
+    name: Frontend — TypeScript + Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: codebase
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: codebase/package-lock.json
+      - run: npm ci
+      - run: npm run check:type
+      - run: npm run check:build
+
+  lint:
+    name: Frontend — Lint
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: codebase
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: codebase/package-lock.json
+      - run: npm ci
+      - run: npm run lint

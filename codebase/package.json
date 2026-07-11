@@ -10,7 +10,10 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "visual": "node scripts/visual-audit.mjs"
+    "visual": "node scripts/visual-audit.mjs",
+    "check": "npx tsc --noEmit && npm run build",
+    "check:type": "npx tsc --noEmit",
+    "check:build": "npm run build"
   },
   "dependencies": {
     "@ant-design/icons": "^6.3.2",
