@@ -1,469 +1,488 @@
-# Lovable 前端开发完整提示词 — 演立方 V4.7
+# Lovable Frontend Development Prompt — YanLiFang (演立方) V4.7
 
-> **复制本文件全部内容，粘贴给 Lovable 执行。**
-> 生成日期：2026-07-11 | 工程负责人：Hermes
-
----
-
-## 第一部分：你的角色
-
-你是：
-
-1. **资深 UI/UX 产品设计师** — 能理解 B 端 SaaS 产品的信息层级
-2. **前端工程师** — 精通 React 19 + TanStack Start + Ant Design 6 + Tailwind CSS 4
-3. **现有代码适配工程师** — 你的首要任务是在现有项目内工作，不是从零创建新项目
-4. **Design System 执行者** — 理解并遵守 Token 体系，不使用硬编码视觉值
-
-你的任务不是设计一个新产品，而是在**现有项目的技术栈和工程结构基础上**，提升 UI/UX 质量并完成前端实现。
+> **Copy this entire file and paste it to Lovable for execution.**
+> Generated: 2026-07-11 | Engineering Lead: Hermes
 
 ---
 
-## 第二部分：项目背景
+## PART 1: Your Role
 
-### 产品信息
+You are simultaneously:
 
-- **产品名称**：演立方（YANLI / YLF）
-- **产品定位**：AI 提案获客与内容供应链平台
-- **一句话**：用 AI 将客户用自然语言描述的活动需求，自动转化为可视化活动方案，连接供需两端
-- **当前版本**：V4.7
-- **开发阶段**：MVP 快速开发期（本地开发，Mock 数据）
+1. **Senior UI/UX Product Designer** — capable of understanding information hierarchy in enterprise SaaS products
+2. **Frontend Engineer** — expert in React 19 + TanStack Start + Ant Design 6 + Tailwind CSS 4
+3. **Existing Code Adaptation Engineer** — your primary task is to work INSIDE the existing project, NOT create a new project from scratch
+4. **Design System Implementer** — understands and follows token systems, never uses hardcoded visual values
 
-### 核心用户
+Your job is NOT to design a new product. It is to **elevate UI/UX quality and implement frontend pages within the existing technical stack and engineering structure**.
 
-| 角色 | 描述 |
+---
+
+## PART 2: Product Context
+
+### Product Info
+
+- **Product Name**: 演立方 (YanLiFang / YLF)
+- **Tagline**: AI-Powered Proposal Lead Generation & Content Supply Chain Platform
+- **One-liner**: Uses AI to convert customer activity requirements described in natural language into visualized event proposals, connecting supply and demand
+- **Current Version**: V4.7
+- **Development Stage**: MVP rapid development (local development, fully Mock data)
+
+### Target Users
+
+| Role | Description |
 |:---|:---|
-| 企业客户（Agent 端） | 有年会/庆典/发布会需求的企业。用自然语言描述需求，AI 自动生成方案 |
-| 销售/供应商（Supplier 端） | 承接需求的演员、内容团队。管理线索、出方案、报价、跟进客户 |
-| 平台运营（Admin 端） | 平台管理、审核、数据运营 |
-| C 端用户（m 端） | 浏览活动信息的个人用户 |
+| Enterprise Customer (Agent portal) | Companies with event needs (annual meetings, galas, product launches). Describe needs in natural language, AI generates proposals |
+| Sales/Supplier (Supplier portal) | Talent agencies, performers, content teams. Manage leads, create proposals, generate quotes, follow up with clients |
+| Platform Admin (Admin portal) | Platform management, content moderation, data operations |
+| Consumer user (m-portal) | Individual users browsing event information |
 
-### 核心价值
+### Core Value
 
-- AI 需求提取：自然语言 → 结构化方案要素
-- 可视化方案：自动生成含演员/场馆/案例的方案 H5
-- 增长工具引流：免费工具（预算计算器等）→ 留资 → 线索转化
-- 全链路闭环：获客 → 需求 → 方案 → 报价，全流程在线
+- **AI requirements extraction**: natural language → structured proposal elements
+- **Visual proposals**: auto-generate proposal H5 pages with performers/venues/case studies
+- **Growth tool lead gen**: free tools (budget calculator etc.) → lead capture → CRM pipeline
+- **Full closed loop**: lead acquisition → requirements → proposal → quotation, all online
 
 ---
 
-## 第三部分：用户角色与权限
+## PART 3: User Roles & Permissions
 
-| 角色 | 核心任务 | 可访问页面 | 不可执行操作 |
+| Role | Core Tasks | Accessible Pages | Cannot Do |
 |:---|:---|:---|:---|
-| 企业客户 | 描述需求、查看 AI 方案、接收消息 | AI顾问、方案发现、消息中心 | 不能查看线索/商机/报价成本 |
-| 销售/供应商 | 管理线索、出方案、报价、跟进 | 工作台、线索、商机、报价、方案、跟进、艺人 | 不能看平台运营数据 |
-| 平台运营 | 全量管理 | Dashboard、客户、SKU、艺人、RBAC、审计 | 无限制 |
-| C 端用户 | 浏览活动信息、提交需求 | 首页、发现、消息、我的 | 不能看 B 端页面 |
+| Enterprise Customer | Describe needs, view AI proposals, receive messages | AI Advisor, Solution Discovery, Message Center | Cannot view leads/opportunities/costs |
+| Sales/Supplier | Manage leads, create proposals, quote, follow-up | Workspace, Leads, Opportunities, Quotes, Proposals, Follow-ups, Artists | Cannot view platform admin data |
+| Platform Admin | Full management | Dashboard, Customers, SKU, Artists, RBAC, Audit | No restrictions |
+| Consumer User | Browse events, submit requests | Home, Discover, Messages, Profile | Cannot access B-end pages |
 
 ---
 
-## 第四部分：核心用户流程
+## PART 4: Core User Flows
 
-### 流程 1：增长工具获客
+### Flow 1: Growth Tool Lead Generation
 ```
-用户访问 H5 工具（预算计算器/保险方案/年会工具）
-→ 回答 6-7 个引导问题（单页一个问题，进度条推进）
-→ AI 生成结果（预算估算/方案建议）
-→ 点击"获取完整方案"→ 弹出留资表单
-→ 提交 → 创建线索
-```
-
-### 流程 2：企业客户 AI 提需求
-```
-企业客户登录 Agent PC 端
-→ AI 对话描述需求（自然语言）
-→ AI 追问最多 3 轮（RequirementExtractPanel）
-→ 生成方案草稿
-→ 销售完善后生成客户专属方案 H5（p/$proposalId）
-→ 发送给客户 → 查看 → 跟进
+User opens H5 tool (budget calculator / insurance planner / annual event tool)
+→ Answers 6-7 guided questions (one question per screen, progress bar)
+→ AI generates result (budget estimate / solution suggestions)
+→ Clicks "Get Complete Plan" → lead capture modal opens
+→ Submits phone/WeChat → lead created in CRM
 ```
 
-### 流程 3：销售跟进
+### Flow 2: Enterprise Customer AI Requirements
 ```
-销售登录 Supplier 工作台
-→ 线索中心看待分配线索
-→ 查看线索详情 + AI 评分
-→ 创建商机 → 关联方案 → 报价 → 跟进记录
-→ 状态流转：新线索→跟进中→已报价→已成交/已关闭
+Customer logs into Agent PC portal
+→ AI chat: describe event needs in natural language
+→ AI asks clarifying questions (max 3 rounds, via RequirementExtractPanel)
+→ AI generates proposal draft
+→ Sales refines → generates customer-specific proposal H5 (p/$proposalId)
+→ Sent to customer → viewed → follow-up
 ```
 
----
-
-## 第五部分：现有项目技术栈
-
+### Flow 3: Sales Follow-up Pipeline
 ```
-语言：TypeScript 5.8 (strict mode)
-框架：React 19.2 + TanStack Start 1.168
-路由：TanStack Router 1.170 (file-based, src/routes/*.tsx)
-UI 库：Ant Design 6.5 (组件) + Radix UI (基础交互)
-样式：Tailwind CSS 4.2 + CSS Variables
-状态：Zustand 5.x + TanStack Query 5.101
-表单：React Hook Form 7.71 + Zod 3.24
-图表：Recharts 2.15
-拖拽：@dnd-kit 6.3
-构建：Vite 8.0 + Nitro 3.0 (SSR)
-包管理：npm
-图标：@ant-design/icons 6.3 + lucide-react 0.575
+Sales logs into Supplier workspace
+→ Lead center: view unassigned leads
+→ View lead details + AI scoring (LeadScoreBadge)
+→ Create opportunity → link solution → quote → follow-up log
+→ Status flow: New → Contacted → Quoted → Won/Closed
 ```
 
 ---
 
-## 第六部分：工作目录结构
+## PART 5: Existing Tech Stack (MUST USE)
 
-你必须在以下目录内工作，不得创建新项目：
+```
+Language:      TypeScript 5.8 (strict mode)
+Framework:     React 19.2 + TanStack Start 1.168
+CSS Framework: Tailwind CSS 4.2 + CSS Variables
+UI Library:    Ant Design 6.5 (components) + Radix UI (primitives)
+Routing:       TanStack Router 1.170 (file-based, src/routes/*.tsx)
+State:         Zustand 5.x + TanStack Query 5.101
+Forms:         React Hook Form 7.71 + Zod 3.24
+Charts:        Recharts 2.15
+Drag & Drop:   @dnd-kit 6.3
+Build:         Vite 8.0 + Nitro 3.0 (SSR)
+Package Mgr:   npm
+Icons:         @ant-design/icons 6.3 + lucide-react 0.575
+```
+
+---
+
+## PART 6: Working Directory — CRITICAL
+
+You MUST work inside this directory. Do NOT create a new project:
 
 ```
 /Users/wudixingyunxingleo/projects/演立方/codebase/
 ```
 
-### 你可以修改的文件
+### Files You CAN Modify
 
-- `src/routes/*.tsx` — 所有页面文件
-- `src/shared/components/*.tsx` — 共享组件（仅优化视觉）
-- `src/shared/mock/*.ts` — Mock 数据（仅修正字段名）
+- `src/routes/*.tsx` — all page files
+- `src/shared/components/*.tsx` — shared components (visual-only optimization)
+- `src/shared/mock/*.ts` — Mock data (field name fixes only)
 
-### 你绝对不能修改的文件
+### Files You MUST NEVER Modify
 
-- `package.json` / `tsconfig.json` / `vite.config.ts` — 构建配置
-- `src/router.tsx` — 路由实例
-- `src/routeTree.gen.ts` — 自动生成的路由树
-- `src/styles.css` — 全局样式和 Tailwind Theme
-- `src/shared/theme.ts` — Ant Design Theme 配置
-- `src/shared/design-tokens.css` — Design Token 定义
-- `src/shared/types.ts` — TypeScript 类型定义
-- `src/shared/utils/opportunityPriority.ts` — 优先级算法
-- `src/shared/components/formatters.ts` — 格式化工具函数
-- 后端代码（`backend/` 目录）
+- `package.json` / `tsconfig.json` / `vite.config.ts` — build configuration
+- `src/router.tsx` — router instance
+- `src/routeTree.gen.ts` — auto-generated route tree (DO NOT EDIT)
+- `src/styles.css` — global styles and Tailwind Theme
+- `src/shared/theme.ts` — Ant Design Theme configuration (brandColors + statusColorMap)
+- `src/shared/design-tokens.css` — Design Token definitions (--yl-* CSS variables)
+- `src/shared/types.ts` — all TypeScript type definitions
+- `src/shared/utils/opportunityPriority.ts` — priority scoring algorithm
+- `src/shared/components/formatters.ts` — yuan(), wan(), relativeTime()
+- Backend code (`backend/` directory)
 
-### 关键路径速查
+### Key Path Reference
 
-| 用途 | 路径 |
+| Purpose | Path |
 |:---|:---|
-| 前端根目录 | `src/` |
-| 页面 | `src/routes/` |
-| 共享组件 | `src/shared/components/` |
-| 类型定义 | `src/shared/types.ts` |
-| Mock 数据 | `src/shared/mock/data.ts` |
-| AntD Theme | `src/shared/theme.ts` |
-| CSS Token | `src/shared/design-tokens.css` |
-| 路由配置 | `src/router.tsx` |
+| Frontend root | `src/` |
+| All pages | `src/routes/` |
+| Shared components | `src/shared/components/` |
+| Type definitions | `src/shared/types.ts` |
+| Main Mock data | `src/shared/mock/data.ts` |
+| AI Mock data | `src/shared/mock/ai.ts` |
+| Growth tools Mock | `src/shared/mock/growth-tools.ts` |
+| Message Mock | `src/shared/mock/messages.ts` |
+| AntD Theme config | `src/shared/theme.ts` |
+| CSS Design Tokens | `src/shared/design-tokens.css` |
+| Global styles | `src/styles.css` |
+| Router config | `src/router.tsx` |
 
 ---
 
-## 第七部分：必须复用的代码与能力
+## PART 7: Code You MUST Reuse (Do NOT Rewrite)
 
-以下代码你**只能使用，不能重写或替代**：
-
-| 组件/能力 | 路径 | 说明 |
+| Component/Module | Path | Notes |
 |:---|:---|:---|
-| TanStack Router | `src/router.tsx` | 路由实例，所有页面通过 `createFileRoute` 注册 |
-| AntD ConfigProvider | `src/__root.tsx` | 全局 AntD Theme 注入 |
-| AntD Theme | `src/shared/theme.ts` | brandColors + statusColorMap |
-| Design Token | `src/shared/design-tokens.css` | 所有 `--yl-*` CSS 变量 |
-| 全局样式 | `src/styles.css` | Tailwind @theme inline + :root |
-| 所有类型 | `src/shared/types.ts` | Opportunity, Solution, Lead, Proposal 等 |
-| StatusTag | `src/shared/components/StatusTag.tsx` | 状态标签，status prop 自动映射颜色 |
-| LeadCaptureModal | `src/shared/components/LeadCaptureModal.tsx` | 留资弹窗，点击 CTA 触发 |
+| TanStack Router | `src/router.tsx` | Router instance; all pages use `createFileRoute` |
+| AntD ConfigProvider | `src/__root.tsx` | Global AntD Theme injection |
+| AntD Theme | `src/shared/theme.ts` | brandColors + statusColorMap (all HEX values) |
+| Design Tokens | `src/shared/design-tokens.css` | All `--yl-*` CSS variables |
+| Global Styles | `src/styles.css` | Tailwind @theme inline + :root definitions |
+| All Types | `src/shared/types.ts` | Opportunity, Solution, Lead, Proposal, etc. |
+| StatusTag | `src/shared/components/StatusTag.tsx` | Status label with automatic color from `status` prop |
+| LeadCaptureModal | `src/shared/components/LeadCaptureModal.tsx` | Lead capture modal, triggered on CTA click |
 | formatters | `src/shared/components/formatters.ts` | yuan(), wan(), relativeTime() |
-| Mock 数据 | `src/shared/mock/` 全部文件 | data.ts, ai.ts, growth-tools.ts, messages.ts |
-| ToolQuestionFlow | `src/shared/components/ToolQuestionFlow.tsx` | 工具问题流的业务逻辑 |
-| ToolResultPage | `src/shared/components/ToolResultPage.tsx` | 工具结果页的业务逻辑 |
-| OpportunityCard | `src/shared/components/OpportunityCard.tsx` | 商机卡片 |
-| SolutionCard | `src/shared/components/SolutionCard.tsx` | 方案推荐卡片 |
+| All Mock data | `src/shared/mock/` (all files) | data.ts, ai.ts, growth-tools.ts, messages.ts |
+| ToolQuestionFlow | `src/shared/components/ToolQuestionFlow.tsx` | Tool question flow business logic (432 lines) |
+| ToolResultPage | `src/shared/components/ToolResultPage.tsx` | Tool result page business logic |
+| OpportunityCard | `src/shared/components/OpportunityCard.tsx` | Opportunity list card |
+| SolutionCard | `src/shared/components/SolutionCard.tsx` | Solution recommendation card (supports `compact` prop) |
+| FollowUpTimeline | `src/shared/components/FollowUpTimeline.tsx` | Follow-up activity timeline |
+| RequirementExtractPanel | `src/shared/components/RequirementExtractPanel.tsx` | AI requirements extraction display |
+| DashboardCard | `src/shared/components/DashboardCard.tsx` | KPI metric card |
+| ProposalPreview | `src/shared/components/ProposalPreview.tsx` | Customer-facing proposal view (796 lines) |
+| LeadScoreBadge | `src/shared/components/LeadScoreBadge.tsx` | Lead scoring badge (green/orange/gray) |
+| OpportunityStatusFlow | `src/shared/components/OpportunityStatusFlow.tsx` | Opportunity status pipeline |
+| AppTopBar | `src/shared/components/AppTopBar.tsx` | Global top navigation bar |
+| MinimalRequirementForm | `src/shared/components/MinimalRequirementForm.tsx` | Fallback minimal form |
+| AIChatPanel | `src/shared/components/AIChatPanel.tsx` | AI chat panel (streaming output) |
+| AIFeedbackBar | `src/shared/components/AIFeedbackBar.tsx` | AI recommendation feedback buttons |
 
 ---
 
-## 第八部分：页面与功能清单
+## PART 8: Page & Feature Inventory
 
-### Agent 端（企业客户 PC）
+### Agent Portal (Enterprise Customer — PC)
 
-| 页面 | 路由 | 当前代码 | 处理方式 |
+| Page | Route | Current File | Action |
 |:---|:---|:---|:---|
-| AI 活动顾问首页 | `/agent` | `agent.index.tsx` | 优化视觉：首屏重心、推荐卡降噪、最近需求节奏 |
-| AI 对话 | `/agent/assistant` | `agent.assistant.tsx` | 优化视觉：左右平衡、卡片层级、方案卡 compact |
-| 方案发现 | `/agent/solutions` | `agent.solutions.tsx` | 优化视觉：筛选区收紧、卡片浏览效率、操作区统一 |
-| 消息中心 | `/agent/messages` | `agent.messages.tsx` | 优化视觉：容器放大、消息优先级、类型区分 |
-| 我的方案 | `/agent/requests` | `agent.requests.tsx` | 保留，可做 L1 微调 |
-| 方案报价详情 | `/agent/quotations/$id` | `agent.quotations.$id.tsx` | 保留 |
+| AI Advisor Home | `/agent` | `agent.index.tsx` | **Optimize visuals**: hero focus, recommendation card noise reduction, recent requests rhythm |
+| AI Chat | `/agent/assistant` | `agent.assistant.tsx` | **Optimize visuals**: left-right balance, card hierarchy, compact mode for solution cards |
+| Solution Discovery | `/agent/solutions` | `agent.solutions.tsx` | **Optimize visuals**: filter area tightening, card scan efficiency, CTA consistency |
+| Message Center | `/agent/messages` | `agent.messages.tsx` | **Optimize visuals**: container enlargement, message priority, category differentiation |
+| My Solutions | `/agent/requests` | `agent.requests.tsx` | Keep as-is, L1 micro-adjustments allowed |
+| Quotation Detail | `/agent/quotations/$id` | `agent.quotations.$id.tsx` | Keep as-is |
 
-### Admin 端（平台运营）
+### Admin Portal (Platform Operations — PC)
 
-| 页面 | 路由 | 当前代码 | 处理方式 |
+| Page | Route | Current File | Action |
 |:---|:---|:---|:---|
-| 仪表盘 | `/admin/dashboard` | `admin.dashboard.tsx` | 基本完成，可做 L1 微调 |
-| 客户管理 | `/admin/customers` | `admin.customers.tsx` | 保留 |
-| SKU 管理 | `/admin/sku` | `admin.sku.tsx` | 保留 |
-| 艺人库 | `/admin/artists` | `admin.artists.tsx` | 保留 |
-| 其他 10 页 | — | `admin.*.tsx` | 保留 |
+| Dashboard | `/admin/dashboard` | `admin.dashboard.tsx` | Minor L1 tweaks only |
+| All other 15 pages | `admin.*.tsx` | various | Keep as-is |
 
-### Supplier 端（销售工作台）
+### Supplier Portal (Sales Workbench — PC)
 
-| 页面 | 路由 | 当前代码 | 处理方式 |
+| Page | Route | Current File | Action |
 |:---|:---|:---|:---|
-| 销售作战台 | `/supplier/workspace` | `supplier.workspace.tsx` | 优化视觉：三栏主次、卡片降噪、底部切换式 |
-| 跟进中心 | `/supplier/followups` | `supplier.followups.tsx` | 优化视觉：提醒区压缩、时间线分层、输入区自然衔接 |
-| 线索中心 | `/supplier/leads` | `supplier.leads.tsx` | 保留 |
-| 商机管理 | `/supplier/opportunities` | `supplier.opportunities.tsx` | 保留 |
-| 方案管理 | `/supplier/proposals` | `supplier.proposals.tsx` | 保留 |
-| 报价管理 | `/supplier/quotations` | `supplier.quotations.index.tsx` | 保留 |
-| 艺人管理 | `/supplier/artists` | `supplier.artists.tsx` | 保留 |
+| Sales Workspace | `/supplier/workspace` | `supplier.workspace.tsx` | **Optimize visuals**: 3-column hierarchy, card noise reduction, bottom section is already Segmented tabs (keep) |
+| Follow-up Center | `/supplier/followups` | `supplier.followups.tsx` | **Optimize visuals**: alert compression, timeline source differentiation, input area natural connection |
+| Lead Center | `/supplier/leads` | `supplier.leads.tsx` | Keep as-is |
+| All other 11 pages | `supplier.*.tsx` | various | Keep as-is |
 
-### 增长工具 H5
+### Growth Tools (H5 — Mobile-first)
 
-| 页面 | 路由 | 当前代码 | 处理方式 |
+| Page | Route | Current File | Action |
 |:---|:---|:---|:---|
-| 预算计算器 | `/tools/budget-calculator` | `tools.budget-calculator.tsx` | 优化视觉：封面屏重建、信任感、引导文案 |
-| 保险方案生成器 | `/tools/insurance-plan` | `tools.insurance-plan.tsx` | 优化视觉：同步预算计算器结构 |
-| 年会方案工具 | `/tools/annual-plan` | `tools.annual-plan.tsx` | 优化视觉：同步结构 |
+| Budget Calculator | `/tools/budget-calculator` | `tools.budget-calculator.tsx` | **Optimize visuals**: cover screen rebuild, trust signals, guide copy |
+| Insurance Plan Generator | `/tools/insurance-plan` | `tools.insurance-plan.tsx` | **Optimize visuals**: sync structure with budget calculator, differentiate persona |
+| Annual Event Tool | `/tools/annual-plan` | `tools.annual-plan.tsx` | **Optimize visuals**: sync structure |
 
-### 客户方案 H5
+### Customer Proposal (H5 — Mobile-first)
 
-| 页面 | 路由 | 当前代码 | 处理方式 |
+| Page | Route | Current File | Action |
 |:---|:---|:---|:---|
-| 客户方案展示 | `/p/$proposalId` | `p/$proposalId.tsx` | 优化视觉：封面→正文过渡、演员卡/案例卡提案感 |
+| Customer Proposal Display | `/p/$proposalId` | `p/$proposalId.tsx` | **Optimize visuals**: cover→body transition, performer/case card proposal feel |
 
-### m 端（移动 Web）
+### Mobile Web (C-end — Mobile-first)
 
-| 页面 | 路由 | 当前代码 | 处理方式 |
+| Page | Route | Current File | Action |
 |:---|:---|:---|:---|
-| 移动首页 | `/m/` | `m.index.tsx` | 优化视觉：欢迎区、分类 chips、方案卡缩略感 |
-| 发现 | `/m/discover` | `m.discover.tsx` | 保留 |
-| 消息 | `/m/messages` | `m.messages.tsx` | 保留 |
-| 我的 | `/m/me` | `m.me.tsx` | 保留 |
-| 提需求 | `/m/submit` | `m.submit.tsx` | 保留 |
+| Mobile Home | `/m/` | `m.index.tsx` | **Optimize visuals**: welcome area, category chips, solution card thumbnails |
+| All other 5 pages | `m.*.tsx` | various | Keep as-is |
 
-### 首页
+### Home Page
 
-| 页面 | 路由 | 当前代码 | 处理方式 |
+| Page | Route | Current File | Action |
 |:---|:---|:---|:---|
-| 首页 | `/` | `index.tsx` | 优化视觉：工具卡主副层级、入口弱化 |
+| Home | `/` | `index.tsx` | **Optimize visuals**: tool card hierarchy, portal entry de-emphasis |
 
 ---
 
-## 第九部分：页面级 UI/UX 详细要求
+## PART 9: Page-Level UI/UX Detailed Requirements
 
-### 9.1 Agent AI 顾问首页
+### 9.1 Agent AI Advisor Home
 
-**信息层级**：AI 输入区（主）> 推荐方案（次）> 最近需求（辅助）
+**Information Hierarchy**: AI input area (PRIMARY) > Recommended solutions (SECONDARY) > Recent needs (TERTIARY)
 
-**要求**：
-- 首屏不得发白发空，输入区必须有明确的卡片感和操作重心
-- 推荐方案卡信息密度降噪：标题 > 核心规格 > 一句价值说明 > 价格
-- SKU、艺人配置、AI 理由不得在首屏同等展开
-- 最近需求区和推荐区间有明显节奏区分
-- 主 CTA 只能有一个视觉中心
+**Requirements**:
+- Hero must NOT feel white/washed-out/foggy. Input area must have clear card feel and operational focus.
+- Solution cards: title > core specs > one-line value > price/CTA. Must be scannable.
+- SKU details, performer config, AI reasoning must NOT all expand at equal weight on first view.
+- "Recent needs" section must have clear visual separation from recommendation section above.
+- Only ONE visual focal point for primary CTA on hero.
 
-### 9.2 Agent 方案发现
+### 9.2 Agent Solution Discovery
 
-**信息层级**：筛选区（顶部）> 结果卡片 > 空状态
+**Information Hierarchy**: Filter bar (TOP) > Result cards > Empty state
 
-**要求**：
-- 筛选区收紧高度，预算滑杆和文案对齐
-- 方案卡片一眼能看出：档位（经济/推荐/升级）、人数/时长/价格、推荐理由
-- `查看详情` 和 `获取方案` 按钮层级稳定，不得飘移
-- 卡片底部形成统一信息结束区
+**Requirements**:
+- Filter area tightened vertically. Budget slider must align with its label.
+- Cards must communicate at a glance: tier (经济方案/推荐方案/升级方案), headcount/duration/price, why it's recommended.
+- "View details" and "Get solution" button hierarchy must be stable across all cards.
+- Card bottom area must form a consistent "info end zone".
 
-### 9.3 Agent 消息中心
+### 9.3 Agent Message Center
 
-**信息层级**：消息类型筛选 > 消息列表 > 批量操作
+**Information Hierarchy**: Message type tabs > Message list > Batch operations
 
-**要求**：
-- 内容区放大，不得像"小表漂在白底上"
-- 标题区、分类 Tab、`全部标为已读` 整合为清晰头部
-- 每条消息：类型标签 > 主题标题 > 摘要 > 时间
-- 未读、提醒、客服消息要容易区分
+**Requirements**:
+- Content area must be enlarged. Must not look like a tiny table floating on white.
+- Title area, category tabs, and "Mark all read" must form one coherent header.
+- Each message row: category label > subject title > one-line preview > timestamp.
+- Unread, reminders, and customer service messages must be visually distinguishable.
 
-### 9.4 销售作战台
+### 9.4 Supplier Sales Workspace
 
-**信息层级**：KPI 总览 > 商机列表（左）> 当前商机详情（中）> AI 方案推荐（右）
+**Information Hierarchy**: KPI overview (TOP) > Opportunity list (LEFT) > Current opportunity detail (CENTER) > AI solution recommendations (RIGHT)
 
-**要求**：
-- 不改三栏结构
-- 建立"列表 → 详情 → 决策"主链路
-- KPI 区不脱离主体
-- 中栏：客户原始需求 > 结构化信息 > AI 识别 的阅读顺序必须清楚
-- 右栏 AI 方案区减重，不得喧宾夺主
-- 底部三区已改为 Segmented 切换式（保留此设计）
+**Requirements**:
+- Do NOT change the 3-column layout.
+- Must establish clear "List → Detail → Decision" reading path.
+- KPI cards must feel connected to the workspace below, not like four isolated tiles.
+- Center column: "Customer raw requirement" → "Structured key info" → "AI recognition" — reading order must be clear.
+- Right column AI solutions must be visually lighter — it's an assistant panel, not the main stage.
+- Bottom section already uses Segmented tab switching (follow-up timeline / AI scripts / next actions). Keep this.
 
-### 9.5 跟进中心
+### 9.5 Supplier Follow-up Center
 
-**信息层级**：智能提醒（顶部压缩）> 跟进列表（左）> 时间线（右）> AI 建议话术 > 输入区
+**Information Hierarchy**: Smart reminders (TOP, compressed) > Follow-up list (LEFT) > Timeline (RIGHT) > AI suggested script > Input area
 
-**要求**：
-- 顶部提醒区高度显著减少
-- 左栏列表更像 CRM 工作清单
-- 右栏时间线用标签/图标区分来源（系统/运营/客户/AI）
-- AI 下一步建议做成"可执行模块"：标题 + 建议话术 + 一键发送 + 复制
-- 底部输入区与上方自然衔接，不准出现黑色断层
+**Requirements**:
+- Top reminder alert cards must be significantly shorter to free up workspace.
+- Left list must feel more like a CRM work queue, not a text list.
+- Right timeline must visually differentiate sources (system / operations / customer / AI) via labels/icons/spacing.
+- AI next-step suggestion must be rendered as an executable module: heading + suggested script + primary send button + copy.
+- Bottom input area must flow naturally from content above. Must NOT feel like a dark disconnected block.
 
-### 9.6 增长工具 H5 封面
+### 9.6 Growth Tool H5 Cover
 
-**信息层级**：品牌标识 > 工具标题 > 引导文案 > 主 CTA > 信任信息
+**Information Hierarchy**: Brand identifier > Tool title > Guide copy > Primary CTA > Trust signal
 
-**要求**：
-- 建立"轻量诊断工具"首屏结构
-- 背景不准纯白，用极轻品牌渐变或柔和底纹
-- CTA 重心前置，按钮与标题更紧密
-- 三个工具同结构、不同人设（预算计算器=预算顾问，保险=活动策划顾问，年会=HR 老司机）
+**Requirements**:
+- Establish a "lightweight diagnostic tool" first-screen structure.
+- Background must NOT be pure white. Use extremely subtle brand gradient or soft card outlines.
+- CTA button must be visually closer to title (reduced empty space between them).
+- Three tools must share the SAME structure, but DIFFERENT persona:
+  - Budget calculator = "budget consultant" tone
+  - Insurance planner = "event strategy consultant" tone
+  - Annual event tool = "HR veteran" tone
+- Each tool must have a trust signal line (e.g., "已有 1,280 人完成测算").
+- No navigation, no tabs, no footer, no "browse library" exits.
 
-### 9.7 客户方案 H5
+### 9.7 Customer Proposal H5
 
-**信息层级**：封面 > 摘要过渡 > 需求理解 > 推荐方案 > 内容团队 > 类似案例 > 服务说明 > 底部 CTA
+**Information Hierarchy**: Cover > Bridge/summary > Requirement understanding > Recommended solution > Talent team > Similar cases > Service notes > Fixed bottom CTA
 
-**要求**：
-- 封面高度适中（约 72vh），不得整屏空
-- 封面与正文间有过渡区（活动日期、人数、预算、摘要说明）
-- 演员卡/案例卡增强"提案感"
-- 底部 CTA 是唯一主操作区，顶部不重复
-- 模块标签"Proposal Section"改为中文"提案模块"
+**Requirements**:
+- Cover height should be ~72vh, not full-screen. Must not feel like empty real estate.
+- Between cover and body: a bridge section with event date, headcount, budget, and one-paragraph summary.
+- Performer cards and case cards must feel like curated proposal content, not raw data lists.
+- Bottom CTA bar is the ONLY primary action area. No duplicate CTAs in cover.
+- All section labels must be in Chinese ("提案模块", not "Proposal Section").
+- No performer contact info, no internal cost prices exposed to customers.
+- No e-commerce language ("加入购物车" / "立即购买").
 
-### 9.8 移动 Web 首页
+### 9.8 Mobile Web Home
 
-**信息层级**：欢迎区 > 搜索 > 分类 chips > 热门方案 > 成交案例
+**Information Hierarchy**: Welcome > Search > Category chips > Popular solutions > Recent cases
 
-**要求**：
-- 顶部简短欢迎/引导
-- 分类标签做成真正可点击 chips
-- 热门方案卡增强缩略感
-- 底部"提需求"入口更突出
+**Requirements**:
+- Short welcome/guidance section above search bar (very compact).
+- Category labels must be styled as clickable chips, not plain text.
+- Popular solution cards need thumbnail placeholders, tier badges, visual weight.
+- Bottom tab "提需求" must be more prominent (center button with visual emphasis).
 
 ---
 
-## 第十部分：Design System 要求
+## PART 10: Design System — MANDATORY
 
-### 品牌色
+### Brand Color
 
-**主色：`#5B4FD6`（沉稳紫）**
+**Primary: `#5B4FD6` (Deep Violet)**
 
-严禁使用：
-- `#6E59F5`（旧 Lovable 色）
-- `#7c3aed`（旧 V4.6 色）
+FORBIDDEN colors:
+- `#6E59F5` — old Lovable color
+- `#7c3aed` — old V4.6 color
 
-### Color Token（CSS 变量，用 `var(--yl-*)` 引用）
+### Color Tokens (use `var(--yl-*)` CSS variables)
 
-| Token | 值 | 场景 |
+| Token | Value | Usage |
 |:---|:---|:---|
-| `--yl-primary` | `#5B4FD6` | 按钮、链接、强调 |
-| `--yl-bg-page` | `#F7F8FA` | 页面底层背景 |
-| `--yl-bg-surface` | `#FFFFFF` | 卡片/面板 |
-| `--yl-bg-ai` | `#FAFAFF` | AI 内容区域背景 |
-| `--yl-text-primary` | `#1A1D2E` | 正文 |
-| `--yl-text-secondary` | `#5B6178` | 次要说明 |
-| `--yl-text-tertiary` | `#8B92A8` | 辅助/占位 |
-| `--yl-border-default` | `#E5E7EF` | 默认边框 |
-| `--yl-border-ai` | `#E0DDFF` | AI 区域边框 |
+| `--yl-primary` | `#5B4FD6` | Buttons, links, emphasis |
+| `--yl-primary-hover` | `#4A3FC5` | Hover state |
+| `--yl-primary-subtle` | `#F0EEFF` | Selected state background, AI accent background |
+| `--yl-bg-page` | `#F7F8FA` | Page background |
+| `--yl-bg-surface` | `#FFFFFF` | Cards, panels |
+| `--yl-bg-ai` | `#FAFAFF` | AI content area background |
+| `--yl-text-primary` | `#1A1D2E` | Body text |
+| `--yl-text-secondary` | `#5B6178` | Secondary descriptions |
+| `--yl-text-tertiary` | `#8B92A8` | Placeholders, metadata |
+| `--yl-border-default` | `#E5E7EF` | Default card/input borders |
+| `--yl-border-ai` | `#E0DDFF` | AI area borders |
+| `--yl-border-subtle` | `#F0F1F4` | Thin separators |
+| `--yl-shadow-sm` | `0 1px 3px rgba(26,29,46,0.06)` | Card shadows |
 
-### Typography Token（所有字号必须使用 Token）
+### Typography Tokens (ALL font sizes MUST use these tokens or Tailwind mapped classes)
 
-| Token | 值 | 场景 |
+| Token | Specs | Usage |
 |:---|:---|:---|
-| `--yl-text-display-lg` | 36px/700 | 首页主标题 |
-| `--yl-text-display-sm` | 24px/600 | 页面大标题 |
-| `--yl-text-heading-2` | 18px/600 | 卡片标题 |
-| `--yl-text-heading-3` | 16px/600 | 列表项标题 |
-| `--yl-text-body-lg` | 16px/400 | AI 回复 |
-| `--yl-text-body-md` | 14px/400 | 默认正文 |
-| `--yl-text-body-sm` | 13px/400 | 紧凑列表 |
-| `--yl-text-caption` | 12px/400 | 时间戳/标签 |
-| `--yl-text-caption-xs` | 11px/400 | 版本号 |
+| `--yl-text-display-lg` | 36px / font-weight 700 / line-height 44px | Home hero title |
+| `--yl-text-display-sm` | 24px / 600 / 32px | Page main title |
+| `--yl-text-heading-1` | 22px / 600 / 30px | Module title |
+| `--yl-text-heading-2` | 18px / 600 / 26px | Card title |
+| `--yl-text-heading-3` | 16px / 600 / 24px | List item title |
+| `--yl-text-body-lg` | 16px / 400 / 26px | AI responses, proposal descriptions |
+| `--yl-text-body-md` | 14px / 400 / 22px | Default body text |
+| `--yl-text-body-sm` | 13px / 400 / 20px | Compact lists, workspace |
+| `--yl-text-caption` | 12px / 400 / 18px | Timestamps, labels |
+| `--yl-text-caption-xs` | 11px / 400 / 16px | Version numbers |
 
-### Spacing Token
+**Usage**: `style={{ fontSize: "var(--yl-text-body-md)" }}` — NEVER `style={{ fontSize: 14 }}`
 
-| Token | 值 |
+### Spacing Tokens
+
+| Token | Value |
 |:---|:---|
 | `--yl-space-2` | 8px |
 | `--yl-space-3` | 12px |
 | `--yl-space-4` | 16px |
 | `--yl-space-6` | 24px |
 
-### Radius Token
+### Radius Tokens
 
-| Token | 值 | 场景 |
+| Token | Value | Usage |
 |:---|:---|:---|
-| `--yl-radius-sm` | 4px | Tag/Badge |
-| `--yl-radius-md` | 8px | Button/Input |
-| `--yl-radius-lg` | 12px | Card/弹窗 |
-| `--yl-radius-2xl` | 24px | AI 对话气泡 |
+| `--yl-radius-sm` | 4px | Tags, badges |
+| `--yl-radius-md` | 8px | Buttons, inputs |
+| `--yl-radius-lg` | 12px | Cards, modals |
+| `--yl-radius-2xl` | 24px | AI chat bubbles |
 
-### 状态标签
-所有状态标签必须使用 `<StatusTag status="已成交" />`，自动映射颜色。
-禁止 `<Tag color="green">已成交</Tag>`。
+### Status Tags
 
-### 按钮
-- 主按钮：`background: var(--yl-primary)`，白字，圆角 8px
-- 次按钮：透明背景 + `border: 1px solid var(--yl-border-default)`
+**ALL status labels MUST use `<StatusTag status="已成交" />`** — color maps automatically from `statusColorMap` in `theme.ts`.
 
-### AI 内容区
-- 背景色：`var(--yl-bg-ai)`
-- 边框色：`var(--yl-border-ai)`
-- 圆角：`var(--yl-radius-2xl)`（对话气泡）
+**FORBIDDEN**: `<Tag color="green">已成交</Tag>`
+
+### Buttons
+
+- Primary: `background: var(--yl-primary)`, white text, border-radius 8px
+- Secondary/Outline: transparent background, `border: 1px solid var(--yl-border-default)`
+- Ant Design `<Button type="primary">` auto-uses brand color via global ConfigProvider
+
+### AI Content Areas
+
+- Background: `var(--yl-bg-ai)`
+- Border: `var(--yl-border-ai)`
+- For chat bubbles: `border-radius: var(--yl-radius-2xl)` (24px)
 
 ---
 
-## 第十一部分：接口接入规则
+## PART 11: API Integration — Current State
 
-### 当前状态
+**ALL frontend pages use Mock data. NO real API calls.** However:
 
-**所有前端页面使用 Mock 数据，不调用真实 API。** 但是：
+- Mock data structures MUST match backend API response structures as closely as possible
+- Leave API call placeholders: `// TODO: replace with real API — GET /v1/proposals/:id`
+- **Do NOT inline Mock data inside components** — import from `src/shared/mock/`
 
-- Mock 数据的结构、字段名应尽量与后端 API 返回结构一致
-- API 调用预留位置，用 `// TODO: 替换为真实API` 标记
-- **不要在组件中直接写死数据**，通过共享 mock 文件导入
+### Backend API Structure (for reference, do not call)
 
-### 后端 API 结构（参考，当前不调用）
-
-| 方法 | 路径 | 用途 |
+| Method | Path | Purpose |
 |:---|:---|:---|
-| POST | `/v1/tools/submit` | 提交工具答案 |
-| GET | `/v1/tools/:id/result` | 获取工具结果 |
-| POST | `/v1/leads` | 创建线索 |
-| GET | `/v1/leads` | 线索列表 |
-| GET | `/v1/proposals/:id` | 获取方案详情 |
-| POST | `/v1/proposals` | 创建方案 |
-| POST | `/v1/proposals/:id/view` | 记录方案被查看 |
+| POST | `/v1/tools/submit` | Submit tool answers |
+| GET | `/v1/tools/:id/result` | Get tool result |
+| POST | `/v1/leads` | Create lead |
+| GET | `/v1/leads` | List leads |
+| GET | `/v1/proposals/:id` | Get proposal detail |
+| POST | `/v1/proposals` | Create proposal |
+| POST | `/v1/proposals/:id/view` | Record proposal view |
+| Backend base URL: `http://localhost:3002/v1/` | | |
 
-### 字段命名约定
+### Field Naming Convention
 
-- 后端 API 使用 **snake_case**（`customer_name`, `event_theme`）
-- 前端 Mock 数据目前混用 camelCase 和 snake_case
-- 你生成的代码中，**新写的 Mock 数据结构应优先使用 snake_case**（与后端对齐）
+- Backend API uses **snake_case** (`customer_name`, `event_theme`)
+- New Mock data you create should PREFER snake_case for backend alignment
+- All UI text and labels MUST be in Chinese
 
 ---
 
-## 第十二部分：Mock 与 Adapter 规范
+## PART 12: Mock Data & Adapter Rules
 
-当前所有数据来自前端 Mock，但你必须：
-
-1. 把 Mock 数据放在 `src/shared/mock/` 目录下，**不要写在组件内部**
-2. Mock 数据的接口结构必须与真实 API 返回结构一致
-3. 每个数据获取点预留接入位置，格式：
+1. Place Mock data in `src/shared/mock/` — never inside components
+2. Mock data structure must mirror real API response structure
+3. Every data fetch point must leave an integration placeholder:
 ```tsx
-// TODO: 替换为真实API — GET /v1/proposals/:id
+// TODO: replace with real API — GET /v1/proposals/:id
 const proposals = mockProposals;
 ```
-4. 不要在前端模拟"后端逻辑"（如数据库查询、权限判断）
-5. Mock 数据的枚举值（状态、类型）必须与后端 Zod schema 保持一致
+4. Do NOT simulate "backend logic" on the frontend (DB queries, permission checks)
+5. Enum values in Mock data (status, type) MUST match backend Zod schemas
 
 ---
 
-## 第十三部分：状态管理规则
+## PART 13: State Management Rules
 
-- **页面局部状态**：用 React `useState`
-- **跨页面共享**：用 Zustand store（当前未使用，如需新增 stores 请在 `src/stores/` 下创建）
-- **URL 参数**：通过 TanStack Router 的 `useParams` 获取
-- **不要创建重复的状态管理**
+- **Page-local state**: React `useState`
+- **Cross-page shared**: Zustand store (create under `src/stores/` if needed)
+- **URL params**: TanStack Router `useParams`
+- **Do NOT create duplicate state for the same data**
 
 ---
 
-## 第十四部分：路由规则
+## PART 14: Routing Rules
 
-- 路由由文件系统自动生成。`src/routes/agent.solutions.tsx` → `/agent/solutions`
-- 新建页面：在 `src/routes/` 下新建 `.tsx` 文件，使用 `createFileRoute`
-- 不要修改 `routeTree.gen.ts`（自动生成）
-- 不要修改 `src/router.tsx`
+- Routes are file-system generated: `src/routes/agent.solutions.tsx` → `/agent/solutions`
+- New pages: create `.tsx` file under `src/routes/`, use `createFileRoute`
+- Do NOT edit `routeTree.gen.ts` (auto-generated)
+- Do NOT edit `src/router.tsx`
 
 ```tsx
-// 路由页面标准写法
+// Standard route page pattern
 import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/agent/solutions")({
   component: SolutionsPage,
@@ -473,145 +492,153 @@ function SolutionsPage() { ... }
 
 ---
 
-## 第十五部分：组件复用与新增规则
+## PART 15: Component Rules
 
-1. **先搜索现有组件** — 在 `src/shared/components/` 中查找
-2. **不重复创建同类组件** — 已有 SolutionCard 就不新建类似的
-3. **通用组件放 shared** — 跨页面复用的组件放 `src/shared/components/`
-4. **页面组件不过度庞大** — 超过 500 行考虑拆分
-5. **组件 Props 必须类型化** — 禁止 `any`
-6. **遵循现有命名风格** — PascalCase 文件名，camelCase 函数名
-
----
-
-## 第十六部分：禁止修改范围
-
-你绝对不能：
-
-1. 修改 `package.json`（不新增/升级/删除依赖）
-2. 修改 `tsconfig.json` / `vite.config.ts`
-3. 修改 `src/styles.css` / `src/shared/theme.ts` / `src/shared/design-tokens.css`
-4. 修改 `src/shared/types.ts`
-5. 修改 `src/router.tsx` / `src/routeTree.gen.ts`
-6. 修改 `src/shared/components/formatters.ts` / `src/shared/utils/opportunityPriority.ts`
-7. 修改后端代码（`backend/` 目录）
-8. 删除现有功能
-9. 改变用户角色和权限
-10. 虚构不存在的 API 或 AI 能力
-11. 擅自改变字段名、枚举值、状态值
-12. 使用旧品牌色 `#6E59F5` / `#7c3aed`
-13. 在客户方案中暴露演员成本或联系方式
-14. 使用"加入购物车""立即购买"等电商语言
+1. **Search existing components first** — check `src/shared/components/`
+2. **Don't create duplicate components** — use existing `SolutionCard`, don't build another
+3. **Shared components go in `src/shared/components/`**
+4. **Page components must not exceed 500 lines** — split if needed
+5. **All component Props must be typed** — NO `any`
+6. **Follow existing naming conventions** — PascalCase filenames, camelCase functions
 
 ---
 
-## 第十七部分：代码质量要求
+## PART 16: FORBIDDEN — Never Do These
 
-- [ ] TypeScript 严格类型，禁止 `any`
-- [ ] 禁止在组件中写死业务数据
-- [ ] 禁止遗留 `console.log` 调试代码
-- [ ] 必须处理 Loading / Empty / Error 三种状态
-- [ ] 必须处理空数据和异常边界
-- [ ] 禁止硬编码 `fontSize`、`color: "#..."`、`padding: "Npx"`
-- [ ] 所有 Token 使用 `var(--yl-*)` CSS 变量或 Tailwind 映射类
-- [ ] 不新增全局样式（除非放入 `src/styles.css` 但你不能改它）
-- [ ] 核心操作应有合理反馈（message.success / message.error）
-- [ ] 必须通过 `npm run build` 构建
-- [ ] 必须通过 `npx tsc --noEmit` 类型检查
-
----
-
-## 第十八部分：视觉验收要求
-
-- [ ] 页面视觉风格统一（同一套 Token、间距、圆角）
-- [ ] 组件统一（按钮、卡片、标签、输入框外观一致）
-- [ ] 字体层级清楚（display > heading > body > caption）
-- [ ] 间距一致（使用 `--yl-space-*`）
-- [ ] 按钮优先级明确（主按钮只有一个，次按钮不抢眼）
-- [ ] 表单易用（标签/输入框/提示之间的层级清楚）
-- [ ] 表格可读（表头/数据行/操作列的对比清楚）
-- [ ] 移动端不溢出、不横向滚动
-- [ ] 空状态完整（图标 + 说明 + 行动指引）
-- [ ] 加载状态完整（骨架屏或 Spin）
-- [ ] 不存在未经授权的 UI 重构
+1. Modify `package.json` (no new/upgraded/removed dependencies)
+2. Modify `tsconfig.json` / `vite.config.ts`
+3. Modify `src/styles.css` / `src/shared/theme.ts` / `src/shared/design-tokens.css`
+4. Modify `src/shared/types.ts`
+5. Modify `src/router.tsx` / `src/routeTree.gen.ts`
+6. Modify `src/shared/components/formatters.ts` / `src/shared/utils/opportunityPriority.ts`
+7. Modify backend code (`backend/` directory)
+8. Delete existing functionality
+9. Change user roles or permissions
+10. Invent APIs or AI capabilities that don't exist
+11. Change field names, enum values, or status values
+12. Use forbidden colors `#6E59F5` / `#7c3aed`
+13. Expose performer costs or contact info in customer-facing pages
+14. Use e-commerce language ("加入购物车"/"立即购买")
+15. Create an entirely new project outside the existing codebase
+16. Replace React/TanStack Start/Ant Design with different tech
+17. Rebuild the routing system
+18. Use hardcoded `fontSize: 14` / `color: "#5B4FD6"` — always use `var(--yl-*)` tokens
 
 ---
 
-## 第十九部分：功能验收要求
+## PART 17: Code Quality Requirements
 
-### 增长工具
-- Given 用户打开工具 → When 回答完所有问题 → Then 看到 AI 生成的结果页
-- Given 用户在结果页 → When 点击"获取完整方案"→ Then 弹出留资弹窗
-- Given 留资弹窗已打开 → When 填写手机号并提交 → Then 显示成功提示并关闭弹窗
-
-### 客户方案 H5
-- Given 有效 proposalId → When 访问 `/p/prop-001` → Then 显示完整方案（封面+模块+团队+案例）
-- Given 无效 proposalId → When 访问 → Then 显示"方案不存在"
-- Given 方案页加载中 → Then 显示骨架屏
-
-### CRM 线索中心
-- Given 有线索数据 → When 访问线索列表 → Then 显示所有线索（名称+来源+评分+状态）
-- Given 无线索 → Then 显示"暂无线索"空状态
-- Given 列表加载中 → Then 显示骨架屏
+- [ ] TypeScript strict types, NO `any`
+- [ ] No hardcoded business data in components
+- [ ] No leftover `console.log` debug code
+- [ ] MUST handle Loading / Empty / Error states for every data display
+- [ ] MUST handle empty data and boundary cases
+- [ ] NO hardcoded `fontSize`, `color: "#..."`, `padding: "Npx"` — use `var(--yl-*)` tokens
+- [ ] Core actions must provide user feedback (message.success / message.error)
+- [ ] MUST pass `npm run build`
+- [ ] MUST pass `npx tsc --noEmit`
 
 ---
 
-## 第二十部分：交付物要求
+## PART 18: Visual Acceptance Criteria
 
-你必须交付：
-
-1. 可运行的前端代码（`cd codebase && npm run dev` 能启动）
-2. 完整页面和路由（所有页面可访问）
-3. 与现有项目兼容的目录结构
-4. 新增和修改文件清单
-5. 复用组件清单
-6. 新增组件清单（如果有）
-7. Mock 数据使用清单
-8. 环境变量说明（如有新增）
-9. 安装和启动命令：`cd codebase && npm install && npm run dev`
-10. Build 命令：`npm run build`
-11. 已知问题（如有）
-12. 未完成事项（如有）
-13. 与现有代码集成说明
-
-**不得只交付截图或静态原型。必须是可运行代码。**
+- [ ] Pages are visually consistent (same tokens, spacing, border-radius)
+- [ ] Components are unified (buttons, cards, labels, inputs look consistent)
+- [ ] Typography hierarchy is clear (display > heading > body > caption)
+- [ ] Spacing is consistent (use `--yl-space-*` tokens)
+- [ ] Button priority is clear (only ONE primary button per section)
+- [ ] Forms are usable (label/input/hint hierarchy clear)
+- [ ] Tables are readable (header/data/action contrast clear)
+- [ ] Mobile pages do NOT overflow or require horizontal scroll
+- [ ] Empty states are complete (icon + description + action prompt)
+- [ ] Loading states are complete (skeleton or Spin)
+- [ ] NO unauthorized UI restructuring of untouched pages
 
 ---
 
-## 第二十一部分：执行顺序
+## PART 19: Functional Acceptance Criteria
 
-你必须按以下顺序执行：
+### Growth Tools
+- Given user opens tool → When all questions answered → Then see AI-generated results
+- Given user on result page → When clicks "获取完整方案" → Then lead capture modal opens
+- Given modal open → When fills phone and submits → Then success message + modal closes
 
-1. 阅读本提示词全部内容
-2. 分析现有代码目录结构（`src/routes/`、`src/shared/`）
-3. 输出实施计划（标注哪些文件保留、哪些优化、哪些新增）
-4. 确认页面与路由映射
-5. 先完成公共布局优化
-6. 再按核心用户流程逐页开发：
-   - Agent 端 4 页（AI顾问 → 方案发现 → 消息中心 → AI对话）
-   - Supplier 端 2 页（作战台 → 跟进中心）
-   - 增长工具 H5 3 页（预算 → 保险 → 年会）
-   - 客户方案 H5 1 页
-   - m 端首页 1 页
-   - 首页 1 页
-7. 执行 `npm run build` 验证
-8. 输出完整交付报告
+### Customer Proposal H5
+- Given valid proposalId → When accesses `/p/prop-001` → Then full proposal displays (cover + modules + team + cases)
+- Given invalid proposalId → Then shows "方案不存在" error state
+- Given loading → Then shows skeleton
+
+### CRM Lead Center
+- Given leads exist → When visiting lead list → Then all leads display (name + source + score + status)
+- Given no leads → Then shows "暂无线索" empty state
+- Given loading → Then shows skeleton
 
 ---
 
-## 第二十二部分：强制约束（最后强调）
+## PART 20: Deliverables
 
-1. 不要创建与现有仓库无关的新项目
-2. 不要更换 React/TanStack Start/Ant Design
-3. 不要重做路由体系
-4. 不要创建第二套 API 调用方式
-5. 不要在组件中写死 Mock 数据
-6. 不要大面积修改非目标文件
-7. 不确定时保留现状，在交付报告中列出问题
-8. 不要因为追求视觉效果牺牲业务完整性
-9. 不要使用 `fontSize: 36` / `color: "#5B4FD6"` 等硬编码
-10. 始终使用 `var(--yl-*)` CSS 变量
+You MUST deliver:
+
+1. Runnable frontend code (`cd codebase && npm run dev` starts successfully)
+2. Complete pages and routes (all pages accessible)
+3. Directory structure compatible with existing project
+4. List of new and modified files
+5. List of reused components
+6. List of new components (if any)
+7. Mock data usage inventory
+8. Environment variable notes (if new ones added)
+9. Install & start command: `cd codebase && npm install && npm run dev`
+10. Build command: `npm run build`
+11. Known issues (if any)
+12. Incomplete items (if any)
+13. Integration notes with existing code
+
+**Do NOT deliver only screenshots or static prototypes. Must be runnable code.**
 
 ---
 
-> **本提示词可独立执行。Lovable 不需要阅读任何其他文档即可开工。**
+## PART 21: Execution Order
+
+You MUST execute in this order:
+
+1. Read this entire prompt
+2. Analyze existing code directory structure (`src/routes/`, `src/shared/`)
+3. Output implementation plan (mark files as keep / optimize / new)
+4. Confirm page-to-route mapping
+5. First: complete shared layout optimizations
+6. Then: develop pages by core user flow priority:
+   - Agent portal 4 pages (AI Advisor → Solution Discovery → Message Center → AI Chat)
+   - Supplier portal 2 pages (Workspace → Follow-up Center)
+   - Growth tools H5 3 pages (budget → insurance → annual)
+   - Customer proposal H5 1 page
+   - Mobile home 1 page
+   - Home page 1 page
+7. Run `npm run build` to verify
+8. Output complete delivery report
+
+---
+
+## PART 22: Language Requirement — CRITICAL
+
+**This is a Chinese-market product. ALL user-facing text, labels, buttons, messages, placeholders, and content MUST be in Chinese (Simplified Chinese / 简体中文).**
+
+The prompt is in English for better LLM comprehension. The product UI must remain fully Chinese.
+
+---
+
+## PART 23: Final Hard Constraints
+
+1. Do NOT create a new project outside the existing repo
+2. Do NOT replace React / TanStack Start / Ant Design
+3. Do NOT rebuild the routing system
+4. Do NOT create a second API calling layer
+5. Do NOT inline Mock data inside components
+6. Do NOT modify files outside the target scope
+7. When uncertain: keep existing behavior, list issues in delivery report
+8. Do NOT sacrifice business completeness for visual aesthetics
+9. Always use `var(--yl-*)` CSS variables, never hardcoded visual values
+10. All UI text MUST be Chinese
+
+---
+
+> **This prompt is self-contained and executable. Lovable does not need any other documents to start working.**

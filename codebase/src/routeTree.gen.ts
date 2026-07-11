@@ -9,6 +9,11 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as V0WorkspaceRouteImport } from './routes/v0-workspace'
+import { Route as V0SolutionsRouteImport } from './routes/v0-solutions'
+import { Route as V0MessagesRouteImport } from './routes/v0-messages'
+import { Route as V0DemoRouteImport } from './routes/v0-demo'
+import { Route as TdFollowupsRouteImport } from './routes/td-followups'
 import { Route as SupplierRouteImport } from './routes/supplier'
 import { Route as MRouteImport } from './routes/m'
 import { Route as AgentRouteImport } from './routes/agent'
@@ -59,6 +64,31 @@ import { Route as SupplierOpportunitiesIdRouteImport } from './routes/supplier.o
 import { Route as SupplierLeadsIdRouteImport } from './routes/supplier.leads.$id'
 import { Route as AgentQuotationsIdRouteImport } from './routes/agent.quotations.$id'
 
+const V0WorkspaceRoute = V0WorkspaceRouteImport.update({
+  id: '/v0-workspace',
+  path: '/v0-workspace',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const V0SolutionsRoute = V0SolutionsRouteImport.update({
+  id: '/v0-solutions',
+  path: '/v0-solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const V0MessagesRoute = V0MessagesRouteImport.update({
+  id: '/v0-messages',
+  path: '/v0-messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const V0DemoRoute = V0DemoRouteImport.update({
+  id: '/v0-demo',
+  path: '/v0-demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TdFollowupsRoute = TdFollowupsRouteImport.update({
+  id: '/td-followups',
+  path: '/td-followups',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SupplierRoute = SupplierRouteImport.update({
   id: '/supplier',
   path: '/supplier',
@@ -311,6 +341,11 @@ export interface FileRoutesByFullPath {
   '/agent': typeof AgentRouteWithChildren
   '/m': typeof MRouteWithChildren
   '/supplier': typeof SupplierRouteWithChildren
+  '/td-followups': typeof TdFollowupsRoute
+  '/v0-demo': typeof V0DemoRoute
+  '/v0-messages': typeof V0MessagesRoute
+  '/v0-solutions': typeof V0SolutionsRoute
+  '/v0-workspace': typeof V0WorkspaceRoute
   '/admin/agencies': typeof AdminAgenciesRoute
   '/admin/ai-feedback': typeof AdminAiFeedbackRoute
   '/admin/artists': typeof AdminArtistsRoute
@@ -358,6 +393,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/td-followups': typeof TdFollowupsRoute
+  '/v0-demo': typeof V0DemoRoute
+  '/v0-messages': typeof V0MessagesRoute
+  '/v0-solutions': typeof V0SolutionsRoute
+  '/v0-workspace': typeof V0WorkspaceRoute
   '/admin/agencies': typeof AdminAgenciesRoute
   '/admin/ai-feedback': typeof AdminAiFeedbackRoute
   '/admin/artists': typeof AdminArtistsRoute
@@ -410,6 +450,11 @@ export interface FileRoutesById {
   '/agent': typeof AgentRouteWithChildren
   '/m': typeof MRouteWithChildren
   '/supplier': typeof SupplierRouteWithChildren
+  '/td-followups': typeof TdFollowupsRoute
+  '/v0-demo': typeof V0DemoRoute
+  '/v0-messages': typeof V0MessagesRoute
+  '/v0-solutions': typeof V0SolutionsRoute
+  '/v0-workspace': typeof V0WorkspaceRoute
   '/admin/agencies': typeof AdminAgenciesRoute
   '/admin/ai-feedback': typeof AdminAiFeedbackRoute
   '/admin/artists': typeof AdminArtistsRoute
@@ -463,6 +508,11 @@ export interface FileRouteTypes {
     | '/agent'
     | '/m'
     | '/supplier'
+    | '/td-followups'
+    | '/v0-demo'
+    | '/v0-messages'
+    | '/v0-solutions'
+    | '/v0-workspace'
     | '/admin/agencies'
     | '/admin/ai-feedback'
     | '/admin/artists'
@@ -510,6 +560,11 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/td-followups'
+    | '/v0-demo'
+    | '/v0-messages'
+    | '/v0-solutions'
+    | '/v0-workspace'
     | '/admin/agencies'
     | '/admin/ai-feedback'
     | '/admin/artists'
@@ -561,6 +616,11 @@ export interface FileRouteTypes {
     | '/agent'
     | '/m'
     | '/supplier'
+    | '/td-followups'
+    | '/v0-demo'
+    | '/v0-messages'
+    | '/v0-solutions'
+    | '/v0-workspace'
     | '/admin/agencies'
     | '/admin/ai-feedback'
     | '/admin/artists'
@@ -613,6 +673,11 @@ export interface RootRouteChildren {
   AgentRoute: typeof AgentRouteWithChildren
   MRoute: typeof MRouteWithChildren
   SupplierRoute: typeof SupplierRouteWithChildren
+  TdFollowupsRoute: typeof TdFollowupsRoute
+  V0DemoRoute: typeof V0DemoRoute
+  V0MessagesRoute: typeof V0MessagesRoute
+  V0SolutionsRoute: typeof V0SolutionsRoute
+  V0WorkspaceRoute: typeof V0WorkspaceRoute
   PProposalIdRoute: typeof PProposalIdRoute
   ToolsAnnualPlanRoute: typeof ToolsAnnualPlanRoute
   ToolsBudgetCalculatorRoute: typeof ToolsBudgetCalculatorRoute
@@ -621,6 +686,41 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/v0-workspace': {
+      id: '/v0-workspace'
+      path: '/v0-workspace'
+      fullPath: '/v0-workspace'
+      preLoaderRoute: typeof V0WorkspaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/v0-solutions': {
+      id: '/v0-solutions'
+      path: '/v0-solutions'
+      fullPath: '/v0-solutions'
+      preLoaderRoute: typeof V0SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/v0-messages': {
+      id: '/v0-messages'
+      path: '/v0-messages'
+      fullPath: '/v0-messages'
+      preLoaderRoute: typeof V0MessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/v0-demo': {
+      id: '/v0-demo'
+      path: '/v0-demo'
+      fullPath: '/v0-demo'
+      preLoaderRoute: typeof V0DemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/td-followups': {
+      id: '/td-followups'
+      path: '/td-followups'
+      fullPath: '/td-followups'
+      preLoaderRoute: typeof TdFollowupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/supplier': {
       id: '/supplier'
       path: '/supplier'
@@ -1117,6 +1217,11 @@ const rootRouteChildren: RootRouteChildren = {
   AgentRoute: AgentRouteWithChildren,
   MRoute: MRouteWithChildren,
   SupplierRoute: SupplierRouteWithChildren,
+  TdFollowupsRoute: TdFollowupsRoute,
+  V0DemoRoute: V0DemoRoute,
+  V0MessagesRoute: V0MessagesRoute,
+  V0SolutionsRoute: V0SolutionsRoute,
+  V0WorkspaceRoute: V0WorkspaceRoute,
   PProposalIdRoute: PProposalIdRoute,
   ToolsAnnualPlanRoute: ToolsAnnualPlanRoute,
   ToolsBudgetCalculatorRoute: ToolsBudgetCalculatorRoute,
