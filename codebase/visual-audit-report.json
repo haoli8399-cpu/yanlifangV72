@@ -1,0 +1,222 @@
+{
+  "增长工具H5": [
+    {
+      "path": "/tools/budget-calculator",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/tools/insurance-plan",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/tools/annual-plan",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    }
+  ],
+  "客户方案H5": [
+    {
+      "path": "/p/YLF-2026-0042",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/p/prop-001",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    }
+  ],
+  "企业客户PC端": [
+    {
+      "path": "/agent/",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/agent/solutions",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/agent/assistant",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/agent/requests",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/agent/messages",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    }
+  ],
+  "移动Web": [
+    {
+      "path": "/m/",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/m/discover",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/m/submit",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/m/me",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/m/messages",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    }
+  ],
+  "销售工作台": [
+    {
+      "path": "/supplier/workspace",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/supplier/leads",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/supplier/leads/$id",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/supplier/proposals",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/supplier/proposals/$id",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/supplier/followups",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    }
+  ],
+  "运营后台": [
+    {
+      "path": "/admin/dashboard",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/admin/sku",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/admin/artists",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/admin/orders",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    },
+    {
+      "path": "/admin/customers",
+      "status": 0,
+      "size": 0,
+      "issues": [
+        "fetch failed"
+      ]
+    }
+  ]
+}

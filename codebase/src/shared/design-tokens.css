@@ -1,0 +1,256 @@
+/* ================================================================
+ * 演立方 V4.7 Design System — Independent Token File
+ * ================================================================
+ *
+ * Prefix: --yl-  (演立方 abbreviation)
+ * Purpose: Standalone CSS custom properties for new H5 pages
+ *          (growth tools, customer proposals, etc.) that do not
+ *          depend on Tailwind's @theme mechanism.
+ *
+ * Usage:
+ *   @import "../../shared/design-tokens.css";
+ *   Then use var(--yl-primary), var(--yl-bg-page), etc.
+ *
+ * These tokens mirror the V4.7 Design System defined in
+ * V4.7_Design_System_Final.md and are kept in sync with
+ * src/styles.css and src/shared/theme.ts.
+ * ================================================================ */
+
+:root {
+  /* ═══════════════════════════════════════════════════════════
+   * 1. COLOR TOKENS
+   * ═══════════════════════════════════════════════════════════ */
+
+  /* ── Primary (品牌主色) ── */
+  --yl-primary:             #5B4FD6;
+  --yl-primary-hover:       #4A3FC5;
+  --yl-primary-active:      #3D33B3;
+  --yl-primary-subtle:      #F0EEFF;
+  --yl-primary-foreground:  #FFFFFF;
+
+  /* ── Secondary (辅助色) ── */
+  --yl-secondary:           #1A1D2E;
+  --yl-secondary-light:     #F5F6FA;
+
+  /* ── Background (背景层级) ── */
+  --yl-bg-page:             #F7F8FA;
+  --yl-bg-surface:          #FFFFFF;
+  --yl-bg-elevated:         #FFFFFF;
+  --yl-bg-sunken:           #F0F1F4;
+  --yl-bg-ai:               #FAFAFF;
+
+  /* ── Border (边框) ── */
+  --yl-border-default:      #E5E7EF;
+  --yl-border-subtle:       #F0F1F4;
+  --yl-border-strong:       #C8CAD4;
+  --yl-border-ai:           #E0DDFF;
+
+  /* ── Text (文字) ── */
+  --yl-text-primary:        #1A1D2E;
+  --yl-text-secondary:      #5B6178;
+  --yl-text-tertiary:       #8B92A8;
+  --yl-text-placeholder:    #B0B7C8;
+  --yl-text-on-primary:     #FFFFFF;
+
+  /* ── Success (成功态) ── */
+  --yl-success:             #00875A;
+  --yl-success-bg:          #E6F7F0;
+  --yl-success-border:      #B5E8D5;
+
+  /* ── Warning (警告态) ── */
+  --yl-warning:             #B45309;
+  --yl-warning-bg:          #FEF7EC;
+  --yl-warning-border:      #FDE4B9;
+
+  /* ── Error (错误态) ── */
+  --yl-error:               #C53030;
+  --yl-error-bg:            #FEF0F0;
+  --yl-error-border:        #FDBDBD;
+
+  /* ── Info (信息态) ── */
+  --yl-info:                #2563EB;
+  --yl-info-bg:             #EFF4FF;
+  --yl-info-border:         #BFD5FF;
+
+  /* ── Pipeline Status (管道状态色) ── */
+  --yl-status-new:          #2563EB;   /* 新线索 */
+  --yl-status-progress:     #7C6FF7;   /* 需求确认/沟通中 */
+  --yl-status-proposal:     #0891B2;   /* 已方案/已报价 */
+  --yl-status-negotiate:    #B45309;   /* 谈判中/等待确认 */
+  --yl-status-won:          #00875A;   /* 已成交 */
+  --yl-status-lost:         #C53030;   /* 已丢单 */
+  --yl-status-done:         #64748B;   /* 已结束/已归档 */
+
+  /* ── AI Exclusive (AI专属色系) ── */
+  --yl-ai-accent:           #7C6FF7;
+  --yl-ai-glow:             #A78BFA;
+  --yl-ai-thinking:         #C4B5FD;
+
+  /* ── Gold / Accent ── */
+  --yl-gold:                #D4A017;
+
+  /* ═══════════════════════════════════════════════════════════
+   * 2. SHADOW TOKENS
+   * ═══════════════════════════════════════════════════════════ */
+
+  --yl-shadow-xs:  0 1px 2px rgba(26, 29, 46, 0.04);
+  --yl-shadow-sm:  0 1px 3px rgba(26, 29, 46, 0.06),
+                   0 1px 2px rgba(26, 29, 46, 0.04);
+  --yl-shadow-md:  0 4px 6px rgba(26, 29, 46, 0.05),
+                   0 2px 4px rgba(26, 29, 46, 0.04);
+  --yl-shadow-lg:  0 10px 15px rgba(26, 29, 46, 0.06),
+                   0 4px 6px rgba(26, 29, 46, 0.04);
+  --yl-shadow-xl:  0 20px 25px rgba(26, 29, 46, 0.08),
+                   0 8px 10px rgba(26, 29, 46, 0.04);
+  --yl-shadow-ai:  0 0 0 1px rgba(91, 79, 214, 0.15),
+                   0 4px 12px rgba(91, 79, 214, 0.10);
+
+  /* ═══════════════════════════════════════════════════════════
+   * 3. RADIUS TOKENS
+   * ═══════════════════════════════════════════════════════════ */
+
+  --yl-radius-none:     0;
+  --yl-radius-sm:       4px;     /* Tag / Badge / small buttons */
+  --yl-radius-md:       8px;     /* Input / Button / Select */
+  --yl-radius-lg:       12px;    /* Card / Dialog */
+  --yl-radius-xl:       16px;    /* Drawer / Modal */
+  --yl-radius-2xl:      24px;    /* AI chat bubbles */
+  --yl-radius-full:     9999px;  /* Avatar / status dot */
+
+  /* ═══════════════════════════════════════════════════════════
+   * 4. SPACING TOKENS  (base 4px)
+   * ═══════════════════════════════════════════════════════════ */
+
+  --yl-space-1:   4px;
+  --yl-space-2:   8px;
+  --yl-space-3:   12px;
+  --yl-space-4:   16px;
+  --yl-space-5:   20px;
+  --yl-space-6:   24px;
+  --yl-space-8:   32px;
+  --yl-space-10:  40px;
+  --yl-space-12:  48px;
+  --yl-space-16:  64px;
+
+  /* ═══════════════════════════════════════════════════════════
+   * 5. TYPOGRAPHY
+   * ═══════════════════════════════════════════════════════════ */
+
+  /* ── Font Family ── */
+  --yl-font-sans:  "PingFang SC", "Noto Sans SC", "Microsoft YaHei",
+                   -apple-system, "Segoe UI", Roboto, sans-serif;
+  --yl-font-mono:  "SF Mono", "JetBrains Mono", Consolas, monospace;
+
+  /* ── Display ── */
+  --yl-text-display-lg:  36px / 700 / 44px;    /* hero main title */
+  --yl-text-display-md:  30px / 700 / 38px;    /* hero subtitle */
+  --yl-text-display-sm:  24px / 600 / 32px;    /* page heading */
+
+  /* ── Heading ── */
+  --yl-text-heading-1:   22px / 600 / 30px;    /* module title */
+  --yl-text-heading-2:   18px / 600 / 26px;    /* card title */
+  --yl-text-heading-3:   16px / 600 / 24px;    /* list item title */
+  --yl-text-heading-4:   14px / 600 / 20px;    /* sub-title */
+
+  /* ── Body ── */
+  --yl-text-body-lg:     16px / 400 / 26px;    /* AI reply, proposal desc */
+  --yl-text-body-md:     14px / 400 / 22px;    /* default body */
+  --yl-text-body-sm:     13px / 400 / 20px;    /* compact list, workspace */
+
+  /* ── Caption ── */
+  --yl-text-caption:     12px / 400 / 18px;    /* timestamp, tag */
+  --yl-text-caption-xs:  11px / 400 / 16px;    /* version, permission tag */
+
+  /* ── Numeric ── */
+  --yl-text-numeric-lg:  32px / 700 / 40px;    /* dashboard KPI */
+  --yl-text-numeric-md:  24px / 600 / 32px;    /* card data */
+  --yl-text-numeric-sm:  14px / 500 / 20px;    /* table number, price */
+
+  /* ── Convenience shorthands (font-size + line-height as separate vars) ── */
+  --yl-font-display-lg:  36px;
+  --yl-font-display-md:  30px;
+  --yl-font-display-sm:  24px;
+  --yl-font-heading-1:   22px;
+  --yl-font-heading-2:   18px;
+  --yl-font-heading-3:   16px;
+  --yl-font-heading-4:   14px;
+  --yl-font-body-lg:     16px;
+  --yl-font-body-md:     14px;
+  --yl-font-body-sm:     13px;
+  --yl-font-caption:     12px;
+  --yl-font-caption-xs:  11px;
+  --yl-font-numeric-lg:  32px;
+  --yl-font-numeric-md:  24px;
+  --yl-font-numeric-sm:  14px;
+
+  --yl-leading-display-lg:  44px;
+  --yl-leading-display-md:  38px;
+  --yl-leading-display-sm:  32px;
+  --yl-leading-heading-1:   30px;
+  --yl-leading-heading-2:   26px;
+  --yl-leading-heading-3:   24px;
+  --yl-leading-heading-4:   20px;
+  --yl-leading-body-lg:     26px;
+  --yl-leading-body-md:     22px;
+  --yl-leading-body-sm:     20px;
+  --yl-leading-caption:     18px;
+  --yl-leading-caption-xs:  16px;
+  --yl-leading-numeric-lg:  40px;
+  --yl-leading-numeric-md:  32px;
+  --yl-leading-numeric-sm:  20px;
+
+  /* ═══════════════════════════════════════════════════════════
+   * 6. ANIMATION TOKENS
+   * ═══════════════════════════════════════════════════════════ */
+
+  /* ── Duration ── */
+  --yl-duration-instant:   0ms;
+  --yl-duration-fast:      150ms;   /* hover / press micro-interaction */
+  --yl-duration-normal:    250ms;   /* expand / collapse */
+  --yl-duration-slow:      350ms;   /* Modal / Drawer enter/exit */
+  --yl-duration-slower:    500ms;   /* page transition, AI content reveal */
+
+  /* ── Easing ── */
+  --yl-ease-default:  cubic-bezier(0.4, 0, 0.2, 1);       /* standard */
+  --yl-ease-in:       cubic-bezier(0.4, 0, 1, 1);         /* enter */
+  --yl-ease-out:      cubic-bezier(0, 0, 0.2, 1);         /* exit */
+  --yl-ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);  /* elastic feedback */
+
+  /* ── Named Keyframe Presets (use as animation: var(--yl-anim-ai-thinking)) ── */
+  --yl-anim-ai-thinking:  yl-thinking-pulse 1.4s infinite ease-in-out;
+  --yl-anim-ai-stream:    yl-fade-in var(--yl-duration-normal) var(--yl-ease-out);
+  --yl-anim-skeleton:     yl-skeleton-pulse 1.5s infinite;
+  --yl-anim-card-enter:   yl-card-enter var(--yl-duration-slow) var(--yl-ease-out);
+}
+
+/* ── AI Thinking Dots Animation ── */
+@keyframes yl-thinking-pulse {
+  0%, 80%, 100% { opacity: 0.2; }
+  40%           { opacity: 1; }
+}
+
+/* ── AI Stream Fade-in ── */
+@keyframes yl-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Skeleton Loading Pulse ── */
+@keyframes yl-skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+
+/* ── Staggered Card Enter ── */
+@keyframes yl-card-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+ * 7. ANIMATION UTILITY CLASSES
+ * ═══════════════════════════════════════════════════════════ */
+
+.yl-animate-card-enter { animation: yl-card-enter 350ms ease-out both; }
+.yl-animate-ai-stream { animation: yl-fade-in 250ms ease-out both; }
+.yl-animate-skeleton { animation: yl-skeleton-pulse 1.5s ease-in-out infinite; }

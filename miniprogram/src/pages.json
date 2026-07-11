@@ -1,0 +1,218 @@
+{
+  "pages": [
+    {
+      "path": "pages/login/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "登录"
+      }
+    },
+    {
+      "path": "pages/discover/index",
+      "style": {
+        "navigationBarTitleText": "演立方"
+      }
+    },
+    {
+      "path": "pages/sku/list/index",
+      "style": {
+        "navigationBarTitleText": "方案列表"
+      }
+    },
+    {
+      "path": "pages/sku/detail/index",
+      "style": {
+        "navigationBarTitleText": "方案详情"
+      }
+    },
+    {
+      "path": "pages/request/list/index",
+      "style": {
+        "navigationBarTitleText": "我的需求"
+      }
+    },
+    {
+      "path": "pages/request/submit/index",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/request/detail/index",
+      "style": {
+        "navigationBarTitleText": "需求详情"
+      }
+    },
+    {
+      "path": "pages/user/index",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/assignment/list/index",
+      "style": {
+        "navigationBarTitleText": "我的排期"
+      }
+    },
+    {
+      "path": "pages/assignment/detail/index",
+      "style": {
+        "navigationBarTitleText": "排期详情"
+      }
+    },
+    {
+      "path": "pages/assignment/calendar/index",
+      "style": {
+        "navigationBarTitleText": "排期日历"
+      }
+    },
+    {
+      "path": "pages/settlement/index",
+      "style": {
+        "navigationBarTitleText": "结算记录"
+      }
+    },
+    {
+      "path": "pages/checkin/index",
+      "style": {
+        "navigationBarTitleText": "签到打卡"
+      }
+    },
+    {
+      "path": "pages/credit/index",
+      "style": {
+        "navigationBarTitleText": "我的信誉分"
+      }
+    },
+    {
+      "path": "pages/onboarding/index",
+      "style": {
+        "navigationBarTitleText": "演员入驻"
+      }
+    },
+    {
+      "path": "pages/user/performer/index",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/agency/index",
+      "style": {
+        "navigationBarTitleText": "经纪公司"
+      }
+    },
+    {
+      "path": "pages/message/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/message/detail/index",
+      "style": {
+        "navigationBarTitleText": "消息详情"
+      }
+    },
+    {
+      "path": "pages/user/orders/index",
+      "style": {
+        "navigationBarTitleText": "订单详情"
+      }
+    },
+    {
+      "path": "pages/profile/demand/index",
+      "style": {
+        "navigationBarTitleText": "我的需求"
+      }
+    },
+    {
+      "path": "pages/profile/favorites/index",
+      "style": {
+        "navigationBarTitleText": "我的收藏"
+      }
+    },
+    {
+      "path": "pages/profile/company/index",
+      "style": {
+        "navigationBarTitleText": "企业信息"
+      }
+    },
+    {
+      "path": "pages/profile/invoice/index",
+      "style": {
+        "navigationBarTitleText": "发票管理"
+      }
+    },
+    {
+      "path": "pages/profile/contact/index",
+      "style": {
+        "navigationBarTitleText": "联系客服"
+      }
+    },
+    {
+      "path": "pages/profile/feedback/index",
+      "style": {
+        "navigationBarTitleText": "意见反馈"
+      }
+    },
+    {
+      "path": "pages/profile/about/index",
+      "style": {
+        "navigationBarTitleText": "关于我们"
+      }
+    },
+    {
+      "path": "pages/profile/settings/index",
+      "style": {
+        "navigationBarTitleText": "设置"
+      }
+    },
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "喜剧工厂",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#f5f5f7",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#9ca3af",
+    "selectedColor": "#5B4FD6",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/discover/index",
+        "text": "首页",
+        "iconPath": "static/tab/home.png",
+        "selectedIconPath": "static/tab/home-active.png"
+      },
+      {
+        "pagePath": "pages/sku/list/index",
+        "text": "找方案",
+        "iconPath": "static/tab/grid.png",
+        "selectedIconPath": "static/tab/grid-active.png"
+      },
+      {
+        "pagePath": "pages/request/submit/index",
+        "text": "提需求",
+        "iconPath": "static/tab/list.png",
+        "selectedIconPath": "static/tab/list-active.png"
+      },
+      {
+        "pagePath": "pages/message/index",
+        "text": "消息",
+        "iconPath": "static/tab/message.png",
+        "selectedIconPath": "static/tab/message-active.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "static/tab/user.png",
+        "selectedIconPath": "static/tab/user-active.png"
+      }
+    ]
+  }
+}

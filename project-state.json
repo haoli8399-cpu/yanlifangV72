@@ -1,0 +1,32 @@
+{
+  "project_name": "演立方 V4.7",
+  "slug": "yanli-v47",
+  "version": "0.0.0",
+  "stage": "local-development",
+  "phase": "phase-1-backend-integration",
+  "status": "active",
+  "stable_commit": null,
+  "active_branch": null,
+  "current_task": "初始化 Git 仓库",
+  "current_task_id": "P0-GIT-INIT",
+  "current_agent": "hermes",
+  "risk_level": "high",
+  "blocked": false,
+  "blockers": [],
+  "next_action": "初始化 Git 仓库 + 编译验证",
+  "design_baseline_commit": null,
+  "last_update": "2026-07-11T17:38:00+08:00",
+  "workspace": "/Users/wudixingyunxingleo/projects/演立方",
+  "subsystems": {
+    "pc_frontend": { "path": "codebase/", "tech": "TanStack Start + React 19", "routes": 52 },
+    "backend_api": { "path": "backend/", "tech": "Fastify 5 + PostgreSQL 15", "endpoints": 31 },
+    "miniprogram": { "path": "miniprogram/", "tech": "uni-app + Vue 3", "pages": 28 }
+  },
+  "facts": {
+    "project_md": "docs/PROJECT.md",
+    "prd_md": "docs/PRD.md",
+    "design_md": "docs/DESIGN.md",
+    "architecture_md": "docs/ARCHITECTURE.md",
+    "status_md": "docs/STATUS.md"
+  }
+}
