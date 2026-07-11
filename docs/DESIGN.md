@@ -184,6 +184,34 @@
 | `fontSize: 12` | `var(--yl-text-caption)` |
 | `fontSize: 11` | `var(--yl-text-caption-xs)` |
 
+### 5.5 Trae Design 审查发现的 P0/P1 问题（2026-07-12）
+
+| 编号 | 级别 | 位置 | 问题 | 修复方案 |
+|:---|:---:|:---|:---|:---|
+| P0-1 | 🔴 | `RequirementExtractPanel` 进度条 | 使用禁用的旧品牌色 `#6E59F5` | `strokeColor` 替换为 `{ from: 'var(--yl-primary)', to: 'var(--yl-ai-accent)' }` |
+| P0-2 | 🔴 | `AIChatPanel` 用户气泡 | 背景 `#F5F6FA` + 白字 = 对比度 1.2:1（WCAG FAIL） | 背景改为 `var(--yl-primary)` `#5B4FD6` |
+| P0-3 | 🔴 | 首页角色入口按钮 | `rgba(255,255,255,.04)` 几乎不可见 | 改为 `rgba(255,255,255,.12)` + `border` + `backdropFilter: blur(8px)` |
+| P1-1 | 🟠 | `/supplier/workspace` | 单页 4 区域堆叠，信息密度过高 | 底部 Segmented 移入 Drawer；中列用视觉分组 |
+| P1-2 | 🟠 | `/supplier/followups` | 硬编码背景 `#FFF5F5`/`#FFF9F0`/`#F5F8FF` | 替换为 `--yl-error-bg`/`--yl-warning-bg`/`--yl-info-bg` |
+| P1-3 | 🟠 | `PriorityTag`/`ConfidenceTag` | 使用 AntD 命名色（"red"/"orange"/"green"） | 替换为 V4.7 HEX Token |
+| P1-4 | 🟠 | Agent 首页 CTA 按钮 | 使用绿色而非品牌色 | 改为 `type="primary"` |
+
+### 5.6 禁止使用的颜色速查（Trae Design 审计）
+
+| 禁止值 | 正确替代 | Token |
+|:---|:---|:---|
+| `#6E59F5` | `#5B4FD6` | `--yl-primary` |
+| `#7c3aed` | `#5B4FD6` | `--yl-primary` |
+| AntD `"red"` | `#C53030` | `--yl-error` |
+| AntD `"orange"` | `#B45309` | `--yl-warning` |
+| AntD `"green"` | `#00875A` | `--yl-success` |
+| AntD `"blue"` | `#2563EB` | `--yl-info` |
+| AntD `"gold"` | `#D4A017` | `--yl-gold` |
+| `#FFF5F5` | `#FEF0F0` | `--yl-error-bg` |
+| `#FFF9F0` | `#FEF7EC` | `--yl-warning-bg` |
+| `#F5F8FF` | `#EFF4FF` | `--yl-info-bg` |
+| Emoji 图标 (👥⏱) | `<TeamOutlined />` `<ClockCircleOutlined />` | @ant-design/icons |
+
 ---
 
 ## 6. 六端设计变量
