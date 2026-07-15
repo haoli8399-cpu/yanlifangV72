@@ -13,6 +13,9 @@ import { Route as V0WorkspaceRouteImport } from './routes/v0-workspace'
 import { Route as V0SolutionsRouteImport } from './routes/v0-solutions'
 import { Route as V0MessagesRouteImport } from './routes/v0-messages'
 import { Route as V0DemoRouteImport } from './routes/v0-demo'
+import { Route as TdToolsBudgetRouteImport } from './routes/td-tools-budget'
+import { Route as TdProposalRouteImport } from './routes/td-proposal'
+import { Route as TdMIndexRouteImport } from './routes/td-m-index'
 import { Route as TdFollowupsRouteImport } from './routes/td-followups'
 import { Route as SupplierRouteImport } from './routes/supplier'
 import { Route as MRouteImport } from './routes/m'
@@ -82,6 +85,21 @@ const V0MessagesRoute = V0MessagesRouteImport.update({
 const V0DemoRoute = V0DemoRouteImport.update({
   id: '/v0-demo',
   path: '/v0-demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TdToolsBudgetRoute = TdToolsBudgetRouteImport.update({
+  id: '/td-tools-budget',
+  path: '/td-tools-budget',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TdProposalRoute = TdProposalRouteImport.update({
+  id: '/td-proposal',
+  path: '/td-proposal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TdMIndexRoute = TdMIndexRouteImport.update({
+  id: '/td-m-index',
+  path: '/td-m-index',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TdFollowupsRoute = TdFollowupsRouteImport.update({
@@ -342,6 +360,9 @@ export interface FileRoutesByFullPath {
   '/m': typeof MRouteWithChildren
   '/supplier': typeof SupplierRouteWithChildren
   '/td-followups': typeof TdFollowupsRoute
+  '/td-m-index': typeof TdMIndexRoute
+  '/td-proposal': typeof TdProposalRoute
+  '/td-tools-budget': typeof TdToolsBudgetRoute
   '/v0-demo': typeof V0DemoRoute
   '/v0-messages': typeof V0MessagesRoute
   '/v0-solutions': typeof V0SolutionsRoute
@@ -394,6 +415,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/td-followups': typeof TdFollowupsRoute
+  '/td-m-index': typeof TdMIndexRoute
+  '/td-proposal': typeof TdProposalRoute
+  '/td-tools-budget': typeof TdToolsBudgetRoute
   '/v0-demo': typeof V0DemoRoute
   '/v0-messages': typeof V0MessagesRoute
   '/v0-solutions': typeof V0SolutionsRoute
@@ -451,6 +475,9 @@ export interface FileRoutesById {
   '/m': typeof MRouteWithChildren
   '/supplier': typeof SupplierRouteWithChildren
   '/td-followups': typeof TdFollowupsRoute
+  '/td-m-index': typeof TdMIndexRoute
+  '/td-proposal': typeof TdProposalRoute
+  '/td-tools-budget': typeof TdToolsBudgetRoute
   '/v0-demo': typeof V0DemoRoute
   '/v0-messages': typeof V0MessagesRoute
   '/v0-solutions': typeof V0SolutionsRoute
@@ -509,6 +536,9 @@ export interface FileRouteTypes {
     | '/m'
     | '/supplier'
     | '/td-followups'
+    | '/td-m-index'
+    | '/td-proposal'
+    | '/td-tools-budget'
     | '/v0-demo'
     | '/v0-messages'
     | '/v0-solutions'
@@ -561,6 +591,9 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/td-followups'
+    | '/td-m-index'
+    | '/td-proposal'
+    | '/td-tools-budget'
     | '/v0-demo'
     | '/v0-messages'
     | '/v0-solutions'
@@ -617,6 +650,9 @@ export interface FileRouteTypes {
     | '/m'
     | '/supplier'
     | '/td-followups'
+    | '/td-m-index'
+    | '/td-proposal'
+    | '/td-tools-budget'
     | '/v0-demo'
     | '/v0-messages'
     | '/v0-solutions'
@@ -674,6 +710,9 @@ export interface RootRouteChildren {
   MRoute: typeof MRouteWithChildren
   SupplierRoute: typeof SupplierRouteWithChildren
   TdFollowupsRoute: typeof TdFollowupsRoute
+  TdMIndexRoute: typeof TdMIndexRoute
+  TdProposalRoute: typeof TdProposalRoute
+  TdToolsBudgetRoute: typeof TdToolsBudgetRoute
   V0DemoRoute: typeof V0DemoRoute
   V0MessagesRoute: typeof V0MessagesRoute
   V0SolutionsRoute: typeof V0SolutionsRoute
@@ -712,6 +751,27 @@ declare module '@tanstack/react-router' {
       path: '/v0-demo'
       fullPath: '/v0-demo'
       preLoaderRoute: typeof V0DemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/td-tools-budget': {
+      id: '/td-tools-budget'
+      path: '/td-tools-budget'
+      fullPath: '/td-tools-budget'
+      preLoaderRoute: typeof TdToolsBudgetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/td-proposal': {
+      id: '/td-proposal'
+      path: '/td-proposal'
+      fullPath: '/td-proposal'
+      preLoaderRoute: typeof TdProposalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/td-m-index': {
+      id: '/td-m-index'
+      path: '/td-m-index'
+      fullPath: '/td-m-index'
+      preLoaderRoute: typeof TdMIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/td-followups': {
@@ -1218,6 +1278,9 @@ const rootRouteChildren: RootRouteChildren = {
   MRoute: MRouteWithChildren,
   SupplierRoute: SupplierRouteWithChildren,
   TdFollowupsRoute: TdFollowupsRoute,
+  TdMIndexRoute: TdMIndexRoute,
+  TdProposalRoute: TdProposalRoute,
+  TdToolsBudgetRoute: TdToolsBudgetRoute,
   V0DemoRoute: V0DemoRoute,
   V0MessagesRoute: V0MessagesRoute,
   V0SolutionsRoute: V0SolutionsRoute,

@@ -33,6 +33,58 @@
 
 ---
 
+## 🧠 OpenViking 共享记忆（所有 Agent 必须使用）
+
+> **OpenViking 是团队共享记忆层。** Hermes 将品牌规范、协作铁律、项目决策放入共享区，Codex/Trae/Qoder 通过 curl 读取。Hermes 的私有记忆对其他 Agent 不可见。
+>
+> 端点：`http://localhost:1933` | 认证：dev 模式无需 API Key
+
+### ⚠️ 搜索范围限制
+
+**其他 Agent 搜索时必须限定 `target_uri`，禁止全局搜索：**
+
+```bash
+# ✅ 正确：限定在共享区搜索
+curl -s -X POST http://localhost:1933/api/v1/search/search \
+  -H "Content-Type: application/json" \
+  -d '{"query":"<关键词>","limit":5,"target_uri":"viking://resources/shared"}'
+
+# ❌ 错误：全局搜索会看到 Hermes 私有记忆，绝对禁止
+```
+
+### 共享文件（可直接读）
+
+```bash
+# 品牌规范（品牌色、Token、字体、圆角）
+curl -s "http://localhost:1933/api/v1/content/read?uri=viking://resources/shared/brand.md/brand.md&raw=true"
+
+# Agent 协作铁律（行为红线、职责边界、流程）
+curl -s "http://localhost:1933/api/v1/content/read?uri=viking://resources/shared/rules.md/rules.md&raw=true"
+
+# 项目总览（技术栈、端口、事实源文件位置）
+curl -s "http://localhost:1933/api/v1/content/read?uri=viking://resources/shared/project.md/project.md&raw=true"
+```
+
+### 完整查询流程
+
+```bash
+# 1. 检查服务在线
+curl -s http://localhost:1933/api/v1/system/status
+
+# 2. 在共享区内搜索
+curl -s -X POST http://localhost:1933/api/v1/search/search \
+  -H "Content-Type: application/json" \
+  -d "{\"query\":\"<你的任务关键词>\",\"limit\":5,\"target_uri\":\"viking://resources/shared\"}"
+
+# 3. 从搜索结果中取 uri，直接读
+curl -s "http://localhost:1933/api/v1/content/read?uri=<uri>&raw=true"
+
+# 4. 浏览共享区全部内容
+curl -s "http://localhost:1933/api/v1/fs/tree?uri=viking://resources/shared"
+```
+
+---
+
 ## 🔴 Agent 行为红线
 
 ### 所有 Agent 禁止：
