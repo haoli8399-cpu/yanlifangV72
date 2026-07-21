@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-19",
+  "workspace": "/Users/wudixingyunxingleo/projects/演立方",
+  "product": {
+    "name": "演立方",
+    "spec_version": "V7.2",
+    "spec_status": "approved",
+    "current_entry": "docs/PRD_V7.2.md",
+    "spec_file": "docs/PRD_V7.2.md",
+    "previous_specs": [
+      "docs/PRD_V6.6.md",
+      "docs/PRD_V6.5.md",
+      "docs/PRD_V6.1.md"
+    ]
+  },
+  "code_release": {
+    "implementation_baseline": "V4.7",
+    "stable_tag": "v0.1.0-alpha",
+    "stable_commit": "4dcc02d",
+    "default_branch": "main",
+    "main_head_at_inventory": "78a659e",
+    "components": {
+      "frontend": {
+        "path": "codebase",
+        "version": "0.1.0-alpha",
+        "version_source": "codebase/package.json"
+      },
+      "backend": {
+        "path": "backend",
+        "version": "0.1.0",
+        "version_source": "backend/package.json"
+      },
+      "miniprogram": {
+        "path": "miniprogram",
+        "version": "1.0.0",
+        "version_source": "miniprogram/package.json"
+      }
+    }
+  },
+  "design": {
+    "baseline": "V4.7",
+    "system_version": "V1.0",
+    "file": "docs/design/V4.7_Design_System_Final.md"
+  },
+  "architecture": {
+    "as_built_version": "V4.7",
+    "as_built_file": "docs/ARCHITECTURE.md",
+    "evolution_documents": [
+      "docs/ARCHITECTURE_V5.md",
+      "docs/ARCHITECTURE_V6.md",
+      "docs/ARCHITECTURE_V6.1.md"
+    ]
+  }
+}

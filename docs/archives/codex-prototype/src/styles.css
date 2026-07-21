@@ -1,0 +1,276 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+/* ============================================================
+ * 演立方 V7.2 品牌 Token（--yl-*）
+ * 用于本次 MVP-SLICE1-DEMAND-BRIEF 切片；仅新增，不覆盖既有系统。
+ * ============================================================ */
+:root {
+  --yl-primary: #5b4fd6;
+  --yl-primary-hover: #493dbb;
+  --yl-bg-primary-soft: #f2efff;
+
+  --yl-bg-page: #f7f6f2;
+  --yl-bg-surface: #ffffff;
+  --yl-bg-muted: #f3f1ec;
+
+  --yl-text-primary: #171822;
+  --yl-text-secondary: #505466;
+  --yl-text-tertiary: #767b8d;
+
+  --yl-border: #e4e1da;
+  --yl-border-strong: #d5d1c9;
+
+  --yl-bg-ai: #f2efff;
+  --yl-border-ai: #d8d1fa;
+
+  --yl-success: #148f5b;
+  --yl-bg-success: #e7f6ee;
+  --yl-border-success: #b7e2c9;
+
+  --yl-warning: #a56511;
+  --yl-bg-warning: #fdf4e3;
+  --yl-border-warning: #efd6a0;
+
+  --yl-error: #b23a3a;
+  --yl-bg-error: #fbecec;
+  --yl-border-error: #ecc2c2;
+
+  --yl-info: #285f9e;
+  --yl-bg-info: #e6f0fb;
+  --yl-border-info: #b8d4ee;
+
+  --yl-radius-sm: 8px;
+  --yl-radius-md: 12px;
+  --yl-radius-lg: 14px;
+
+  --yl-shadow-sm: 0 1px 2px rgba(20, 22, 40, 0.04);
+  --yl-shadow-md: 0 6px 20px rgba(20, 22, 40, 0.06);
+}
+
+.yl-app {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--yl-text-primary);
+  background-color: var(--yl-bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.yl-app body,
+body:has(.yl-app) {
+  background-color: var(--yl-bg-page);
+}
+
+.yl-app :focus-visible {
+  outline: 2px solid var(--yl-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.yl-safe-bottom {
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+
+/* ---- 固定底部操作栏（共享高度 Token）----
+ * --yl-action-bar-h 由 useActionBarHeight 在运行时依据实际高度更新。
+ * 正文用 .yl-main-with-actionbar 预留同一高度 + safe-area + 24px 间距。
+ * html 的 scroll-padding-bottom 保证 Tab 聚焦时按钮不会被遮挡。
+ */
+:root {
+  --yl-action-bar-h: 88px;
+}
+
+html {
+  scroll-padding-bottom: calc(var(--yl-action-bar-h) + env(safe-area-inset-bottom) + 24px);
+}
+
+.yl-action-bar {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 40;
+  border-top: 1px solid var(--yl-border);
+  background-color: color-mix(in srgb, var(--yl-bg-surface) 95%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+.yl-main-with-actionbar {
+  padding-bottom: calc(var(--yl-action-bar-h) + env(safe-area-inset-bottom) + 24px);
+  scroll-padding-bottom: calc(var(--yl-action-bar-h) + env(safe-area-inset-bottom) + 24px);
+}
+
+/* ---- 字段组临时高亮（AI 区“补充这一项/这不准确”定位反馈）---- */
+@keyframes yl-field-highlight {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--yl-primary) 45%, transparent);
+  }
+  30% {
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--yl-primary) 25%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--yl-primary) 0%, transparent);
+  }
+}
+.yl-field-highlight {
+  border-radius: 12px;
+  animation: yl-field-highlight 2s ease-out;
+  background-color: color-mix(in srgb, var(--yl-bg-primary-soft) 60%, transparent);
+  transition: background-color 300ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yl-app *,
+  .yl-app *::before,
+  .yl-app *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .yl-field-highlight {
+    animation: none;
+  }
+}

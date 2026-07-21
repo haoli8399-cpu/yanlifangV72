@@ -1,0 +1,23 @@
+* text=auto eol=lf
+
+*.sh text eol=lf
+*.md text diff=markdown
+*.json text
+*.yml text
+*.yaml text
+*.ts text
+*.tsx text
+*.vue text
+*.css text
+*.scss text
+*.sql text
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.docx binary
+*.xlsx binary
+*.zip binary

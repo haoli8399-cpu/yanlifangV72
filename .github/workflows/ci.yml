@@ -1,9 +1,7 @@
-# 演立方 V4.7 — CI Workflow（阶段 B 启用）
-#
-# GitHub 仓库建立后自动生效。当前阶段 A：手动运行 npm run check。
+# 演立方 — CI Workflow
 #
 # 触发：push main / PR → main
-# 检查：TypeScript + Build（后端 + 前端）
+# 检查：版本治理 + TypeScript + Build（后端 + 前端）
 
 name: CI
 
@@ -14,6 +12,16 @@ on:
     branches: [main]
 
 jobs:
+  governance:
+    name: Workspace — Version & Docs Governance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/check-governance.mjs
+
   backend-check:
     name: Backend — TypeScript Check
     runs-on: ubuntu-latest
@@ -29,6 +37,7 @@ jobs:
           cache-dependency-path: backend/package-lock.json
       - run: npm ci
       - run: npm run typecheck
+      - run: npm run build
 
   frontend-check:
     name: Frontend — TypeScript + Build
@@ -62,3 +71,19 @@ jobs:
           cache-dependency-path: codebase/package-lock.json
       - run: npm ci
       - run: npm run lint
+
+  miniprogram-check:
+    name: Miniprogram — Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: miniprogram
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: miniprogram/package-lock.json
+      - run: npm ci
+      - run: npm run build:mp-weixin

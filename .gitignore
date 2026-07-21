@@ -1,5 +1,5 @@
 # ============================================================
-# 演立方 V4.7 — Monorepo .gitignore
+# 演立方工作空间 — Monorepo .gitignore
 # ============================================================
 
 # Dependencies
@@ -65,7 +65,13 @@ miniprogram/dist/
 # Temporary
 *.tmp
 *.temp
+*.orig
+*.rej
+*~
 .cache/
+
+# Project Memory runtime receipts/cache (overwrite-only, machine local)
+.memory/
 
 # Lock files (keep one; bun.lock is primary)
 # codebase/package-lock.json already exists in repo, keep it

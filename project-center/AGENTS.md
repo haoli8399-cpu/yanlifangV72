@@ -37,8 +37,8 @@
 1. **用户没让动代码坚决不能动**
 2. **必须先查 project-center/ 确认项目状态**
 3. **方案必须经 Hermes/豪哥 确认才能执行**
-4. **PRD V4.7 是唯一功能事实源**
-5. **V4.7_Design_System_Final.md 是唯一视觉事实源**
+4. **当前 PRD 入口是 `docs/PRD.md`，本文件中的 V4.7 描述仅作历史参考**
+5. **当前已落地视觉事实源是 `docs/design/V4.7_Design_System_Final.md`**
 6. **品牌主色 #5B4FD6，禁止使用旧品牌色 #7c3aed 或 #6E59F5**
 7. **禁止硬编码颜色，必须使用 CSS 变量或 Design Token**
 
@@ -70,9 +70,9 @@
 | `project-center/PROJECT_CONTROL.md` | 项目控制文件（必读） |
 | `project-center/PROJECT_STATUS.md` | 当前项目状态 |
 | `project-center/ARCHITECTURE.md` | 架构全景图 |
-| `演立方_V4.7_PRD_*.docx` | 产品需求文档 |
-| `V4.7_Design_System_Final.md` | 设计系统 |
-| `V4.6_PRD_修订建议.md` | PRD 修订记录 |
+| `../docs/archives/product/演立方_V4.7_PRD_*.docx` | V4.7 历史产品需求文档 |
+| `../docs/design/V4.7_Design_System_Final.md` | 当前已落地设计系统 |
+| `../docs/archives/product/V4.6_PRD_修订建议.md` | V4.6 PRD 修订记录 |
 
 ## 项目状态速查
 

@@ -16,7 +16,7 @@
 - 项目控制：`project-center/PROJECT_CONTROL.md`
 - 现有 Schema：`backend/migrations/001_schema.sql`（1025行，13张核心表）
 - 现有迁移005：`backend/migrations/005_add_opportunities_quotes_followups.sql`（商机/报价/跟进表，参考格式）
-- V4.7 PRD：`演立方_V4.7_PRD_MVP落地与增长工具技术附件增强版.docx`
+- V4.7 PRD：`docs/archives/product/演立方_V4.7_PRD_MVP落地与增长工具技术附件增强版.docx`
 - 现有 API 结构：`backend/src/api/`（21个路由文件，参考 `opportunities.ts` 或 `quotes.ts` 的写法）
 
 ## 执行步骤

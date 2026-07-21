@@ -1,44 +1,100 @@
 {
-  "project_name": "演立方 V4.7",
-  "slug": "yanli-v47",
-  "version": "0.1.0-alpha",
-  "stage": "local-development",
-  "phase": "phase-1-backend-integration",
+  "schema_version": 3,
+  "project_name": "演立方",
+  "slug": "yanli",
+  "workspace": "/Users/wudixingyunxingleo/projects/演立方",
   "status": "active",
-  "stable_commit": "ef67d45",
-  "active_branch": "main",
-  "current_task": "4 项 P0/P1 工程任务完成",
-  "current_task_id": null,
-  "current_agent": "hermes",
-  "risk_level": "low",
+  "product_spec_version": "V6.6",
+  "product_spec_file": "docs/PRD_V6.6.md",
+  "implementation_baseline": "V4.7",
+  "code_release": "0.1.0-alpha",
+  "stable_tag": "v0.1.0-alpha",
+  "stable_commit": "4dcc02d",
+  "latest_main_commit_at_inventory": "78a659e",
+  "default_branch": "main",
+  "active_branch": "feat/workspace-version-governance",
+  "current_task": "QUOTE-001 已在独立分支形成提交 5d44462，待正式合并与推送",
+  "current_agent": "codex",
+  "risk_level": "high",
   "blocked": false,
   "blockers": [],
-  "next_action": "继续执行 TASK_BOARD 中的 Agent 任务（T-004~007 + Q-BUG-010）",
-  "design_baseline_commit": "ebc57f4",
-  "last_update": "2026-07-11T23:30:00+08:00",
-  "workspace": "/Users/wudixingyunxingleo/projects/演立方",
+  "warnings": [
+    "产品规格 V6.6 尚未全部进入当前代码实现",
+    "V6.6 Tenant上下文、演员多Tenant合作关系尚未进入当前Schema/API",
+    "PC/H5多数业务页面仍直接使用Mock数据",
+    "前端类型检查和Lint当前未全绿",
+    "除报价读取权限的10项测试外，其他高风险业务模块尚无自动化测试",
+    "现有部署配置的构建路径、端口、健康检查和Migration执行不一致",
+    "小程序存在src/与根级历史源码双份结构"
+  ],
+  "next_action": "先建设Tenant身份与成员权限基础，再实现F13/F14报价规则版本模型；底价、分成、折扣和毛利计算口径确认后进入F15预算引擎",
+  "last_update": "2026-07-15T23:20:00+08:00",
   "github": {
     "remote": "origin",
-    "url": "https://github.com/haoli8399-cpu/yanli-v47",
+    "url": "https://github.com/haoli8399-cpu/yanli-v47.git",
     "visibility": "private"
   },
+  "version_manifest": "versions.json",
+  "engineering": {
+    "playbook": "MVP_DEV_PLAYBOOK.md",
+    "agent_rules": "AGENTS.md",
+    "task_template": "templates/TASK.md",
+    "review_template": "templates/REVIEW.md",
+    "default_flow": "serial",
+    "core_agent_roles": 3,
+    "default_developer_instances": 1,
+    "maximum_developer_instances": 2,
+    "production_release": "manual_owner_confirmation_required",
+    "project_memory": {
+      "protocol": "memory_first",
+      "openviking_uri": "viking://user/default/resources/yanlifang-project-memory",
+      "preflight_command": "node scripts/project-memory.mjs preflight",
+      "receipt": ".memory/receipt.json",
+      "high_risk_fail_closed": true
+    }
+  },
   "build_verification": {
+    "governance": "passed",
+    "frontend_typecheck": "failed: 2 existing TS2367 in codebase/src/routes/m.index.tsx:171",
     "frontend_build": "passed",
-    "frontend_tsc_errors": 2,
-    "frontend_tsc_note": "2 TS2367 in m.index.tsx (已知类型比较问题，非本次范围)",
-    "backend_tsc": "passed",
-    "ci_workflow": ".github/workflows/ci.yml (阶段 B 即用)"
+    "frontend_lint": "failed: 1864 existing problems (1858 errors, 6 warnings)",
+    "backend_typecheck": "passed",
+    "backend_build": "passed",
+    "backend_health": "passed: GET /v1/health returned 200 locally",
+    "miniprogram_build": "passed_with_sass_deprecation_warnings",
+    "automated_business_tests": "quote access and three GET routes: 10 passed; other modules not configured"
   },
   "subsystems": {
-    "pc_frontend": { "path": "codebase/", "tech": "TanStack Start + React 19", "routes": 52 },
-    "backend_api": { "path": "backend/", "tech": "Fastify 5 + PostgreSQL 15", "endpoints": 31 },
-    "miniprogram": { "path": "miniprogram/", "tech": "uni-app + Vue 3", "pages": 28 }
+    "pc_frontend": {
+      "path": "codebase/",
+      "version": "0.1.0-alpha",
+      "tech": "TanStack Start + React 19",
+      "data_state": "mostly_mock"
+    },
+    "backend_api": {
+      "path": "backend/",
+      "version": "0.1.0",
+      "tech": "Fastify 5 + PostgreSQL 15",
+      "data_state": "database_and_mock_mixed"
+    },
+    "miniprogram": {
+      "path": "miniprogram/",
+      "version": "1.0.0",
+      "tech": "uni-app + Vue 3",
+      "source_root": "miniprogram/src/"
+    }
   },
   "facts": {
     "project_md": "docs/PROJECT.md",
-    "prd_md": "docs/PRD.md",
+    "prd_entry": "docs/PRD.md",
+    "prd_current": "docs/PRD_V6.6.md",
     "design_md": "docs/DESIGN.md",
     "architecture_md": "docs/ARCHITECTURE.md",
-    "status_md": "docs/STATUS.md"
+    "status_md": "PROJECT_STATUS.md",
+    "decisions_md": "DECISIONS.md",
+    "playbook_md": "MVP_DEV_PLAYBOOK.md",
+    "versioning_md": "docs/VERSIONING.md",
+    "audit_md": "docs/MVP_CURRENT_AUDIT.md",
+    "memory_md": "docs/memory/README.md"
   }
 }

@@ -2,7 +2,7 @@
 
 > **这是设计系统的唯一事实源。所有前端 Agent 必须先读本文件。**
 >
-> 完整 Design System：`V4.7_Design_System_Final.md`（豪哥确认版）  
+> 完整 Design System：`design/V4.7_Design_System_Final.md`（豪哥确认版）
 > 前端编码规范：`codebase/.hermes.md`（Token 合规要求）  
 > 本文件聚焦：视觉定位 + 设计护栏 + 防漂移机制
 
@@ -31,7 +31,7 @@
 
 ## 2. Design System 速查
 
-> 完整规范见 `V4.7_Design_System_Final.md`（471行）。以下为高频 Token。
+> 完整规范见 `design/V4.7_Design_System_Final.md`（471行）。以下为高频 Token。
 
 ### 2.1 Color Token（高频）
 
@@ -226,6 +226,6 @@
 
 ---
 
-> **迁移来源：** `V4.7_Design_System_Final.md` + `codebase/.hermes.md`  
+> **迁移来源：** `design/V4.7_Design_System_Final.md` + `codebase/.hermes.md`
 > **原文件保留：** 两份原文件继续作为开发 Agent 的详细参考  
 > **本文件定位：** 设计治理中心 — 护栏、基线、防漂移机制

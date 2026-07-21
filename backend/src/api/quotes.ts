@@ -10,6 +10,13 @@ import { authMiddleware, requireRole } from '../middleware/auth.js';
 import { validate } from '../middleware/validation.js';
 import { query } from '../utils/db.js';
 import { successResponse, errorResponse } from '../utils/response.js';
+import {
+  canAccessQuote,
+  canListQuotes,
+  projectQuoteForViewer,
+  type QuoteRecord,
+  type QuoteViewer,
+} from '../domain/quote-access.js';
 
 const createBodySchema = z.object({
   demand_id: z.string().uuid(),
@@ -31,18 +38,55 @@ const updateBodySchema = z.object({
 
 const idParamSchema = z.object({ id: z.string().uuid() });
 
-export default async function quoteRoutes(app: FastifyInstance) {
+async function loadQuoteViewer(
+  req: FastifyRequest,
+  dbQuery: typeof query
+): Promise<QuoteViewer | null> {
+  const userId = req.user?.sub;
+  if (!userId) return null;
+
+  const result = await dbQuery<{ role: QuoteViewer['role']; admin_role: string | null }>(
+    'SELECT role, admin_role FROM users WHERE id = $1 AND is_active = TRUE',
+    [userId]
+  );
+  const user = result.rows[0];
+  if (!user) return null;
+
+  return {
+    sub: userId,
+    role: user.role,
+    adminRole: user.admin_role,
+  };
+}
+
+function quoteReadDenied(reply: FastifyReply) {
+  return reply.status(403).send(errorResponse(1005, '无权查看报价'));
+}
+
+export function createQuoteRoutes(dbQuery: typeof query) {
+  return async function quoteRoutes(app: FastifyInstance) {
 
   // GET /by-demand/:demand_id — 查看某需求的所有报价版本
   app.get('/by-demand/:demand_id', {
     preHandler: [authMiddleware],
   }, async (req: FastifyRequest, reply: FastifyReply) => {
     const { demand_id } = z.object({ demand_id: z.string().uuid() }).parse(req.params);
-    const result = await query(
-      'SELECT * FROM quotes WHERE demand_id = $1 ORDER BY version DESC',
-      [demand_id]
+    const viewer = await loadQuoteViewer(req, dbQuery);
+    if (!viewer || !canListQuotes(viewer)) return quoteReadDenied(reply);
+
+    const params: unknown[] = [demand_id];
+    const ownershipClause = viewer.role === 'admin' ? '' : ' AND d.client_id = $2';
+    if (viewer.role !== 'admin') params.push(viewer.sub);
+
+    const result = await dbQuery<QuoteRecord>(
+      `SELECT q.*, d.client_id AS _client_id
+       FROM quotes q
+       JOIN demands d ON d.id = q.demand_id
+       WHERE q.demand_id = $1${ownershipClause}
+       ORDER BY q.version DESC`,
+      params
     );
-    return reply.send(successResponse(result.rows));
+    return reply.send(successResponse(result.rows.map((row) => projectQuoteForViewer(row, viewer))));
   });
 
   // GET /by-opportunity/:opportunity_id — 查看某商机的所有报价版本
@@ -50,11 +94,22 @@ export default async function quoteRoutes(app: FastifyInstance) {
     preHandler: [authMiddleware],
   }, async (req: FastifyRequest, reply: FastifyReply) => {
     const { opportunity_id } = z.object({ opportunity_id: z.string().uuid() }).parse(req.params);
-    const result = await query(
-      'SELECT * FROM quotes WHERE opportunity_id = $1 ORDER BY version DESC',
-      [opportunity_id]
+    const viewer = await loadQuoteViewer(req, dbQuery);
+    if (!viewer || !canListQuotes(viewer)) return quoteReadDenied(reply);
+
+    const params: unknown[] = [opportunity_id];
+    const ownershipClause = viewer.role === 'admin' ? '' : ' AND d.client_id = $2';
+    if (viewer.role !== 'admin') params.push(viewer.sub);
+
+    const result = await dbQuery<QuoteRecord>(
+      `SELECT q.*, d.client_id AS _client_id
+       FROM quotes q
+       JOIN demands d ON d.id = q.demand_id
+       WHERE q.opportunity_id = $1${ownershipClause}
+       ORDER BY q.version DESC`,
+      params
     );
-    return reply.send(successResponse(result.rows));
+    return reply.send(successResponse(result.rows.map((row) => projectQuoteForViewer(row, viewer))));
   });
 
   // GET /:id — 报价详情
@@ -62,9 +117,22 @@ export default async function quoteRoutes(app: FastifyInstance) {
     preHandler: [authMiddleware],
   }, async (req: FastifyRequest, reply: FastifyReply) => {
     const { id } = idParamSchema.parse(req.params);
-    const result = await query('SELECT * FROM quotes WHERE id = $1', [id]);
+    const viewer = await loadQuoteViewer(req, dbQuery);
+    if (!viewer || !canListQuotes(viewer)) return quoteReadDenied(reply);
+
+    const result = await dbQuery<QuoteRecord>(
+      `SELECT q.*, d.client_id AS _client_id
+       FROM quotes q
+       JOIN demands d ON d.id = q.demand_id
+       WHERE q.id = $1`,
+      [id]
+    );
     if (result.rows.length === 0) return reply.status(404).send(errorResponse(9001, '报价不存在'));
-    return reply.send(successResponse(result.rows[0]));
+    const quote = result.rows[0];
+    if (!canAccessQuote(viewer, quote._client_id)) {
+      return reply.status(404).send(errorResponse(9001, '报价不存在'));
+    }
+    return reply.send(successResponse(projectQuoteForViewer(quote, viewer)));
   });
 
   // POST / — 新建报价（自动计算毛利率+版本号递增）
@@ -75,7 +143,7 @@ export default async function quoteRoutes(app: FastifyInstance) {
     const userId = req.user?.sub ?? '';
 
     // 自动计算版本号
-    const lastVersion = await query(
+    const lastVersion = await dbQuery(
       'SELECT MAX(version) as max_v FROM quotes WHERE demand_id = $1',
       [body.demand_id]
     );
@@ -89,7 +157,7 @@ export default async function quoteRoutes(app: FastifyInstance) {
       ? Math.round(((body.total_price - costPrice) / body.total_price) * 10000) / 100
       : 0;
 
-    const result = await query(
+    const result = await dbQuery(
       `INSERT INTO quotes (demand_id, opportunity_id, version, total_price, channel_price, cost_price, margin, valid_until, items_snapshot, created_by)
        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *`,
       [body.demand_id, body.opportunity_id, version, body.total_price, chPrice, costPrice, margin,
@@ -127,11 +195,14 @@ export default async function quoteRoutes(app: FastifyInstance) {
     if (params.length === 0) return reply.send(errorResponse(9003, '无更新字段'));
     params.push(id);
 
-    const result = await query(
+    const result = await dbQuery(
       `UPDATE quotes SET ${setClauses.join(', ')} WHERE id = $${idx} RETURNING *`,
       params
     );
     if (result.rows.length === 0) return reply.status(404).send(errorResponse(9001, '报价不存在'));
     return reply.send(successResponse(result.rows[0]));
   });
+  };
 }
+
+export default createQuoteRoutes(query);

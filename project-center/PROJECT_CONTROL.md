@@ -14,8 +14,8 @@
 |:---|:---|
 | 品牌名 | 演立方（英文 YANLI / 缩写 YLF） |
 | 定位 | AI提案获客与内容供应链平台 |
-| PRD | `演立方_V4.7_PRD_MVP落地与增长工具技术附件增强版.docx` |
-| Design System | `V4.7_Design_System_Final.md` |
+| PRD | 当前入口 `../docs/PRD.md`；V4.7 原件在 `../docs/archives/product/` |
+| Design System | `../docs/design/V4.7_Design_System_Final.md` |
 | 工作空间 | `/Users/wudixingyunxingleo/projects/演立方/` |
 
 ---
@@ -46,7 +46,7 @@
 │
 ├── agent-prompts/             # Agent 任务 Prompt 模板
 ├── docs/                      # 旧项目治理文档（参考）
-└── V4.7_Design_System_Final.md # V4.7 设计系统最终版
+└── docs/design/V4.7_Design_System_Final.md # V4.7 设计系统最终版
 ```
 
 ---
