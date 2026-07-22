@@ -8,7 +8,7 @@ import { audit } from '../../core/audit.js';
 
 export async function commercialRoutes(app: FastifyInstance) {
   // Quote accept
-  app.post('/v1/quotes/:id/accept', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.post('/v2/quotes/:id/accept', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { id } = req.params;
     const userId = req.user?.sub;
     await query("UPDATE quote_versions SET status = 'accepted', updated_at = now() WHERE id = $1 AND status = 'sent'", [id]);
@@ -18,7 +18,7 @@ export async function commercialRoutes(app: FastifyInstance) {
   });
 
   // Credential confirm
-  app.post('/v1/credentials/:id/confirm', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.post('/v2/credentials/:id/confirm', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { id } = req.params;
     const userId = req.user?.sub;
     await query("UPDATE collaboration_credentials SET status = 'effective', updated_at = now() WHERE id = $1 AND status = 'pending_confirmation'", [id]);
@@ -28,7 +28,7 @@ export async function commercialRoutes(app: FastifyInstance) {
   });
 
   // Payer claim
-  app.post('/v1/payments/:schedule_id/declare', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.post('/v2/payments/:schedule_id/declare', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { schedule_id } = req.params;
     const userId = req.user?.sub;
     await query("INSERT INTO payment_records (schedule_id, statement_type, declared_by, amount, status) VALUES ($1,'payer_claim',$2,'0','reported')", [schedule_id, userId]);
@@ -38,7 +38,7 @@ export async function commercialRoutes(app: FastifyInstance) {
   });
 
   // Payee receipt
-  app.post('/v1/payments/:schedule_id/confirm-receipt', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.post('/v2/payments/:schedule_id/confirm-receipt', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { schedule_id } = req.params;
     const userId = req.user?.sub;
     await query("INSERT INTO payment_records (schedule_id, statement_type, declared_by, amount, status) VALUES ($1,'payee_receipt',$2,'0','reported')", [schedule_id, userId]);
