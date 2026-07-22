@@ -26,6 +26,7 @@ import { Route as TenantProgramsRouteImport } from './routes/tenant.programs'
 import { Route as TenantPartnersRouteImport } from './routes/tenant.partners'
 import { Route as TenantExecutionRouteImport } from './routes/tenant.execution'
 import { Route as ProjectsIdRouteImport } from './routes/projects.$id'
+import { Route as H5TenantRouteImport } from './routes/h5.tenant'
 import { Route as H5DiscoverRouteImport } from './routes/h5.discover'
 import { Route as H5ActorRouteImport } from './routes/h5.actor'
 import { Route as AgentMemoryRouteImport } from './routes/agent.memory'
@@ -173,6 +174,11 @@ const TenantExecutionRoute = TenantExecutionRouteImport.update({
 const ProjectsIdRoute = ProjectsIdRouteImport.update({
   id: '/projects/$id',
   path: '/projects/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const H5TenantRoute = H5TenantRouteImport.update({
+  id: '/h5/tenant',
+  path: '/h5/tenant',
   getParentRoute: () => rootRouteImport,
 } as any)
 const H5DiscoverRoute = H5DiscoverRouteImport.update({
@@ -374,9 +380,9 @@ const PlansIdPublicRoute = PlansIdPublicRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const H5TenantMsaRoute = H5TenantMsaRouteImport.update({
-  id: '/h5/tenant/msa',
-  path: '/h5/tenant/msa',
-  getParentRoute: () => rootRouteImport,
+  id: '/msa',
+  path: '/msa',
+  getParentRoute: () => H5TenantRoute,
 } as any)
 const DiscoverTenantsIdRoute = DiscoverTenantsIdRouteImport.update({
   id: '/discover/tenants/$id',
@@ -527,6 +533,7 @@ export interface FileRoutesByFullPath {
   '/agent/memory': typeof AgentMemoryRoute
   '/h5/actor': typeof H5ActorRoute
   '/h5/discover': typeof H5DiscoverRoute
+  '/h5/tenant': typeof H5TenantRouteWithChildren
   '/projects/$id': typeof ProjectsIdRouteWithChildren
   '/tenant/execution': typeof TenantExecutionRoute
   '/tenant/partners': typeof TenantPartnersRoute
@@ -609,6 +616,7 @@ export interface FileRoutesByTo {
   '/agent/memory': typeof AgentMemoryRoute
   '/h5/actor': typeof H5ActorRoute
   '/h5/discover': typeof H5DiscoverRoute
+  '/h5/tenant': typeof H5TenantRouteWithChildren
   '/tenant/execution': typeof TenantExecutionRoute
   '/tenant/partners': typeof TenantPartnersRoute
   '/tenant/programs': typeof TenantProgramsRoute
@@ -691,6 +699,7 @@ export interface FileRoutesById {
   '/agent/memory': typeof AgentMemoryRoute
   '/h5/actor': typeof H5ActorRoute
   '/h5/discover': typeof H5DiscoverRoute
+  '/h5/tenant': typeof H5TenantRouteWithChildren
   '/projects/$id': typeof ProjectsIdRouteWithChildren
   '/tenant/execution': typeof TenantExecutionRoute
   '/tenant/partners': typeof TenantPartnersRoute
@@ -775,6 +784,7 @@ export interface FileRouteTypes {
     | '/agent/memory'
     | '/h5/actor'
     | '/h5/discover'
+    | '/h5/tenant'
     | '/projects/$id'
     | '/tenant/execution'
     | '/tenant/partners'
@@ -857,6 +867,7 @@ export interface FileRouteTypes {
     | '/agent/memory'
     | '/h5/actor'
     | '/h5/discover'
+    | '/h5/tenant'
     | '/tenant/execution'
     | '/tenant/partners'
     | '/tenant/programs'
@@ -938,6 +949,7 @@ export interface FileRouteTypes {
     | '/agent/memory'
     | '/h5/actor'
     | '/h5/discover'
+    | '/h5/tenant'
     | '/projects/$id'
     | '/tenant/execution'
     | '/tenant/partners'
@@ -1021,6 +1033,7 @@ export interface RootRouteChildren {
   AgentMemoryRoute: typeof AgentMemoryRoute
   H5ActorRoute: typeof H5ActorRoute
   H5DiscoverRoute: typeof H5DiscoverRoute
+  H5TenantRoute: typeof H5TenantRouteWithChildren
   ProjectsIdRoute: typeof ProjectsIdRouteWithChildren
   TenantExecutionRoute: typeof TenantExecutionRoute
   TenantPartnersRoute: typeof TenantPartnersRoute
@@ -1038,7 +1051,6 @@ export interface RootRouteChildren {
   DiscoverProgramsIdRoute: typeof DiscoverProgramsIdRoute
   DiscoverServiceProductsCompareRoute: typeof DiscoverServiceProductsCompareRoute
   DiscoverTenantsIdRoute: typeof DiscoverTenantsIdRoute
-  H5TenantMsaRoute: typeof H5TenantMsaRoute
   PlansIdPublicRoute: typeof PlansIdPublicRoute
   TenantOpportunitiesIdRoute: typeof TenantOpportunitiesIdRoute
   TenantOrdersIdRoute: typeof TenantOrdersIdRoute
@@ -1177,6 +1189,13 @@ declare module '@tanstack/react-router' {
       path: '/projects/$id'
       fullPath: '/projects/$id'
       preLoaderRoute: typeof ProjectsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/h5/tenant': {
+      id: '/h5/tenant'
+      path: '/h5/tenant'
+      fullPath: '/h5/tenant'
+      preLoaderRoute: typeof H5TenantRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/h5/discover': {
@@ -1454,10 +1473,10 @@ declare module '@tanstack/react-router' {
     }
     '/h5/tenant/msa': {
       id: '/h5/tenant/msa'
-      path: '/h5/tenant/msa'
+      path: '/msa'
       fullPath: '/h5/tenant/msa'
       preLoaderRoute: typeof H5TenantMsaRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof H5TenantRoute
     }
     '/discover/tenants/$id': {
       id: '/discover/tenants/$id'
@@ -1623,6 +1642,18 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface H5TenantRouteChildren {
+  H5TenantMsaRoute: typeof H5TenantMsaRoute
+}
+
+const H5TenantRouteChildren: H5TenantRouteChildren = {
+  H5TenantMsaRoute: H5TenantMsaRoute,
+}
+
+const H5TenantRouteWithChildren = H5TenantRoute._addFileChildren(
+  H5TenantRouteChildren,
+)
+
 interface ProjectsIdRouteChildren {
   ProjectsIdChangesRoute: typeof ProjectsIdChangesRoute
   ProjectsIdDealRoute: typeof ProjectsIdDealRoute
@@ -1705,6 +1736,7 @@ const rootRouteChildren: RootRouteChildren = {
   AgentMemoryRoute: AgentMemoryRoute,
   H5ActorRoute: H5ActorRoute,
   H5DiscoverRoute: H5DiscoverRoute,
+  H5TenantRoute: H5TenantRouteWithChildren,
   ProjectsIdRoute: ProjectsIdRouteWithChildren,
   TenantExecutionRoute: TenantExecutionRoute,
   TenantPartnersRoute: TenantPartnersRoute,
@@ -1722,7 +1754,6 @@ const rootRouteChildren: RootRouteChildren = {
   DiscoverProgramsIdRoute: DiscoverProgramsIdRoute,
   DiscoverServiceProductsCompareRoute: DiscoverServiceProductsCompareRoute,
   DiscoverTenantsIdRoute: DiscoverTenantsIdRoute,
-  H5TenantMsaRoute: H5TenantMsaRoute,
   PlansIdPublicRoute: PlansIdPublicRoute,
   TenantOpportunitiesIdRoute: TenantOpportunitiesIdRoute,
   TenantOrdersIdRoute: TenantOrdersIdRoute,
