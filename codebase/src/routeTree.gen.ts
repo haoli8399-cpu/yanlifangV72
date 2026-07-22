@@ -27,6 +27,7 @@ import { Route as TenantPartnersRouteImport } from './routes/tenant.partners'
 import { Route as TenantExecutionRouteImport } from './routes/tenant.execution'
 import { Route as ProjectsIdRouteImport } from './routes/projects.$id'
 import { Route as H5TenantRouteImport } from './routes/h5.tenant'
+import { Route as H5ProjectsRouteImport } from './routes/h5.projects'
 import { Route as H5DiscoverRouteImport } from './routes/h5.discover'
 import { Route as H5ActorRouteImport } from './routes/h5.actor'
 import { Route as AgentMemoryRouteImport } from './routes/agent.memory'
@@ -67,6 +68,8 @@ import { Route as ProjectsIdDealRouteImport } from './routes/projects.$id.deal'
 import { Route as ProjectsIdChangesRouteImport } from './routes/projects.$id.changes'
 import { Route as PlansIdPublicRouteImport } from './routes/plans.$id.public'
 import { Route as H5TenantMsaRouteImport } from './routes/h5.tenant.msa'
+import { Route as H5ProjectsIdRouteImport } from './routes/h5.projects.$id'
+import { Route as H5DiscoverActorsRouteImport } from './routes/h5.discover.actors'
 import { Route as DiscoverTenantsIdRouteImport } from './routes/discover.tenants.$id'
 import { Route as DiscoverServiceProductsCompareRouteImport } from './routes/discover.service-products.compare'
 import { Route as DiscoverProgramsIdRouteImport } from './routes/discover.programs.$id'
@@ -179,6 +182,11 @@ const ProjectsIdRoute = ProjectsIdRouteImport.update({
 const H5TenantRoute = H5TenantRouteImport.update({
   id: '/h5/tenant',
   path: '/h5/tenant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const H5ProjectsRoute = H5ProjectsRouteImport.update({
+  id: '/h5/projects',
+  path: '/h5/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
 const H5DiscoverRoute = H5DiscoverRouteImport.update({
@@ -384,6 +392,16 @@ const H5TenantMsaRoute = H5TenantMsaRouteImport.update({
   path: '/msa',
   getParentRoute: () => H5TenantRoute,
 } as any)
+const H5ProjectsIdRoute = H5ProjectsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => H5ProjectsRoute,
+} as any)
+const H5DiscoverActorsRoute = H5DiscoverActorsRouteImport.update({
+  id: '/actors',
+  path: '/actors',
+  getParentRoute: () => H5DiscoverRoute,
+} as any)
 const DiscoverTenantsIdRoute = DiscoverTenantsIdRouteImport.update({
   id: '/discover/tenants/$id',
   path: '/discover/tenants/$id',
@@ -532,7 +550,8 @@ export interface FileRoutesByFullPath {
   '/admin/permissions': typeof AdminPermissionsRoute
   '/agent/memory': typeof AgentMemoryRoute
   '/h5/actor': typeof H5ActorRoute
-  '/h5/discover': typeof H5DiscoverRoute
+  '/h5/discover': typeof H5DiscoverRouteWithChildren
+  '/h5/projects': typeof H5ProjectsRouteWithChildren
   '/h5/tenant': typeof H5TenantRouteWithChildren
   '/projects/$id': typeof ProjectsIdRouteWithChildren
   '/tenant/execution': typeof TenantExecutionRoute
@@ -551,6 +570,8 @@ export interface FileRoutesByFullPath {
   '/discover/programs/$id': typeof DiscoverProgramsIdRoute
   '/discover/service-products/compare': typeof DiscoverServiceProductsCompareRoute
   '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
+  '/h5/discover/actors': typeof H5DiscoverActorsRoute
+  '/h5/projects/$id': typeof H5ProjectsIdRoute
   '/h5/tenant/msa': typeof H5TenantMsaRoute
   '/plans/$id/public': typeof PlansIdPublicRoute
   '/projects/$id/changes': typeof ProjectsIdChangesRoute
@@ -615,7 +636,8 @@ export interface FileRoutesByTo {
   '/admin/permissions': typeof AdminPermissionsRoute
   '/agent/memory': typeof AgentMemoryRoute
   '/h5/actor': typeof H5ActorRoute
-  '/h5/discover': typeof H5DiscoverRoute
+  '/h5/discover': typeof H5DiscoverRouteWithChildren
+  '/h5/projects': typeof H5ProjectsRouteWithChildren
   '/h5/tenant': typeof H5TenantRouteWithChildren
   '/tenant/execution': typeof TenantExecutionRoute
   '/tenant/partners': typeof TenantPartnersRoute
@@ -633,6 +655,8 @@ export interface FileRoutesByTo {
   '/discover/programs/$id': typeof DiscoverProgramsIdRoute
   '/discover/service-products/compare': typeof DiscoverServiceProductsCompareRoute
   '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
+  '/h5/discover/actors': typeof H5DiscoverActorsRoute
+  '/h5/projects/$id': typeof H5ProjectsIdRoute
   '/h5/tenant/msa': typeof H5TenantMsaRoute
   '/plans/$id/public': typeof PlansIdPublicRoute
   '/projects/$id/changes': typeof ProjectsIdChangesRoute
@@ -698,7 +722,8 @@ export interface FileRoutesById {
   '/admin/permissions': typeof AdminPermissionsRoute
   '/agent/memory': typeof AgentMemoryRoute
   '/h5/actor': typeof H5ActorRoute
-  '/h5/discover': typeof H5DiscoverRoute
+  '/h5/discover': typeof H5DiscoverRouteWithChildren
+  '/h5/projects': typeof H5ProjectsRouteWithChildren
   '/h5/tenant': typeof H5TenantRouteWithChildren
   '/projects/$id': typeof ProjectsIdRouteWithChildren
   '/tenant/execution': typeof TenantExecutionRoute
@@ -717,6 +742,8 @@ export interface FileRoutesById {
   '/discover/programs/$id': typeof DiscoverProgramsIdRoute
   '/discover/service-products/compare': typeof DiscoverServiceProductsCompareRoute
   '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
+  '/h5/discover/actors': typeof H5DiscoverActorsRoute
+  '/h5/projects/$id': typeof H5ProjectsIdRoute
   '/h5/tenant/msa': typeof H5TenantMsaRoute
   '/plans/$id/public': typeof PlansIdPublicRoute
   '/projects/$id/changes': typeof ProjectsIdChangesRoute
@@ -784,6 +811,7 @@ export interface FileRouteTypes {
     | '/agent/memory'
     | '/h5/actor'
     | '/h5/discover'
+    | '/h5/projects'
     | '/h5/tenant'
     | '/projects/$id'
     | '/tenant/execution'
@@ -802,6 +830,8 @@ export interface FileRouteTypes {
     | '/discover/programs/$id'
     | '/discover/service-products/compare'
     | '/discover/tenants/$id'
+    | '/h5/discover/actors'
+    | '/h5/projects/$id'
     | '/h5/tenant/msa'
     | '/plans/$id/public'
     | '/projects/$id/changes'
@@ -867,6 +897,7 @@ export interface FileRouteTypes {
     | '/agent/memory'
     | '/h5/actor'
     | '/h5/discover'
+    | '/h5/projects'
     | '/h5/tenant'
     | '/tenant/execution'
     | '/tenant/partners'
@@ -884,6 +915,8 @@ export interface FileRouteTypes {
     | '/discover/programs/$id'
     | '/discover/service-products/compare'
     | '/discover/tenants/$id'
+    | '/h5/discover/actors'
+    | '/h5/projects/$id'
     | '/h5/tenant/msa'
     | '/plans/$id/public'
     | '/projects/$id/changes'
@@ -949,6 +982,7 @@ export interface FileRouteTypes {
     | '/agent/memory'
     | '/h5/actor'
     | '/h5/discover'
+    | '/h5/projects'
     | '/h5/tenant'
     | '/projects/$id'
     | '/tenant/execution'
@@ -967,6 +1001,8 @@ export interface FileRouteTypes {
     | '/discover/programs/$id'
     | '/discover/service-products/compare'
     | '/discover/tenants/$id'
+    | '/h5/discover/actors'
+    | '/h5/projects/$id'
     | '/h5/tenant/msa'
     | '/plans/$id/public'
     | '/projects/$id/changes'
@@ -1032,7 +1068,8 @@ export interface RootRouteChildren {
   AdminPermissionsRoute: typeof AdminPermissionsRoute
   AgentMemoryRoute: typeof AgentMemoryRoute
   H5ActorRoute: typeof H5ActorRoute
-  H5DiscoverRoute: typeof H5DiscoverRoute
+  H5DiscoverRoute: typeof H5DiscoverRouteWithChildren
+  H5ProjectsRoute: typeof H5ProjectsRouteWithChildren
   H5TenantRoute: typeof H5TenantRouteWithChildren
   ProjectsIdRoute: typeof ProjectsIdRouteWithChildren
   TenantExecutionRoute: typeof TenantExecutionRoute
@@ -1196,6 +1233,13 @@ declare module '@tanstack/react-router' {
       path: '/h5/tenant'
       fullPath: '/h5/tenant'
       preLoaderRoute: typeof H5TenantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/h5/projects': {
+      id: '/h5/projects'
+      path: '/h5/projects'
+      fullPath: '/h5/projects'
+      preLoaderRoute: typeof H5ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/h5/discover': {
@@ -1478,6 +1522,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof H5TenantMsaRouteImport
       parentRoute: typeof H5TenantRoute
     }
+    '/h5/projects/$id': {
+      id: '/h5/projects/$id'
+      path: '/$id'
+      fullPath: '/h5/projects/$id'
+      preLoaderRoute: typeof H5ProjectsIdRouteImport
+      parentRoute: typeof H5ProjectsRoute
+    }
+    '/h5/discover/actors': {
+      id: '/h5/discover/actors'
+      path: '/actors'
+      fullPath: '/h5/discover/actors'
+      preLoaderRoute: typeof H5DiscoverActorsRouteImport
+      parentRoute: typeof H5DiscoverRoute
+    }
     '/discover/tenants/$id': {
       id: '/discover/tenants/$id'
       path: '/discover/tenants/$id'
@@ -1642,6 +1700,30 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface H5DiscoverRouteChildren {
+  H5DiscoverActorsRoute: typeof H5DiscoverActorsRoute
+}
+
+const H5DiscoverRouteChildren: H5DiscoverRouteChildren = {
+  H5DiscoverActorsRoute: H5DiscoverActorsRoute,
+}
+
+const H5DiscoverRouteWithChildren = H5DiscoverRoute._addFileChildren(
+  H5DiscoverRouteChildren,
+)
+
+interface H5ProjectsRouteChildren {
+  H5ProjectsIdRoute: typeof H5ProjectsIdRoute
+}
+
+const H5ProjectsRouteChildren: H5ProjectsRouteChildren = {
+  H5ProjectsIdRoute: H5ProjectsIdRoute,
+}
+
+const H5ProjectsRouteWithChildren = H5ProjectsRoute._addFileChildren(
+  H5ProjectsRouteChildren,
+)
+
 interface H5TenantRouteChildren {
   H5TenantMsaRoute: typeof H5TenantMsaRoute
 }
@@ -1735,7 +1817,8 @@ const rootRouteChildren: RootRouteChildren = {
   AdminPermissionsRoute: AdminPermissionsRoute,
   AgentMemoryRoute: AgentMemoryRoute,
   H5ActorRoute: H5ActorRoute,
-  H5DiscoverRoute: H5DiscoverRoute,
+  H5DiscoverRoute: H5DiscoverRouteWithChildren,
+  H5ProjectsRoute: H5ProjectsRouteWithChildren,
   H5TenantRoute: H5TenantRouteWithChildren,
   ProjectsIdRoute: ProjectsIdRouteWithChildren,
   TenantExecutionRoute: TenantExecutionRoute,
