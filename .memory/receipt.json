@@ -1,5 +1,92 @@
 {
-  "cached_at": "2026-07-22T08:07:08.276Z",
+  "schema_version": 1,
+  "task_id": "FE-LANG-CASE-001",
+  "task_summary": "全站用户语言治理+真实案例替换",
+  "modules": [
+    "frontend",
+    "UX",
+    "content"
+  ],
+  "executed_at": "2026-07-22T08:07:08.276Z",
+  "mode": "openviking",
+  "risk": "normal",
+  "current_prd_version": "V7.2",
+  "core_knowledge": [
+    "viking://user/default/resources/yanlifang-project-memory/00_PROJECT_CONTEXT/00-project-context.md",
+    "viking://user/default/resources/yanlifang-project-memory/01_PRODUCT_MEMORY/01-product-current.md",
+    "viking://user/default/resources/yanlifang-project-memory/02_TECH_MEMORY/02-technical-current.md",
+    "viking://user/default/resources/yanlifang-project-memory/03_DECISIONS/03-decisions-current.md",
+    "viking://user/default/resources/yanlifang-project-memory/04_DEVELOPMENT_STATUS/04-development-status.md",
+    "viking://user/default/resources/yanlifang-project-memory/07_AGENT_RULES/07-agent-rules.md"
+  ],
+  "related_decision_ids": [
+    "YLF-DECISIONS-001"
+  ],
+  "project_status_version": "2026-07-22T08:04:56.225Z",
+  "key_sources": [
+    "README.md",
+    "PROJECT_STATUS.md",
+    "DECISIONS.md",
+    "docs/PRD.md",
+    "docs/PRD_V7.2.md",
+    "versions.json",
+    "docs/ARCHITECTURE.md",
+    "docs/MVP_CURRENT_AUDIT.md",
+    "codebase/package.json",
+    "backend/package.json",
+    "miniprogram/package.json",
+    "DECISIONS.md",
+    "PROJECT_STATUS.md",
+    "project-state.json",
+    "versions.json",
+    "AGENTS.md",
+    "MVP_DEV_PLAYBOOK.md"
+  ],
+  "retrieved_queries": [
+    {
+      "query": "当前产品范围和 PRD 规则：全站用户语言治理+真实案例替换；frontend,UX,content",
+      "ok": true
+    },
+    {
+      "query": "与任务有关的业务规则和用户流程：全站用户语言治理+真实案例替换；frontend,UX,content",
+      "ok": true
+    },
+    {
+      "query": "与任务有关的 Approved 重大决策：全站用户语言治理+真实案例替换；frontend,UX,content",
+      "ok": true
+    },
+    {
+      "query": "当前开发状态、已知缺口和禁止修改范围：全站用户语言治理+真实案例替换；frontend,UX,content",
+      "ok": true
+    },
+    {
+      "query": "历史风险、踩坑和必须执行的测试：全站用户语言治理+真实案例替换；frontend,UX,content",
+      "ok": true
+    }
+  ],
+  "conflicts": [],
+  "source_issues": [],
+  "git": {
+    "branch": "feat/workspace-version-governance",
+    "head": "ce62cdd84165f81a8aa97205ae74e5f47c1f0b2d",
+    "dirty": true,
+    "changedFiles": [
+      "M .memory/cache.json",
+      " M .memory/context.md",
+      " M .memory/manifest-upload.json",
+      " M .memory/upload-00-project-context.md",
+      " M .memory/upload-01-product-current.md",
+      " M .memory/upload-02-technical-current.md",
+      " M .memory/upload-03-decisions-current.md",
+      " M .memory/upload-04-development-status.md",
+      " M .memory/upload-07-agent-rules.md",
+      " M docs/memory/knowledge/00-project-context.md",
+      " M docs/memory/knowledge/01-product-current.md",
+      " M docs/memory/knowledge/02-technical-current.md",
+      " M docs/memory/knowledge/04-development-status.md"
+    ]
+  },
+  "manifest_hash": "76d11c77743a555ea31040d7eef8685edc35919adef4bc5b85c655088169e865",
   "manifest": {
     "schema_version": 1,
     "project": "yanlifang",
@@ -124,5 +211,7 @@
         ]
       }
     ]
-  }
+  },
+  "context_complete": true,
+  "allow_development": true
 }

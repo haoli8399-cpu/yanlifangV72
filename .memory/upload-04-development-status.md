@@ -18,19 +18,19 @@ tags: project=yanlifang,status=approved,type=development_status
 
 当前最高优先级：先串行建设 Tenant 身份与成员权限基础，再实现 F13/F14 报价规则版本模型；底价、分成、折扣和毛利计算口径确认后进入 F15 确定性预算引擎。
 
-最大风险：当前报价收紧仍基于旧版需求创建人归属，不能替代 Tenant 隔离；旧三层价格和硬编码比例不符合 V6.6；除报价读取权限外，金额、状态机等高风险模块仍无自动测试；发布路径不可复现。
+最大风险：当前报价收紧仍基于旧版需求创建人归属，不能替代 Tenant 隔离；旧三层价格和硬编码比例不符合 V7.2；除报价读取权限外，金额、状态机等高风险模块仍无自动测试；发布路径不可复现。
 
 实时状态必须重新读取 `PROJECT_STATUS.md`、`project-state.json` 和 Git。OpenViking 中的本摘要只是一份带来源哈希的同步索引，不能替代现场检查。
 
 <!-- SOURCE_VALIDATION
 {
-  "synced_at": "2026-07-15T14:43:34.503Z",
-  "git_head": "78a659e762a8c144a56f07a497dff8d235b7bf1f",
+  "synced_at": "2026-07-22T08:04:56.225Z",
+  "git_head": "ce62cdd84165f81a8aa97205ae74e5f47c1f0b2d",
   "git_branch": "feat/workspace-version-governance",
   "source_hashes": {
     "PROJECT_STATUS.md": "cd14b5b7dda1664fdba0c077111fcf2db51cd3582da745f5c0ea74de1e839416",
     "project-state.json": "550f2f2d975680d0a7cda69d92d231976a835d31f88254407374d37882cee5b8",
-    "versions.json": "7c50bc2b3f54f54a34a8820126c548630ae1731f748991ecf4a96479f36707ef"
+    "versions.json": "53c0cbd5c2f593c06b90ea6ce48ef569402f600e7b7f049b8d0c969b592b3dbb"
   }
 }
 -->

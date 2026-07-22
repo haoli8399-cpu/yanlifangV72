@@ -1,12 +1,49 @@
 {
   "schema_version": 1,
-  "task_id": "PRD-V6.7-IMPACT-B",
-  "generated_at": "2026-07-15T15:44:20.825Z",
+  "task_id": "FE-LANG-CASE-001",
+  "generated_at": "2026-07-22T08:09:21.981Z",
   "files": [
-    ".memory/mcp-evidence.json"
+    ".memory/cache.json",
+    ".memory/context.md",
+    ".memory/manifest-upload.json",
+    ".memory/upload-00-project-context.md",
+    ".memory/upload-01-product-current.md",
+    ".memory/upload-02-technical-current.md",
+    ".memory/upload-03-decisions-current.md",
+    ".memory/upload-04-development-status.md",
+    ".memory/upload-07-agent-rules.md",
+    "docs/memory/knowledge/00-project-context.md",
+    "docs/memory/knowledge/01-product-current.md",
+    "docs/memory/knowledge/02-technical-current.md",
+    "docs/memory/knowledge/04-development-status.md"
   ],
   "ignored_as_transient": [],
-  "candidates": [],
-  "should_write_long_term_memory": false,
+  "candidates": [
+    {
+      "file": "docs/memory/knowledge/00-project-context.md",
+      "knowledge_type": "agent_rules_or_memory_system",
+      "status": "Proposed",
+      "requires_source_validation": true
+    },
+    {
+      "file": "docs/memory/knowledge/01-product-current.md",
+      "knowledge_type": "agent_rules_or_memory_system",
+      "status": "Proposed",
+      "requires_source_validation": true
+    },
+    {
+      "file": "docs/memory/knowledge/02-technical-current.md",
+      "knowledge_type": "agent_rules_or_memory_system",
+      "status": "Proposed",
+      "requires_source_validation": true
+    },
+    {
+      "file": "docs/memory/knowledge/04-development-status.md",
+      "knowledge_type": "agent_rules_or_memory_system",
+      "status": "Proposed",
+      "requires_source_validation": true
+    }
+  ],
+  "should_write_long_term_memory": true,
   "writeback_authority": "Candidates remain Proposed until authority sources are updated and required approval is recorded."
 }
