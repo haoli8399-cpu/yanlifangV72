@@ -26,6 +26,7 @@ import { Route as TenantProgramsRouteImport } from './routes/tenant.programs'
 import { Route as TenantPartnersRouteImport } from './routes/tenant.partners'
 import { Route as TenantExecutionRouteImport } from './routes/tenant.execution'
 import { Route as ProjectsIdRouteImport } from './routes/projects.$id'
+import { Route as H5DiscoverRouteImport } from './routes/h5.discover'
 import { Route as H5ActorRouteImport } from './routes/h5.actor'
 import { Route as AgentMemoryRouteImport } from './routes/agent.memory'
 import { Route as AdminPermissionsRouteImport } from './routes/admin.permissions'
@@ -172,6 +173,11 @@ const TenantExecutionRoute = TenantExecutionRouteImport.update({
 const ProjectsIdRoute = ProjectsIdRouteImport.update({
   id: '/projects/$id',
   path: '/projects/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const H5DiscoverRoute = H5DiscoverRouteImport.update({
+  id: '/h5/discover',
+  path: '/h5/discover',
   getParentRoute: () => rootRouteImport,
 } as any)
 const H5ActorRoute = H5ActorRouteImport.update({
@@ -520,6 +526,7 @@ export interface FileRoutesByFullPath {
   '/admin/permissions': typeof AdminPermissionsRoute
   '/agent/memory': typeof AgentMemoryRoute
   '/h5/actor': typeof H5ActorRoute
+  '/h5/discover': typeof H5DiscoverRoute
   '/projects/$id': typeof ProjectsIdRouteWithChildren
   '/tenant/execution': typeof TenantExecutionRoute
   '/tenant/partners': typeof TenantPartnersRoute
@@ -601,6 +608,7 @@ export interface FileRoutesByTo {
   '/admin/permissions': typeof AdminPermissionsRoute
   '/agent/memory': typeof AgentMemoryRoute
   '/h5/actor': typeof H5ActorRoute
+  '/h5/discover': typeof H5DiscoverRoute
   '/tenant/execution': typeof TenantExecutionRoute
   '/tenant/partners': typeof TenantPartnersRoute
   '/tenant/programs': typeof TenantProgramsRoute
@@ -682,6 +690,7 @@ export interface FileRoutesById {
   '/admin/permissions': typeof AdminPermissionsRoute
   '/agent/memory': typeof AgentMemoryRoute
   '/h5/actor': typeof H5ActorRoute
+  '/h5/discover': typeof H5DiscoverRoute
   '/projects/$id': typeof ProjectsIdRouteWithChildren
   '/tenant/execution': typeof TenantExecutionRoute
   '/tenant/partners': typeof TenantPartnersRoute
@@ -765,6 +774,7 @@ export interface FileRouteTypes {
     | '/admin/permissions'
     | '/agent/memory'
     | '/h5/actor'
+    | '/h5/discover'
     | '/projects/$id'
     | '/tenant/execution'
     | '/tenant/partners'
@@ -846,6 +856,7 @@ export interface FileRouteTypes {
     | '/admin/permissions'
     | '/agent/memory'
     | '/h5/actor'
+    | '/h5/discover'
     | '/tenant/execution'
     | '/tenant/partners'
     | '/tenant/programs'
@@ -926,6 +937,7 @@ export interface FileRouteTypes {
     | '/admin/permissions'
     | '/agent/memory'
     | '/h5/actor'
+    | '/h5/discover'
     | '/projects/$id'
     | '/tenant/execution'
     | '/tenant/partners'
@@ -1008,6 +1020,7 @@ export interface RootRouteChildren {
   AdminPermissionsRoute: typeof AdminPermissionsRoute
   AgentMemoryRoute: typeof AgentMemoryRoute
   H5ActorRoute: typeof H5ActorRoute
+  H5DiscoverRoute: typeof H5DiscoverRoute
   ProjectsIdRoute: typeof ProjectsIdRouteWithChildren
   TenantExecutionRoute: typeof TenantExecutionRoute
   TenantPartnersRoute: typeof TenantPartnersRoute
@@ -1164,6 +1177,13 @@ declare module '@tanstack/react-router' {
       path: '/projects/$id'
       fullPath: '/projects/$id'
       preLoaderRoute: typeof ProjectsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/h5/discover': {
+      id: '/h5/discover'
+      path: '/h5/discover'
+      fullPath: '/h5/discover'
+      preLoaderRoute: typeof H5DiscoverRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/h5/actor': {
@@ -1684,6 +1704,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminPermissionsRoute: AdminPermissionsRoute,
   AgentMemoryRoute: AgentMemoryRoute,
   H5ActorRoute: H5ActorRoute,
+  H5DiscoverRoute: H5DiscoverRoute,
   ProjectsIdRoute: ProjectsIdRouteWithChildren,
   TenantExecutionRoute: TenantExecutionRoute,
   TenantPartnersRoute: TenantPartnersRoute,
