@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Receipt, FileText, CreditCard, ShieldCheck, AlertCircle } from "lucide-react";
+import { useState } from "react";
+import { Receipt, FileText, CreditCard, ShieldCheck, AlertCircle, CheckCircle2 } from "lucide-react";
 import { getProject, type Project } from "@/lib/fixtures";
 import { StatusBadge } from "@/components/yanlicube/status-badge";
 
@@ -47,7 +48,31 @@ function SectionTitle({ icon: Icon, title }: { icon: React.ComponentType<{ class
 }
 
 function DealPage() {
-  const { project } = Route.useLoaderData() as { project: Project };
+  const [project, setProject] = useState<Project | undefined>(undefined);
+  const _data = Route.useLoaderData() as { project: Project };
+  // 初始化：从 loader 获取数据（仅首次）
+  if (!project && _data) setProject(_data.project);
+  // 如果 project 还未加载，显示空状态
+  if (!project) return <div className="p-4 text-center text-sm text-muted-foreground">加载中...</div>;
+
+  const handleAccept = () => {
+    if (!project?.quote) return;
+    setProject({ ...project, quote: { ...project.quote, status: "confirmed" } });
+  };
+  const handleReject = () => {
+    if (!project?.quote) return;
+    setProject({ ...project, quote: { ...project.quote, status: "draft" } });
+  };
+  const handleSign = () => {
+    if (!project?.credential) return;
+    setProject({ ...project, credential: { ...project.credential, status: "effective" } });
+  };
+  const handlePay = (idx: number) => {
+    if (!project?.paymentSchedule) return;
+    const ps = [...project.paymentSchedule];
+    ps[idx] = { ...ps[idx], status: "paid" };
+    setProject({ ...project, paymentSchedule: ps });
+  };
 
   if (project.stage === "exploring") {
     return <EmptyDeal message="活动还在理解需求阶段，尚无商务确认信息" />;
@@ -107,12 +132,18 @@ function DealPage() {
             </div>
           )}
           <div className="mt-4 flex gap-2">
-            <button className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3.5 py-2 text-xs font-semibold text-primary-foreground hover:bg-primary/90" disabled>
-              接受报价
-            </button>
-            <button className="inline-flex items-center gap-1.5 rounded-md border border-border/60 bg-card/50 px-3.5 py-2 text-xs text-foreground/80 hover:border-primary/40" disabled>
-              拒绝报价
-            </button>
+            {project.quote.status !== "confirmed" ? (
+              <>
+                <button onClick={handleAccept} className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-md bg-primary px-3.5 py-2 text-xs font-semibold text-primary-foreground hover:bg-primary/90 active:opacity-80">
+                  <CheckCircle2 className="h-3.5 w-3.5" />接受报价
+                </button>
+                <button onClick={handleReject} className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-md border border-border/60 bg-card/50 px-3.5 py-2 text-xs text-foreground/80 hover:border-primary/40 active:bg-secondary/30">
+                  拒绝报价
+                </button>
+              </>
+            ) : (
+              <span className="w-full text-center text-xs text-green-600 font-medium py-2">报价已确认</span>
+            )}
           </div>
         </section>
       )}
@@ -135,9 +166,9 @@ function DealPage() {
           </div>
           {project.credential.status === "pending" && (
             <div className="mt-4">
-              <button className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3.5 py-2 text-xs font-semibold text-primary-foreground hover:bg-primary/90" disabled>
-                查看并签署
-              </button>
+              <button onClick={handleSign} className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3.5 py-2 text-xs font-semibold text-primary-foreground hover:bg-primary/90 active:opacity-80">
+              <CheckCircle2 className="h-3.5 w-3.5" />确认合作
+            </button>
             </div>
           )}
         </section>
@@ -163,7 +194,7 @@ function DealPage() {
                   </div>
                 </div>
                 {item.status === "pending" && (
-                  <button className="inline-flex items-center gap-1 rounded-md border border-primary/40 bg-primary/5 px-2.5 py-1.5 text-[11px] font-medium text-primary hover:bg-primary/10" disabled>
+                  <button onClick={() => handlePay(i)} className="inline-flex items-center gap-1 rounded-md border border-primary/40 bg-primary/5 px-2.5 py-1.5 text-[11px] font-medium text-primary hover:bg-primary/10 active:bg-primary/20">
                     我已付款
                   </button>
                 )}
@@ -188,7 +219,7 @@ function DealPage() {
         </div>
         <div className="mt-2 flex items-center gap-1.5 rounded-md border border-[color:var(--state-ai)]/30 bg-[color:var(--state-ai)]/5 px-2.5 py-1.5">
           <AlertCircle className="h-3 w-3 text-[color:var(--state-ai)]" />
-          <span className="text-[10px] text-foreground/70">按钮为演示状态，未接入真实 API</span>
+          <span className="text-[10px] text-foreground/70">演示状态 — 状态变化为本地 Mock，不产生真实业务事实</span>
         </div>
       </div>
     </div>
