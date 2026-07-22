@@ -2,7 +2,7 @@
 
 - 任务：解释未提交任务与新任务之间的事实源一致性和并发规则
 - 风险：normal
-- 当前 PRD：V6.6
+- 当前 PRD：V7.2
 - 检索模式：verified_cache
 - Git：feat/workspace-version-governance @ 78a659e762a8c144a56f07a497dff8d235b7bf1f（存在未提交修改）
 

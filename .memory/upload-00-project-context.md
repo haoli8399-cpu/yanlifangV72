@@ -6,7 +6,7 @@ status: Approved
 scope: project
 source_type: repository_authority
 source_paths: README.md,PROJECT_STATUS.md,DECISIONS.md
-source_version: V6.6
+source_version: V7.2
 effective_from: 2026-07-15
 approved_by: project_owner
 tags: project=yanlifang,status=approved,type=context
@@ -16,7 +16,7 @@ tags: project=yanlifang,status=approved,type=context
 
 演立方是由 Hao Works / 演立方团队运营的独立多租户 AI 商演经营协作平台。后仰喜剧只是第一家普通 Tenant，不运营平台，也只能访问本 Tenant 数据。
 
-当前阶段是 MVP 开发准备。产品规格基线为 V6.6，当前代码实现主要仍是 V4.7，不能把 PRD 完成度当作代码完成度。
+当前阶段是 MVP 开发准备。产品规格基线为 V7.2，当前代码实现主要仍是 V4.7，不能把 PRD 完成度当作代码完成度。
 
 项目负责人只描述业务需求并处理老板级决策。研发采用“总调度 → 开发执行 → 独立审查”的轻量三 Agent 体系，默认串行。
 

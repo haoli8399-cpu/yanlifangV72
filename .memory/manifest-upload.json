@@ -2,7 +2,7 @@
   "schema_version": 1,
   "project": "yanlifang",
   "project_uri": "viking://user/default/resources/yanlifang-project-memory",
-  "product_spec_version": "V6.6",
+  "product_spec_version": "V7.2",
   "synced_at": "2026-07-15T14:43:34.503Z",
   "git_head": "78a659e762a8c144a56f07a497dff8d235b7bf1f",
   "git_branch": "feat/workspace-version-governance",
@@ -12,7 +12,7 @@
       "title": "演立方项目核心上下文",
       "knowledge_type": "project_context",
       "status": "Approved",
-      "source_version": "V6.6",
+      "source_version": "V7.2",
       "uri": "viking://user/default/resources/yanlifang-project-memory/00_PROJECT_CONTEXT/00-project-context.md",
       "template_hash": "4c71e99305a4acf7fe79ee77e1c6b34fcb20ea47bebdb6ba0b0cadaa8c10ff6c",
       "source_hashes": {
@@ -31,19 +31,19 @@
       "title": "演立方当前产品基线摘要",
       "knowledge_type": "product_memory",
       "status": "Approved",
-      "source_version": "V6.6",
+      "source_version": "V7.2",
       "uri": "viking://user/default/resources/yanlifang-project-memory/01_PRODUCT_MEMORY/01-product-current.md",
       "template_hash": "a7c6b5f565ef7b9fe584289dbabc126b68993aa99563cda833791862d3900ac2",
       "source_hashes": {
         "docs/PRD.md": "78e352e363a551ff73001f41f4e935d58b4ffdb1aa6cdf9334e5fda5a809426e",
-        "docs/PRD_V6.6.md": "d998713242b1a85aa60183be9db6ba924562b219f16388add422f94fb14d7e06",
+        "docs/PRD_V7.2.md": "d998713242b1a85aa60183be9db6ba924562b219f16388add422f94fb14d7e06",
         "versions.json": "7c50bc2b3f54f54a34a8820126c548630ae1731f748991ecf4a96479f36707ef"
       },
       "tags": [
         "project=yanlifang",
         "status=approved",
         "type=product",
-        "prd=V6.6"
+        "prd=V7.2"
       ]
     },
     {

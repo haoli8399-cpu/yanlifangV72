@@ -5,16 +5,16 @@ knowledge_type: product_memory
 status: Approved
 scope: product
 source_type: approved_prd
-source_paths: docs/PRD.md,docs/PRD_V6.6.md,versions.json
-source_version: V6.6
+source_paths: docs/PRD.md,docs/PRD_V7.2.md,versions.json
+source_version: V7.2
 effective_from: 2026-07-15
 approved_by: project_owner
-tags: project=yanlifang,status=approved,type=product,prd=V6.6
+tags: project=yanlifang,status=approved,type=product,prd=V7.2
 ---
 
 # 演立方当前产品基线摘要
 
-当前正式生效 PRD 是 V6.6，入口为 `docs/PRD.md`，完整文件为 `docs/PRD_V6.6.md`。历史 PRD 只用于追溯。
+当前正式生效 PRD 是 V7.2，入口为 `docs/PRD.md`，完整文件为 `docs/PRD_V7.2.md`。历史 PRD 只用于追溯。
 
 平台主体与 Tenant 必须分离：Hao Works / 演立方团队是平台运营方；后仰喜剧和未来演出公司是普通 Tenant。平台管理入驻和平台级配置，Tenant 管理自己的机会、演员合作、内容、规则和经营数据。
 
@@ -33,7 +33,7 @@ tags: project=yanlifang,status=approved,type=product,prd=V6.6
   "git_branch": "feat/workspace-version-governance",
   "source_hashes": {
     "docs/PRD.md": "78e352e363a551ff73001f41f4e935d58b4ffdb1aa6cdf9334e5fda5a809426e",
-    "docs/PRD_V6.6.md": "d998713242b1a85aa60183be9db6ba924562b219f16388add422f94fb14d7e06",
+    "docs/PRD_V7.2.md": "d998713242b1a85aa60183be9db6ba924562b219f16388add422f94fb14d7e06",
     "versions.json": "7c50bc2b3f54f54a34a8820126c548630ae1731f748991ecf4a96479f36707ef"
   }
 }
