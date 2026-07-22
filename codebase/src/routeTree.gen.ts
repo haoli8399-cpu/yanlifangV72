@@ -72,10 +72,13 @@ import { Route as PlansIdPublicRouteImport } from './routes/plans.$id.public'
 import { Route as H5TenantProgramsRouteImport } from './routes/h5.tenant.programs'
 import { Route as H5TenantOrdersRouteImport } from './routes/h5.tenant.orders'
 import { Route as H5TenantMsaRouteImport } from './routes/h5.tenant.msa'
+import { Route as H5ProjectsDealRouteImport } from './routes/h5.projects.deal'
 import { Route as H5ProjectsIdRouteImport } from './routes/h5.projects.$id'
 import { Route as H5DiscoverServiceProductsRouteImport } from './routes/h5.discover.service-products'
+import { Route as H5DiscoverProgramsRouteImport } from './routes/h5.discover.programs'
 import { Route as H5DiscoverCasesRouteImport } from './routes/h5.discover.cases'
 import { Route as H5DiscoverActorsRouteImport } from './routes/h5.discover.actors'
+import { Route as H5ActorServicesRouteImport } from './routes/h5.actor.services'
 import { Route as H5ActorCalendarRouteImport } from './routes/h5.actor.calendar'
 import { Route as DiscoverTenantsIdRouteImport } from './routes/discover.tenants.$id'
 import { Route as DiscoverServiceProductsCompareRouteImport } from './routes/discover.service-products.compare'
@@ -419,6 +422,11 @@ const H5TenantMsaRoute = H5TenantMsaRouteImport.update({
   path: '/msa',
   getParentRoute: () => H5TenantRoute,
 } as any)
+const H5ProjectsDealRoute = H5ProjectsDealRouteImport.update({
+  id: '/deal',
+  path: '/deal',
+  getParentRoute: () => H5ProjectsRoute,
+} as any)
 const H5ProjectsIdRoute = H5ProjectsIdRouteImport.update({
   id: '/$id',
   path: '/$id',
@@ -430,6 +438,11 @@ const H5DiscoverServiceProductsRoute =
     path: '/service-products',
     getParentRoute: () => H5DiscoverRoute,
   } as any)
+const H5DiscoverProgramsRoute = H5DiscoverProgramsRouteImport.update({
+  id: '/programs',
+  path: '/programs',
+  getParentRoute: () => H5DiscoverRoute,
+} as any)
 const H5DiscoverCasesRoute = H5DiscoverCasesRouteImport.update({
   id: '/cases',
   path: '/cases',
@@ -439,6 +452,11 @@ const H5DiscoverActorsRoute = H5DiscoverActorsRouteImport.update({
   id: '/actors',
   path: '/actors',
   getParentRoute: () => H5DiscoverRoute,
+} as any)
+const H5ActorServicesRoute = H5ActorServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => H5ActorRoute,
 } as any)
 const H5ActorCalendarRoute = H5ActorCalendarRouteImport.update({
   id: '/calendar',
@@ -616,10 +634,13 @@ export interface FileRoutesByFullPath {
   '/discover/service-products/compare': typeof DiscoverServiceProductsCompareRoute
   '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
   '/h5/actor/calendar': typeof H5ActorCalendarRoute
+  '/h5/actor/services': typeof H5ActorServicesRoute
   '/h5/discover/actors': typeof H5DiscoverActorsRoute
   '/h5/discover/cases': typeof H5DiscoverCasesRoute
+  '/h5/discover/programs': typeof H5DiscoverProgramsRoute
   '/h5/discover/service-products': typeof H5DiscoverServiceProductsRoute
   '/h5/projects/$id': typeof H5ProjectsIdRoute
+  '/h5/projects/deal': typeof H5ProjectsDealRoute
   '/h5/tenant/msa': typeof H5TenantMsaRoute
   '/h5/tenant/orders': typeof H5TenantOrdersRoute
   '/h5/tenant/programs': typeof H5TenantProgramsRoute
@@ -708,10 +729,13 @@ export interface FileRoutesByTo {
   '/discover/service-products/compare': typeof DiscoverServiceProductsCompareRoute
   '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
   '/h5/actor/calendar': typeof H5ActorCalendarRoute
+  '/h5/actor/services': typeof H5ActorServicesRoute
   '/h5/discover/actors': typeof H5DiscoverActorsRoute
   '/h5/discover/cases': typeof H5DiscoverCasesRoute
+  '/h5/discover/programs': typeof H5DiscoverProgramsRoute
   '/h5/discover/service-products': typeof H5DiscoverServiceProductsRoute
   '/h5/projects/$id': typeof H5ProjectsIdRoute
+  '/h5/projects/deal': typeof H5ProjectsDealRoute
   '/h5/tenant/msa': typeof H5TenantMsaRoute
   '/h5/tenant/orders': typeof H5TenantOrdersRoute
   '/h5/tenant/programs': typeof H5TenantProgramsRoute
@@ -802,10 +826,13 @@ export interface FileRoutesById {
   '/discover/service-products/compare': typeof DiscoverServiceProductsCompareRoute
   '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
   '/h5/actor/calendar': typeof H5ActorCalendarRoute
+  '/h5/actor/services': typeof H5ActorServicesRoute
   '/h5/discover/actors': typeof H5DiscoverActorsRoute
   '/h5/discover/cases': typeof H5DiscoverCasesRoute
+  '/h5/discover/programs': typeof H5DiscoverProgramsRoute
   '/h5/discover/service-products': typeof H5DiscoverServiceProductsRoute
   '/h5/projects/$id': typeof H5ProjectsIdRoute
+  '/h5/projects/deal': typeof H5ProjectsDealRoute
   '/h5/tenant/msa': typeof H5TenantMsaRoute
   '/h5/tenant/orders': typeof H5TenantOrdersRoute
   '/h5/tenant/programs': typeof H5TenantProgramsRoute
@@ -897,10 +924,13 @@ export interface FileRouteTypes {
     | '/discover/service-products/compare'
     | '/discover/tenants/$id'
     | '/h5/actor/calendar'
+    | '/h5/actor/services'
     | '/h5/discover/actors'
     | '/h5/discover/cases'
+    | '/h5/discover/programs'
     | '/h5/discover/service-products'
     | '/h5/projects/$id'
+    | '/h5/projects/deal'
     | '/h5/tenant/msa'
     | '/h5/tenant/orders'
     | '/h5/tenant/programs'
@@ -989,10 +1019,13 @@ export interface FileRouteTypes {
     | '/discover/service-products/compare'
     | '/discover/tenants/$id'
     | '/h5/actor/calendar'
+    | '/h5/actor/services'
     | '/h5/discover/actors'
     | '/h5/discover/cases'
+    | '/h5/discover/programs'
     | '/h5/discover/service-products'
     | '/h5/projects/$id'
+    | '/h5/projects/deal'
     | '/h5/tenant/msa'
     | '/h5/tenant/orders'
     | '/h5/tenant/programs'
@@ -1082,10 +1115,13 @@ export interface FileRouteTypes {
     | '/discover/service-products/compare'
     | '/discover/tenants/$id'
     | '/h5/actor/calendar'
+    | '/h5/actor/services'
     | '/h5/discover/actors'
     | '/h5/discover/cases'
+    | '/h5/discover/programs'
     | '/h5/discover/service-products'
     | '/h5/projects/$id'
+    | '/h5/projects/deal'
     | '/h5/tenant/msa'
     | '/h5/tenant/orders'
     | '/h5/tenant/programs'
@@ -1637,6 +1673,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof H5TenantMsaRouteImport
       parentRoute: typeof H5TenantRoute
     }
+    '/h5/projects/deal': {
+      id: '/h5/projects/deal'
+      path: '/deal'
+      fullPath: '/h5/projects/deal'
+      preLoaderRoute: typeof H5ProjectsDealRouteImport
+      parentRoute: typeof H5ProjectsRoute
+    }
     '/h5/projects/$id': {
       id: '/h5/projects/$id'
       path: '/$id'
@@ -1649,6 +1692,13 @@ declare module '@tanstack/react-router' {
       path: '/service-products'
       fullPath: '/h5/discover/service-products'
       preLoaderRoute: typeof H5DiscoverServiceProductsRouteImport
+      parentRoute: typeof H5DiscoverRoute
+    }
+    '/h5/discover/programs': {
+      id: '/h5/discover/programs'
+      path: '/programs'
+      fullPath: '/h5/discover/programs'
+      preLoaderRoute: typeof H5DiscoverProgramsRouteImport
       parentRoute: typeof H5DiscoverRoute
     }
     '/h5/discover/cases': {
@@ -1664,6 +1714,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/h5/discover/actors'
       preLoaderRoute: typeof H5DiscoverActorsRouteImport
       parentRoute: typeof H5DiscoverRoute
+    }
+    '/h5/actor/services': {
+      id: '/h5/actor/services'
+      path: '/services'
+      fullPath: '/h5/actor/services'
+      preLoaderRoute: typeof H5ActorServicesRouteImport
+      parentRoute: typeof H5ActorRoute
     }
     '/h5/actor/calendar': {
       id: '/h5/actor/calendar'
@@ -1838,10 +1895,12 @@ declare module '@tanstack/react-router' {
 
 interface H5ActorRouteChildren {
   H5ActorCalendarRoute: typeof H5ActorCalendarRoute
+  H5ActorServicesRoute: typeof H5ActorServicesRoute
 }
 
 const H5ActorRouteChildren: H5ActorRouteChildren = {
   H5ActorCalendarRoute: H5ActorCalendarRoute,
+  H5ActorServicesRoute: H5ActorServicesRoute,
 }
 
 const H5ActorRouteWithChildren =
@@ -1850,12 +1909,14 @@ const H5ActorRouteWithChildren =
 interface H5DiscoverRouteChildren {
   H5DiscoverActorsRoute: typeof H5DiscoverActorsRoute
   H5DiscoverCasesRoute: typeof H5DiscoverCasesRoute
+  H5DiscoverProgramsRoute: typeof H5DiscoverProgramsRoute
   H5DiscoverServiceProductsRoute: typeof H5DiscoverServiceProductsRoute
 }
 
 const H5DiscoverRouteChildren: H5DiscoverRouteChildren = {
   H5DiscoverActorsRoute: H5DiscoverActorsRoute,
   H5DiscoverCasesRoute: H5DiscoverCasesRoute,
+  H5DiscoverProgramsRoute: H5DiscoverProgramsRoute,
   H5DiscoverServiceProductsRoute: H5DiscoverServiceProductsRoute,
 }
 
@@ -1865,10 +1926,12 @@ const H5DiscoverRouteWithChildren = H5DiscoverRoute._addFileChildren(
 
 interface H5ProjectsRouteChildren {
   H5ProjectsIdRoute: typeof H5ProjectsIdRoute
+  H5ProjectsDealRoute: typeof H5ProjectsDealRoute
 }
 
 const H5ProjectsRouteChildren: H5ProjectsRouteChildren = {
   H5ProjectsIdRoute: H5ProjectsIdRoute,
+  H5ProjectsDealRoute: H5ProjectsDealRoute,
 }
 
 const H5ProjectsRouteWithChildren = H5ProjectsRoute._addFileChildren(
