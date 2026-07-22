@@ -8,12 +8,12 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
-import { App as AntdApp, ConfigProvider } from "antd";
-import zhCN from "antd/locale/zh_CN";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { agentTheme } from "../shared/theme";
+import { TopNav } from "@/components/yanlicube/top-nav";
+import { Toaster } from "@/components/ui/sonner";
+import { themeBootstrapScript } from "@/lib/theme";
 
 function NotFoundComponent() {
   return (
@@ -80,18 +80,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "演立方 · AI提案获客与内容供应链平台" },
-      { name: "description", content: "演立方是 AI 驱动的 AI提案获客与内容供应链平台，帮助企业客户把模糊的活动需求转化为高效成交。" },
-      { name: "author", content: "演立方" },
-      { property: "og:title", content: "演立方 · AI提案获客与内容供应链平台" },
-      { property: "og:description", content: "演立方是 AI 驱动的 AI提案获客与内容供应链平台，帮助企业客户把模糊的活动需求转化为高效成交。" },
+      { title: "演立方 · 单一责任主导的组合履约 AI 经营产品" },
+      {
+        name: "description",
+        content:
+          "演立方(Yanlicube)是面向企业活动、演艺服务与经纪协作的 AI 经营平台:让每一次合作,都留下可复用的资产与可核验的凭证。",
+      },
+      { name: "author", content: "演立方 Hao Works" },
+      { property: "og:title", content: "演立方 · 单一责任主导的组合履约 AI 经营产品" },
+      {
+        property: "og:description",
+        content: "演立方(Yanlicube)是面向企业活动、演艺服务与经纪协作的 AI 经营平台:让每一次合作,都留下可复用的资产与可核验的凭证。",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "演立方 · AI提案获客与内容供应链平台" },
-      { name: "twitter:description", content: "演立方是 AI 驱动的 AI提案获客与内容供应链平台，帮助企业客户把模糊的活动需求转化为高效成交。" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/77847f84-3e8c-4b7d-819c-8a3c5d96fa88/id-preview-b6a275e3--d3cb8761-ace4-4881-b038-616552c654b7.lovable.app-1783581859900.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/77847f84-3e8c-4b7d-819c-8a3c5d96fa88/id-preview-b6a275e3--d3cb8761-ace4-4881-b038-616552c654b7.lovable.app-1783581859900.png" },
+      { name: "twitter:title", content: "演立方 · 单一责任主导的组合履约 AI 经营产品" },
+      { name: "twitter:description", content: "演立方(Yanlicube)是面向企业活动、演艺服务与经纪协作的 AI 经营平台:让每一次合作,都留下可复用的资产与可核验的凭证。" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a2ad39f7-55d1-41e0-aa96-c93334b146b1/id-preview-d6ef0170--7b68ca41-abc5-423c-9ec2-6d9ae942ff8b.lovable.app-1784557638826.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a2ad39f7-55d1-41e0-aa96-c93334b146b1/id-preview-d6ef0170--7b68ca41-abc5-423c-9ec2-6d9ae942ff8b.lovable.app-1784557638826.png" },
     ],
     links: [
       {
@@ -112,6 +118,7 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
       </head>
       <body>
         {children}
@@ -126,12 +133,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ConfigProvider locale={zhCN} theme={agentTheme}>
-        <AntdApp>
-          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <div className="relative min-h-screen">
+        <TopNav />
+        <main className="relative z-10">
           <Outlet />
-        </AntdApp>
-      </ConfigProvider>
+        </main>
+        <Toaster position="bottom-right" />
+      </div>
     </QueryClientProvider>
   );
 }

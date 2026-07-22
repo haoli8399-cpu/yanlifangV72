@@ -9,107 +9,92 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as V0WorkspaceRouteImport } from './routes/v0-workspace'
-import { Route as V0SolutionsRouteImport } from './routes/v0-solutions'
-import { Route as V0MessagesRouteImport } from './routes/v0-messages'
-import { Route as V0DemoRouteImport } from './routes/v0-demo'
-import { Route as TdToolsBudgetRouteImport } from './routes/td-tools-budget'
-import { Route as TdProposalRouteImport } from './routes/td-proposal'
-import { Route as TdMIndexRouteImport } from './routes/td-m-index'
-import { Route as TdFollowupsRouteImport } from './routes/td-followups'
-import { Route as SupplierRouteImport } from './routes/supplier'
+import { Route as SnapshotRouteImport } from './routes/snapshot'
+import { Route as MediaLibraryRouteImport } from './routes/media-library'
 import { Route as MRouteImport } from './routes/m'
-import { Route as AgentRouteImport } from './routes/agent'
-import { Route as AdminRouteImport } from './routes/admin'
+import { Route as GuidesRouteImport } from './routes/guides'
+import { Route as GapChecklistRouteImport } from './routes/gap-checklist'
+import { Route as DevLoginRouteImport } from './routes/dev-login'
+import { Route as DemoRouteImport } from './routes/demo'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as SupplierIndexRouteImport } from './routes/supplier.index'
-import { Route as MIndexRouteImport } from './routes/m.index'
+import { Route as TenantIndexRouteImport } from './routes/tenant.index'
+import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as AgentIndexRouteImport } from './routes/agent.index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
-import { Route as ToolsInsurancePlanRouteImport } from './routes/tools.insurance-plan'
-import { Route as ToolsBudgetCalculatorRouteImport } from './routes/tools.budget-calculator'
-import { Route as ToolsAnnualPlanRouteImport } from './routes/tools.annual-plan'
-import { Route as SupplierWorkspaceRouteImport } from './routes/supplier.workspace'
-import { Route as SupplierProposalsRouteImport } from './routes/supplier.proposals'
-import { Route as SupplierOpportunitiesRouteImport } from './routes/supplier.opportunities'
-import { Route as SupplierLoginRouteImport } from './routes/supplier.login'
-import { Route as SupplierLeadsRouteImport } from './routes/supplier.leads'
-import { Route as SupplierFollowupsRouteImport } from './routes/supplier.followups'
-import { Route as SupplierFeedbackRouteImport } from './routes/supplier.feedback'
-import { Route as SupplierArtistsRouteImport } from './routes/supplier.artists'
-import { Route as PProposalIdRouteImport } from './routes/p/$proposalId'
-import { Route as MSubmitRouteImport } from './routes/m.submit'
-import { Route as MMessagesRouteImport } from './routes/m.messages'
-import { Route as MMeRouteImport } from './routes/m.me'
-import { Route as MDiscoverRouteImport } from './routes/m.discover'
-import { Route as AgentSolutionsRouteImport } from './routes/agent.solutions'
-import { Route as AgentRequestsRouteImport } from './routes/agent.requests'
-import { Route as AgentMessagesRouteImport } from './routes/agent.messages'
-import { Route as AgentLoginRouteImport } from './routes/agent.login'
-import { Route as AgentAssistantRouteImport } from './routes/agent.assistant'
-import { Route as AdminSkuRouteImport } from './routes/admin.sku'
-import { Route as AdminRbacRouteImport } from './routes/admin.rbac'
-import { Route as AdminPromptsRouteImport } from './routes/admin.prompts'
-import { Route as AdminOrdersRouteImport } from './routes/admin.orders'
-import { Route as AdminLoginRouteImport } from './routes/admin.login'
-import { Route as AdminLabelingRouteImport } from './routes/admin.labeling'
-import { Route as AdminDictRouteImport } from './routes/admin.dict'
-import { Route as AdminDashboardRouteImport } from './routes/admin.dashboard'
-import { Route as AdminCustomersRouteImport } from './routes/admin.customers'
-import { Route as AdminAuditRouteImport } from './routes/admin.audit'
-import { Route as AdminArtistsRouteImport } from './routes/admin.artists'
-import { Route as AdminAiFeedbackRouteImport } from './routes/admin.ai-feedback'
-import { Route as AdminAgenciesRouteImport } from './routes/admin.agencies'
-import { Route as SupplierQuotationsIndexRouteImport } from './routes/supplier.quotations.index'
-import { Route as SupplierQuotationsIdRouteImport } from './routes/supplier.quotations.$id'
-import { Route as SupplierProposalsIdRouteImport } from './routes/supplier.proposals.$id'
-import { Route as SupplierOpportunitiesIdRouteImport } from './routes/supplier.opportunities.$id'
-import { Route as SupplierLeadsIdRouteImport } from './routes/supplier.leads.$id'
-import { Route as AgentQuotationsIdRouteImport } from './routes/agent.quotations.$id'
+import { Route as ActorIndexRouteImport } from './routes/actor.index'
+import { Route as TenantProgramsRouteImport } from './routes/tenant.programs'
+import { Route as TenantPartnersRouteImport } from './routes/tenant.partners'
+import { Route as TenantExecutionRouteImport } from './routes/tenant.execution'
+import { Route as ProjectsIdRouteImport } from './routes/projects.$id'
+import { Route as AgentMemoryRouteImport } from './routes/agent.memory'
+import { Route as AdminPermissionsRouteImport } from './routes/admin.permissions'
+import { Route as AdminIncidentsRouteImport } from './routes/admin.incidents'
+import { Route as AdminAttributionRouteImport } from './routes/admin.attribution'
+import { Route as ActorServicesRouteImport } from './routes/actor.services'
+import { Route as ActorPreferencesRouteImport } from './routes/actor.preferences'
+import { Route as ActorDisputesRouteImport } from './routes/actor.disputes'
+import { Route as ActorCalendarRouteImport } from './routes/actor.calendar'
+import { Route as AccountDataRouteImport } from './routes/account.data'
+import { Route as TenantSettlementIndexRouteImport } from './routes/tenant.settlement.index'
+import { Route as TenantServiceProductsIndexRouteImport } from './routes/tenant.service-products.index'
+import { Route as TenantOrdersIndexRouteImport } from './routes/tenant.orders.index'
+import { Route as ProjectsIdIndexRouteImport } from './routes/projects.$id.index'
+import { Route as DiscoverServiceProductsIndexRouteImport } from './routes/discover.service-products.index'
+import { Route as DiscoverProgramsIndexRouteImport } from './routes/discover.programs.index'
+import { Route as DiscoverCasesIndexRouteImport } from './routes/discover.cases.index'
+import { Route as DiscoverActorsIndexRouteImport } from './routes/discover.actors.index'
+import { Route as TenantSettlementMonthRouteImport } from './routes/tenant.settlement.$month'
+import { Route as TenantServiceProductsFeedbackRouteImport } from './routes/tenant.service-products.feedback'
+import { Route as TenantOrdersIdRouteImport } from './routes/tenant.orders.$id'
+import { Route as TenantOpportunitiesIdRouteImport } from './routes/tenant.opportunities.$id'
+import { Route as ProjectsIdWaitingRouteImport } from './routes/projects.$id.waiting'
+import { Route as ProjectsIdUnderstandRouteImport } from './routes/projects.$id.understand'
+import { Route as ProjectsIdTeamRouteImport } from './routes/projects.$id.team'
+import { Route as ProjectsIdShareRouteImport } from './routes/projects.$id.share'
+import { Route as ProjectsIdReviewRouteImport } from './routes/projects.$id.review'
+import { Route as ProjectsIdReuseRouteImport } from './routes/projects.$id.reuse'
+import { Route as ProjectsIdRetrospectiveRouteImport } from './routes/projects.$id.retrospective'
+import { Route as ProjectsIdQuoteRouteImport } from './routes/projects.$id.quote'
+import { Route as ProjectsIdPlansRouteImport } from './routes/projects.$id.plans'
+import { Route as ProjectsIdOutcomeRouteImport } from './routes/projects.$id.outcome'
+import { Route as ProjectsIdMessagesRouteImport } from './routes/projects.$id.messages'
+import { Route as ProjectsIdIncidentsRouteImport } from './routes/projects.$id.incidents'
+import { Route as ProjectsIdDecisionRouteImport } from './routes/projects.$id.decision'
+import { Route as ProjectsIdDealRouteImport } from './routes/projects.$id.deal'
+import { Route as ProjectsIdChangesRouteImport } from './routes/projects.$id.changes'
+import { Route as PlansIdPublicRouteImport } from './routes/plans.$id.public'
+import { Route as DiscoverTenantsIdRouteImport } from './routes/discover.tenants.$id'
+import { Route as DiscoverServiceProductsCompareRouteImport } from './routes/discover.service-products.compare'
+import { Route as DiscoverProgramsIdRouteImport } from './routes/discover.programs.$id'
+import { Route as DiscoverCasesCompareRouteImport } from './routes/discover.cases.compare'
+import { Route as DiscoverCasesIdRouteImport } from './routes/discover.cases.$id'
+import { Route as DiscoverActorsIdRouteImport } from './routes/discover.actors.$id'
+import { Route as AdminTenantsIdRouteImport } from './routes/admin.tenants.$id'
+import { Route as AdminArbitrationIdRouteImport } from './routes/admin.arbitration.$id'
+import { Route as TenantServiceProductsIdIndexRouteImport } from './routes/tenant.service-products.$id.index'
+import { Route as ProjectsIdPaymentsIndexRouteImport } from './routes/projects.$id.payments.index'
+import { Route as ProjectsIdExecutionIndexRouteImport } from './routes/projects.$id.execution.index'
+import { Route as ProjectsIdContractIndexRouteImport } from './routes/projects.$id.contract.index'
+import { Route as ProjectsIdCandidatesIndexRouteImport } from './routes/projects.$id.candidates.index'
+import { Route as DiscoverServiceProductsIdIndexRouteImport } from './routes/discover.service-products.$id.index'
+import { Route as TenantServiceProductsIdVersionsRouteImport } from './routes/tenant.service-products.$id.versions'
+import { Route as ProjectsIdPaymentsSchemeRouteImport } from './routes/projects.$id.payments.scheme'
+import { Route as ProjectsIdExecutionHandoffRouteImport } from './routes/projects.$id.execution.handoff'
+import { Route as ProjectsIdExecutionAudienceRouteImport } from './routes/projects.$id.execution.audience'
+import { Route as ProjectsIdContractTreeRouteImport } from './routes/projects.$id.contract.tree'
+import { Route as ProjectsIdContractVoucherIdRouteImport } from './routes/projects.$id.contract.$voucherId'
+import { Route as ProjectsIdCandidatesCompareRouteImport } from './routes/projects.$id.candidates.compare'
+import { Route as DiscoverServiceProductsIdStartRouteImport } from './routes/discover.service-products.$id.start'
+import { Route as DiscoverServiceProductsIdShareRouteImport } from './routes/discover.service-products.$id.share'
 
-const V0WorkspaceRoute = V0WorkspaceRouteImport.update({
-  id: '/v0-workspace',
-  path: '/v0-workspace',
+const SnapshotRoute = SnapshotRouteImport.update({
+  id: '/snapshot',
+  path: '/snapshot',
   getParentRoute: () => rootRouteImport,
 } as any)
-const V0SolutionsRoute = V0SolutionsRouteImport.update({
-  id: '/v0-solutions',
-  path: '/v0-solutions',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const V0MessagesRoute = V0MessagesRouteImport.update({
-  id: '/v0-messages',
-  path: '/v0-messages',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const V0DemoRoute = V0DemoRouteImport.update({
-  id: '/v0-demo',
-  path: '/v0-demo',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TdToolsBudgetRoute = TdToolsBudgetRouteImport.update({
-  id: '/td-tools-budget',
-  path: '/td-tools-budget',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TdProposalRoute = TdProposalRouteImport.update({
-  id: '/td-proposal',
-  path: '/td-proposal',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TdMIndexRoute = TdMIndexRouteImport.update({
-  id: '/td-m-index',
-  path: '/td-m-index',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TdFollowupsRoute = TdFollowupsRouteImport.update({
-  id: '/td-followups',
-  path: '/td-followups',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SupplierRoute = SupplierRouteImport.update({
-  id: '/supplier',
-  path: '/supplier',
+const MediaLibraryRoute = MediaLibraryRouteImport.update({
+  id: '/media-library',
+  path: '/media-library',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MRoute = MRouteImport.update({
@@ -117,14 +102,24 @@ const MRoute = MRouteImport.update({
   path: '/m',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AgentRoute = AgentRouteImport.update({
-  id: '/agent',
-  path: '/agent',
+const GuidesRoute = GuidesRouteImport.update({
+  id: '/guides',
+  path: '/guides',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
+const GapChecklistRoute = GapChecklistRouteImport.update({
+  id: '/gap-checklist',
+  path: '/gap-checklist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevLoginRoute = DevLoginRouteImport.update({
+  id: '/dev-login',
+  path: '/dev-login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemoRoute = DemoRouteImport.update({
+  id: '/demo',
+  path: '/demo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -132,660 +127,912 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SupplierIndexRoute = SupplierIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => SupplierRoute,
+const TenantIndexRoute = TenantIndexRouteImport.update({
+  id: '/tenant/',
+  path: '/tenant/',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const MIndexRoute = MIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => MRoute,
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/projects/',
+  path: '/projects/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AgentIndexRoute = AgentIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AgentRoute,
+  id: '/agent/',
+  path: '/agent/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActorIndexRoute = ActorIndexRouteImport.update({
+  id: '/actor/',
+  path: '/actor/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TenantProgramsRoute = TenantProgramsRouteImport.update({
+  id: '/tenant/programs',
+  path: '/tenant/programs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TenantPartnersRoute = TenantPartnersRouteImport.update({
+  id: '/tenant/partners',
+  path: '/tenant/partners',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TenantExecutionRoute = TenantExecutionRouteImport.update({
+  id: '/tenant/execution',
+  path: '/tenant/execution',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsIdRoute = ProjectsIdRouteImport.update({
+  id: '/projects/$id',
+  path: '/projects/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentMemoryRoute = AgentMemoryRouteImport.update({
+  id: '/agent/memory',
+  path: '/agent/memory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPermissionsRoute = AdminPermissionsRouteImport.update({
+  id: '/admin/permissions',
+  path: '/admin/permissions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIncidentsRoute = AdminIncidentsRouteImport.update({
+  id: '/admin/incidents',
+  path: '/admin/incidents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAttributionRoute = AdminAttributionRouteImport.update({
+  id: '/admin/attribution',
+  path: '/admin/attribution',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActorServicesRoute = ActorServicesRouteImport.update({
+  id: '/actor/services',
+  path: '/actor/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActorPreferencesRoute = ActorPreferencesRouteImport.update({
+  id: '/actor/preferences',
+  path: '/actor/preferences',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActorDisputesRoute = ActorDisputesRouteImport.update({
+  id: '/actor/disputes',
+  path: '/actor/disputes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActorCalendarRoute = ActorCalendarRouteImport.update({
+  id: '/actor/calendar',
+  path: '/actor/calendar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountDataRoute = AccountDataRouteImport.update({
+  id: '/account/data',
+  path: '/account/data',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TenantSettlementIndexRoute = TenantSettlementIndexRouteImport.update({
+  id: '/tenant/settlement/',
+  path: '/tenant/settlement/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TenantServiceProductsIndexRoute =
+  TenantServiceProductsIndexRouteImport.update({
+    id: '/tenant/service-products/',
+    path: '/tenant/service-products/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TenantOrdersIndexRoute = TenantOrdersIndexRouteImport.update({
+  id: '/tenant/orders/',
+  path: '/tenant/orders/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsIdIndexRoute = ProjectsIdIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => AdminRoute,
+  getParentRoute: () => ProjectsIdRoute,
 } as any)
-const ToolsInsurancePlanRoute = ToolsInsurancePlanRouteImport.update({
-  id: '/tools/insurance-plan',
-  path: '/tools/insurance-plan',
+const DiscoverServiceProductsIndexRoute =
+  DiscoverServiceProductsIndexRouteImport.update({
+    id: '/discover/service-products/',
+    path: '/discover/service-products/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DiscoverProgramsIndexRoute = DiscoverProgramsIndexRouteImport.update({
+  id: '/discover/programs/',
+  path: '/discover/programs/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ToolsBudgetCalculatorRoute = ToolsBudgetCalculatorRouteImport.update({
-  id: '/tools/budget-calculator',
-  path: '/tools/budget-calculator',
+const DiscoverCasesIndexRoute = DiscoverCasesIndexRouteImport.update({
+  id: '/discover/cases/',
+  path: '/discover/cases/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ToolsAnnualPlanRoute = ToolsAnnualPlanRouteImport.update({
-  id: '/tools/annual-plan',
-  path: '/tools/annual-plan',
+const DiscoverActorsIndexRoute = DiscoverActorsIndexRouteImport.update({
+  id: '/discover/actors/',
+  path: '/discover/actors/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SupplierWorkspaceRoute = SupplierWorkspaceRouteImport.update({
-  id: '/workspace',
-  path: '/workspace',
-  getParentRoute: () => SupplierRoute,
-} as any)
-const SupplierProposalsRoute = SupplierProposalsRouteImport.update({
-  id: '/proposals',
-  path: '/proposals',
-  getParentRoute: () => SupplierRoute,
-} as any)
-const SupplierOpportunitiesRoute = SupplierOpportunitiesRouteImport.update({
-  id: '/opportunities',
-  path: '/opportunities',
-  getParentRoute: () => SupplierRoute,
-} as any)
-const SupplierLoginRoute = SupplierLoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => SupplierRoute,
-} as any)
-const SupplierLeadsRoute = SupplierLeadsRouteImport.update({
-  id: '/leads',
-  path: '/leads',
-  getParentRoute: () => SupplierRoute,
-} as any)
-const SupplierFollowupsRoute = SupplierFollowupsRouteImport.update({
-  id: '/followups',
-  path: '/followups',
-  getParentRoute: () => SupplierRoute,
-} as any)
-const SupplierFeedbackRoute = SupplierFeedbackRouteImport.update({
-  id: '/feedback',
-  path: '/feedback',
-  getParentRoute: () => SupplierRoute,
-} as any)
-const SupplierArtistsRoute = SupplierArtistsRouteImport.update({
-  id: '/artists',
-  path: '/artists',
-  getParentRoute: () => SupplierRoute,
-} as any)
-const PProposalIdRoute = PProposalIdRouteImport.update({
-  id: '/p/$proposalId',
-  path: '/p/$proposalId',
+const TenantSettlementMonthRoute = TenantSettlementMonthRouteImport.update({
+  id: '/tenant/settlement/$month',
+  path: '/tenant/settlement/$month',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MSubmitRoute = MSubmitRouteImport.update({
-  id: '/submit',
-  path: '/submit',
-  getParentRoute: () => MRoute,
+const TenantServiceProductsFeedbackRoute =
+  TenantServiceProductsFeedbackRouteImport.update({
+    id: '/tenant/service-products/feedback',
+    path: '/tenant/service-products/feedback',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TenantOrdersIdRoute = TenantOrdersIdRouteImport.update({
+  id: '/tenant/orders/$id',
+  path: '/tenant/orders/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const MMessagesRoute = MMessagesRouteImport.update({
+const TenantOpportunitiesIdRoute = TenantOpportunitiesIdRouteImport.update({
+  id: '/tenant/opportunities/$id',
+  path: '/tenant/opportunities/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsIdWaitingRoute = ProjectsIdWaitingRouteImport.update({
+  id: '/waiting',
+  path: '/waiting',
+  getParentRoute: () => ProjectsIdRoute,
+} as any)
+const ProjectsIdUnderstandRoute = ProjectsIdUnderstandRouteImport.update({
+  id: '/understand',
+  path: '/understand',
+  getParentRoute: () => ProjectsIdRoute,
+} as any)
+const ProjectsIdTeamRoute = ProjectsIdTeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => ProjectsIdRoute,
+} as any)
+const ProjectsIdShareRoute = ProjectsIdShareRouteImport.update({
+  id: '/share',
+  path: '/share',
+  getParentRoute: () => ProjectsIdRoute,
+} as any)
+const ProjectsIdReviewRoute = ProjectsIdReviewRouteImport.update({
+  id: '/review',
+  path: '/review',
+  getParentRoute: () => ProjectsIdRoute,
+} as any)
+const ProjectsIdReuseRoute = ProjectsIdReuseRouteImport.update({
+  id: '/reuse',
+  path: '/reuse',
+  getParentRoute: () => ProjectsIdRoute,
+} as any)
+const ProjectsIdRetrospectiveRoute = ProjectsIdRetrospectiveRouteImport.update({
+  id: '/retrospective',
+  path: '/retrospective',
+  getParentRoute: () => ProjectsIdRoute,
+} as any)
+const ProjectsIdQuoteRoute = ProjectsIdQuoteRouteImport.update({
+  id: '/quote',
+  path: '/quote',
+  getParentRoute: () => ProjectsIdRoute,
+} as any)
+const ProjectsIdPlansRoute = ProjectsIdPlansRouteImport.update({
+  id: '/plans',
+  path: '/plans',
+  getParentRoute: () => ProjectsIdRoute,
+} as any)
+const ProjectsIdOutcomeRoute = ProjectsIdOutcomeRouteImport.update({
+  id: '/outcome',
+  path: '/outcome',
+  getParentRoute: () => ProjectsIdRoute,
+} as any)
+const ProjectsIdMessagesRoute = ProjectsIdMessagesRouteImport.update({
   id: '/messages',
   path: '/messages',
-  getParentRoute: () => MRoute,
+  getParentRoute: () => ProjectsIdRoute,
 } as any)
-const MMeRoute = MMeRouteImport.update({
-  id: '/me',
-  path: '/me',
-  getParentRoute: () => MRoute,
+const ProjectsIdIncidentsRoute = ProjectsIdIncidentsRouteImport.update({
+  id: '/incidents',
+  path: '/incidents',
+  getParentRoute: () => ProjectsIdRoute,
 } as any)
-const MDiscoverRoute = MDiscoverRouteImport.update({
-  id: '/discover',
-  path: '/discover',
-  getParentRoute: () => MRoute,
+const ProjectsIdDecisionRoute = ProjectsIdDecisionRouteImport.update({
+  id: '/decision',
+  path: '/decision',
+  getParentRoute: () => ProjectsIdRoute,
 } as any)
-const AgentSolutionsRoute = AgentSolutionsRouteImport.update({
-  id: '/solutions',
-  path: '/solutions',
-  getParentRoute: () => AgentRoute,
+const ProjectsIdDealRoute = ProjectsIdDealRouteImport.update({
+  id: '/deal',
+  path: '/deal',
+  getParentRoute: () => ProjectsIdRoute,
 } as any)
-const AgentRequestsRoute = AgentRequestsRouteImport.update({
-  id: '/requests',
-  path: '/requests',
-  getParentRoute: () => AgentRoute,
+const ProjectsIdChangesRoute = ProjectsIdChangesRouteImport.update({
+  id: '/changes',
+  path: '/changes',
+  getParentRoute: () => ProjectsIdRoute,
 } as any)
-const AgentMessagesRoute = AgentMessagesRouteImport.update({
-  id: '/messages',
-  path: '/messages',
-  getParentRoute: () => AgentRoute,
+const PlansIdPublicRoute = PlansIdPublicRouteImport.update({
+  id: '/plans/$id/public',
+  path: '/plans/$id/public',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AgentLoginRoute = AgentLoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => AgentRoute,
+const DiscoverTenantsIdRoute = DiscoverTenantsIdRouteImport.update({
+  id: '/discover/tenants/$id',
+  path: '/discover/tenants/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AgentAssistantRoute = AgentAssistantRouteImport.update({
-  id: '/assistant',
-  path: '/assistant',
-  getParentRoute: () => AgentRoute,
+const DiscoverServiceProductsCompareRoute =
+  DiscoverServiceProductsCompareRouteImport.update({
+    id: '/discover/service-products/compare',
+    path: '/discover/service-products/compare',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DiscoverProgramsIdRoute = DiscoverProgramsIdRouteImport.update({
+  id: '/discover/programs/$id',
+  path: '/discover/programs/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AdminSkuRoute = AdminSkuRouteImport.update({
-  id: '/sku',
-  path: '/sku',
-  getParentRoute: () => AdminRoute,
+const DiscoverCasesCompareRoute = DiscoverCasesCompareRouteImport.update({
+  id: '/discover/cases/compare',
+  path: '/discover/cases/compare',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AdminRbacRoute = AdminRbacRouteImport.update({
-  id: '/rbac',
-  path: '/rbac',
-  getParentRoute: () => AdminRoute,
+const DiscoverCasesIdRoute = DiscoverCasesIdRouteImport.update({
+  id: '/discover/cases/$id',
+  path: '/discover/cases/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AdminPromptsRoute = AdminPromptsRouteImport.update({
-  id: '/prompts',
-  path: '/prompts',
-  getParentRoute: () => AdminRoute,
+const DiscoverActorsIdRoute = DiscoverActorsIdRouteImport.update({
+  id: '/discover/actors/$id',
+  path: '/discover/actors/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AdminOrdersRoute = AdminOrdersRouteImport.update({
-  id: '/orders',
-  path: '/orders',
-  getParentRoute: () => AdminRoute,
+const AdminTenantsIdRoute = AdminTenantsIdRouteImport.update({
+  id: '/admin/tenants/$id',
+  path: '/admin/tenants/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AdminLoginRoute = AdminLoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => AdminRoute,
+const AdminArbitrationIdRoute = AdminArbitrationIdRouteImport.update({
+  id: '/admin/arbitration/$id',
+  path: '/admin/arbitration/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AdminLabelingRoute = AdminLabelingRouteImport.update({
-  id: '/labeling',
-  path: '/labeling',
-  getParentRoute: () => AdminRoute,
+const TenantServiceProductsIdIndexRoute =
+  TenantServiceProductsIdIndexRouteImport.update({
+    id: '/tenant/service-products/$id/',
+    path: '/tenant/service-products/$id/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProjectsIdPaymentsIndexRoute = ProjectsIdPaymentsIndexRouteImport.update({
+  id: '/payments/',
+  path: '/payments/',
+  getParentRoute: () => ProjectsIdRoute,
 } as any)
-const AdminDictRoute = AdminDictRouteImport.update({
-  id: '/dict',
-  path: '/dict',
-  getParentRoute: () => AdminRoute,
+const ProjectsIdExecutionIndexRoute =
+  ProjectsIdExecutionIndexRouteImport.update({
+    id: '/execution/',
+    path: '/execution/',
+    getParentRoute: () => ProjectsIdRoute,
+  } as any)
+const ProjectsIdContractIndexRoute = ProjectsIdContractIndexRouteImport.update({
+  id: '/contract/',
+  path: '/contract/',
+  getParentRoute: () => ProjectsIdRoute,
 } as any)
-const AdminDashboardRoute = AdminDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => AdminRoute,
+const ProjectsIdCandidatesIndexRoute =
+  ProjectsIdCandidatesIndexRouteImport.update({
+    id: '/candidates/',
+    path: '/candidates/',
+    getParentRoute: () => ProjectsIdRoute,
+  } as any)
+const DiscoverServiceProductsIdIndexRoute =
+  DiscoverServiceProductsIdIndexRouteImport.update({
+    id: '/discover/service-products/$id/',
+    path: '/discover/service-products/$id/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TenantServiceProductsIdVersionsRoute =
+  TenantServiceProductsIdVersionsRouteImport.update({
+    id: '/tenant/service-products/$id/versions',
+    path: '/tenant/service-products/$id/versions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProjectsIdPaymentsSchemeRoute =
+  ProjectsIdPaymentsSchemeRouteImport.update({
+    id: '/payments/scheme',
+    path: '/payments/scheme',
+    getParentRoute: () => ProjectsIdRoute,
+  } as any)
+const ProjectsIdExecutionHandoffRoute =
+  ProjectsIdExecutionHandoffRouteImport.update({
+    id: '/execution/handoff',
+    path: '/execution/handoff',
+    getParentRoute: () => ProjectsIdRoute,
+  } as any)
+const ProjectsIdExecutionAudienceRoute =
+  ProjectsIdExecutionAudienceRouteImport.update({
+    id: '/execution/audience',
+    path: '/execution/audience',
+    getParentRoute: () => ProjectsIdRoute,
+  } as any)
+const ProjectsIdContractTreeRoute = ProjectsIdContractTreeRouteImport.update({
+  id: '/contract/tree',
+  path: '/contract/tree',
+  getParentRoute: () => ProjectsIdRoute,
 } as any)
-const AdminCustomersRoute = AdminCustomersRouteImport.update({
-  id: '/customers',
-  path: '/customers',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminAuditRoute = AdminAuditRouteImport.update({
-  id: '/audit',
-  path: '/audit',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminArtistsRoute = AdminArtistsRouteImport.update({
-  id: '/artists',
-  path: '/artists',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminAiFeedbackRoute = AdminAiFeedbackRouteImport.update({
-  id: '/ai-feedback',
-  path: '/ai-feedback',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminAgenciesRoute = AdminAgenciesRouteImport.update({
-  id: '/agencies',
-  path: '/agencies',
-  getParentRoute: () => AdminRoute,
-} as any)
-const SupplierQuotationsIndexRoute = SupplierQuotationsIndexRouteImport.update({
-  id: '/quotations/',
-  path: '/quotations/',
-  getParentRoute: () => SupplierRoute,
-} as any)
-const SupplierQuotationsIdRoute = SupplierQuotationsIdRouteImport.update({
-  id: '/quotations/$id',
-  path: '/quotations/$id',
-  getParentRoute: () => SupplierRoute,
-} as any)
-const SupplierProposalsIdRoute = SupplierProposalsIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => SupplierProposalsRoute,
-} as any)
-const SupplierOpportunitiesIdRoute = SupplierOpportunitiesIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => SupplierOpportunitiesRoute,
-} as any)
-const SupplierLeadsIdRoute = SupplierLeadsIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => SupplierLeadsRoute,
-} as any)
-const AgentQuotationsIdRoute = AgentQuotationsIdRouteImport.update({
-  id: '/quotations/$id',
-  path: '/quotations/$id',
-  getParentRoute: () => AgentRoute,
-} as any)
+const ProjectsIdContractVoucherIdRoute =
+  ProjectsIdContractVoucherIdRouteImport.update({
+    id: '/contract/$voucherId',
+    path: '/contract/$voucherId',
+    getParentRoute: () => ProjectsIdRoute,
+  } as any)
+const ProjectsIdCandidatesCompareRoute =
+  ProjectsIdCandidatesCompareRouteImport.update({
+    id: '/candidates/compare',
+    path: '/candidates/compare',
+    getParentRoute: () => ProjectsIdRoute,
+  } as any)
+const DiscoverServiceProductsIdStartRoute =
+  DiscoverServiceProductsIdStartRouteImport.update({
+    id: '/discover/service-products/$id/start',
+    path: '/discover/service-products/$id/start',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DiscoverServiceProductsIdShareRoute =
+  DiscoverServiceProductsIdShareRouteImport.update({
+    id: '/discover/service-products/$id/share',
+    path: '/discover/service-products/$id/share',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRouteWithChildren
-  '/agent': typeof AgentRouteWithChildren
-  '/m': typeof MRouteWithChildren
-  '/supplier': typeof SupplierRouteWithChildren
-  '/td-followups': typeof TdFollowupsRoute
-  '/td-m-index': typeof TdMIndexRoute
-  '/td-proposal': typeof TdProposalRoute
-  '/td-tools-budget': typeof TdToolsBudgetRoute
-  '/v0-demo': typeof V0DemoRoute
-  '/v0-messages': typeof V0MessagesRoute
-  '/v0-solutions': typeof V0SolutionsRoute
-  '/v0-workspace': typeof V0WorkspaceRoute
-  '/admin/agencies': typeof AdminAgenciesRoute
-  '/admin/ai-feedback': typeof AdminAiFeedbackRoute
-  '/admin/artists': typeof AdminArtistsRoute
-  '/admin/audit': typeof AdminAuditRoute
-  '/admin/customers': typeof AdminCustomersRoute
-  '/admin/dashboard': typeof AdminDashboardRoute
-  '/admin/dict': typeof AdminDictRoute
-  '/admin/labeling': typeof AdminLabelingRoute
-  '/admin/login': typeof AdminLoginRoute
-  '/admin/orders': typeof AdminOrdersRoute
-  '/admin/prompts': typeof AdminPromptsRoute
-  '/admin/rbac': typeof AdminRbacRoute
-  '/admin/sku': typeof AdminSkuRoute
-  '/agent/assistant': typeof AgentAssistantRoute
-  '/agent/login': typeof AgentLoginRoute
-  '/agent/messages': typeof AgentMessagesRoute
-  '/agent/requests': typeof AgentRequestsRoute
-  '/agent/solutions': typeof AgentSolutionsRoute
-  '/m/discover': typeof MDiscoverRoute
-  '/m/me': typeof MMeRoute
-  '/m/messages': typeof MMessagesRoute
-  '/m/submit': typeof MSubmitRoute
-  '/p/$proposalId': typeof PProposalIdRoute
-  '/supplier/artists': typeof SupplierArtistsRoute
-  '/supplier/feedback': typeof SupplierFeedbackRoute
-  '/supplier/followups': typeof SupplierFollowupsRoute
-  '/supplier/leads': typeof SupplierLeadsRouteWithChildren
-  '/supplier/login': typeof SupplierLoginRoute
-  '/supplier/opportunities': typeof SupplierOpportunitiesRouteWithChildren
-  '/supplier/proposals': typeof SupplierProposalsRouteWithChildren
-  '/supplier/workspace': typeof SupplierWorkspaceRoute
-  '/tools/annual-plan': typeof ToolsAnnualPlanRoute
-  '/tools/budget-calculator': typeof ToolsBudgetCalculatorRoute
-  '/tools/insurance-plan': typeof ToolsInsurancePlanRoute
+  '/demo': typeof DemoRoute
+  '/dev-login': typeof DevLoginRoute
+  '/gap-checklist': typeof GapChecklistRoute
+  '/guides': typeof GuidesRoute
+  '/m': typeof MRoute
+  '/media-library': typeof MediaLibraryRoute
+  '/snapshot': typeof SnapshotRoute
+  '/account/data': typeof AccountDataRoute
+  '/actor/calendar': typeof ActorCalendarRoute
+  '/actor/disputes': typeof ActorDisputesRoute
+  '/actor/preferences': typeof ActorPreferencesRoute
+  '/actor/services': typeof ActorServicesRoute
+  '/admin/attribution': typeof AdminAttributionRoute
+  '/admin/incidents': typeof AdminIncidentsRoute
+  '/admin/permissions': typeof AdminPermissionsRoute
+  '/agent/memory': typeof AgentMemoryRoute
+  '/projects/$id': typeof ProjectsIdRouteWithChildren
+  '/tenant/execution': typeof TenantExecutionRoute
+  '/tenant/partners': typeof TenantPartnersRoute
+  '/tenant/programs': typeof TenantProgramsRoute
+  '/actor/': typeof ActorIndexRoute
   '/admin/': typeof AdminIndexRoute
   '/agent/': typeof AgentIndexRoute
-  '/m/': typeof MIndexRoute
-  '/supplier/': typeof SupplierIndexRoute
-  '/agent/quotations/$id': typeof AgentQuotationsIdRoute
-  '/supplier/leads/$id': typeof SupplierLeadsIdRoute
-  '/supplier/opportunities/$id': typeof SupplierOpportunitiesIdRoute
-  '/supplier/proposals/$id': typeof SupplierProposalsIdRoute
-  '/supplier/quotations/$id': typeof SupplierQuotationsIdRoute
-  '/supplier/quotations/': typeof SupplierQuotationsIndexRoute
+  '/projects/': typeof ProjectsIndexRoute
+  '/tenant/': typeof TenantIndexRoute
+  '/admin/arbitration/$id': typeof AdminArbitrationIdRoute
+  '/admin/tenants/$id': typeof AdminTenantsIdRoute
+  '/discover/actors/$id': typeof DiscoverActorsIdRoute
+  '/discover/cases/$id': typeof DiscoverCasesIdRoute
+  '/discover/cases/compare': typeof DiscoverCasesCompareRoute
+  '/discover/programs/$id': typeof DiscoverProgramsIdRoute
+  '/discover/service-products/compare': typeof DiscoverServiceProductsCompareRoute
+  '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
+  '/plans/$id/public': typeof PlansIdPublicRoute
+  '/projects/$id/changes': typeof ProjectsIdChangesRoute
+  '/projects/$id/deal': typeof ProjectsIdDealRoute
+  '/projects/$id/decision': typeof ProjectsIdDecisionRoute
+  '/projects/$id/incidents': typeof ProjectsIdIncidentsRoute
+  '/projects/$id/messages': typeof ProjectsIdMessagesRoute
+  '/projects/$id/outcome': typeof ProjectsIdOutcomeRoute
+  '/projects/$id/plans': typeof ProjectsIdPlansRoute
+  '/projects/$id/quote': typeof ProjectsIdQuoteRoute
+  '/projects/$id/retrospective': typeof ProjectsIdRetrospectiveRoute
+  '/projects/$id/reuse': typeof ProjectsIdReuseRoute
+  '/projects/$id/review': typeof ProjectsIdReviewRoute
+  '/projects/$id/share': typeof ProjectsIdShareRoute
+  '/projects/$id/team': typeof ProjectsIdTeamRoute
+  '/projects/$id/understand': typeof ProjectsIdUnderstandRoute
+  '/projects/$id/waiting': typeof ProjectsIdWaitingRoute
+  '/tenant/opportunities/$id': typeof TenantOpportunitiesIdRoute
+  '/tenant/orders/$id': typeof TenantOrdersIdRoute
+  '/tenant/service-products/feedback': typeof TenantServiceProductsFeedbackRoute
+  '/tenant/settlement/$month': typeof TenantSettlementMonthRoute
+  '/discover/actors/': typeof DiscoverActorsIndexRoute
+  '/discover/cases/': typeof DiscoverCasesIndexRoute
+  '/discover/programs/': typeof DiscoverProgramsIndexRoute
+  '/discover/service-products/': typeof DiscoverServiceProductsIndexRoute
+  '/projects/$id/': typeof ProjectsIdIndexRoute
+  '/tenant/orders/': typeof TenantOrdersIndexRoute
+  '/tenant/service-products/': typeof TenantServiceProductsIndexRoute
+  '/tenant/settlement/': typeof TenantSettlementIndexRoute
+  '/discover/service-products/$id/share': typeof DiscoverServiceProductsIdShareRoute
+  '/discover/service-products/$id/start': typeof DiscoverServiceProductsIdStartRoute
+  '/projects/$id/candidates/compare': typeof ProjectsIdCandidatesCompareRoute
+  '/projects/$id/contract/$voucherId': typeof ProjectsIdContractVoucherIdRoute
+  '/projects/$id/contract/tree': typeof ProjectsIdContractTreeRoute
+  '/projects/$id/execution/audience': typeof ProjectsIdExecutionAudienceRoute
+  '/projects/$id/execution/handoff': typeof ProjectsIdExecutionHandoffRoute
+  '/projects/$id/payments/scheme': typeof ProjectsIdPaymentsSchemeRoute
+  '/tenant/service-products/$id/versions': typeof TenantServiceProductsIdVersionsRoute
+  '/discover/service-products/$id/': typeof DiscoverServiceProductsIdIndexRoute
+  '/projects/$id/candidates/': typeof ProjectsIdCandidatesIndexRoute
+  '/projects/$id/contract/': typeof ProjectsIdContractIndexRoute
+  '/projects/$id/execution/': typeof ProjectsIdExecutionIndexRoute
+  '/projects/$id/payments/': typeof ProjectsIdPaymentsIndexRoute
+  '/tenant/service-products/$id/': typeof TenantServiceProductsIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/td-followups': typeof TdFollowupsRoute
-  '/td-m-index': typeof TdMIndexRoute
-  '/td-proposal': typeof TdProposalRoute
-  '/td-tools-budget': typeof TdToolsBudgetRoute
-  '/v0-demo': typeof V0DemoRoute
-  '/v0-messages': typeof V0MessagesRoute
-  '/v0-solutions': typeof V0SolutionsRoute
-  '/v0-workspace': typeof V0WorkspaceRoute
-  '/admin/agencies': typeof AdminAgenciesRoute
-  '/admin/ai-feedback': typeof AdminAiFeedbackRoute
-  '/admin/artists': typeof AdminArtistsRoute
-  '/admin/audit': typeof AdminAuditRoute
-  '/admin/customers': typeof AdminCustomersRoute
-  '/admin/dashboard': typeof AdminDashboardRoute
-  '/admin/dict': typeof AdminDictRoute
-  '/admin/labeling': typeof AdminLabelingRoute
-  '/admin/login': typeof AdminLoginRoute
-  '/admin/orders': typeof AdminOrdersRoute
-  '/admin/prompts': typeof AdminPromptsRoute
-  '/admin/rbac': typeof AdminRbacRoute
-  '/admin/sku': typeof AdminSkuRoute
-  '/agent/assistant': typeof AgentAssistantRoute
-  '/agent/login': typeof AgentLoginRoute
-  '/agent/messages': typeof AgentMessagesRoute
-  '/agent/requests': typeof AgentRequestsRoute
-  '/agent/solutions': typeof AgentSolutionsRoute
-  '/m/discover': typeof MDiscoverRoute
-  '/m/me': typeof MMeRoute
-  '/m/messages': typeof MMessagesRoute
-  '/m/submit': typeof MSubmitRoute
-  '/p/$proposalId': typeof PProposalIdRoute
-  '/supplier/artists': typeof SupplierArtistsRoute
-  '/supplier/feedback': typeof SupplierFeedbackRoute
-  '/supplier/followups': typeof SupplierFollowupsRoute
-  '/supplier/leads': typeof SupplierLeadsRouteWithChildren
-  '/supplier/login': typeof SupplierLoginRoute
-  '/supplier/opportunities': typeof SupplierOpportunitiesRouteWithChildren
-  '/supplier/proposals': typeof SupplierProposalsRouteWithChildren
-  '/supplier/workspace': typeof SupplierWorkspaceRoute
-  '/tools/annual-plan': typeof ToolsAnnualPlanRoute
-  '/tools/budget-calculator': typeof ToolsBudgetCalculatorRoute
-  '/tools/insurance-plan': typeof ToolsInsurancePlanRoute
+  '/demo': typeof DemoRoute
+  '/dev-login': typeof DevLoginRoute
+  '/gap-checklist': typeof GapChecklistRoute
+  '/guides': typeof GuidesRoute
+  '/m': typeof MRoute
+  '/media-library': typeof MediaLibraryRoute
+  '/snapshot': typeof SnapshotRoute
+  '/account/data': typeof AccountDataRoute
+  '/actor/calendar': typeof ActorCalendarRoute
+  '/actor/disputes': typeof ActorDisputesRoute
+  '/actor/preferences': typeof ActorPreferencesRoute
+  '/actor/services': typeof ActorServicesRoute
+  '/admin/attribution': typeof AdminAttributionRoute
+  '/admin/incidents': typeof AdminIncidentsRoute
+  '/admin/permissions': typeof AdminPermissionsRoute
+  '/agent/memory': typeof AgentMemoryRoute
+  '/tenant/execution': typeof TenantExecutionRoute
+  '/tenant/partners': typeof TenantPartnersRoute
+  '/tenant/programs': typeof TenantProgramsRoute
+  '/actor': typeof ActorIndexRoute
   '/admin': typeof AdminIndexRoute
   '/agent': typeof AgentIndexRoute
-  '/m': typeof MIndexRoute
-  '/supplier': typeof SupplierIndexRoute
-  '/agent/quotations/$id': typeof AgentQuotationsIdRoute
-  '/supplier/leads/$id': typeof SupplierLeadsIdRoute
-  '/supplier/opportunities/$id': typeof SupplierOpportunitiesIdRoute
-  '/supplier/proposals/$id': typeof SupplierProposalsIdRoute
-  '/supplier/quotations/$id': typeof SupplierQuotationsIdRoute
-  '/supplier/quotations': typeof SupplierQuotationsIndexRoute
+  '/projects': typeof ProjectsIndexRoute
+  '/tenant': typeof TenantIndexRoute
+  '/admin/arbitration/$id': typeof AdminArbitrationIdRoute
+  '/admin/tenants/$id': typeof AdminTenantsIdRoute
+  '/discover/actors/$id': typeof DiscoverActorsIdRoute
+  '/discover/cases/$id': typeof DiscoverCasesIdRoute
+  '/discover/cases/compare': typeof DiscoverCasesCompareRoute
+  '/discover/programs/$id': typeof DiscoverProgramsIdRoute
+  '/discover/service-products/compare': typeof DiscoverServiceProductsCompareRoute
+  '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
+  '/plans/$id/public': typeof PlansIdPublicRoute
+  '/projects/$id/changes': typeof ProjectsIdChangesRoute
+  '/projects/$id/deal': typeof ProjectsIdDealRoute
+  '/projects/$id/decision': typeof ProjectsIdDecisionRoute
+  '/projects/$id/incidents': typeof ProjectsIdIncidentsRoute
+  '/projects/$id/messages': typeof ProjectsIdMessagesRoute
+  '/projects/$id/outcome': typeof ProjectsIdOutcomeRoute
+  '/projects/$id/plans': typeof ProjectsIdPlansRoute
+  '/projects/$id/quote': typeof ProjectsIdQuoteRoute
+  '/projects/$id/retrospective': typeof ProjectsIdRetrospectiveRoute
+  '/projects/$id/reuse': typeof ProjectsIdReuseRoute
+  '/projects/$id/review': typeof ProjectsIdReviewRoute
+  '/projects/$id/share': typeof ProjectsIdShareRoute
+  '/projects/$id/team': typeof ProjectsIdTeamRoute
+  '/projects/$id/understand': typeof ProjectsIdUnderstandRoute
+  '/projects/$id/waiting': typeof ProjectsIdWaitingRoute
+  '/tenant/opportunities/$id': typeof TenantOpportunitiesIdRoute
+  '/tenant/orders/$id': typeof TenantOrdersIdRoute
+  '/tenant/service-products/feedback': typeof TenantServiceProductsFeedbackRoute
+  '/tenant/settlement/$month': typeof TenantSettlementMonthRoute
+  '/discover/actors': typeof DiscoverActorsIndexRoute
+  '/discover/cases': typeof DiscoverCasesIndexRoute
+  '/discover/programs': typeof DiscoverProgramsIndexRoute
+  '/discover/service-products': typeof DiscoverServiceProductsIndexRoute
+  '/projects/$id': typeof ProjectsIdIndexRoute
+  '/tenant/orders': typeof TenantOrdersIndexRoute
+  '/tenant/service-products': typeof TenantServiceProductsIndexRoute
+  '/tenant/settlement': typeof TenantSettlementIndexRoute
+  '/discover/service-products/$id/share': typeof DiscoverServiceProductsIdShareRoute
+  '/discover/service-products/$id/start': typeof DiscoverServiceProductsIdStartRoute
+  '/projects/$id/candidates/compare': typeof ProjectsIdCandidatesCompareRoute
+  '/projects/$id/contract/$voucherId': typeof ProjectsIdContractVoucherIdRoute
+  '/projects/$id/contract/tree': typeof ProjectsIdContractTreeRoute
+  '/projects/$id/execution/audience': typeof ProjectsIdExecutionAudienceRoute
+  '/projects/$id/execution/handoff': typeof ProjectsIdExecutionHandoffRoute
+  '/projects/$id/payments/scheme': typeof ProjectsIdPaymentsSchemeRoute
+  '/tenant/service-products/$id/versions': typeof TenantServiceProductsIdVersionsRoute
+  '/discover/service-products/$id': typeof DiscoverServiceProductsIdIndexRoute
+  '/projects/$id/candidates': typeof ProjectsIdCandidatesIndexRoute
+  '/projects/$id/contract': typeof ProjectsIdContractIndexRoute
+  '/projects/$id/execution': typeof ProjectsIdExecutionIndexRoute
+  '/projects/$id/payments': typeof ProjectsIdPaymentsIndexRoute
+  '/tenant/service-products/$id': typeof TenantServiceProductsIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/admin': typeof AdminRouteWithChildren
-  '/agent': typeof AgentRouteWithChildren
-  '/m': typeof MRouteWithChildren
-  '/supplier': typeof SupplierRouteWithChildren
-  '/td-followups': typeof TdFollowupsRoute
-  '/td-m-index': typeof TdMIndexRoute
-  '/td-proposal': typeof TdProposalRoute
-  '/td-tools-budget': typeof TdToolsBudgetRoute
-  '/v0-demo': typeof V0DemoRoute
-  '/v0-messages': typeof V0MessagesRoute
-  '/v0-solutions': typeof V0SolutionsRoute
-  '/v0-workspace': typeof V0WorkspaceRoute
-  '/admin/agencies': typeof AdminAgenciesRoute
-  '/admin/ai-feedback': typeof AdminAiFeedbackRoute
-  '/admin/artists': typeof AdminArtistsRoute
-  '/admin/audit': typeof AdminAuditRoute
-  '/admin/customers': typeof AdminCustomersRoute
-  '/admin/dashboard': typeof AdminDashboardRoute
-  '/admin/dict': typeof AdminDictRoute
-  '/admin/labeling': typeof AdminLabelingRoute
-  '/admin/login': typeof AdminLoginRoute
-  '/admin/orders': typeof AdminOrdersRoute
-  '/admin/prompts': typeof AdminPromptsRoute
-  '/admin/rbac': typeof AdminRbacRoute
-  '/admin/sku': typeof AdminSkuRoute
-  '/agent/assistant': typeof AgentAssistantRoute
-  '/agent/login': typeof AgentLoginRoute
-  '/agent/messages': typeof AgentMessagesRoute
-  '/agent/requests': typeof AgentRequestsRoute
-  '/agent/solutions': typeof AgentSolutionsRoute
-  '/m/discover': typeof MDiscoverRoute
-  '/m/me': typeof MMeRoute
-  '/m/messages': typeof MMessagesRoute
-  '/m/submit': typeof MSubmitRoute
-  '/p/$proposalId': typeof PProposalIdRoute
-  '/supplier/artists': typeof SupplierArtistsRoute
-  '/supplier/feedback': typeof SupplierFeedbackRoute
-  '/supplier/followups': typeof SupplierFollowupsRoute
-  '/supplier/leads': typeof SupplierLeadsRouteWithChildren
-  '/supplier/login': typeof SupplierLoginRoute
-  '/supplier/opportunities': typeof SupplierOpportunitiesRouteWithChildren
-  '/supplier/proposals': typeof SupplierProposalsRouteWithChildren
-  '/supplier/workspace': typeof SupplierWorkspaceRoute
-  '/tools/annual-plan': typeof ToolsAnnualPlanRoute
-  '/tools/budget-calculator': typeof ToolsBudgetCalculatorRoute
-  '/tools/insurance-plan': typeof ToolsInsurancePlanRoute
+  '/demo': typeof DemoRoute
+  '/dev-login': typeof DevLoginRoute
+  '/gap-checklist': typeof GapChecklistRoute
+  '/guides': typeof GuidesRoute
+  '/m': typeof MRoute
+  '/media-library': typeof MediaLibraryRoute
+  '/snapshot': typeof SnapshotRoute
+  '/account/data': typeof AccountDataRoute
+  '/actor/calendar': typeof ActorCalendarRoute
+  '/actor/disputes': typeof ActorDisputesRoute
+  '/actor/preferences': typeof ActorPreferencesRoute
+  '/actor/services': typeof ActorServicesRoute
+  '/admin/attribution': typeof AdminAttributionRoute
+  '/admin/incidents': typeof AdminIncidentsRoute
+  '/admin/permissions': typeof AdminPermissionsRoute
+  '/agent/memory': typeof AgentMemoryRoute
+  '/projects/$id': typeof ProjectsIdRouteWithChildren
+  '/tenant/execution': typeof TenantExecutionRoute
+  '/tenant/partners': typeof TenantPartnersRoute
+  '/tenant/programs': typeof TenantProgramsRoute
+  '/actor/': typeof ActorIndexRoute
   '/admin/': typeof AdminIndexRoute
   '/agent/': typeof AgentIndexRoute
-  '/m/': typeof MIndexRoute
-  '/supplier/': typeof SupplierIndexRoute
-  '/agent/quotations/$id': typeof AgentQuotationsIdRoute
-  '/supplier/leads/$id': typeof SupplierLeadsIdRoute
-  '/supplier/opportunities/$id': typeof SupplierOpportunitiesIdRoute
-  '/supplier/proposals/$id': typeof SupplierProposalsIdRoute
-  '/supplier/quotations/$id': typeof SupplierQuotationsIdRoute
-  '/supplier/quotations/': typeof SupplierQuotationsIndexRoute
+  '/projects/': typeof ProjectsIndexRoute
+  '/tenant/': typeof TenantIndexRoute
+  '/admin/arbitration/$id': typeof AdminArbitrationIdRoute
+  '/admin/tenants/$id': typeof AdminTenantsIdRoute
+  '/discover/actors/$id': typeof DiscoverActorsIdRoute
+  '/discover/cases/$id': typeof DiscoverCasesIdRoute
+  '/discover/cases/compare': typeof DiscoverCasesCompareRoute
+  '/discover/programs/$id': typeof DiscoverProgramsIdRoute
+  '/discover/service-products/compare': typeof DiscoverServiceProductsCompareRoute
+  '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
+  '/plans/$id/public': typeof PlansIdPublicRoute
+  '/projects/$id/changes': typeof ProjectsIdChangesRoute
+  '/projects/$id/deal': typeof ProjectsIdDealRoute
+  '/projects/$id/decision': typeof ProjectsIdDecisionRoute
+  '/projects/$id/incidents': typeof ProjectsIdIncidentsRoute
+  '/projects/$id/messages': typeof ProjectsIdMessagesRoute
+  '/projects/$id/outcome': typeof ProjectsIdOutcomeRoute
+  '/projects/$id/plans': typeof ProjectsIdPlansRoute
+  '/projects/$id/quote': typeof ProjectsIdQuoteRoute
+  '/projects/$id/retrospective': typeof ProjectsIdRetrospectiveRoute
+  '/projects/$id/reuse': typeof ProjectsIdReuseRoute
+  '/projects/$id/review': typeof ProjectsIdReviewRoute
+  '/projects/$id/share': typeof ProjectsIdShareRoute
+  '/projects/$id/team': typeof ProjectsIdTeamRoute
+  '/projects/$id/understand': typeof ProjectsIdUnderstandRoute
+  '/projects/$id/waiting': typeof ProjectsIdWaitingRoute
+  '/tenant/opportunities/$id': typeof TenantOpportunitiesIdRoute
+  '/tenant/orders/$id': typeof TenantOrdersIdRoute
+  '/tenant/service-products/feedback': typeof TenantServiceProductsFeedbackRoute
+  '/tenant/settlement/$month': typeof TenantSettlementMonthRoute
+  '/discover/actors/': typeof DiscoverActorsIndexRoute
+  '/discover/cases/': typeof DiscoverCasesIndexRoute
+  '/discover/programs/': typeof DiscoverProgramsIndexRoute
+  '/discover/service-products/': typeof DiscoverServiceProductsIndexRoute
+  '/projects/$id/': typeof ProjectsIdIndexRoute
+  '/tenant/orders/': typeof TenantOrdersIndexRoute
+  '/tenant/service-products/': typeof TenantServiceProductsIndexRoute
+  '/tenant/settlement/': typeof TenantSettlementIndexRoute
+  '/discover/service-products/$id/share': typeof DiscoverServiceProductsIdShareRoute
+  '/discover/service-products/$id/start': typeof DiscoverServiceProductsIdStartRoute
+  '/projects/$id/candidates/compare': typeof ProjectsIdCandidatesCompareRoute
+  '/projects/$id/contract/$voucherId': typeof ProjectsIdContractVoucherIdRoute
+  '/projects/$id/contract/tree': typeof ProjectsIdContractTreeRoute
+  '/projects/$id/execution/audience': typeof ProjectsIdExecutionAudienceRoute
+  '/projects/$id/execution/handoff': typeof ProjectsIdExecutionHandoffRoute
+  '/projects/$id/payments/scheme': typeof ProjectsIdPaymentsSchemeRoute
+  '/tenant/service-products/$id/versions': typeof TenantServiceProductsIdVersionsRoute
+  '/discover/service-products/$id/': typeof DiscoverServiceProductsIdIndexRoute
+  '/projects/$id/candidates/': typeof ProjectsIdCandidatesIndexRoute
+  '/projects/$id/contract/': typeof ProjectsIdContractIndexRoute
+  '/projects/$id/execution/': typeof ProjectsIdExecutionIndexRoute
+  '/projects/$id/payments/': typeof ProjectsIdPaymentsIndexRoute
+  '/tenant/service-products/$id/': typeof TenantServiceProductsIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/admin'
-    | '/agent'
+    | '/demo'
+    | '/dev-login'
+    | '/gap-checklist'
+    | '/guides'
     | '/m'
-    | '/supplier'
-    | '/td-followups'
-    | '/td-m-index'
-    | '/td-proposal'
-    | '/td-tools-budget'
-    | '/v0-demo'
-    | '/v0-messages'
-    | '/v0-solutions'
-    | '/v0-workspace'
-    | '/admin/agencies'
-    | '/admin/ai-feedback'
-    | '/admin/artists'
-    | '/admin/audit'
-    | '/admin/customers'
-    | '/admin/dashboard'
-    | '/admin/dict'
-    | '/admin/labeling'
-    | '/admin/login'
-    | '/admin/orders'
-    | '/admin/prompts'
-    | '/admin/rbac'
-    | '/admin/sku'
-    | '/agent/assistant'
-    | '/agent/login'
-    | '/agent/messages'
-    | '/agent/requests'
-    | '/agent/solutions'
-    | '/m/discover'
-    | '/m/me'
-    | '/m/messages'
-    | '/m/submit'
-    | '/p/$proposalId'
-    | '/supplier/artists'
-    | '/supplier/feedback'
-    | '/supplier/followups'
-    | '/supplier/leads'
-    | '/supplier/login'
-    | '/supplier/opportunities'
-    | '/supplier/proposals'
-    | '/supplier/workspace'
-    | '/tools/annual-plan'
-    | '/tools/budget-calculator'
-    | '/tools/insurance-plan'
+    | '/media-library'
+    | '/snapshot'
+    | '/account/data'
+    | '/actor/calendar'
+    | '/actor/disputes'
+    | '/actor/preferences'
+    | '/actor/services'
+    | '/admin/attribution'
+    | '/admin/incidents'
+    | '/admin/permissions'
+    | '/agent/memory'
+    | '/projects/$id'
+    | '/tenant/execution'
+    | '/tenant/partners'
+    | '/tenant/programs'
+    | '/actor/'
     | '/admin/'
     | '/agent/'
-    | '/m/'
-    | '/supplier/'
-    | '/agent/quotations/$id'
-    | '/supplier/leads/$id'
-    | '/supplier/opportunities/$id'
-    | '/supplier/proposals/$id'
-    | '/supplier/quotations/$id'
-    | '/supplier/quotations/'
+    | '/projects/'
+    | '/tenant/'
+    | '/admin/arbitration/$id'
+    | '/admin/tenants/$id'
+    | '/discover/actors/$id'
+    | '/discover/cases/$id'
+    | '/discover/cases/compare'
+    | '/discover/programs/$id'
+    | '/discover/service-products/compare'
+    | '/discover/tenants/$id'
+    | '/plans/$id/public'
+    | '/projects/$id/changes'
+    | '/projects/$id/deal'
+    | '/projects/$id/decision'
+    | '/projects/$id/incidents'
+    | '/projects/$id/messages'
+    | '/projects/$id/outcome'
+    | '/projects/$id/plans'
+    | '/projects/$id/quote'
+    | '/projects/$id/retrospective'
+    | '/projects/$id/reuse'
+    | '/projects/$id/review'
+    | '/projects/$id/share'
+    | '/projects/$id/team'
+    | '/projects/$id/understand'
+    | '/projects/$id/waiting'
+    | '/tenant/opportunities/$id'
+    | '/tenant/orders/$id'
+    | '/tenant/service-products/feedback'
+    | '/tenant/settlement/$month'
+    | '/discover/actors/'
+    | '/discover/cases/'
+    | '/discover/programs/'
+    | '/discover/service-products/'
+    | '/projects/$id/'
+    | '/tenant/orders/'
+    | '/tenant/service-products/'
+    | '/tenant/settlement/'
+    | '/discover/service-products/$id/share'
+    | '/discover/service-products/$id/start'
+    | '/projects/$id/candidates/compare'
+    | '/projects/$id/contract/$voucherId'
+    | '/projects/$id/contract/tree'
+    | '/projects/$id/execution/audience'
+    | '/projects/$id/execution/handoff'
+    | '/projects/$id/payments/scheme'
+    | '/tenant/service-products/$id/versions'
+    | '/discover/service-products/$id/'
+    | '/projects/$id/candidates/'
+    | '/projects/$id/contract/'
+    | '/projects/$id/execution/'
+    | '/projects/$id/payments/'
+    | '/tenant/service-products/$id/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/td-followups'
-    | '/td-m-index'
-    | '/td-proposal'
-    | '/td-tools-budget'
-    | '/v0-demo'
-    | '/v0-messages'
-    | '/v0-solutions'
-    | '/v0-workspace'
-    | '/admin/agencies'
-    | '/admin/ai-feedback'
-    | '/admin/artists'
-    | '/admin/audit'
-    | '/admin/customers'
-    | '/admin/dashboard'
-    | '/admin/dict'
-    | '/admin/labeling'
-    | '/admin/login'
-    | '/admin/orders'
-    | '/admin/prompts'
-    | '/admin/rbac'
-    | '/admin/sku'
-    | '/agent/assistant'
-    | '/agent/login'
-    | '/agent/messages'
-    | '/agent/requests'
-    | '/agent/solutions'
-    | '/m/discover'
-    | '/m/me'
-    | '/m/messages'
-    | '/m/submit'
-    | '/p/$proposalId'
-    | '/supplier/artists'
-    | '/supplier/feedback'
-    | '/supplier/followups'
-    | '/supplier/leads'
-    | '/supplier/login'
-    | '/supplier/opportunities'
-    | '/supplier/proposals'
-    | '/supplier/workspace'
-    | '/tools/annual-plan'
-    | '/tools/budget-calculator'
-    | '/tools/insurance-plan'
+    | '/demo'
+    | '/dev-login'
+    | '/gap-checklist'
+    | '/guides'
+    | '/m'
+    | '/media-library'
+    | '/snapshot'
+    | '/account/data'
+    | '/actor/calendar'
+    | '/actor/disputes'
+    | '/actor/preferences'
+    | '/actor/services'
+    | '/admin/attribution'
+    | '/admin/incidents'
+    | '/admin/permissions'
+    | '/agent/memory'
+    | '/tenant/execution'
+    | '/tenant/partners'
+    | '/tenant/programs'
+    | '/actor'
     | '/admin'
     | '/agent'
-    | '/m'
-    | '/supplier'
-    | '/agent/quotations/$id'
-    | '/supplier/leads/$id'
-    | '/supplier/opportunities/$id'
-    | '/supplier/proposals/$id'
-    | '/supplier/quotations/$id'
-    | '/supplier/quotations'
+    | '/projects'
+    | '/tenant'
+    | '/admin/arbitration/$id'
+    | '/admin/tenants/$id'
+    | '/discover/actors/$id'
+    | '/discover/cases/$id'
+    | '/discover/cases/compare'
+    | '/discover/programs/$id'
+    | '/discover/service-products/compare'
+    | '/discover/tenants/$id'
+    | '/plans/$id/public'
+    | '/projects/$id/changes'
+    | '/projects/$id/deal'
+    | '/projects/$id/decision'
+    | '/projects/$id/incidents'
+    | '/projects/$id/messages'
+    | '/projects/$id/outcome'
+    | '/projects/$id/plans'
+    | '/projects/$id/quote'
+    | '/projects/$id/retrospective'
+    | '/projects/$id/reuse'
+    | '/projects/$id/review'
+    | '/projects/$id/share'
+    | '/projects/$id/team'
+    | '/projects/$id/understand'
+    | '/projects/$id/waiting'
+    | '/tenant/opportunities/$id'
+    | '/tenant/orders/$id'
+    | '/tenant/service-products/feedback'
+    | '/tenant/settlement/$month'
+    | '/discover/actors'
+    | '/discover/cases'
+    | '/discover/programs'
+    | '/discover/service-products'
+    | '/projects/$id'
+    | '/tenant/orders'
+    | '/tenant/service-products'
+    | '/tenant/settlement'
+    | '/discover/service-products/$id/share'
+    | '/discover/service-products/$id/start'
+    | '/projects/$id/candidates/compare'
+    | '/projects/$id/contract/$voucherId'
+    | '/projects/$id/contract/tree'
+    | '/projects/$id/execution/audience'
+    | '/projects/$id/execution/handoff'
+    | '/projects/$id/payments/scheme'
+    | '/tenant/service-products/$id/versions'
+    | '/discover/service-products/$id'
+    | '/projects/$id/candidates'
+    | '/projects/$id/contract'
+    | '/projects/$id/execution'
+    | '/projects/$id/payments'
+    | '/tenant/service-products/$id'
   id:
     | '__root__'
     | '/'
-    | '/admin'
-    | '/agent'
+    | '/demo'
+    | '/dev-login'
+    | '/gap-checklist'
+    | '/guides'
     | '/m'
-    | '/supplier'
-    | '/td-followups'
-    | '/td-m-index'
-    | '/td-proposal'
-    | '/td-tools-budget'
-    | '/v0-demo'
-    | '/v0-messages'
-    | '/v0-solutions'
-    | '/v0-workspace'
-    | '/admin/agencies'
-    | '/admin/ai-feedback'
-    | '/admin/artists'
-    | '/admin/audit'
-    | '/admin/customers'
-    | '/admin/dashboard'
-    | '/admin/dict'
-    | '/admin/labeling'
-    | '/admin/login'
-    | '/admin/orders'
-    | '/admin/prompts'
-    | '/admin/rbac'
-    | '/admin/sku'
-    | '/agent/assistant'
-    | '/agent/login'
-    | '/agent/messages'
-    | '/agent/requests'
-    | '/agent/solutions'
-    | '/m/discover'
-    | '/m/me'
-    | '/m/messages'
-    | '/m/submit'
-    | '/p/$proposalId'
-    | '/supplier/artists'
-    | '/supplier/feedback'
-    | '/supplier/followups'
-    | '/supplier/leads'
-    | '/supplier/login'
-    | '/supplier/opportunities'
-    | '/supplier/proposals'
-    | '/supplier/workspace'
-    | '/tools/annual-plan'
-    | '/tools/budget-calculator'
-    | '/tools/insurance-plan'
+    | '/media-library'
+    | '/snapshot'
+    | '/account/data'
+    | '/actor/calendar'
+    | '/actor/disputes'
+    | '/actor/preferences'
+    | '/actor/services'
+    | '/admin/attribution'
+    | '/admin/incidents'
+    | '/admin/permissions'
+    | '/agent/memory'
+    | '/projects/$id'
+    | '/tenant/execution'
+    | '/tenant/partners'
+    | '/tenant/programs'
+    | '/actor/'
     | '/admin/'
     | '/agent/'
-    | '/m/'
-    | '/supplier/'
-    | '/agent/quotations/$id'
-    | '/supplier/leads/$id'
-    | '/supplier/opportunities/$id'
-    | '/supplier/proposals/$id'
-    | '/supplier/quotations/$id'
-    | '/supplier/quotations/'
+    | '/projects/'
+    | '/tenant/'
+    | '/admin/arbitration/$id'
+    | '/admin/tenants/$id'
+    | '/discover/actors/$id'
+    | '/discover/cases/$id'
+    | '/discover/cases/compare'
+    | '/discover/programs/$id'
+    | '/discover/service-products/compare'
+    | '/discover/tenants/$id'
+    | '/plans/$id/public'
+    | '/projects/$id/changes'
+    | '/projects/$id/deal'
+    | '/projects/$id/decision'
+    | '/projects/$id/incidents'
+    | '/projects/$id/messages'
+    | '/projects/$id/outcome'
+    | '/projects/$id/plans'
+    | '/projects/$id/quote'
+    | '/projects/$id/retrospective'
+    | '/projects/$id/reuse'
+    | '/projects/$id/review'
+    | '/projects/$id/share'
+    | '/projects/$id/team'
+    | '/projects/$id/understand'
+    | '/projects/$id/waiting'
+    | '/tenant/opportunities/$id'
+    | '/tenant/orders/$id'
+    | '/tenant/service-products/feedback'
+    | '/tenant/settlement/$month'
+    | '/discover/actors/'
+    | '/discover/cases/'
+    | '/discover/programs/'
+    | '/discover/service-products/'
+    | '/projects/$id/'
+    | '/tenant/orders/'
+    | '/tenant/service-products/'
+    | '/tenant/settlement/'
+    | '/discover/service-products/$id/share'
+    | '/discover/service-products/$id/start'
+    | '/projects/$id/candidates/compare'
+    | '/projects/$id/contract/$voucherId'
+    | '/projects/$id/contract/tree'
+    | '/projects/$id/execution/audience'
+    | '/projects/$id/execution/handoff'
+    | '/projects/$id/payments/scheme'
+    | '/tenant/service-products/$id/versions'
+    | '/discover/service-products/$id/'
+    | '/projects/$id/candidates/'
+    | '/projects/$id/contract/'
+    | '/projects/$id/execution/'
+    | '/projects/$id/payments/'
+    | '/tenant/service-products/$id/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AdminRoute: typeof AdminRouteWithChildren
-  AgentRoute: typeof AgentRouteWithChildren
-  MRoute: typeof MRouteWithChildren
-  SupplierRoute: typeof SupplierRouteWithChildren
-  TdFollowupsRoute: typeof TdFollowupsRoute
-  TdMIndexRoute: typeof TdMIndexRoute
-  TdProposalRoute: typeof TdProposalRoute
-  TdToolsBudgetRoute: typeof TdToolsBudgetRoute
-  V0DemoRoute: typeof V0DemoRoute
-  V0MessagesRoute: typeof V0MessagesRoute
-  V0SolutionsRoute: typeof V0SolutionsRoute
-  V0WorkspaceRoute: typeof V0WorkspaceRoute
-  PProposalIdRoute: typeof PProposalIdRoute
-  ToolsAnnualPlanRoute: typeof ToolsAnnualPlanRoute
-  ToolsBudgetCalculatorRoute: typeof ToolsBudgetCalculatorRoute
-  ToolsInsurancePlanRoute: typeof ToolsInsurancePlanRoute
+  DemoRoute: typeof DemoRoute
+  DevLoginRoute: typeof DevLoginRoute
+  GapChecklistRoute: typeof GapChecklistRoute
+  GuidesRoute: typeof GuidesRoute
+  MRoute: typeof MRoute
+  MediaLibraryRoute: typeof MediaLibraryRoute
+  SnapshotRoute: typeof SnapshotRoute
+  AccountDataRoute: typeof AccountDataRoute
+  ActorCalendarRoute: typeof ActorCalendarRoute
+  ActorDisputesRoute: typeof ActorDisputesRoute
+  ActorPreferencesRoute: typeof ActorPreferencesRoute
+  ActorServicesRoute: typeof ActorServicesRoute
+  AdminAttributionRoute: typeof AdminAttributionRoute
+  AdminIncidentsRoute: typeof AdminIncidentsRoute
+  AdminPermissionsRoute: typeof AdminPermissionsRoute
+  AgentMemoryRoute: typeof AgentMemoryRoute
+  ProjectsIdRoute: typeof ProjectsIdRouteWithChildren
+  TenantExecutionRoute: typeof TenantExecutionRoute
+  TenantPartnersRoute: typeof TenantPartnersRoute
+  TenantProgramsRoute: typeof TenantProgramsRoute
+  ActorIndexRoute: typeof ActorIndexRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+  AgentIndexRoute: typeof AgentIndexRoute
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
+  TenantIndexRoute: typeof TenantIndexRoute
+  AdminArbitrationIdRoute: typeof AdminArbitrationIdRoute
+  AdminTenantsIdRoute: typeof AdminTenantsIdRoute
+  DiscoverActorsIdRoute: typeof DiscoverActorsIdRoute
+  DiscoverCasesIdRoute: typeof DiscoverCasesIdRoute
+  DiscoverCasesCompareRoute: typeof DiscoverCasesCompareRoute
+  DiscoverProgramsIdRoute: typeof DiscoverProgramsIdRoute
+  DiscoverServiceProductsCompareRoute: typeof DiscoverServiceProductsCompareRoute
+  DiscoverTenantsIdRoute: typeof DiscoverTenantsIdRoute
+  PlansIdPublicRoute: typeof PlansIdPublicRoute
+  TenantOpportunitiesIdRoute: typeof TenantOpportunitiesIdRoute
+  TenantOrdersIdRoute: typeof TenantOrdersIdRoute
+  TenantServiceProductsFeedbackRoute: typeof TenantServiceProductsFeedbackRoute
+  TenantSettlementMonthRoute: typeof TenantSettlementMonthRoute
+  DiscoverActorsIndexRoute: typeof DiscoverActorsIndexRoute
+  DiscoverCasesIndexRoute: typeof DiscoverCasesIndexRoute
+  DiscoverProgramsIndexRoute: typeof DiscoverProgramsIndexRoute
+  DiscoverServiceProductsIndexRoute: typeof DiscoverServiceProductsIndexRoute
+  TenantOrdersIndexRoute: typeof TenantOrdersIndexRoute
+  TenantServiceProductsIndexRoute: typeof TenantServiceProductsIndexRoute
+  TenantSettlementIndexRoute: typeof TenantSettlementIndexRoute
+  DiscoverServiceProductsIdShareRoute: typeof DiscoverServiceProductsIdShareRoute
+  DiscoverServiceProductsIdStartRoute: typeof DiscoverServiceProductsIdStartRoute
+  TenantServiceProductsIdVersionsRoute: typeof TenantServiceProductsIdVersionsRoute
+  DiscoverServiceProductsIdIndexRoute: typeof DiscoverServiceProductsIdIndexRoute
+  TenantServiceProductsIdIndexRoute: typeof TenantServiceProductsIdIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/v0-workspace': {
-      id: '/v0-workspace'
-      path: '/v0-workspace'
-      fullPath: '/v0-workspace'
-      preLoaderRoute: typeof V0WorkspaceRouteImport
+    '/snapshot': {
+      id: '/snapshot'
+      path: '/snapshot'
+      fullPath: '/snapshot'
+      preLoaderRoute: typeof SnapshotRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/v0-solutions': {
-      id: '/v0-solutions'
-      path: '/v0-solutions'
-      fullPath: '/v0-solutions'
-      preLoaderRoute: typeof V0SolutionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/v0-messages': {
-      id: '/v0-messages'
-      path: '/v0-messages'
-      fullPath: '/v0-messages'
-      preLoaderRoute: typeof V0MessagesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/v0-demo': {
-      id: '/v0-demo'
-      path: '/v0-demo'
-      fullPath: '/v0-demo'
-      preLoaderRoute: typeof V0DemoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/td-tools-budget': {
-      id: '/td-tools-budget'
-      path: '/td-tools-budget'
-      fullPath: '/td-tools-budget'
-      preLoaderRoute: typeof TdToolsBudgetRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/td-proposal': {
-      id: '/td-proposal'
-      path: '/td-proposal'
-      fullPath: '/td-proposal'
-      preLoaderRoute: typeof TdProposalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/td-m-index': {
-      id: '/td-m-index'
-      path: '/td-m-index'
-      fullPath: '/td-m-index'
-      preLoaderRoute: typeof TdMIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/td-followups': {
-      id: '/td-followups'
-      path: '/td-followups'
-      fullPath: '/td-followups'
-      preLoaderRoute: typeof TdFollowupsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/supplier': {
-      id: '/supplier'
-      path: '/supplier'
-      fullPath: '/supplier'
-      preLoaderRoute: typeof SupplierRouteImport
+    '/media-library': {
+      id: '/media-library'
+      path: '/media-library'
+      fullPath: '/media-library'
+      preLoaderRoute: typeof MediaLibraryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/m': {
@@ -795,18 +1042,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/agent': {
-      id: '/agent'
-      path: '/agent'
-      fullPath: '/agent'
-      preLoaderRoute: typeof AgentRouteImport
+    '/guides': {
+      id: '/guides'
+      path: '/guides'
+      fullPath: '/guides'
+      preLoaderRoute: typeof GuidesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
+    '/gap-checklist': {
+      id: '/gap-checklist'
+      path: '/gap-checklist'
+      fullPath: '/gap-checklist'
+      preLoaderRoute: typeof GapChecklistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dev-login': {
+      id: '/dev-login'
+      path: '/dev-login'
+      fullPath: '/dev-login'
+      preLoaderRoute: typeof DevLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demo': {
+      id: '/demo'
+      path: '/demo'
+      fullPath: '/demo'
+      preLoaderRoute: typeof DemoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -816,479 +1077,606 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/supplier/': {
-      id: '/supplier/'
-      path: '/'
-      fullPath: '/supplier/'
-      preLoaderRoute: typeof SupplierIndexRouteImport
-      parentRoute: typeof SupplierRoute
+    '/tenant/': {
+      id: '/tenant/'
+      path: '/tenant'
+      fullPath: '/tenant/'
+      preLoaderRoute: typeof TenantIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/m/': {
-      id: '/m/'
-      path: '/'
-      fullPath: '/m/'
-      preLoaderRoute: typeof MIndexRouteImport
-      parentRoute: typeof MRoute
+    '/projects/': {
+      id: '/projects/'
+      path: '/projects'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/agent/': {
       id: '/agent/'
-      path: '/'
+      path: '/agent'
       fullPath: '/agent/'
       preLoaderRoute: typeof AgentIndexRouteImport
-      parentRoute: typeof AgentRoute
+      parentRoute: typeof rootRouteImport
     }
     '/admin/': {
       id: '/admin/'
-      path: '/'
+      path: '/admin'
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/tools/insurance-plan': {
-      id: '/tools/insurance-plan'
-      path: '/tools/insurance-plan'
-      fullPath: '/tools/insurance-plan'
-      preLoaderRoute: typeof ToolsInsurancePlanRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/tools/budget-calculator': {
-      id: '/tools/budget-calculator'
-      path: '/tools/budget-calculator'
-      fullPath: '/tools/budget-calculator'
-      preLoaderRoute: typeof ToolsBudgetCalculatorRouteImport
+    '/actor/': {
+      id: '/actor/'
+      path: '/actor'
+      fullPath: '/actor/'
+      preLoaderRoute: typeof ActorIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/tools/annual-plan': {
-      id: '/tools/annual-plan'
-      path: '/tools/annual-plan'
-      fullPath: '/tools/annual-plan'
-      preLoaderRoute: typeof ToolsAnnualPlanRouteImport
+    '/tenant/programs': {
+      id: '/tenant/programs'
+      path: '/tenant/programs'
+      fullPath: '/tenant/programs'
+      preLoaderRoute: typeof TenantProgramsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/supplier/workspace': {
-      id: '/supplier/workspace'
-      path: '/workspace'
-      fullPath: '/supplier/workspace'
-      preLoaderRoute: typeof SupplierWorkspaceRouteImport
-      parentRoute: typeof SupplierRoute
-    }
-    '/supplier/proposals': {
-      id: '/supplier/proposals'
-      path: '/proposals'
-      fullPath: '/supplier/proposals'
-      preLoaderRoute: typeof SupplierProposalsRouteImport
-      parentRoute: typeof SupplierRoute
-    }
-    '/supplier/opportunities': {
-      id: '/supplier/opportunities'
-      path: '/opportunities'
-      fullPath: '/supplier/opportunities'
-      preLoaderRoute: typeof SupplierOpportunitiesRouteImport
-      parentRoute: typeof SupplierRoute
-    }
-    '/supplier/login': {
-      id: '/supplier/login'
-      path: '/login'
-      fullPath: '/supplier/login'
-      preLoaderRoute: typeof SupplierLoginRouteImport
-      parentRoute: typeof SupplierRoute
-    }
-    '/supplier/leads': {
-      id: '/supplier/leads'
-      path: '/leads'
-      fullPath: '/supplier/leads'
-      preLoaderRoute: typeof SupplierLeadsRouteImport
-      parentRoute: typeof SupplierRoute
-    }
-    '/supplier/followups': {
-      id: '/supplier/followups'
-      path: '/followups'
-      fullPath: '/supplier/followups'
-      preLoaderRoute: typeof SupplierFollowupsRouteImport
-      parentRoute: typeof SupplierRoute
-    }
-    '/supplier/feedback': {
-      id: '/supplier/feedback'
-      path: '/feedback'
-      fullPath: '/supplier/feedback'
-      preLoaderRoute: typeof SupplierFeedbackRouteImport
-      parentRoute: typeof SupplierRoute
-    }
-    '/supplier/artists': {
-      id: '/supplier/artists'
-      path: '/artists'
-      fullPath: '/supplier/artists'
-      preLoaderRoute: typeof SupplierArtistsRouteImport
-      parentRoute: typeof SupplierRoute
-    }
-    '/p/$proposalId': {
-      id: '/p/$proposalId'
-      path: '/p/$proposalId'
-      fullPath: '/p/$proposalId'
-      preLoaderRoute: typeof PProposalIdRouteImport
+    '/tenant/partners': {
+      id: '/tenant/partners'
+      path: '/tenant/partners'
+      fullPath: '/tenant/partners'
+      preLoaderRoute: typeof TenantPartnersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/m/submit': {
-      id: '/m/submit'
-      path: '/submit'
-      fullPath: '/m/submit'
-      preLoaderRoute: typeof MSubmitRouteImport
-      parentRoute: typeof MRoute
+    '/tenant/execution': {
+      id: '/tenant/execution'
+      path: '/tenant/execution'
+      fullPath: '/tenant/execution'
+      preLoaderRoute: typeof TenantExecutionRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/m/messages': {
-      id: '/m/messages'
+    '/projects/$id': {
+      id: '/projects/$id'
+      path: '/projects/$id'
+      fullPath: '/projects/$id'
+      preLoaderRoute: typeof ProjectsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/memory': {
+      id: '/agent/memory'
+      path: '/agent/memory'
+      fullPath: '/agent/memory'
+      preLoaderRoute: typeof AgentMemoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/permissions': {
+      id: '/admin/permissions'
+      path: '/admin/permissions'
+      fullPath: '/admin/permissions'
+      preLoaderRoute: typeof AdminPermissionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/incidents': {
+      id: '/admin/incidents'
+      path: '/admin/incidents'
+      fullPath: '/admin/incidents'
+      preLoaderRoute: typeof AdminIncidentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/attribution': {
+      id: '/admin/attribution'
+      path: '/admin/attribution'
+      fullPath: '/admin/attribution'
+      preLoaderRoute: typeof AdminAttributionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/actor/services': {
+      id: '/actor/services'
+      path: '/actor/services'
+      fullPath: '/actor/services'
+      preLoaderRoute: typeof ActorServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/actor/preferences': {
+      id: '/actor/preferences'
+      path: '/actor/preferences'
+      fullPath: '/actor/preferences'
+      preLoaderRoute: typeof ActorPreferencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/actor/disputes': {
+      id: '/actor/disputes'
+      path: '/actor/disputes'
+      fullPath: '/actor/disputes'
+      preLoaderRoute: typeof ActorDisputesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/actor/calendar': {
+      id: '/actor/calendar'
+      path: '/actor/calendar'
+      fullPath: '/actor/calendar'
+      preLoaderRoute: typeof ActorCalendarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account/data': {
+      id: '/account/data'
+      path: '/account/data'
+      fullPath: '/account/data'
+      preLoaderRoute: typeof AccountDataRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tenant/settlement/': {
+      id: '/tenant/settlement/'
+      path: '/tenant/settlement'
+      fullPath: '/tenant/settlement/'
+      preLoaderRoute: typeof TenantSettlementIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tenant/service-products/': {
+      id: '/tenant/service-products/'
+      path: '/tenant/service-products'
+      fullPath: '/tenant/service-products/'
+      preLoaderRoute: typeof TenantServiceProductsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tenant/orders/': {
+      id: '/tenant/orders/'
+      path: '/tenant/orders'
+      fullPath: '/tenant/orders/'
+      preLoaderRoute: typeof TenantOrdersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/$id/': {
+      id: '/projects/$id/'
+      path: '/'
+      fullPath: '/projects/$id/'
+      preLoaderRoute: typeof ProjectsIdIndexRouteImport
+      parentRoute: typeof ProjectsIdRoute
+    }
+    '/discover/service-products/': {
+      id: '/discover/service-products/'
+      path: '/discover/service-products'
+      fullPath: '/discover/service-products/'
+      preLoaderRoute: typeof DiscoverServiceProductsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/discover/programs/': {
+      id: '/discover/programs/'
+      path: '/discover/programs'
+      fullPath: '/discover/programs/'
+      preLoaderRoute: typeof DiscoverProgramsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/discover/cases/': {
+      id: '/discover/cases/'
+      path: '/discover/cases'
+      fullPath: '/discover/cases/'
+      preLoaderRoute: typeof DiscoverCasesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/discover/actors/': {
+      id: '/discover/actors/'
+      path: '/discover/actors'
+      fullPath: '/discover/actors/'
+      preLoaderRoute: typeof DiscoverActorsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tenant/settlement/$month': {
+      id: '/tenant/settlement/$month'
+      path: '/tenant/settlement/$month'
+      fullPath: '/tenant/settlement/$month'
+      preLoaderRoute: typeof TenantSettlementMonthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tenant/service-products/feedback': {
+      id: '/tenant/service-products/feedback'
+      path: '/tenant/service-products/feedback'
+      fullPath: '/tenant/service-products/feedback'
+      preLoaderRoute: typeof TenantServiceProductsFeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tenant/orders/$id': {
+      id: '/tenant/orders/$id'
+      path: '/tenant/orders/$id'
+      fullPath: '/tenant/orders/$id'
+      preLoaderRoute: typeof TenantOrdersIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tenant/opportunities/$id': {
+      id: '/tenant/opportunities/$id'
+      path: '/tenant/opportunities/$id'
+      fullPath: '/tenant/opportunities/$id'
+      preLoaderRoute: typeof TenantOpportunitiesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/$id/waiting': {
+      id: '/projects/$id/waiting'
+      path: '/waiting'
+      fullPath: '/projects/$id/waiting'
+      preLoaderRoute: typeof ProjectsIdWaitingRouteImport
+      parentRoute: typeof ProjectsIdRoute
+    }
+    '/projects/$id/understand': {
+      id: '/projects/$id/understand'
+      path: '/understand'
+      fullPath: '/projects/$id/understand'
+      preLoaderRoute: typeof ProjectsIdUnderstandRouteImport
+      parentRoute: typeof ProjectsIdRoute
+    }
+    '/projects/$id/team': {
+      id: '/projects/$id/team'
+      path: '/team'
+      fullPath: '/projects/$id/team'
+      preLoaderRoute: typeof ProjectsIdTeamRouteImport
+      parentRoute: typeof ProjectsIdRoute
+    }
+    '/projects/$id/share': {
+      id: '/projects/$id/share'
+      path: '/share'
+      fullPath: '/projects/$id/share'
+      preLoaderRoute: typeof ProjectsIdShareRouteImport
+      parentRoute: typeof ProjectsIdRoute
+    }
+    '/projects/$id/review': {
+      id: '/projects/$id/review'
+      path: '/review'
+      fullPath: '/projects/$id/review'
+      preLoaderRoute: typeof ProjectsIdReviewRouteImport
+      parentRoute: typeof ProjectsIdRoute
+    }
+    '/projects/$id/reuse': {
+      id: '/projects/$id/reuse'
+      path: '/reuse'
+      fullPath: '/projects/$id/reuse'
+      preLoaderRoute: typeof ProjectsIdReuseRouteImport
+      parentRoute: typeof ProjectsIdRoute
+    }
+    '/projects/$id/retrospective': {
+      id: '/projects/$id/retrospective'
+      path: '/retrospective'
+      fullPath: '/projects/$id/retrospective'
+      preLoaderRoute: typeof ProjectsIdRetrospectiveRouteImport
+      parentRoute: typeof ProjectsIdRoute
+    }
+    '/projects/$id/quote': {
+      id: '/projects/$id/quote'
+      path: '/quote'
+      fullPath: '/projects/$id/quote'
+      preLoaderRoute: typeof ProjectsIdQuoteRouteImport
+      parentRoute: typeof ProjectsIdRoute
+    }
+    '/projects/$id/plans': {
+      id: '/projects/$id/plans'
+      path: '/plans'
+      fullPath: '/projects/$id/plans'
+      preLoaderRoute: typeof ProjectsIdPlansRouteImport
+      parentRoute: typeof ProjectsIdRoute
+    }
+    '/projects/$id/outcome': {
+      id: '/projects/$id/outcome'
+      path: '/outcome'
+      fullPath: '/projects/$id/outcome'
+      preLoaderRoute: typeof ProjectsIdOutcomeRouteImport
+      parentRoute: typeof ProjectsIdRoute
+    }
+    '/projects/$id/messages': {
+      id: '/projects/$id/messages'
       path: '/messages'
-      fullPath: '/m/messages'
-      preLoaderRoute: typeof MMessagesRouteImport
-      parentRoute: typeof MRoute
+      fullPath: '/projects/$id/messages'
+      preLoaderRoute: typeof ProjectsIdMessagesRouteImport
+      parentRoute: typeof ProjectsIdRoute
     }
-    '/m/me': {
-      id: '/m/me'
-      path: '/me'
-      fullPath: '/m/me'
-      preLoaderRoute: typeof MMeRouteImport
-      parentRoute: typeof MRoute
+    '/projects/$id/incidents': {
+      id: '/projects/$id/incidents'
+      path: '/incidents'
+      fullPath: '/projects/$id/incidents'
+      preLoaderRoute: typeof ProjectsIdIncidentsRouteImport
+      parentRoute: typeof ProjectsIdRoute
     }
-    '/m/discover': {
-      id: '/m/discover'
-      path: '/discover'
-      fullPath: '/m/discover'
-      preLoaderRoute: typeof MDiscoverRouteImport
-      parentRoute: typeof MRoute
+    '/projects/$id/decision': {
+      id: '/projects/$id/decision'
+      path: '/decision'
+      fullPath: '/projects/$id/decision'
+      preLoaderRoute: typeof ProjectsIdDecisionRouteImport
+      parentRoute: typeof ProjectsIdRoute
     }
-    '/agent/solutions': {
-      id: '/agent/solutions'
-      path: '/solutions'
-      fullPath: '/agent/solutions'
-      preLoaderRoute: typeof AgentSolutionsRouteImport
-      parentRoute: typeof AgentRoute
+    '/projects/$id/deal': {
+      id: '/projects/$id/deal'
+      path: '/deal'
+      fullPath: '/projects/$id/deal'
+      preLoaderRoute: typeof ProjectsIdDealRouteImport
+      parentRoute: typeof ProjectsIdRoute
     }
-    '/agent/requests': {
-      id: '/agent/requests'
-      path: '/requests'
-      fullPath: '/agent/requests'
-      preLoaderRoute: typeof AgentRequestsRouteImport
-      parentRoute: typeof AgentRoute
+    '/projects/$id/changes': {
+      id: '/projects/$id/changes'
+      path: '/changes'
+      fullPath: '/projects/$id/changes'
+      preLoaderRoute: typeof ProjectsIdChangesRouteImport
+      parentRoute: typeof ProjectsIdRoute
     }
-    '/agent/messages': {
-      id: '/agent/messages'
-      path: '/messages'
-      fullPath: '/agent/messages'
-      preLoaderRoute: typeof AgentMessagesRouteImport
-      parentRoute: typeof AgentRoute
+    '/plans/$id/public': {
+      id: '/plans/$id/public'
+      path: '/plans/$id/public'
+      fullPath: '/plans/$id/public'
+      preLoaderRoute: typeof PlansIdPublicRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/agent/login': {
-      id: '/agent/login'
-      path: '/login'
-      fullPath: '/agent/login'
-      preLoaderRoute: typeof AgentLoginRouteImport
-      parentRoute: typeof AgentRoute
+    '/discover/tenants/$id': {
+      id: '/discover/tenants/$id'
+      path: '/discover/tenants/$id'
+      fullPath: '/discover/tenants/$id'
+      preLoaderRoute: typeof DiscoverTenantsIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/agent/assistant': {
-      id: '/agent/assistant'
-      path: '/assistant'
-      fullPath: '/agent/assistant'
-      preLoaderRoute: typeof AgentAssistantRouteImport
-      parentRoute: typeof AgentRoute
+    '/discover/service-products/compare': {
+      id: '/discover/service-products/compare'
+      path: '/discover/service-products/compare'
+      fullPath: '/discover/service-products/compare'
+      preLoaderRoute: typeof DiscoverServiceProductsCompareRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/admin/sku': {
-      id: '/admin/sku'
-      path: '/sku'
-      fullPath: '/admin/sku'
-      preLoaderRoute: typeof AdminSkuRouteImport
-      parentRoute: typeof AdminRoute
+    '/discover/programs/$id': {
+      id: '/discover/programs/$id'
+      path: '/discover/programs/$id'
+      fullPath: '/discover/programs/$id'
+      preLoaderRoute: typeof DiscoverProgramsIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/admin/rbac': {
-      id: '/admin/rbac'
-      path: '/rbac'
-      fullPath: '/admin/rbac'
-      preLoaderRoute: typeof AdminRbacRouteImport
-      parentRoute: typeof AdminRoute
+    '/discover/cases/compare': {
+      id: '/discover/cases/compare'
+      path: '/discover/cases/compare'
+      fullPath: '/discover/cases/compare'
+      preLoaderRoute: typeof DiscoverCasesCompareRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/admin/prompts': {
-      id: '/admin/prompts'
-      path: '/prompts'
-      fullPath: '/admin/prompts'
-      preLoaderRoute: typeof AdminPromptsRouteImport
-      parentRoute: typeof AdminRoute
+    '/discover/cases/$id': {
+      id: '/discover/cases/$id'
+      path: '/discover/cases/$id'
+      fullPath: '/discover/cases/$id'
+      preLoaderRoute: typeof DiscoverCasesIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/admin/orders': {
-      id: '/admin/orders'
-      path: '/orders'
-      fullPath: '/admin/orders'
-      preLoaderRoute: typeof AdminOrdersRouteImport
-      parentRoute: typeof AdminRoute
+    '/discover/actors/$id': {
+      id: '/discover/actors/$id'
+      path: '/discover/actors/$id'
+      fullPath: '/discover/actors/$id'
+      preLoaderRoute: typeof DiscoverActorsIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/admin/login': {
-      id: '/admin/login'
-      path: '/login'
-      fullPath: '/admin/login'
-      preLoaderRoute: typeof AdminLoginRouteImport
-      parentRoute: typeof AdminRoute
+    '/admin/tenants/$id': {
+      id: '/admin/tenants/$id'
+      path: '/admin/tenants/$id'
+      fullPath: '/admin/tenants/$id'
+      preLoaderRoute: typeof AdminTenantsIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/admin/labeling': {
-      id: '/admin/labeling'
-      path: '/labeling'
-      fullPath: '/admin/labeling'
-      preLoaderRoute: typeof AdminLabelingRouteImport
-      parentRoute: typeof AdminRoute
+    '/admin/arbitration/$id': {
+      id: '/admin/arbitration/$id'
+      path: '/admin/arbitration/$id'
+      fullPath: '/admin/arbitration/$id'
+      preLoaderRoute: typeof AdminArbitrationIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/admin/dict': {
-      id: '/admin/dict'
-      path: '/dict'
-      fullPath: '/admin/dict'
-      preLoaderRoute: typeof AdminDictRouteImport
-      parentRoute: typeof AdminRoute
+    '/tenant/service-products/$id/': {
+      id: '/tenant/service-products/$id/'
+      path: '/tenant/service-products/$id'
+      fullPath: '/tenant/service-products/$id/'
+      preLoaderRoute: typeof TenantServiceProductsIdIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/admin/dashboard': {
-      id: '/admin/dashboard'
-      path: '/dashboard'
-      fullPath: '/admin/dashboard'
-      preLoaderRoute: typeof AdminDashboardRouteImport
-      parentRoute: typeof AdminRoute
+    '/projects/$id/payments/': {
+      id: '/projects/$id/payments/'
+      path: '/payments'
+      fullPath: '/projects/$id/payments/'
+      preLoaderRoute: typeof ProjectsIdPaymentsIndexRouteImport
+      parentRoute: typeof ProjectsIdRoute
     }
-    '/admin/customers': {
-      id: '/admin/customers'
-      path: '/customers'
-      fullPath: '/admin/customers'
-      preLoaderRoute: typeof AdminCustomersRouteImport
-      parentRoute: typeof AdminRoute
+    '/projects/$id/execution/': {
+      id: '/projects/$id/execution/'
+      path: '/execution'
+      fullPath: '/projects/$id/execution/'
+      preLoaderRoute: typeof ProjectsIdExecutionIndexRouteImport
+      parentRoute: typeof ProjectsIdRoute
     }
-    '/admin/audit': {
-      id: '/admin/audit'
-      path: '/audit'
-      fullPath: '/admin/audit'
-      preLoaderRoute: typeof AdminAuditRouteImport
-      parentRoute: typeof AdminRoute
+    '/projects/$id/contract/': {
+      id: '/projects/$id/contract/'
+      path: '/contract'
+      fullPath: '/projects/$id/contract/'
+      preLoaderRoute: typeof ProjectsIdContractIndexRouteImport
+      parentRoute: typeof ProjectsIdRoute
     }
-    '/admin/artists': {
-      id: '/admin/artists'
-      path: '/artists'
-      fullPath: '/admin/artists'
-      preLoaderRoute: typeof AdminArtistsRouteImport
-      parentRoute: typeof AdminRoute
+    '/projects/$id/candidates/': {
+      id: '/projects/$id/candidates/'
+      path: '/candidates'
+      fullPath: '/projects/$id/candidates/'
+      preLoaderRoute: typeof ProjectsIdCandidatesIndexRouteImport
+      parentRoute: typeof ProjectsIdRoute
     }
-    '/admin/ai-feedback': {
-      id: '/admin/ai-feedback'
-      path: '/ai-feedback'
-      fullPath: '/admin/ai-feedback'
-      preLoaderRoute: typeof AdminAiFeedbackRouteImport
-      parentRoute: typeof AdminRoute
+    '/discover/service-products/$id/': {
+      id: '/discover/service-products/$id/'
+      path: '/discover/service-products/$id'
+      fullPath: '/discover/service-products/$id/'
+      preLoaderRoute: typeof DiscoverServiceProductsIdIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/admin/agencies': {
-      id: '/admin/agencies'
-      path: '/agencies'
-      fullPath: '/admin/agencies'
-      preLoaderRoute: typeof AdminAgenciesRouteImport
-      parentRoute: typeof AdminRoute
+    '/tenant/service-products/$id/versions': {
+      id: '/tenant/service-products/$id/versions'
+      path: '/tenant/service-products/$id/versions'
+      fullPath: '/tenant/service-products/$id/versions'
+      preLoaderRoute: typeof TenantServiceProductsIdVersionsRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/supplier/quotations/': {
-      id: '/supplier/quotations/'
-      path: '/quotations'
-      fullPath: '/supplier/quotations/'
-      preLoaderRoute: typeof SupplierQuotationsIndexRouteImport
-      parentRoute: typeof SupplierRoute
+    '/projects/$id/payments/scheme': {
+      id: '/projects/$id/payments/scheme'
+      path: '/payments/scheme'
+      fullPath: '/projects/$id/payments/scheme'
+      preLoaderRoute: typeof ProjectsIdPaymentsSchemeRouteImport
+      parentRoute: typeof ProjectsIdRoute
     }
-    '/supplier/quotations/$id': {
-      id: '/supplier/quotations/$id'
-      path: '/quotations/$id'
-      fullPath: '/supplier/quotations/$id'
-      preLoaderRoute: typeof SupplierQuotationsIdRouteImport
-      parentRoute: typeof SupplierRoute
+    '/projects/$id/execution/handoff': {
+      id: '/projects/$id/execution/handoff'
+      path: '/execution/handoff'
+      fullPath: '/projects/$id/execution/handoff'
+      preLoaderRoute: typeof ProjectsIdExecutionHandoffRouteImport
+      parentRoute: typeof ProjectsIdRoute
     }
-    '/supplier/proposals/$id': {
-      id: '/supplier/proposals/$id'
-      path: '/$id'
-      fullPath: '/supplier/proposals/$id'
-      preLoaderRoute: typeof SupplierProposalsIdRouteImport
-      parentRoute: typeof SupplierProposalsRoute
+    '/projects/$id/execution/audience': {
+      id: '/projects/$id/execution/audience'
+      path: '/execution/audience'
+      fullPath: '/projects/$id/execution/audience'
+      preLoaderRoute: typeof ProjectsIdExecutionAudienceRouteImport
+      parentRoute: typeof ProjectsIdRoute
     }
-    '/supplier/opportunities/$id': {
-      id: '/supplier/opportunities/$id'
-      path: '/$id'
-      fullPath: '/supplier/opportunities/$id'
-      preLoaderRoute: typeof SupplierOpportunitiesIdRouteImport
-      parentRoute: typeof SupplierOpportunitiesRoute
+    '/projects/$id/contract/tree': {
+      id: '/projects/$id/contract/tree'
+      path: '/contract/tree'
+      fullPath: '/projects/$id/contract/tree'
+      preLoaderRoute: typeof ProjectsIdContractTreeRouteImport
+      parentRoute: typeof ProjectsIdRoute
     }
-    '/supplier/leads/$id': {
-      id: '/supplier/leads/$id'
-      path: '/$id'
-      fullPath: '/supplier/leads/$id'
-      preLoaderRoute: typeof SupplierLeadsIdRouteImport
-      parentRoute: typeof SupplierLeadsRoute
+    '/projects/$id/contract/$voucherId': {
+      id: '/projects/$id/contract/$voucherId'
+      path: '/contract/$voucherId'
+      fullPath: '/projects/$id/contract/$voucherId'
+      preLoaderRoute: typeof ProjectsIdContractVoucherIdRouteImport
+      parentRoute: typeof ProjectsIdRoute
     }
-    '/agent/quotations/$id': {
-      id: '/agent/quotations/$id'
-      path: '/quotations/$id'
-      fullPath: '/agent/quotations/$id'
-      preLoaderRoute: typeof AgentQuotationsIdRouteImport
-      parentRoute: typeof AgentRoute
+    '/projects/$id/candidates/compare': {
+      id: '/projects/$id/candidates/compare'
+      path: '/candidates/compare'
+      fullPath: '/projects/$id/candidates/compare'
+      preLoaderRoute: typeof ProjectsIdCandidatesCompareRouteImport
+      parentRoute: typeof ProjectsIdRoute
+    }
+    '/discover/service-products/$id/start': {
+      id: '/discover/service-products/$id/start'
+      path: '/discover/service-products/$id/start'
+      fullPath: '/discover/service-products/$id/start'
+      preLoaderRoute: typeof DiscoverServiceProductsIdStartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/discover/service-products/$id/share': {
+      id: '/discover/service-products/$id/share'
+      path: '/discover/service-products/$id/share'
+      fullPath: '/discover/service-products/$id/share'
+      preLoaderRoute: typeof DiscoverServiceProductsIdShareRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface AdminRouteChildren {
-  AdminAgenciesRoute: typeof AdminAgenciesRoute
-  AdminAiFeedbackRoute: typeof AdminAiFeedbackRoute
-  AdminArtistsRoute: typeof AdminArtistsRoute
-  AdminAuditRoute: typeof AdminAuditRoute
-  AdminCustomersRoute: typeof AdminCustomersRoute
-  AdminDashboardRoute: typeof AdminDashboardRoute
-  AdminDictRoute: typeof AdminDictRoute
-  AdminLabelingRoute: typeof AdminLabelingRoute
-  AdminLoginRoute: typeof AdminLoginRoute
-  AdminOrdersRoute: typeof AdminOrdersRoute
-  AdminPromptsRoute: typeof AdminPromptsRoute
-  AdminRbacRoute: typeof AdminRbacRoute
-  AdminSkuRoute: typeof AdminSkuRoute
-  AdminIndexRoute: typeof AdminIndexRoute
+interface ProjectsIdRouteChildren {
+  ProjectsIdChangesRoute: typeof ProjectsIdChangesRoute
+  ProjectsIdDealRoute: typeof ProjectsIdDealRoute
+  ProjectsIdDecisionRoute: typeof ProjectsIdDecisionRoute
+  ProjectsIdIncidentsRoute: typeof ProjectsIdIncidentsRoute
+  ProjectsIdMessagesRoute: typeof ProjectsIdMessagesRoute
+  ProjectsIdOutcomeRoute: typeof ProjectsIdOutcomeRoute
+  ProjectsIdPlansRoute: typeof ProjectsIdPlansRoute
+  ProjectsIdQuoteRoute: typeof ProjectsIdQuoteRoute
+  ProjectsIdRetrospectiveRoute: typeof ProjectsIdRetrospectiveRoute
+  ProjectsIdReuseRoute: typeof ProjectsIdReuseRoute
+  ProjectsIdReviewRoute: typeof ProjectsIdReviewRoute
+  ProjectsIdShareRoute: typeof ProjectsIdShareRoute
+  ProjectsIdTeamRoute: typeof ProjectsIdTeamRoute
+  ProjectsIdUnderstandRoute: typeof ProjectsIdUnderstandRoute
+  ProjectsIdWaitingRoute: typeof ProjectsIdWaitingRoute
+  ProjectsIdIndexRoute: typeof ProjectsIdIndexRoute
+  ProjectsIdCandidatesCompareRoute: typeof ProjectsIdCandidatesCompareRoute
+  ProjectsIdContractVoucherIdRoute: typeof ProjectsIdContractVoucherIdRoute
+  ProjectsIdContractTreeRoute: typeof ProjectsIdContractTreeRoute
+  ProjectsIdExecutionAudienceRoute: typeof ProjectsIdExecutionAudienceRoute
+  ProjectsIdExecutionHandoffRoute: typeof ProjectsIdExecutionHandoffRoute
+  ProjectsIdPaymentsSchemeRoute: typeof ProjectsIdPaymentsSchemeRoute
+  ProjectsIdCandidatesIndexRoute: typeof ProjectsIdCandidatesIndexRoute
+  ProjectsIdContractIndexRoute: typeof ProjectsIdContractIndexRoute
+  ProjectsIdExecutionIndexRoute: typeof ProjectsIdExecutionIndexRoute
+  ProjectsIdPaymentsIndexRoute: typeof ProjectsIdPaymentsIndexRoute
 }
 
-const AdminRouteChildren: AdminRouteChildren = {
-  AdminAgenciesRoute: AdminAgenciesRoute,
-  AdminAiFeedbackRoute: AdminAiFeedbackRoute,
-  AdminArtistsRoute: AdminArtistsRoute,
-  AdminAuditRoute: AdminAuditRoute,
-  AdminCustomersRoute: AdminCustomersRoute,
-  AdminDashboardRoute: AdminDashboardRoute,
-  AdminDictRoute: AdminDictRoute,
-  AdminLabelingRoute: AdminLabelingRoute,
-  AdminLoginRoute: AdminLoginRoute,
-  AdminOrdersRoute: AdminOrdersRoute,
-  AdminPromptsRoute: AdminPromptsRoute,
-  AdminRbacRoute: AdminRbacRoute,
-  AdminSkuRoute: AdminSkuRoute,
-  AdminIndexRoute: AdminIndexRoute,
+const ProjectsIdRouteChildren: ProjectsIdRouteChildren = {
+  ProjectsIdChangesRoute: ProjectsIdChangesRoute,
+  ProjectsIdDealRoute: ProjectsIdDealRoute,
+  ProjectsIdDecisionRoute: ProjectsIdDecisionRoute,
+  ProjectsIdIncidentsRoute: ProjectsIdIncidentsRoute,
+  ProjectsIdMessagesRoute: ProjectsIdMessagesRoute,
+  ProjectsIdOutcomeRoute: ProjectsIdOutcomeRoute,
+  ProjectsIdPlansRoute: ProjectsIdPlansRoute,
+  ProjectsIdQuoteRoute: ProjectsIdQuoteRoute,
+  ProjectsIdRetrospectiveRoute: ProjectsIdRetrospectiveRoute,
+  ProjectsIdReuseRoute: ProjectsIdReuseRoute,
+  ProjectsIdReviewRoute: ProjectsIdReviewRoute,
+  ProjectsIdShareRoute: ProjectsIdShareRoute,
+  ProjectsIdTeamRoute: ProjectsIdTeamRoute,
+  ProjectsIdUnderstandRoute: ProjectsIdUnderstandRoute,
+  ProjectsIdWaitingRoute: ProjectsIdWaitingRoute,
+  ProjectsIdIndexRoute: ProjectsIdIndexRoute,
+  ProjectsIdCandidatesCompareRoute: ProjectsIdCandidatesCompareRoute,
+  ProjectsIdContractVoucherIdRoute: ProjectsIdContractVoucherIdRoute,
+  ProjectsIdContractTreeRoute: ProjectsIdContractTreeRoute,
+  ProjectsIdExecutionAudienceRoute: ProjectsIdExecutionAudienceRoute,
+  ProjectsIdExecutionHandoffRoute: ProjectsIdExecutionHandoffRoute,
+  ProjectsIdPaymentsSchemeRoute: ProjectsIdPaymentsSchemeRoute,
+  ProjectsIdCandidatesIndexRoute: ProjectsIdCandidatesIndexRoute,
+  ProjectsIdContractIndexRoute: ProjectsIdContractIndexRoute,
+  ProjectsIdExecutionIndexRoute: ProjectsIdExecutionIndexRoute,
+  ProjectsIdPaymentsIndexRoute: ProjectsIdPaymentsIndexRoute,
 }
 
-const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
-
-interface AgentRouteChildren {
-  AgentAssistantRoute: typeof AgentAssistantRoute
-  AgentLoginRoute: typeof AgentLoginRoute
-  AgentMessagesRoute: typeof AgentMessagesRoute
-  AgentRequestsRoute: typeof AgentRequestsRoute
-  AgentSolutionsRoute: typeof AgentSolutionsRoute
-  AgentIndexRoute: typeof AgentIndexRoute
-  AgentQuotationsIdRoute: typeof AgentQuotationsIdRoute
-}
-
-const AgentRouteChildren: AgentRouteChildren = {
-  AgentAssistantRoute: AgentAssistantRoute,
-  AgentLoginRoute: AgentLoginRoute,
-  AgentMessagesRoute: AgentMessagesRoute,
-  AgentRequestsRoute: AgentRequestsRoute,
-  AgentSolutionsRoute: AgentSolutionsRoute,
-  AgentIndexRoute: AgentIndexRoute,
-  AgentQuotationsIdRoute: AgentQuotationsIdRoute,
-}
-
-const AgentRouteWithChildren = AgentRoute._addFileChildren(AgentRouteChildren)
-
-interface MRouteChildren {
-  MDiscoverRoute: typeof MDiscoverRoute
-  MMeRoute: typeof MMeRoute
-  MMessagesRoute: typeof MMessagesRoute
-  MSubmitRoute: typeof MSubmitRoute
-  MIndexRoute: typeof MIndexRoute
-}
-
-const MRouteChildren: MRouteChildren = {
-  MDiscoverRoute: MDiscoverRoute,
-  MMeRoute: MMeRoute,
-  MMessagesRoute: MMessagesRoute,
-  MSubmitRoute: MSubmitRoute,
-  MIndexRoute: MIndexRoute,
-}
-
-const MRouteWithChildren = MRoute._addFileChildren(MRouteChildren)
-
-interface SupplierLeadsRouteChildren {
-  SupplierLeadsIdRoute: typeof SupplierLeadsIdRoute
-}
-
-const SupplierLeadsRouteChildren: SupplierLeadsRouteChildren = {
-  SupplierLeadsIdRoute: SupplierLeadsIdRoute,
-}
-
-const SupplierLeadsRouteWithChildren = SupplierLeadsRoute._addFileChildren(
-  SupplierLeadsRouteChildren,
-)
-
-interface SupplierOpportunitiesRouteChildren {
-  SupplierOpportunitiesIdRoute: typeof SupplierOpportunitiesIdRoute
-}
-
-const SupplierOpportunitiesRouteChildren: SupplierOpportunitiesRouteChildren = {
-  SupplierOpportunitiesIdRoute: SupplierOpportunitiesIdRoute,
-}
-
-const SupplierOpportunitiesRouteWithChildren =
-  SupplierOpportunitiesRoute._addFileChildren(
-    SupplierOpportunitiesRouteChildren,
-  )
-
-interface SupplierProposalsRouteChildren {
-  SupplierProposalsIdRoute: typeof SupplierProposalsIdRoute
-}
-
-const SupplierProposalsRouteChildren: SupplierProposalsRouteChildren = {
-  SupplierProposalsIdRoute: SupplierProposalsIdRoute,
-}
-
-const SupplierProposalsRouteWithChildren =
-  SupplierProposalsRoute._addFileChildren(SupplierProposalsRouteChildren)
-
-interface SupplierRouteChildren {
-  SupplierArtistsRoute: typeof SupplierArtistsRoute
-  SupplierFeedbackRoute: typeof SupplierFeedbackRoute
-  SupplierFollowupsRoute: typeof SupplierFollowupsRoute
-  SupplierLeadsRoute: typeof SupplierLeadsRouteWithChildren
-  SupplierLoginRoute: typeof SupplierLoginRoute
-  SupplierOpportunitiesRoute: typeof SupplierOpportunitiesRouteWithChildren
-  SupplierProposalsRoute: typeof SupplierProposalsRouteWithChildren
-  SupplierWorkspaceRoute: typeof SupplierWorkspaceRoute
-  SupplierIndexRoute: typeof SupplierIndexRoute
-  SupplierQuotationsIdRoute: typeof SupplierQuotationsIdRoute
-  SupplierQuotationsIndexRoute: typeof SupplierQuotationsIndexRoute
-}
-
-const SupplierRouteChildren: SupplierRouteChildren = {
-  SupplierArtistsRoute: SupplierArtistsRoute,
-  SupplierFeedbackRoute: SupplierFeedbackRoute,
-  SupplierFollowupsRoute: SupplierFollowupsRoute,
-  SupplierLeadsRoute: SupplierLeadsRouteWithChildren,
-  SupplierLoginRoute: SupplierLoginRoute,
-  SupplierOpportunitiesRoute: SupplierOpportunitiesRouteWithChildren,
-  SupplierProposalsRoute: SupplierProposalsRouteWithChildren,
-  SupplierWorkspaceRoute: SupplierWorkspaceRoute,
-  SupplierIndexRoute: SupplierIndexRoute,
-  SupplierQuotationsIdRoute: SupplierQuotationsIdRoute,
-  SupplierQuotationsIndexRoute: SupplierQuotationsIndexRoute,
-}
-
-const SupplierRouteWithChildren = SupplierRoute._addFileChildren(
-  SupplierRouteChildren,
+const ProjectsIdRouteWithChildren = ProjectsIdRoute._addFileChildren(
+  ProjectsIdRouteChildren,
 )
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminRoute: AdminRouteWithChildren,
-  AgentRoute: AgentRouteWithChildren,
-  MRoute: MRouteWithChildren,
-  SupplierRoute: SupplierRouteWithChildren,
-  TdFollowupsRoute: TdFollowupsRoute,
-  TdMIndexRoute: TdMIndexRoute,
-  TdProposalRoute: TdProposalRoute,
-  TdToolsBudgetRoute: TdToolsBudgetRoute,
-  V0DemoRoute: V0DemoRoute,
-  V0MessagesRoute: V0MessagesRoute,
-  V0SolutionsRoute: V0SolutionsRoute,
-  V0WorkspaceRoute: V0WorkspaceRoute,
-  PProposalIdRoute: PProposalIdRoute,
-  ToolsAnnualPlanRoute: ToolsAnnualPlanRoute,
-  ToolsBudgetCalculatorRoute: ToolsBudgetCalculatorRoute,
-  ToolsInsurancePlanRoute: ToolsInsurancePlanRoute,
+  DemoRoute: DemoRoute,
+  DevLoginRoute: DevLoginRoute,
+  GapChecklistRoute: GapChecklistRoute,
+  GuidesRoute: GuidesRoute,
+  MRoute: MRoute,
+  MediaLibraryRoute: MediaLibraryRoute,
+  SnapshotRoute: SnapshotRoute,
+  AccountDataRoute: AccountDataRoute,
+  ActorCalendarRoute: ActorCalendarRoute,
+  ActorDisputesRoute: ActorDisputesRoute,
+  ActorPreferencesRoute: ActorPreferencesRoute,
+  ActorServicesRoute: ActorServicesRoute,
+  AdminAttributionRoute: AdminAttributionRoute,
+  AdminIncidentsRoute: AdminIncidentsRoute,
+  AdminPermissionsRoute: AdminPermissionsRoute,
+  AgentMemoryRoute: AgentMemoryRoute,
+  ProjectsIdRoute: ProjectsIdRouteWithChildren,
+  TenantExecutionRoute: TenantExecutionRoute,
+  TenantPartnersRoute: TenantPartnersRoute,
+  TenantProgramsRoute: TenantProgramsRoute,
+  ActorIndexRoute: ActorIndexRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  AgentIndexRoute: AgentIndexRoute,
+  ProjectsIndexRoute: ProjectsIndexRoute,
+  TenantIndexRoute: TenantIndexRoute,
+  AdminArbitrationIdRoute: AdminArbitrationIdRoute,
+  AdminTenantsIdRoute: AdminTenantsIdRoute,
+  DiscoverActorsIdRoute: DiscoverActorsIdRoute,
+  DiscoverCasesIdRoute: DiscoverCasesIdRoute,
+  DiscoverCasesCompareRoute: DiscoverCasesCompareRoute,
+  DiscoverProgramsIdRoute: DiscoverProgramsIdRoute,
+  DiscoverServiceProductsCompareRoute: DiscoverServiceProductsCompareRoute,
+  DiscoverTenantsIdRoute: DiscoverTenantsIdRoute,
+  PlansIdPublicRoute: PlansIdPublicRoute,
+  TenantOpportunitiesIdRoute: TenantOpportunitiesIdRoute,
+  TenantOrdersIdRoute: TenantOrdersIdRoute,
+  TenantServiceProductsFeedbackRoute: TenantServiceProductsFeedbackRoute,
+  TenantSettlementMonthRoute: TenantSettlementMonthRoute,
+  DiscoverActorsIndexRoute: DiscoverActorsIndexRoute,
+  DiscoverCasesIndexRoute: DiscoverCasesIndexRoute,
+  DiscoverProgramsIndexRoute: DiscoverProgramsIndexRoute,
+  DiscoverServiceProductsIndexRoute: DiscoverServiceProductsIndexRoute,
+  TenantOrdersIndexRoute: TenantOrdersIndexRoute,
+  TenantServiceProductsIndexRoute: TenantServiceProductsIndexRoute,
+  TenantSettlementIndexRoute: TenantSettlementIndexRoute,
+  DiscoverServiceProductsIdShareRoute: DiscoverServiceProductsIdShareRoute,
+  DiscoverServiceProductsIdStartRoute: DiscoverServiceProductsIdStartRoute,
+  TenantServiceProductsIdVersionsRoute: TenantServiceProductsIdVersionsRoute,
+  DiscoverServiceProductsIdIndexRoute: DiscoverServiceProductsIdIndexRoute,
+  TenantServiceProductsIdIndexRoute: TenantServiceProductsIdIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

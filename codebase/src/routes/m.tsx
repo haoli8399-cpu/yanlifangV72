@@ -1,127 +1,86 @@
-import { createFileRoute, Outlet, useLocation, useNavigate } from "@tanstack/react-router";
-import { Badge } from "antd";
-import { HomeFilled, AppstoreFilled, MessageFilled, UserOutlined } from "@ant-design/icons";
-import { RobotFilled } from "@ant-design/icons";
-import { unreadCount } from "../shared/mock/messages";
+import { createFileRoute } from "@tanstack/react-router";
+import { Smartphone, Users, FolderOpen, Building2, Compass, Sparkles } from "lucide-react";
 
-export const Route = createFileRoute("/m")({
-  component: MobileShell,
-});
+export const Route = createFileRoute("/m")({ component: MobileHub });
 
-const TABS = [
-  { key: "/m", label: "首页", icon: <HomeFilled /> },
-  { key: "/m/discover", label: "找方案", icon: <AppstoreFilled /> },
-  { key: "/m/submit", label: "提需求", icon: <RobotFilled />, primary: true },
-  { key: "/m/messages", label: "消息", icon: <MessageFilled /> },
-  { key: "/m/me", label: "我的", icon: <UserOutlined /> },
+interface NavItem {
+  label: string;
+  href: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+const sections: Array<{ title: string; items: NavItem[] }> = [
+  {
+    title: "公开发现",
+    items: [
+      { label: "演员列表", href: "/discover/actors", icon: Users },
+      { label: "案例库", href: "/discover/cases", icon: FolderOpen },
+      { label: "服务产品", href: "/discover/service-products", icon: Building2 },
+    ],
+  },
+  {
+    title: "客户操作",
+    items: [
+      { label: "项目列表", href: "/projects", icon: Compass },
+      { label: "AI 顾问", href: "/agent", icon: Sparkles },
+    ],
+  },
+  {
+    title: "演示项目",
+    items: [
+      { label: "Neo 银行答谢宴 (方案中)", href: "/projects/proj_neoyear" },
+      { label: "Miracle 汽车上市 (等待中)", href: "/projects/proj_waiting" },
+      { label: "SciTech Kickoff (已完成)", href: "/projects/proj_reuse" },
+      { label: "AlphaBio 发布会 (探索中)", href: "/projects/proj_rfp" },
+    ],
+  },
 ];
 
-function MobileShell() {
-  const { pathname } = useLocation();
-  const nav = useNavigate();
-  const unread = unreadCount();
-
-  const isActive = (key: string) =>
-    key === "/m" ? pathname === "/m" : pathname === key || pathname.startsWith(`${key}/`);
-
+function NavItemRow({ item }: { item: NavItem }) {
   return (
-    <div
-      style={{
-        maxWidth: 480,
-        margin: "0 auto",
-        minHeight: "100vh",
-        background: "var(--yl-bg-page)",
-        position: "relative",
-        boxShadow: "0 0 40px rgba(0,0,0,.06)",
-        paddingBottom: 68,
-      }}
+    <a
+      href={item.href}
+      className="flex items-center gap-3 rounded-lg border border-border/60 bg-card/40 px-3 py-2.5 active:bg-secondary/60"
     >
-      <Outlet />
+      {item.icon ? <item.icon className="h-4 w-4 shrink-0 text-primary" /> : <div className="h-4 w-4 shrink-0" />}
+      <span className="text-sm text-foreground">{item.label}</span>
+    </a>
+  );
+}
 
-      {/* Bottom tab bar */}
-      <nav
-        style={{
-          position: "fixed",
-          left: "50%",
-          transform: "translateX(-50%)",
-          bottom: 0,
-          width: "100%",
-          maxWidth: 480,
-          height: 60,
-          background: "#fff",
-          borderTop: "1px solid var(--yl-border-subtle)",
-          display: "grid",
-          gridTemplateColumns: "repeat(5, 1fr)",
-          zIndex: 20,
-          paddingBottom: "env(safe-area-inset-bottom, 0)",
-        }}
-      >
-        {TABS.map((t) => {
-          const active = isActive(t.key);
-          return (
-            <button
-              key={t.key}
-              onClick={() => nav({ to: t.key as never })}
-              style={{
-                background: "transparent",
-                border: "none",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 2,
-                color: active ? "var(--yl-primary)" : "var(--yl-text-tertiary)",
-                font: "var(--yl-text-caption-xs)",
-                fontWeight: active ? 600 : 500,
-                cursor: "pointer",
-                position: "relative",
-              }}
-            >
-              {t.primary ? (
-                <div
-                  style={{
-                    position: "absolute",
-                    top: -20,
-                    width: 52,
-                    height: 52,
-                    borderRadius: "50%",
-                    background: "linear-gradient(135deg,var(--yl-primary),var(--yl-primary-active))",
-                    color: "#fff",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    boxShadow: "0 10px 24px rgba(91,79,214,.4)",
-                    fontSize: "var(--yl-font-heading-3)",
-                    transition: "all 0.2s",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "scale(1.05)";
-                    e.currentTarget.style.boxShadow = "0 12px 28px rgba(91,79,214,.5)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "scale(1)";
-                    e.currentTarget.style.boxShadow = "0 10px 24px rgba(91,79,214,.4)";
-                  }}
-                >
-                  {t.icon}
-                </div>
-              ) : (
-                <div style={{ fontSize: "var(--yl-font-heading-4)", position: "relative" }}>
-                  {t.icon}
-                  {t.key === "/m/messages" && unread > 0 && (
-                    <Badge
-                      count={unread}
-                      size="small"
-                      style={{ position: "absolute", top: -6, right: -12 }}
-                    />
-                  )}
-                </div>
-              )}
-              <span style={{ marginTop: t.primary ? 30 : 0 }}>{t.label}</span>
-            </button>
-          );
-        })}
-      </nav>
+function MobileHub() {
+  return (
+    <div className="mx-auto max-w-[480px] px-4 pb-24 pt-6">
+      <div className="mb-6 flex items-center gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white">
+          <Smartphone className="h-5 w-5" />
+        </div>
+        <div>
+          <h1 className="text-lg font-bold text-foreground">演立方 · H5</h1>
+          <p className="text-[11px] text-muted-foreground">开发测试聚合入口</p>
+        </div>
+      </div>
+
+      <div className="mb-4 rounded-lg border border-[color:var(--state-ai)]/40 bg-[color:var(--state-ai)]/10 px-3 py-2 text-[11px] text-foreground/80">
+        H5 端为只读简化体验。复杂操作（方案比较、合同查看）建议桌面端使用。
+      </div>
+
+      {sections.map((sec) => (
+        <div key={sec.title} className="mb-6">
+          <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+            {sec.title}
+          </div>
+          <div className="space-y-1.5">
+            {sec.items.map((it) => (
+              <NavItemRow key={it.label + it.href} item={it} />
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <div className="mt-8 border-t border-border/60 pt-4 text-center text-[10px] text-muted-foreground">
+        V7.2 开发中 · 数据为演示 Mock
+      </div>
     </div>
   );
 }
