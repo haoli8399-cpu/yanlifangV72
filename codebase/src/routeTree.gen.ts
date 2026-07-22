@@ -27,6 +27,7 @@ import { Route as TenantPartnersRouteImport } from './routes/tenant.partners'
 import { Route as TenantExecutionRouteImport } from './routes/tenant.execution'
 import { Route as ProjectsIdRouteImport } from './routes/projects.$id'
 import { Route as H5TenantRouteImport } from './routes/h5.tenant'
+import { Route as H5SnapshotRouteImport } from './routes/h5.snapshot'
 import { Route as H5ProjectsRouteImport } from './routes/h5.projects'
 import { Route as H5DiscoverRouteImport } from './routes/h5.discover'
 import { Route as H5ActorRouteImport } from './routes/h5.actor'
@@ -182,6 +183,11 @@ const ProjectsIdRoute = ProjectsIdRouteImport.update({
 const H5TenantRoute = H5TenantRouteImport.update({
   id: '/h5/tenant',
   path: '/h5/tenant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const H5SnapshotRoute = H5SnapshotRouteImport.update({
+  id: '/h5/snapshot',
+  path: '/h5/snapshot',
   getParentRoute: () => rootRouteImport,
 } as any)
 const H5ProjectsRoute = H5ProjectsRouteImport.update({
@@ -552,6 +558,7 @@ export interface FileRoutesByFullPath {
   '/h5/actor': typeof H5ActorRoute
   '/h5/discover': typeof H5DiscoverRouteWithChildren
   '/h5/projects': typeof H5ProjectsRouteWithChildren
+  '/h5/snapshot': typeof H5SnapshotRoute
   '/h5/tenant': typeof H5TenantRouteWithChildren
   '/projects/$id': typeof ProjectsIdRouteWithChildren
   '/tenant/execution': typeof TenantExecutionRoute
@@ -638,6 +645,7 @@ export interface FileRoutesByTo {
   '/h5/actor': typeof H5ActorRoute
   '/h5/discover': typeof H5DiscoverRouteWithChildren
   '/h5/projects': typeof H5ProjectsRouteWithChildren
+  '/h5/snapshot': typeof H5SnapshotRoute
   '/h5/tenant': typeof H5TenantRouteWithChildren
   '/tenant/execution': typeof TenantExecutionRoute
   '/tenant/partners': typeof TenantPartnersRoute
@@ -724,6 +732,7 @@ export interface FileRoutesById {
   '/h5/actor': typeof H5ActorRoute
   '/h5/discover': typeof H5DiscoverRouteWithChildren
   '/h5/projects': typeof H5ProjectsRouteWithChildren
+  '/h5/snapshot': typeof H5SnapshotRoute
   '/h5/tenant': typeof H5TenantRouteWithChildren
   '/projects/$id': typeof ProjectsIdRouteWithChildren
   '/tenant/execution': typeof TenantExecutionRoute
@@ -812,6 +821,7 @@ export interface FileRouteTypes {
     | '/h5/actor'
     | '/h5/discover'
     | '/h5/projects'
+    | '/h5/snapshot'
     | '/h5/tenant'
     | '/projects/$id'
     | '/tenant/execution'
@@ -898,6 +908,7 @@ export interface FileRouteTypes {
     | '/h5/actor'
     | '/h5/discover'
     | '/h5/projects'
+    | '/h5/snapshot'
     | '/h5/tenant'
     | '/tenant/execution'
     | '/tenant/partners'
@@ -983,6 +994,7 @@ export interface FileRouteTypes {
     | '/h5/actor'
     | '/h5/discover'
     | '/h5/projects'
+    | '/h5/snapshot'
     | '/h5/tenant'
     | '/projects/$id'
     | '/tenant/execution'
@@ -1070,6 +1082,7 @@ export interface RootRouteChildren {
   H5ActorRoute: typeof H5ActorRoute
   H5DiscoverRoute: typeof H5DiscoverRouteWithChildren
   H5ProjectsRoute: typeof H5ProjectsRouteWithChildren
+  H5SnapshotRoute: typeof H5SnapshotRoute
   H5TenantRoute: typeof H5TenantRouteWithChildren
   ProjectsIdRoute: typeof ProjectsIdRouteWithChildren
   TenantExecutionRoute: typeof TenantExecutionRoute
@@ -1233,6 +1246,13 @@ declare module '@tanstack/react-router' {
       path: '/h5/tenant'
       fullPath: '/h5/tenant'
       preLoaderRoute: typeof H5TenantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/h5/snapshot': {
+      id: '/h5/snapshot'
+      path: '/h5/snapshot'
+      fullPath: '/h5/snapshot'
+      preLoaderRoute: typeof H5SnapshotRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/h5/projects': {
@@ -1819,6 +1839,7 @@ const rootRouteChildren: RootRouteChildren = {
   H5ActorRoute: H5ActorRoute,
   H5DiscoverRoute: H5DiscoverRouteWithChildren,
   H5ProjectsRoute: H5ProjectsRouteWithChildren,
+  H5SnapshotRoute: H5SnapshotRoute,
   H5TenantRoute: H5TenantRouteWithChildren,
   ProjectsIdRoute: ProjectsIdRouteWithChildren,
   TenantExecutionRoute: TenantExecutionRoute,
