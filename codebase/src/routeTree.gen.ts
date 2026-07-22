@@ -71,6 +71,7 @@ import { Route as PlansIdPublicRouteImport } from './routes/plans.$id.public'
 import { Route as H5TenantMsaRouteImport } from './routes/h5.tenant.msa'
 import { Route as H5ProjectsIdRouteImport } from './routes/h5.projects.$id'
 import { Route as H5DiscoverActorsRouteImport } from './routes/h5.discover.actors'
+import { Route as H5ActorCalendarRouteImport } from './routes/h5.actor.calendar'
 import { Route as DiscoverTenantsIdRouteImport } from './routes/discover.tenants.$id'
 import { Route as DiscoverServiceProductsCompareRouteImport } from './routes/discover.service-products.compare'
 import { Route as DiscoverProgramsIdRouteImport } from './routes/discover.programs.$id'
@@ -408,6 +409,11 @@ const H5DiscoverActorsRoute = H5DiscoverActorsRouteImport.update({
   path: '/actors',
   getParentRoute: () => H5DiscoverRoute,
 } as any)
+const H5ActorCalendarRoute = H5ActorCalendarRouteImport.update({
+  id: '/calendar',
+  path: '/calendar',
+  getParentRoute: () => H5ActorRoute,
+} as any)
 const DiscoverTenantsIdRoute = DiscoverTenantsIdRouteImport.update({
   id: '/discover/tenants/$id',
   path: '/discover/tenants/$id',
@@ -555,7 +561,7 @@ export interface FileRoutesByFullPath {
   '/admin/incidents': typeof AdminIncidentsRoute
   '/admin/permissions': typeof AdminPermissionsRoute
   '/agent/memory': typeof AgentMemoryRoute
-  '/h5/actor': typeof H5ActorRoute
+  '/h5/actor': typeof H5ActorRouteWithChildren
   '/h5/discover': typeof H5DiscoverRouteWithChildren
   '/h5/projects': typeof H5ProjectsRouteWithChildren
   '/h5/snapshot': typeof H5SnapshotRoute
@@ -577,6 +583,7 @@ export interface FileRoutesByFullPath {
   '/discover/programs/$id': typeof DiscoverProgramsIdRoute
   '/discover/service-products/compare': typeof DiscoverServiceProductsCompareRoute
   '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
+  '/h5/actor/calendar': typeof H5ActorCalendarRoute
   '/h5/discover/actors': typeof H5DiscoverActorsRoute
   '/h5/projects/$id': typeof H5ProjectsIdRoute
   '/h5/tenant/msa': typeof H5TenantMsaRoute
@@ -642,7 +649,7 @@ export interface FileRoutesByTo {
   '/admin/incidents': typeof AdminIncidentsRoute
   '/admin/permissions': typeof AdminPermissionsRoute
   '/agent/memory': typeof AgentMemoryRoute
-  '/h5/actor': typeof H5ActorRoute
+  '/h5/actor': typeof H5ActorRouteWithChildren
   '/h5/discover': typeof H5DiscoverRouteWithChildren
   '/h5/projects': typeof H5ProjectsRouteWithChildren
   '/h5/snapshot': typeof H5SnapshotRoute
@@ -663,6 +670,7 @@ export interface FileRoutesByTo {
   '/discover/programs/$id': typeof DiscoverProgramsIdRoute
   '/discover/service-products/compare': typeof DiscoverServiceProductsCompareRoute
   '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
+  '/h5/actor/calendar': typeof H5ActorCalendarRoute
   '/h5/discover/actors': typeof H5DiscoverActorsRoute
   '/h5/projects/$id': typeof H5ProjectsIdRoute
   '/h5/tenant/msa': typeof H5TenantMsaRoute
@@ -729,7 +737,7 @@ export interface FileRoutesById {
   '/admin/incidents': typeof AdminIncidentsRoute
   '/admin/permissions': typeof AdminPermissionsRoute
   '/agent/memory': typeof AgentMemoryRoute
-  '/h5/actor': typeof H5ActorRoute
+  '/h5/actor': typeof H5ActorRouteWithChildren
   '/h5/discover': typeof H5DiscoverRouteWithChildren
   '/h5/projects': typeof H5ProjectsRouteWithChildren
   '/h5/snapshot': typeof H5SnapshotRoute
@@ -751,6 +759,7 @@ export interface FileRoutesById {
   '/discover/programs/$id': typeof DiscoverProgramsIdRoute
   '/discover/service-products/compare': typeof DiscoverServiceProductsCompareRoute
   '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
+  '/h5/actor/calendar': typeof H5ActorCalendarRoute
   '/h5/discover/actors': typeof H5DiscoverActorsRoute
   '/h5/projects/$id': typeof H5ProjectsIdRoute
   '/h5/tenant/msa': typeof H5TenantMsaRoute
@@ -840,6 +849,7 @@ export interface FileRouteTypes {
     | '/discover/programs/$id'
     | '/discover/service-products/compare'
     | '/discover/tenants/$id'
+    | '/h5/actor/calendar'
     | '/h5/discover/actors'
     | '/h5/projects/$id'
     | '/h5/tenant/msa'
@@ -926,6 +936,7 @@ export interface FileRouteTypes {
     | '/discover/programs/$id'
     | '/discover/service-products/compare'
     | '/discover/tenants/$id'
+    | '/h5/actor/calendar'
     | '/h5/discover/actors'
     | '/h5/projects/$id'
     | '/h5/tenant/msa'
@@ -1013,6 +1024,7 @@ export interface FileRouteTypes {
     | '/discover/programs/$id'
     | '/discover/service-products/compare'
     | '/discover/tenants/$id'
+    | '/h5/actor/calendar'
     | '/h5/discover/actors'
     | '/h5/projects/$id'
     | '/h5/tenant/msa'
@@ -1079,7 +1091,7 @@ export interface RootRouteChildren {
   AdminIncidentsRoute: typeof AdminIncidentsRoute
   AdminPermissionsRoute: typeof AdminPermissionsRoute
   AgentMemoryRoute: typeof AgentMemoryRoute
-  H5ActorRoute: typeof H5ActorRoute
+  H5ActorRoute: typeof H5ActorRouteWithChildren
   H5DiscoverRoute: typeof H5DiscoverRouteWithChildren
   H5ProjectsRoute: typeof H5ProjectsRouteWithChildren
   H5SnapshotRoute: typeof H5SnapshotRoute
@@ -1556,6 +1568,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof H5DiscoverActorsRouteImport
       parentRoute: typeof H5DiscoverRoute
     }
+    '/h5/actor/calendar': {
+      id: '/h5/actor/calendar'
+      path: '/calendar'
+      fullPath: '/h5/actor/calendar'
+      preLoaderRoute: typeof H5ActorCalendarRouteImport
+      parentRoute: typeof H5ActorRoute
+    }
     '/discover/tenants/$id': {
       id: '/discover/tenants/$id'
       path: '/discover/tenants/$id'
@@ -1720,6 +1739,17 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface H5ActorRouteChildren {
+  H5ActorCalendarRoute: typeof H5ActorCalendarRoute
+}
+
+const H5ActorRouteChildren: H5ActorRouteChildren = {
+  H5ActorCalendarRoute: H5ActorCalendarRoute,
+}
+
+const H5ActorRouteWithChildren =
+  H5ActorRoute._addFileChildren(H5ActorRouteChildren)
+
 interface H5DiscoverRouteChildren {
   H5DiscoverActorsRoute: typeof H5DiscoverActorsRoute
 }
@@ -1836,7 +1866,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminIncidentsRoute: AdminIncidentsRoute,
   AdminPermissionsRoute: AdminPermissionsRoute,
   AgentMemoryRoute: AgentMemoryRoute,
-  H5ActorRoute: H5ActorRoute,
+  H5ActorRoute: H5ActorRouteWithChildren,
   H5DiscoverRoute: H5DiscoverRouteWithChildren,
   H5ProjectsRoute: H5ProjectsRouteWithChildren,
   H5SnapshotRoute: H5SnapshotRoute,
