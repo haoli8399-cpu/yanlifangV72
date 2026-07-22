@@ -1,0 +1,120 @@
+{
+  "captured_at": "2026-07-17T07:54:45.588Z",
+  "project_uri": "viking://user/default/resources/yanlifang-project-memory",
+  "health_ok": true,
+  "manifest": {
+    "schema_version": 1,
+    "project": "yanlifang",
+    "project_uri": "viking://user/default/resources/yanlifang-project-memory",
+    "product_spec_version": "V7.0",
+    "synced_at": "2026-07-17T02:50:49.910Z",
+    "git_head": "5716c6fdd552b9ef28a8e91b95f7c3949c9392c7",
+    "git_branch": "docs/prd-v71",
+    "knowledge": [
+      {
+        "memory_id": "YLF-CONTEXT-001",
+        "title": "演立方项目核心上下文",
+        "knowledge_type": "project_context",
+        "status": "Approved",
+        "source_version": "V7.0",
+        "uri": "viking://user/default/resources/yanlifang-project-memory/00_PROJECT_CONTEXT/00-project-context.md",
+        "template_hash": "3b111281c5efd2aa9f73f8b6ad32e8b89b953f8601489e6f0cce4e47b50fc500",
+        "source_hashes": {
+          "README.md": "f427ca53f86ce2489a4ab5a573cd9a8fa0f0caf422d63df3fcf0ce8de3341a27",
+          "PROJECT_STATUS.md": "feb4fa0a9f922040ac2d57fa54e2eb2267bf5f62cb6661521979a5e3e7febb84",
+          "DECISIONS.md": "5e8bf935daecd4de73e784df40939c0e3ee7c6004e005e67532f557951d4275a"
+        },
+        "tags": ["project=yanlifang", "status=approved", "type=context"]
+      },
+      {
+        "memory_id": "YLF-PRODUCT-001",
+        "title": "演立方当前产品基线摘要",
+        "knowledge_type": "product_memory",
+        "status": "Approved",
+        "source_version": "V7.0",
+        "uri": "viking://user/default/resources/yanlifang-project-memory/01_PRODUCT_MEMORY/01-product-current.md",
+        "template_hash": "29f68dd90aaf6b1d99375de0de58eb111245a6dc933ba8b8e0496d50d624d98b",
+        "source_hashes": {
+          "docs/PRD.md": "25d446451c2f10d647a8102599084310a9b47872890e0f82291ac3ba8fe76637",
+          "docs/PRD_V7.0.md": "1a7bdedf6d0186981aa7d7c83f092478d48e4d4d7a83be7a4e3e80f5708b11ec",
+          "versions.json": "86896d87a90b6f661678fd0405e42a19f294bea903dfeb1ac8ad75bc93031651"
+        },
+        "tags": ["project=yanlifang", "status=approved", "type=product", "prd=V7.0"]
+      },
+      {
+        "memory_id": "YLF-TECH-001",
+        "title": "演立方当前技术与代码定位",
+        "knowledge_type": "technical_memory",
+        "status": "Approved",
+        "source_version": "V4.7-as-built",
+        "uri": "viking://user/default/resources/yanlifang-project-memory/02_TECH_MEMORY/02-technical-current.md",
+        "template_hash": "f28caa1e68241db4db769d933e9014d550ae4922606a93b3ee1032cd9479c5db",
+        "source_hashes": {
+          "docs/ARCHITECTURE.md": "d3d7074a0be5fe131766d662b2656677909d76c053e6ca34049f2c6506ceb396",
+          "docs/MVP_CURRENT_AUDIT.md": "262f44639f656a72eb6c1676fc0d80e224e1b5c765ae5ce6c6bc63f176ed8f3c",
+          "codebase/package.json": "c830c9b7f14d9ed13412321eb572630fd82e83451cb01fc974e369a9bd6d4561",
+          "backend/package.json": "a3c473e9634c3aa186606531e09d3cb7b42b67023157d79e2a78ea0173443ec0",
+          "miniprogram/package.json": "a609c31aa8df364ef79bebe7ef3e4df4f1bfa784e7f5b6cc808aa412ba347b12"
+        },
+        "tags": ["project=yanlifang", "status=approved", "type=technical"]
+      },
+      {
+        "memory_id": "YLF-DECISIONS-001",
+        "title": "演立方当前有效重大决策索引",
+        "knowledge_type": "decisions",
+        "status": "Approved",
+        "source_version": "2026-07-16",
+        "uri": "viking://user/default/resources/yanlifang-project-memory/03_DECISIONS/03-decisions-current.md",
+        "template_hash": "d110431eb456486882a0f821d07813451816be26eff8be244f4ab0d42ffbaf5e",
+        "source_hashes": {
+          "DECISIONS.md": "5e8bf935daecd4de73e784df40939c0e3ee7c6004e005e67532f557951d4275a"
+        },
+        "tags": ["project=yanlifang", "status=approved", "type=decision"]
+      },
+      {
+        "memory_id": "YLF-STATUS-001",
+        "title": "演立方当前开发状态摘要",
+        "knowledge_type": "development_status",
+        "status": "Approved",
+        "source_version": "2026-07-16",
+        "uri": "viking://user/default/resources/yanlifang-project-memory/04_DEVELOPMENT_STATUS/04-development-status.md",
+        "template_hash": "d06c94f7bfcdd1616a0ecb119f2afdd66dd4283d9556e128bd2911be47cda4d9",
+        "source_hashes": {
+          "PROJECT_STATUS.md": "feb4fa0a9f922040ac2d57fa54e2eb2267bf5f62cb6661521979a5e3e7febb84",
+          "project-state.json": "50a3f9b09926f77a897c3d78202df04005e1d88597516b4d3c0c195d1d0a9a1b",
+          "versions.json": "86896d87a90b6f661678fd0405e42a19f294bea903dfeb1ac8ad75bc93031651"
+        },
+        "tags": ["project=yanlifang", "status=approved", "type=development_status"]
+      },
+      {
+        "memory_id": "YLF-AGENT-RULES-001",
+        "title": "演立方研发 Agent Memory First 规则摘要",
+        "knowledge_type": "agent_rules",
+        "status": "Approved",
+        "source_version": "2026-07-15",
+        "uri": "viking://user/default/resources/yanlifang-project-memory/07_AGENT_RULES/07-agent-rules.md",
+        "template_hash": "aff56a5f03db2a5e3a025736ce2757ab5dad745df294088cd613cc722425adba",
+        "source_hashes": {
+          "AGENTS.md": "8066f1af74445f63765b926ec6360a87fe63a4e3322317208cfe98704db52b5b",
+          "MVP_DEV_PLAYBOOK.md": "8694382febe851f500ae3b435d356a73b6d643de4844925b9955026f8ad2d70c"
+        },
+        "tags": ["project=yanlifang", "status=approved", "type=agent_rules"]
+      }
+    ]
+  },
+  "retrieved_uris": [
+    "viking://user/default/resources/yanlifang-project-memory/00_PROJECT_CONTEXT/00-project-context.md",
+    "viking://user/default/resources/yanlifang-project-memory/01_PRODUCT_MEMORY/01-product-current.md",
+    "viking://user/default/resources/yanlifang-project-memory/02_TECH_MEMORY/02-technical-current.md",
+    "viking://user/default/resources/yanlifang-project-memory/03_DECISIONS/03-decisions-current.md",
+    "viking://user/default/resources/yanlifang-project-memory/04_DEVELOPMENT_STATUS/04-development-status.md",
+    "viking://user/default/resources/yanlifang-project-memory/07_AGENT_RULES/07-agent-rules.md"
+  ],
+  "retrieved_queries": [
+    "当前产品范围和 PRD 规则：Phase 1工程基础准备；V7.2,MVP,单Tenant,后仰喜剧,Tenant-ready,身份权限,开发骨架",
+    "与任务有关的业务规则和用户流程：Phase 1工程基础准备；明确需求,Brief,正式报价,合作确认,收付款,演员任务,履约,复购",
+    "与任务有关的 Approved 重大决策：Phase 1工程基础准备；外部合同,简化合作确认,客户已付款,财务到账,认证,托管PostgreSQL,对象存储",
+    "当前开发状态、已知缺口和禁止修改范围：Phase 1工程基础准备；未提交修改,worktree,旧代码,V4.7,Tenant,认证,权限,数据库",
+    "历史风险、踩坑和必须执行的测试：Phase 1工程基础准备；越权,跨Tenant,字段投影,金额,状态机,Mock,部署,回滚"
+  ]
+}

@@ -1,0 +1,18 @@
+### 任务理解
+
+继续演立方 V6.6 报价模块开发，但本轮仅完成 Memory Preflight、证据核验和开发准入判断，不修改业务代码。报价涉及金额和确定性规则，按高风险任务处理。
+
+### 证据
+
+- Shell Preflight 失败于 `OpenViking /ready`：`fetch failed`。
+- 有效只读快照存在，但高风险任务禁止缓存降级。
+- `openviking-local` MCP 健康检查连续两次返回 `user cancelled MCP tool call`。
+- 未能生成合规的 `.memory/mcp-evidence.json`，因此无法完成实时预检。
+- 当前分支为 `feat/workspace-version-governance`，工作区已有大量未提交修改。
+- 本轮未执行任何业务代码写入命令，也未继续读取业务代码和 PRD。
+- 历史记忆仅包含旧的 Mock/API 工作，不能作为当前报价任务事实源，且可能已过时。
+
+### 是否允许开发
+
+**不允许。** Memory Preflight 未通过，高风险任务必须停止。需要先恢复或允许 `openviking-local` MCP 调用，再重新完成预检。
+

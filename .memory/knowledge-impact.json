@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "task_id": "PRD-V6.7-IMPACT-B",
+  "generated_at": "2026-07-15T15:44:20.825Z",
+  "files": [
+    ".memory/mcp-evidence.json"
+  ],
+  "ignored_as_transient": [],
+  "candidates": [],
+  "should_write_long_term_memory": false,
+  "writeback_authority": "Candidates remain Proposed until authority sources are updated and required approval is recorded."
+}

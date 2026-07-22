@@ -1,0 +1,25 @@
+### 任务理解
+
+本次仅做报价模块的新窗口恢复验收，属于高风险任务；不修改业务代码，不进入开发。
+
+### 预检结果
+
+- `Memory Preflight Failed`
+- 失败点：OpenViking `/ready`
+- 原因：`fetch failed`
+- MCP 补救也失败：`health` 和 manifest 读取均返回 `user cancelled MCP tool call`
+- `context_complete: false`
+- `allow_development: false`
+- 因门禁失败，当前 PRD、报价规则、重大决策及项目状态均未完成可信核验，不能引用缓存或历史聊天代替。
+- 失败回执：[.memory/receipt.json](/Users/wudixingyunxingleo/Projects/演立方/.memory/receipt.json)
+
+Git 已只读核验：
+
+- 分支：`feat/workspace-version-governance`
+- HEAD：`78a659e762a8c144a56f07a497dff8d235b7bf1f`
+- 工作区存在大量已暂存、未暂存及未跟踪变更，包括 PRD、决策和项目状态文件；均未触碰。
+
+### 是否允许进入开发
+
+**不允许。** 需要先恢复或授权 `openviking-local` MCP，重新完成实时预检并得到 `Memory Preflight Passed`。本次没有修改业务代码。
+

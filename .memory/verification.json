@@ -1,0 +1,68 @@
+{
+  "generated_at": "2026-07-15T08:24:15.015Z",
+  "passed": true,
+  "tests": [
+    {
+      "name": "全新任务可装配核心上下文",
+      "passed": true,
+      "evidence": "knowledge=6, prd=V6.6"
+    },
+    {
+      "name": "过期聊天规则可识别",
+      "passed": true,
+      "evidence": [
+        "旧规则冲突：后仰喜剧不是平台运营方，而是第一家普通 Tenant。"
+      ]
+    },
+    {
+      "name": "OpenViking 过期摘要可识别",
+      "passed": true,
+      "evidence": [
+        "PRD version mismatch: OpenViking=V6.5, repository=V6.6"
+      ]
+    },
+    {
+      "name": "重大数据库任务产生候选记忆",
+      "passed": true,
+      "evidence": {
+        "files": [
+          "backend/migrations/999.sql"
+        ],
+        "ignored_as_transient": [],
+        "candidates": [
+          {
+            "file": "backend/migrations/999.sql",
+            "knowledge_type": "data_model",
+            "status": "Proposed",
+            "requires_source_validation": true
+          }
+        ],
+        "should_write_long_term_memory": true
+      }
+    },
+    {
+      "name": "普通样式修改不产生长期任务记忆",
+      "passed": true,
+      "evidence": {
+        "files": [
+          "codebase/src/button.css"
+        ],
+        "ignored_as_transient": [
+          "codebase/src/button.css"
+        ],
+        "candidates": [],
+        "should_write_long_term_memory": false
+      }
+    },
+    {
+      "name": "敏感信息写入被拒绝",
+      "passed": true,
+      "evidence": "secret scanner rejected synthetic key"
+    },
+    {
+      "name": "OpenViking 异常时高风险任务停止",
+      "passed": true,
+      "evidence": "policy: high-risk never falls back to cache"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "project": "yanlifang",
+  "project_uri": "viking://user/default/resources/yanlifang-project-memory",
+  "product_spec_version": "V6.6",
+  "synced_at": "2026-07-15T14:43:34.503Z",
+  "git_head": "78a659e762a8c144a56f07a497dff8d235b7bf1f",
+  "git_branch": "feat/workspace-version-governance",
+  "knowledge": [
+    {
+      "memory_id": "YLF-CONTEXT-001",
+      "title": "演立方项目核心上下文",
+      "knowledge_type": "project_context",
+      "status": "Approved",
+      "source_version": "V6.6",
+      "uri": "viking://user/default/resources/yanlifang-project-memory/00_PROJECT_CONTEXT/00-project-context.md",
+      "template_hash": "4c71e99305a4acf7fe79ee77e1c6b34fcb20ea47bebdb6ba0b0cadaa8c10ff6c",
+      "source_hashes": {
+        "README.md": "7a217a039f805a6082d71f55812467dec926391ec1dcc72ac8fc4ad1978587f2",
+        "PROJECT_STATUS.md": "cd14b5b7dda1664fdba0c077111fcf2db51cd3582da745f5c0ea74de1e839416",
+        "DECISIONS.md": "25deb4df33c2d23a48378c2a06a9acdcc3994163ae7b790a8ec60d798526af5f"
+      },
+      "tags": [
+        "project=yanlifang",
+        "status=approved",
+        "type=context"
+      ]
+    },
+    {
+      "memory_id": "YLF-PRODUCT-001",
+      "title": "演立方当前产品基线摘要",
+      "knowledge_type": "product_memory",
+      "status": "Approved",
+      "source_version": "V6.6",
+      "uri": "viking://user/default/resources/yanlifang-project-memory/01_PRODUCT_MEMORY/01-product-current.md",
+      "template_hash": "a7c6b5f565ef7b9fe584289dbabc126b68993aa99563cda833791862d3900ac2",
+      "source_hashes": {
+        "docs/PRD.md": "78e352e363a551ff73001f41f4e935d58b4ffdb1aa6cdf9334e5fda5a809426e",
+        "docs/PRD_V6.6.md": "d998713242b1a85aa60183be9db6ba924562b219f16388add422f94fb14d7e06",
+        "versions.json": "7c50bc2b3f54f54a34a8820126c548630ae1731f748991ecf4a96479f36707ef"
+      },
+      "tags": [
+        "project=yanlifang",
+        "status=approved",
+        "type=product",
+        "prd=V6.6"
+      ]
+    },
+    {
+      "memory_id": "YLF-TECH-001",
+      "title": "演立方当前技术与代码定位",
+      "knowledge_type": "technical_memory",
+      "status": "Approved",
+      "source_version": "V4.7-as-built",
+      "uri": "viking://user/default/resources/yanlifang-project-memory/02_TECH_MEMORY/02-technical-current.md",
+      "template_hash": "41add014372b0f0c61c3cfb1b7163ae5dca5ac90e62e1979323b8b5e778c857c",
+      "source_hashes": {
+        "docs/ARCHITECTURE.md": "d3d7074a0be5fe131766d662b2656677909d76c053e6ca34049f2c6506ceb396",
+        "docs/MVP_CURRENT_AUDIT.md": "262f44639f656a72eb6c1676fc0d80e224e1b5c765ae5ce6c6bc63f176ed8f3c",
+        "codebase/package.json": "c830c9b7f14d9ed13412321eb572630fd82e83451cb01fc974e369a9bd6d4561",
+        "backend/package.json": "a3c473e9634c3aa186606531e09d3cb7b42b67023157d79e2a78ea0173443ec0",
+        "miniprogram/package.json": "a609c31aa8df364ef79bebe7ef3e4df4f1bfa784e7f5b6cc808aa412ba347b12"
+      },
+      "tags": [
+        "project=yanlifang",
+        "status=approved",
+        "type=technical"
+      ]
+    },
+    {
+      "memory_id": "YLF-DECISIONS-001",
+      "title": "演立方当前有效重大决策索引",
+      "knowledge_type": "decisions",
+      "status": "Approved",
+      "source_version": "2026-07-15",
+      "uri": "viking://user/default/resources/yanlifang-project-memory/03_DECISIONS/03-decisions-current.md",
+      "template_hash": "d6aa1d36ce51ef89bd18f09f1833d45d1a160bb67baed4c2694d1261813af6e7",
+      "source_hashes": {
+        "DECISIONS.md": "25deb4df33c2d23a48378c2a06a9acdcc3994163ae7b790a8ec60d798526af5f"
+      },
+      "tags": [
+        "project=yanlifang",
+        "status=approved",
+        "type=decision"
+      ]
+    },
+    {
+      "memory_id": "YLF-STATUS-001",
+      "title": "演立方当前开发状态摘要",
+      "knowledge_type": "development_status",
+      "status": "Approved",
+      "source_version": "2026-07-15",
+      "uri": "viking://user/default/resources/yanlifang-project-memory/04_DEVELOPMENT_STATUS/04-development-status.md",
+      "template_hash": "fe68aca9e5654f6af99133c34d01bf4fc814238292fcf304ef1175d079f65625",
+      "source_hashes": {
+        "PROJECT_STATUS.md": "cd14b5b7dda1664fdba0c077111fcf2db51cd3582da745f5c0ea74de1e839416",
+        "project-state.json": "550f2f2d975680d0a7cda69d92d231976a835d31f88254407374d37882cee5b8",
+        "versions.json": "7c50bc2b3f54f54a34a8820126c548630ae1731f748991ecf4a96479f36707ef"
+      },
+      "tags": [
+        "project=yanlifang",
+        "status=approved",
+        "type=development_status"
+      ]
+    },
+    {
+      "memory_id": "YLF-AGENT-RULES-001",
+      "title": "演立方研发 Agent Memory First 规则摘要",
+      "knowledge_type": "agent_rules",
+      "status": "Approved",
+      "source_version": "2026-07-15",
+      "uri": "viking://user/default/resources/yanlifang-project-memory/07_AGENT_RULES/07-agent-rules.md",
+      "template_hash": "aff56a5f03db2a5e3a025736ce2757ab5dad745df294088cd613cc722425adba",
+      "source_hashes": {
+        "AGENTS.md": "602324a2a257592aab8367f9116082ef861bb7337b83162dd199fd0b02d8aacf",
+        "MVP_DEV_PLAYBOOK.md": "8694382febe851f500ae3b435d356a73b6d643de4844925b9955026f8ad2d70c"
+      },
+      "tags": [
+        "project=yanlifang",
+        "status=approved",
+        "type=agent_rules"
+      ]
+    }
+  ]
+}
