@@ -1137,3 +1137,65 @@ export const serviceProductStatusLabel: Record<ServiceProductStatus, { label: st
   listed: { label: "已发布", state: "verified" },
   paused: { label: "已下架", state: "expired" },
 };
+
+// ── P0-A: MainServiceAssignment ──
+
+export type TenantDecision = "pending" | "accepted" | "declined" | "expired";
+export type CustomerDecision = "pending" | "selected" | "rejected" | "withdrawn";
+export type EngagementType = "main_service" | "module_collaboration";
+export type MSALifecycle = "proposed" | "pending_dual_confirmation" | "active" | "completed" | "expired";
+
+export interface MainServiceAssignment {
+  id: string;
+  demand_id: string;
+  tenant_id: string;
+  tenant_name: string;
+  engagement_type: EngagementType;
+  customer_decision: CustomerDecision;
+  tenant_decision: TenantDecision;
+  lifecycle_status: MSALifecycle;
+  brief_summary: string;
+  city: string;
+  event_date: string;
+  budget_level: string;
+  eligibility_status: string;
+  capacity_status: string;
+  created_at: string;
+}
+
+export const msaFixtures: MainServiceAssignment[] = [
+  {
+    id: "msa_001",
+    demand_id: "dmd_neobank",
+    tenant_id: "tnt_houyang",
+    tenant_name: "后仰喜剧",
+    engagement_type: "main_service",
+    customer_decision: "pending",
+    tenant_decision: "pending",
+    lifecycle_status: "proposed",
+    brief_summary: "Neo 银行 2027 年度客户答谢晚宴 · 上海 · 300 人",
+    city: "上海",
+    event_date: "2027-01-18",
+    budget_level: "15-20 万",
+    eligibility_status: "eligible",
+    capacity_status: "available",
+    created_at: "2026-07-20",
+  },
+  {
+    id: "msa_002",
+    demand_id: "dmd_miracle",
+    tenant_id: "tnt_houyang",
+    tenant_name: "后仰喜剧",
+    engagement_type: "main_service",
+    customer_decision: "selected",
+    tenant_decision: "accepted",
+    lifecycle_status: "active",
+    brief_summary: "Miracle 汽车 · 新车区域上市 · 杭州 · 200 人",
+    city: "杭州",
+    event_date: "2026-09-14",
+    budget_level: "10-15 万",
+    eligibility_status: "eligible",
+    capacity_status: "limited",
+    created_at: "2026-06-10",
+  },
+];
