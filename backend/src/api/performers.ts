@@ -391,7 +391,7 @@ export default async function performerRoutes(app: FastifyInstance): Promise<voi
       reply: FastifyReply
     ): Promise<void> {
       const { id } = request.params as z.infer<typeof idParamSchema>;
-      const isAdmin = request.user?.role === 'admin';
+      const isAdmin = request.user?.role === 'platform_admin';
 
       const result = await query<PerformerRow>(
         'SELECT * FROM performers WHERE id = $1',
@@ -417,7 +417,7 @@ export default async function performerRoutes(app: FastifyInstance): Promise<voi
     {
       preHandler: [
         authMiddleware,
-        requireRole('admin'),
+        requireRole('platform_admin'),
         validate({ body: createBodySchema }),
       ],
     },
@@ -489,7 +489,7 @@ export default async function performerRoutes(app: FastifyInstance): Promise<voi
     {
       preHandler: [
         authMiddleware,
-        requireRole('admin'),
+        requireRole('platform_admin'),
         validate({ params: idParamSchema, body: updateBodySchema }),
       ],
     },
@@ -731,7 +731,7 @@ export default async function performerRoutes(app: FastifyInstance): Promise<voi
     {
       preHandler: [
         authMiddleware,
-        requireRole('admin'),
+        requireRole('platform_admin'),
         validate({ params: idParamSchema, body: tierUpdateBodySchema }),
       ],
     },
@@ -810,7 +810,7 @@ export default async function performerRoutes(app: FastifyInstance): Promise<voi
     {
       preHandler: [
         authMiddleware,
-        requireRole('admin'),
+        requireRole('platform_admin'),
         validate({ params: idParamSchema }),
       ],
     },
@@ -1181,7 +1181,7 @@ export default async function performerRoutes(app: FastifyInstance): Promise<voi
     {
       preHandler: [
         authMiddleware,
-        requireRole('admin'),
+        requireRole('platform_admin'),
         validate({ body: importBodySchema }),
       ],
     },

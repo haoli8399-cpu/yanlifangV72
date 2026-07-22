@@ -359,7 +359,7 @@ reply
     {
       preHandler: [
         authMiddleware,
-        requireRole('agent', 'admin', 'client'),
+        requireRole('agent', 'platform_admin', 'client'),
         validate({ query: listDemandsQuerySchema }),
       ],
     },
@@ -376,7 +376,7 @@ reply
       let idx = 0;
 
       // agent/client 只能看自己的需求，admin 可看全部
-      if (user.role !== 'admin' && q.role !== 'all') {
+      if (user.role !== 'platform_admin' && q.role !== 'all') {
         idx++;
         conditions.push(`d.client_id = $${idx}`);
         params.push(user.sub);
@@ -428,7 +428,7 @@ reply
     {
       preHandler: [
         authMiddleware,
-        requireRole('agent', 'admin', 'client'),
+        requireRole('agent', 'platform_admin', 'client'),
         validate({ params: demandIdParamSchema }),
       ],
     },
@@ -452,7 +452,7 @@ reply
       const demand = result.rows[0];
 
       // agent/client 只能看自己的需求
-      if (user.role !== 'admin' && demand.client_id !== user.sub) {
+      if (user.role !== 'platform_admin' && demand.client_id !== user.sub) {
         reply.status(403).send(errorResponse(1005, '权限不足'));
         return;
       }
@@ -663,7 +663,7 @@ reply
     {
       preHandler: [
         authMiddleware,
-        requireRole('admin'),
+        requireRole('platform_admin'),
         validate({ params: demandIdParamSchema }),
       ],
     },
@@ -784,7 +784,7 @@ reply
     {
       preHandler: [
         authMiddleware,
-        requireRole('admin'),
+        requireRole('platform_admin'),
         validate({ params: demandIdParamSchema, body: alternativeBodySchema }),
       ],
     },
@@ -841,7 +841,7 @@ reply
     {
       preHandler: [
         authMiddleware,
-        requireRole('agent', 'admin', 'client'),
+        requireRole('agent', 'platform_admin', 'client'),
         validate({ params: demandIdParamSchema }),
       ],
     },
@@ -923,7 +923,7 @@ reply
     {
       preHandler: [
         authMiddleware,
-        requireRole('agent', 'admin', 'client'),
+        requireRole('agent', 'platform_admin', 'client'),
         validate({ params: demandIdParamSchema }),
       ],
     },
@@ -1010,7 +1010,7 @@ reply
     {
       preHandler: [
         authMiddleware,
-        requireRole('admin'),
+        requireRole('platform_admin'),
         validate({ params: demandIdParamSchema }),
       ],
     },

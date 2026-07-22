@@ -6,7 +6,11 @@
 // ---- 通用基础类型 ----
 
 /** 用户角色 */
-export type UserRole = 'client' | 'agent' | 'performer' | 'admin';
+// V4.7 旧角色（向后兼容，逐步迁移到 V7.2）
+export type UserRoleLegacy = 'client' | 'agent' | 'performer' | 'admin';
+
+// V7.2 新角色
+export type UserRole = 'customer' | 'tenant_admin' | 'actor' | 'platform_admin';
 
 /** 运营子角色（RBAC） */
 export type AdminRole = 'super_admin' | 'operator' | 'finance' | 'content_editor';
@@ -674,11 +678,12 @@ export interface NotificationRecord {
 
 // ---- Fastify JWT 扩展类型 ----
 
-/** JWT Payload（由 Supabase Auth 签发） */
+/** JWT Payload — V7.2 增强版 */
 export interface JwtPayload {
-  sub: string;         // 用户 ID
-  role: UserRole;
-  company_id?: string; // supplier-console 数据隔离范围
+  sub: string;              // 用户 ID
+  role: UserRole;           // V7.2 角色: customer / tenant_admin / actor / platform_admin
+  tenant_id?: string;       // 所属 Tenant（tenant_admin 必填）
+  actor_id?: string;        // 关联演员身份（actor 必填）
   aud: string;
   exp: number;
   iat: number;

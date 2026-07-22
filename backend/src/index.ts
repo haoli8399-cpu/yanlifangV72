@@ -4,6 +4,10 @@
 // ============================================================
 
 import Fastify from 'fastify';
+import { capabilityRoutes } from './api/v2/capabilities.js';
+import { programModuleRoutes } from './api/v2/program-modules.js';
+import { slice1Routes } from './api/v2/slice1.js';
+import { commercialRoutes } from './api/v2/commercial.js';
 import cors from '@fastify/cors';
 import fjwt from '@fastify/jwt';
 import { registerErrorHandler } from './middleware/error.js';
@@ -107,6 +111,10 @@ app.get('/v1/health', async (_request, reply) => {
 // ============================================================
 
 await app.register(skuRoutes, { prefix: '/v1/skus' });
+await app.register(capabilityRoutes);
+await app.register(programModuleRoutes);
+await app.register(slice1Routes);
+await app.register(commercialRoutes);
 await app.register(skuCustomFieldRoutes, { prefix: '/v1/sku-custom-fields' });
 await app.register(demandRoutes, { prefix: '/v1/demands' });
 await app.register(orderRoutes, { prefix: '/v1/orders' });
