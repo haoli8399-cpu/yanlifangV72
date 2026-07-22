@@ -100,7 +100,7 @@ export const verifiedCases: VerifiedCase[] = [
     source: {
       platform: "WeChat Official Account",
       publisher: "后仰喜剧",
-      articleTitle: "东部产业集团×后仰喜剧丨"青年社交局"联谊会圆满落幕！",
+      articleTitle: "东部产业集团×后仰喜剧丨「青年社交局」联谊会圆满落幕！",
       albumUrl: "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2NTU1MjQ1Ng==&action=getalbum&album_id=3916958759251148807",
           retrievedAt: "2026-07-22",
     },
@@ -151,7 +151,7 @@ export const verifiedCases: VerifiedCase[] = [
     source: {
       platform: "WeChat Official Account",
       publisher: "后仰喜剧",
-      articleTitle: "汉瑞酒店×后仰喜剧丨"勒斗是爱情"婚恋主题脱口秀圆满落幕",
+      articleTitle: "汉瑞酒店×后仰喜剧丨「勒斗是爱情」婚恋主题脱口秀圆满落幕",
       albumUrl: "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg2NTU1MjQ1Ng==&action=getalbum&album_id=3916958759251148807",
           retrievedAt: "2026-07-22",
     },

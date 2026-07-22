@@ -30,6 +30,7 @@ import { Route as H5TenantRouteImport } from './routes/h5.tenant'
 import { Route as H5SnapshotRouteImport } from './routes/h5.snapshot'
 import { Route as H5ProjectsRouteImport } from './routes/h5.projects'
 import { Route as H5DiscoverRouteImport } from './routes/h5.discover'
+import { Route as H5AgentRouteImport } from './routes/h5.agent'
 import { Route as H5ActorRouteImport } from './routes/h5.actor'
 import { Route as AgentMemoryRouteImport } from './routes/agent.memory'
 import { Route as AdminPermissionsRouteImport } from './routes/admin.permissions'
@@ -68,8 +69,12 @@ import { Route as ProjectsIdDecisionRouteImport } from './routes/projects.$id.de
 import { Route as ProjectsIdDealRouteImport } from './routes/projects.$id.deal'
 import { Route as ProjectsIdChangesRouteImport } from './routes/projects.$id.changes'
 import { Route as PlansIdPublicRouteImport } from './routes/plans.$id.public'
+import { Route as H5TenantProgramsRouteImport } from './routes/h5.tenant.programs'
+import { Route as H5TenantOrdersRouteImport } from './routes/h5.tenant.orders'
 import { Route as H5TenantMsaRouteImport } from './routes/h5.tenant.msa'
 import { Route as H5ProjectsIdRouteImport } from './routes/h5.projects.$id'
+import { Route as H5DiscoverServiceProductsRouteImport } from './routes/h5.discover.service-products'
+import { Route as H5DiscoverCasesRouteImport } from './routes/h5.discover.cases'
 import { Route as H5DiscoverActorsRouteImport } from './routes/h5.discover.actors'
 import { Route as H5ActorCalendarRouteImport } from './routes/h5.actor.calendar'
 import { Route as DiscoverTenantsIdRouteImport } from './routes/discover.tenants.$id'
@@ -199,6 +204,11 @@ const H5ProjectsRoute = H5ProjectsRouteImport.update({
 const H5DiscoverRoute = H5DiscoverRouteImport.update({
   id: '/h5/discover',
   path: '/h5/discover',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const H5AgentRoute = H5AgentRouteImport.update({
+  id: '/h5/agent',
+  path: '/h5/agent',
   getParentRoute: () => rootRouteImport,
 } as any)
 const H5ActorRoute = H5ActorRouteImport.update({
@@ -394,6 +404,16 @@ const PlansIdPublicRoute = PlansIdPublicRouteImport.update({
   path: '/plans/$id/public',
   getParentRoute: () => rootRouteImport,
 } as any)
+const H5TenantProgramsRoute = H5TenantProgramsRouteImport.update({
+  id: '/programs',
+  path: '/programs',
+  getParentRoute: () => H5TenantRoute,
+} as any)
+const H5TenantOrdersRoute = H5TenantOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => H5TenantRoute,
+} as any)
 const H5TenantMsaRoute = H5TenantMsaRouteImport.update({
   id: '/msa',
   path: '/msa',
@@ -403,6 +423,17 @@ const H5ProjectsIdRoute = H5ProjectsIdRouteImport.update({
   id: '/$id',
   path: '/$id',
   getParentRoute: () => H5ProjectsRoute,
+} as any)
+const H5DiscoverServiceProductsRoute =
+  H5DiscoverServiceProductsRouteImport.update({
+    id: '/service-products',
+    path: '/service-products',
+    getParentRoute: () => H5DiscoverRoute,
+  } as any)
+const H5DiscoverCasesRoute = H5DiscoverCasesRouteImport.update({
+  id: '/cases',
+  path: '/cases',
+  getParentRoute: () => H5DiscoverRoute,
 } as any)
 const H5DiscoverActorsRoute = H5DiscoverActorsRouteImport.update({
   id: '/actors',
@@ -562,6 +593,7 @@ export interface FileRoutesByFullPath {
   '/admin/permissions': typeof AdminPermissionsRoute
   '/agent/memory': typeof AgentMemoryRoute
   '/h5/actor': typeof H5ActorRouteWithChildren
+  '/h5/agent': typeof H5AgentRoute
   '/h5/discover': typeof H5DiscoverRouteWithChildren
   '/h5/projects': typeof H5ProjectsRouteWithChildren
   '/h5/snapshot': typeof H5SnapshotRoute
@@ -585,8 +617,12 @@ export interface FileRoutesByFullPath {
   '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
   '/h5/actor/calendar': typeof H5ActorCalendarRoute
   '/h5/discover/actors': typeof H5DiscoverActorsRoute
+  '/h5/discover/cases': typeof H5DiscoverCasesRoute
+  '/h5/discover/service-products': typeof H5DiscoverServiceProductsRoute
   '/h5/projects/$id': typeof H5ProjectsIdRoute
   '/h5/tenant/msa': typeof H5TenantMsaRoute
+  '/h5/tenant/orders': typeof H5TenantOrdersRoute
+  '/h5/tenant/programs': typeof H5TenantProgramsRoute
   '/plans/$id/public': typeof PlansIdPublicRoute
   '/projects/$id/changes': typeof ProjectsIdChangesRoute
   '/projects/$id/deal': typeof ProjectsIdDealRoute
@@ -650,6 +686,7 @@ export interface FileRoutesByTo {
   '/admin/permissions': typeof AdminPermissionsRoute
   '/agent/memory': typeof AgentMemoryRoute
   '/h5/actor': typeof H5ActorRouteWithChildren
+  '/h5/agent': typeof H5AgentRoute
   '/h5/discover': typeof H5DiscoverRouteWithChildren
   '/h5/projects': typeof H5ProjectsRouteWithChildren
   '/h5/snapshot': typeof H5SnapshotRoute
@@ -672,8 +709,12 @@ export interface FileRoutesByTo {
   '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
   '/h5/actor/calendar': typeof H5ActorCalendarRoute
   '/h5/discover/actors': typeof H5DiscoverActorsRoute
+  '/h5/discover/cases': typeof H5DiscoverCasesRoute
+  '/h5/discover/service-products': typeof H5DiscoverServiceProductsRoute
   '/h5/projects/$id': typeof H5ProjectsIdRoute
   '/h5/tenant/msa': typeof H5TenantMsaRoute
+  '/h5/tenant/orders': typeof H5TenantOrdersRoute
+  '/h5/tenant/programs': typeof H5TenantProgramsRoute
   '/plans/$id/public': typeof PlansIdPublicRoute
   '/projects/$id/changes': typeof ProjectsIdChangesRoute
   '/projects/$id/deal': typeof ProjectsIdDealRoute
@@ -738,6 +779,7 @@ export interface FileRoutesById {
   '/admin/permissions': typeof AdminPermissionsRoute
   '/agent/memory': typeof AgentMemoryRoute
   '/h5/actor': typeof H5ActorRouteWithChildren
+  '/h5/agent': typeof H5AgentRoute
   '/h5/discover': typeof H5DiscoverRouteWithChildren
   '/h5/projects': typeof H5ProjectsRouteWithChildren
   '/h5/snapshot': typeof H5SnapshotRoute
@@ -761,8 +803,12 @@ export interface FileRoutesById {
   '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
   '/h5/actor/calendar': typeof H5ActorCalendarRoute
   '/h5/discover/actors': typeof H5DiscoverActorsRoute
+  '/h5/discover/cases': typeof H5DiscoverCasesRoute
+  '/h5/discover/service-products': typeof H5DiscoverServiceProductsRoute
   '/h5/projects/$id': typeof H5ProjectsIdRoute
   '/h5/tenant/msa': typeof H5TenantMsaRoute
+  '/h5/tenant/orders': typeof H5TenantOrdersRoute
+  '/h5/tenant/programs': typeof H5TenantProgramsRoute
   '/plans/$id/public': typeof PlansIdPublicRoute
   '/projects/$id/changes': typeof ProjectsIdChangesRoute
   '/projects/$id/deal': typeof ProjectsIdDealRoute
@@ -828,6 +874,7 @@ export interface FileRouteTypes {
     | '/admin/permissions'
     | '/agent/memory'
     | '/h5/actor'
+    | '/h5/agent'
     | '/h5/discover'
     | '/h5/projects'
     | '/h5/snapshot'
@@ -851,8 +898,12 @@ export interface FileRouteTypes {
     | '/discover/tenants/$id'
     | '/h5/actor/calendar'
     | '/h5/discover/actors'
+    | '/h5/discover/cases'
+    | '/h5/discover/service-products'
     | '/h5/projects/$id'
     | '/h5/tenant/msa'
+    | '/h5/tenant/orders'
+    | '/h5/tenant/programs'
     | '/plans/$id/public'
     | '/projects/$id/changes'
     | '/projects/$id/deal'
@@ -916,6 +967,7 @@ export interface FileRouteTypes {
     | '/admin/permissions'
     | '/agent/memory'
     | '/h5/actor'
+    | '/h5/agent'
     | '/h5/discover'
     | '/h5/projects'
     | '/h5/snapshot'
@@ -938,8 +990,12 @@ export interface FileRouteTypes {
     | '/discover/tenants/$id'
     | '/h5/actor/calendar'
     | '/h5/discover/actors'
+    | '/h5/discover/cases'
+    | '/h5/discover/service-products'
     | '/h5/projects/$id'
     | '/h5/tenant/msa'
+    | '/h5/tenant/orders'
+    | '/h5/tenant/programs'
     | '/plans/$id/public'
     | '/projects/$id/changes'
     | '/projects/$id/deal'
@@ -1003,6 +1059,7 @@ export interface FileRouteTypes {
     | '/admin/permissions'
     | '/agent/memory'
     | '/h5/actor'
+    | '/h5/agent'
     | '/h5/discover'
     | '/h5/projects'
     | '/h5/snapshot'
@@ -1026,8 +1083,12 @@ export interface FileRouteTypes {
     | '/discover/tenants/$id'
     | '/h5/actor/calendar'
     | '/h5/discover/actors'
+    | '/h5/discover/cases'
+    | '/h5/discover/service-products'
     | '/h5/projects/$id'
     | '/h5/tenant/msa'
+    | '/h5/tenant/orders'
+    | '/h5/tenant/programs'
     | '/plans/$id/public'
     | '/projects/$id/changes'
     | '/projects/$id/deal'
@@ -1092,6 +1153,7 @@ export interface RootRouteChildren {
   AdminPermissionsRoute: typeof AdminPermissionsRoute
   AgentMemoryRoute: typeof AgentMemoryRoute
   H5ActorRoute: typeof H5ActorRouteWithChildren
+  H5AgentRoute: typeof H5AgentRoute
   H5DiscoverRoute: typeof H5DiscoverRouteWithChildren
   H5ProjectsRoute: typeof H5ProjectsRouteWithChildren
   H5SnapshotRoute: typeof H5SnapshotRoute
@@ -1279,6 +1341,13 @@ declare module '@tanstack/react-router' {
       path: '/h5/discover'
       fullPath: '/h5/discover'
       preLoaderRoute: typeof H5DiscoverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/h5/agent': {
+      id: '/h5/agent'
+      path: '/h5/agent'
+      fullPath: '/h5/agent'
+      preLoaderRoute: typeof H5AgentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/h5/actor': {
@@ -1547,6 +1616,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlansIdPublicRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/h5/tenant/programs': {
+      id: '/h5/tenant/programs'
+      path: '/programs'
+      fullPath: '/h5/tenant/programs'
+      preLoaderRoute: typeof H5TenantProgramsRouteImport
+      parentRoute: typeof H5TenantRoute
+    }
+    '/h5/tenant/orders': {
+      id: '/h5/tenant/orders'
+      path: '/orders'
+      fullPath: '/h5/tenant/orders'
+      preLoaderRoute: typeof H5TenantOrdersRouteImport
+      parentRoute: typeof H5TenantRoute
+    }
     '/h5/tenant/msa': {
       id: '/h5/tenant/msa'
       path: '/msa'
@@ -1560,6 +1643,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/h5/projects/$id'
       preLoaderRoute: typeof H5ProjectsIdRouteImport
       parentRoute: typeof H5ProjectsRoute
+    }
+    '/h5/discover/service-products': {
+      id: '/h5/discover/service-products'
+      path: '/service-products'
+      fullPath: '/h5/discover/service-products'
+      preLoaderRoute: typeof H5DiscoverServiceProductsRouteImport
+      parentRoute: typeof H5DiscoverRoute
+    }
+    '/h5/discover/cases': {
+      id: '/h5/discover/cases'
+      path: '/cases'
+      fullPath: '/h5/discover/cases'
+      preLoaderRoute: typeof H5DiscoverCasesRouteImport
+      parentRoute: typeof H5DiscoverRoute
     }
     '/h5/discover/actors': {
       id: '/h5/discover/actors'
@@ -1752,10 +1849,14 @@ const H5ActorRouteWithChildren =
 
 interface H5DiscoverRouteChildren {
   H5DiscoverActorsRoute: typeof H5DiscoverActorsRoute
+  H5DiscoverCasesRoute: typeof H5DiscoverCasesRoute
+  H5DiscoverServiceProductsRoute: typeof H5DiscoverServiceProductsRoute
 }
 
 const H5DiscoverRouteChildren: H5DiscoverRouteChildren = {
   H5DiscoverActorsRoute: H5DiscoverActorsRoute,
+  H5DiscoverCasesRoute: H5DiscoverCasesRoute,
+  H5DiscoverServiceProductsRoute: H5DiscoverServiceProductsRoute,
 }
 
 const H5DiscoverRouteWithChildren = H5DiscoverRoute._addFileChildren(
@@ -1776,10 +1877,14 @@ const H5ProjectsRouteWithChildren = H5ProjectsRoute._addFileChildren(
 
 interface H5TenantRouteChildren {
   H5TenantMsaRoute: typeof H5TenantMsaRoute
+  H5TenantOrdersRoute: typeof H5TenantOrdersRoute
+  H5TenantProgramsRoute: typeof H5TenantProgramsRoute
 }
 
 const H5TenantRouteChildren: H5TenantRouteChildren = {
   H5TenantMsaRoute: H5TenantMsaRoute,
+  H5TenantOrdersRoute: H5TenantOrdersRoute,
+  H5TenantProgramsRoute: H5TenantProgramsRoute,
 }
 
 const H5TenantRouteWithChildren = H5TenantRoute._addFileChildren(
@@ -1867,6 +1972,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminPermissionsRoute: AdminPermissionsRoute,
   AgentMemoryRoute: AgentMemoryRoute,
   H5ActorRoute: H5ActorRouteWithChildren,
+  H5AgentRoute: H5AgentRoute,
   H5DiscoverRoute: H5DiscoverRouteWithChildren,
   H5ProjectsRoute: H5ProjectsRouteWithChildren,
   H5SnapshotRoute: H5SnapshotRoute,
