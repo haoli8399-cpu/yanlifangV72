@@ -192,7 +192,7 @@ export const actors: Actor[] = [
     bio: "《脱口秀和 ta 的朋友们 3》卡司。漫才组合「逢考必过」吐槽担当,自带笑点的山东人,本职是老师,闯荡成都后的各种趣事是他段子的主线。",
     verified: true,
     scheduleState: "tight",
-    signatureProgram: "prog_openyear",
+    signatureProgram: "prog_standup_20min",
     representativeCases: ["case_finconf", "case_scitech"],
     fitFor: ["年会开场", "员工关怀", "教育/校园活动"],
     avatarSeed: "fengzihao",
@@ -212,7 +212,7 @@ export const actors: Actor[] = [
     bio: "后仰喜剧常驻主持人。段子简单轻松,擅长从生活小事挖掘笑点,互动视频播放量超千万。",
     verified: true,
     scheduleState: "open",
-    signatureProgram: "prog_impro",
+    signatureProgram: "prog_standup_20min",
     representativeCases: ["case_scitech"],
     fitFor: ["年会主持", "团建互动", "客户答谢串场"],
     avatarSeed: "tuaner",
@@ -231,7 +231,7 @@ export const actors: Actor[] = [
     bio: "新疆人,从事脱口秀 7 年,全网视频播放量破千万,青年蓉漂人才代表。个人专场《太阳照常升起》。",
     verified: true,
     scheduleState: "open",
-    signatureProgram: "prog_magicset",
+    signatureProgram: "prog_standup_20min",
     representativeCases: ["case_auto"],
     fitFor: ["品牌活动", "文化主题晚宴", "城市推广活动"],
     avatarSeed: "aike",
@@ -251,7 +251,7 @@ export const actors: Actor[] = [
     bio: "《脱口秀和 ta 的朋友们 3》卡司,笑嘛黑马赛冠军。段子聚焦家庭日常,有笑点更有烟火气。",
     verified: false,
     scheduleState: "busy",
-    signatureProgram: "prog_guqin",
+    signatureProgram: "prog_standup_20min",
     representativeCases: [],
     fitFor: ["家庭日", "员工关怀", "女性主题活动"],
     avatarSeed: "yangxin",
@@ -270,7 +270,7 @@ export const actors: Actor[] = [
     bio: "脱口秀和新喜剧双开花,主持、喜剧、单口一人包揽。双拼秀《成都玩家》、单口专场《垃圾飞行指南》。",
     verified: true,
     scheduleState: "open",
-    signatureProgram: "prog_zpk",
+    signatureProgram: "prog_standup_20min",
     representativeCases: ["case_finconf"],
     fitFor: ["主持+表演一人包场", "线下品牌活动", "VIP 私宴"],
     avatarSeed: "7788",
@@ -284,56 +284,68 @@ export const actors: Actor[] = [
 
 export const programs: Program[] = [
   {
-    id: "prog_openyear",
-    title: "《开年·笑》定制脱口秀开场",
+    id: "prog_standup_20min",
+    title: "单口喜剧 20min",
     type: "单口喜剧",
-    duration: "18–25 分钟",
-    audienceFit: ["企业年会", "客户答谢"],
-    actors: ["act_hexuan"],
-    summary: "以公司过去一年关键词为素材的定制脱口秀开场,含 2 轮内容评审,规避行业敏感话题。",
+    duration: "20 分钟",
+    audienceFit: ["年会开场", "客户答谢", "品牌活动暖场"],
+    actors: ["act_hexuan", "act_linshu", "act_zhouye"],
+    summary: "1 名演员单口喜剧演出，含基础内容编排。标准价格不指定演员。",
     status: "verified",
   },
   {
-    id: "prog_impro",
-    title: "互动脱口秀 ·《团儿秀》",
-    type: "互动脱口秀",
-    duration: "30–40 分钟",
-    audienceFit: ["团建", "员工关怀", "客户答谢"],
+    id: "prog_standup_40min",
+    title: "单口喜剧 40min",
+    type: "单口喜剧",
+    duration: "40 分钟",
+    audienceFit: ["客户活动", "庆典活动"],
+    actors: ["act_hexuan", "act_zhouye"],
+    summary: "一般 2 名演员。适合客户活动、庆典活动。",
+    status: "verified",
+  },
+  {
+    id: "prog_standup_60min",
+    title: "单口喜剧 60min",
+    type: "单口喜剧",
+    duration: "60 分钟",
+    audienceFit: ["企业年会", "主题活动"],
+    actors: ["act_hexuan", "act_linshu", "act_zhouye"],
+    summary: "一般 3 名演员。适合企业年会、主题活动。",
+    status: "verified",
+  },
+  {
+    id: "prog_standup_90min",
+    title: "单口喜剧专场 90min",
+    type: "单口喜剧专场",
+    duration: "90 分钟",
+    audienceFit: ["完整专场", "大型活动"],
+    actors: ["act_hexuan", "act_linshu", "act_zhouye", "act_muyao", "act_arknight"],
+    summary: "一般 5 名演员，完整脱口秀专场。",
+    status: "verified",
+  },
+  {
+    id: "prog_brand_custom",
+    title: "品牌定制脱口秀内容",
+    type: "定制内容",
+    duration: "3 分钟起订",
+    audienceFit: ["品牌定制", "产品植入"],
+    actors: [],
+    summary: "围绕品牌主题与产品信息创作，编剧团队审核。¥3,000/分钟，3 分钟起订。",
+    status: "verified",
+  },
+  {
+    id: "prog_interactive",
+    title: "喜剧互动与社交游戏",
+    type: "互动喜剧",
+    duration: "按活动设计",
+    audienceFit: ["青年社交", "商场活动", "联谊"],
     actors: ["act_linshu"],
-    summary: "从现场话题即兴出梗,并邀请观众上台互动,替代传统颁奖流程的高互动性环节。",
-    status: "verified",
-  },
-  {
-    id: "prog_magicset",
-    title: "个人专场摘段《太阳照常升起》",
-    type: "单口喜剧",
-    duration: "15–25 分钟",
-    audienceFit: ["品牌活动", "文化主题晚宴"],
-    actors: ["act_zhouye"],
-    summary: "从新疆到成都的跨地域故事,适合作为品牌'向新而行/多元共生'主题活动的内容环节。",
-    status: "verified",
-  },
-  {
-    id: "prog_guqin",
-    title: "家庭视角脱口秀",
-    type: "单口喜剧",
-    duration: "15–20 分钟",
-    audienceFit: ["家庭日", "员工关怀"],
-    actors: ["act_muyao"],
-    summary: "以家庭日常与\"老公素材\"为主线的段子集,适合家长/员工家属同席的场景。",
-    status: "pending",
-  },
-  {
-    id: "prog_zpk",
-    title: "全能双拼《成都玩家》Player1",
-    type: "单口 + 新喜剧",
-    duration: "35–45 分钟",
-    audienceFit: ["高净值客户答谢", "品牌活动"],
-    actors: ["act_arknight"],
-    summary: "主持 + 单口 + 新喜剧一人包场,小场景/精品客户答谢首选,减少舞台人员进出。",
+    summary: "脱口秀、喜剧互动、签到破冰及青年社交游戏。",
     status: "verified",
   },
 ];
+
+// 案例保留稳定的旧 id];
 
 // 案例保留稳定的旧 id;内容基于 real-cases.ts(后仰喜剧公开活动画像整理),
 // 不虚构具体客户名/成交金额。gallery 为占位图。
@@ -764,9 +776,6 @@ export function getProject(id: string) {
 export function getActor(id: string) {
   return actors.find((a) => a.id === id);
 }
-export function getProgram(id: string) {
-  return programs.find((p) => p.id === id);
-}
 export function getCase(id: string) {
   return cases.find((c) => c.id === id);
 }
@@ -815,6 +824,16 @@ export type ServiceProductVersion = {
   changelog: string;
 };
 
+export type PriceTier = {
+  label: string;
+  price: string;
+};
+
+export type AddOnService = {
+  label: string;
+  price: string;
+};
+
 export type PerformanceServiceProduct = {
   id: string;
   tenantId: string;
@@ -840,362 +859,220 @@ export type PerformanceServiceProduct = {
   reuseCount: number;
   npsAvg: number;
   relatedCaseIds: string[];
+  pricingTiers?: PriceTier[];
+  addOns?: AddOnService[];
   agentAdvice?: string;
 };
 
 export const serviceProducts: PerformanceServiceProduct[] = [
   {
-    id: "sp_annual_signature",
-    tenantId: "ten_houyang",
-    tenantName: "后仰喜剧",
-    title: "年会主服务全案 · 内容驱动型",
-    oneLiner:
-      "以定制脱口秀 + 双语主持为主线的年度活动全案统筹,后仰喜剧作为唯一主服务方对整场负责。",
-    coverImage: "https://picsum.photos/seed/sp-annual-cover/1400/700",
-    gallery: [
-      "https://picsum.photos/seed/sp-annual-1/1200/800",
-      "https://picsum.photos/seed/sp-annual-2/1200/800",
-      "https://picsum.photos/seed/sp-annual-3/1200/800",
-    ],
-    completeness: "complete",
-    version: "v2.3",
-    versionHistory: [
-      { version: "v2.3", publishedAt: "2026-06-10", changelog: "更新价格区间;补充 2 项典型场景。" },
-      { version: "v2.2", publishedAt: "2026-03-04", changelog: "新增舞美协作依赖说明。" },
-      { version: "v2.1", publishedAt: "2025-11-18", changelog: "首次纳入双语主持模块。" },
-    ],
-    includedPrograms: ["prog_openyear"],
-    includedModules: [
-      { kind: "content", label: "内容定制", responsible: "后仰喜剧 · 内容组", scope: "开场脱口秀 + 主持稿 2 轮评审" },
-      { kind: "host", label: "双语主持", responsible: "方骑(签约)", scope: "全程串联 + 高潮环节调度" },
-      { kind: "director", label: "现场导演", responsible: "后仰喜剧 · 张策", scope: "彩排 1 次 + 现场分镜" },
-      { kind: "producer", label: "全案统筹", responsible: "后仰喜剧", scope: "对客户唯一负责,含时间轴、供应商协调" },
-    ],
-    dependencies: [
-      { kind: "venue", label: "宴会厅或剧场空间", note: "≥ 300 平,层高 ≥ 4.5m" },
-      { kind: "tech", label: "专业音响与追光", note: "由主服务方推荐供应商或客户直采" },
-      { kind: "people", label: "客户方对接人 1 名", note: "用于内容评审与流程确认" },
-    ],
-    ownership: "tenant-owned",
-    combinationWillingness: "solo",
-    priceBand: "¥ 85 – 120 万",
-    durationBand: "150-180 分钟",
-    audienceScale: "300 – 600 人",
-    typicalScenes: ["年度客户答谢", "私行专场晚宴", "战略客户 Kickoff"],
-    status: "listed",
-    reuseCount: 12,
-    npsAvg: 68,
-    relatedCaseIds: ["case_finconf"],
-    agentAdvice:
-      "近 30 天被 3 位客户查看,建议在版本 v2.4 中补充「同城多演员差旅口径」以减少报价来回。",
-  },
-  {
-    id: "sp_launch_visual",
-    tenantId: "ten_houyang",
-    tenantName: "后仰喜剧",
-    title: "新品发布 · 视觉+内容双主线",
-    oneLiner:
-      "古筝电声开场 + 近景魔术组套 + 现场统筹,适合品牌需要强视觉冲击的发布会。",
-    coverImage: "https://picsum.photos/seed/sp-launch-cover/1400/700",
-    gallery: [
-      "https://picsum.photos/seed/sp-launch-1/1200/800",
-      "https://picsum.photos/seed/sp-launch-2/1200/800",
-    ],
-    completeness: "complete",
-    version: "v1.4",
-    versionHistory: [
-      { version: "v1.4", publishedAt: "2026-05-22", changelog: "增补舞美依赖清单。" },
-      { version: "v1.2", publishedAt: "2026-01-09", changelog: "调整魔术组套时长为 45+8 分钟。" },
-    ],
-    includedPrograms: ["prog_guqin", "prog_magicset"],
-    includedModules: [
-      { kind: "content", label: "主题内容", responsible: "后仰喜剧 · 内容组", scope: "结合品牌关键词的定制串场" },
-      { kind: "stage", label: "舞美灯光协作", responsible: "光弦舞美(邀请协作)", scope: "由主服务方分包并统一交付" },
-      { kind: "producer", label: "全案统筹", responsible: "后仰喜剧", scope: "唯一整体责任方" },
-    ],
-    dependencies: [
-      { kind: "tech", label: "专业 LED 与追光", note: "需现场堪场,场地音响需支持 5.1" },
-      { kind: "people", label: "品牌方内容对接 1 名", note: "用于关键词与产品信息交付" },
-      { kind: "external", label: "版权音乐授权", note: "由主服务方代购,含在报价内" },
-    ],
-    ownership: "co-owned",
-    combinationWillingness: "invite-only",
-    priceBand: "¥ 105 – 140 万",
-    durationBand: "120-150 分钟",
-    audienceScale: "200 – 500 人",
-    typicalScenes: ["新品发布", "品牌年度沟通", "文化主题晚宴"],
-    status: "listed",
-    reuseCount: 6,
-    npsAvg: 71,
-    relatedCaseIds: ["case_auto"],
-  },
-  {
-    id: "sp_improv_module",
-    tenantId: "ten_houyang",
-    tenantName: "后仰喜剧",
-    title: "即兴共创模块 · 30-40 分钟",
-    oneLiner:
-      "作为其他主服务方方案中的高潮模块,可被邀请嵌入他方年会 / 团建 / 创新论坛。",
-    coverImage: "https://picsum.photos/seed/sp-improv-cover/1400/700",
-    gallery: [
-      "https://picsum.photos/seed/sp-improv-1/1200/800",
-      "https://picsum.photos/seed/sp-improv-2/1200/800",
-    ],
-    completeness: "partial",
-    version: "v1.1",
-    versionHistory: [
-      { version: "v1.1", publishedAt: "2026-04-02", changelog: "明确不含全案统筹责任。" },
-      { version: "v1.0", publishedAt: "2025-12-01", changelog: "首次发布。" },
-    ],
-    includedPrograms: ["prog_impro"],
-    includedModules: [
-      { kind: "content", label: "关键词共创内容", responsible: "林舒 · 编导", scope: "与客户 1 轮线上沟通即可" },
-      { kind: "logistics", label: "模块级落地执行", responsible: "后仰喜剧", scope: "仅对本模块负责,不承担全场统筹" },
-    ],
-    dependencies: [
-      { kind: "venue", label: "开阔互动区", note: "≥ 80 平,可站立互动" },
-      { kind: "people", label: "主服务方对接人", note: "由主服务方指定,用于时间轴衔接" },
-    ],
-    ownership: "actor-authorized",
-    authorizationExpiresAt: "2027-06-30",
-    combinationWillingness: "open",
-    priceBand: "¥ 5.4 – 7.2 万",
-    durationBand: "30-40 分钟",
-    audienceScale: "80 – 300 人",
-    typicalScenes: ["团建", "创新论坛", "年会高潮环节"],
-    status: "listed",
-    reuseCount: 9,
-    npsAvg: 74,
-    relatedCaseIds: ["case_scitech"],
-    agentAdvice:
-      "该产品为局部型,注意在方案页明确「不承担全案统筹责任」,避免客户误认为主服务方。",
-  },
-  {
-    id: "sp_vip_intimate",
-    tenantId: "ten_houyang",
-    tenantName: "后仰喜剧",
-    title: "VIP 私宴 · 近景魔术 + 双语主持",
-    oneLiner:
-      "面向 80-150 人小型 VIP 私宴的完整服务产品,含近景巡桌 + 简约主持 + 现场统筹。",
-    coverImage: "https://picsum.photos/seed/sp-vip-cover/1400/700",
-    gallery: ["https://picsum.photos/seed/sp-vip-1/1200/800"],
-    completeness: "complete",
-    version: "v1.0",
-    versionHistory: [
-      { version: "v1.0", publishedAt: "2026-06-18", changelog: "首次发布,基于 3 场私宴复用形成。" },
-    ],
-    includedPrograms: ["prog_magicset"],
-    includedModules: [
-      { kind: "host", label: "双语主持", responsible: "方骑(签约)", scope: "轻量串场" },
-      { kind: "producer", label: "现场统筹", responsible: "后仰喜剧", scope: "含流程 / 供应商 / 客户沟通" },
-    ],
-    dependencies: [
-      { kind: "venue", label: "私宴厅 / 会所", note: "10-15 桌" },
-      { kind: "people", label: "客户方礼宾对接", note: "含 VIP 到场提醒" },
-    ],
-    ownership: "tenant-owned",
-    combinationWillingness: "solo",
-    priceBand: "¥ 42 – 58 万",
-    durationBand: "120 分钟",
-    audienceScale: "80 – 150 人",
-    typicalScenes: ["私行 VIP 晚宴", "高端答谢私宴"],
-    status: "listed",
-    reuseCount: 4,
-    npsAvg: 76,
-    relatedCaseIds: ["case_finconf"],
-  },
-  {
-    id: "sp_kickoff_light",
-    tenantId: "ten_houyang",
-    tenantName: "后仰喜剧",
-    title: "极简 Kickoff · 内容纯粹型",
-    oneLiner:
-      "仅保留脱口秀 + 双语主持,预算集中在内容质量,适合内部 Kickoff 与创新论坛。",
-    coverImage: "https://picsum.photos/seed/sp-kickoff-cover/1400/700",
-    gallery: ["https://picsum.photos/seed/sp-kickoff-1/1200/800"],
-    completeness: "complete",
-    version: "v1.2",
-    versionHistory: [
-      { version: "v1.2", publishedAt: "2026-05-05", changelog: "调整为 3 轮内容评审。" },
-      { version: "v1.0", publishedAt: "2025-10-20", changelog: "首次发布。" },
-    ],
-    includedPrograms: ["prog_openyear"],
-    includedModules: [
-      { kind: "content", label: "深度定制脱口秀", responsible: "何轩(签约)", scope: "3 轮内容评审" },
-      { kind: "producer", label: "轻量统筹", responsible: "后仰喜剧", scope: "含时间轴、彩排 1 次" },
-    ],
-    dependencies: [
-      { kind: "venue", label: "会议室 / 剧场式排座", note: "≥ 150 平" },
-      { kind: "people", label: "客户方内容对接", note: "用于关键事件采集" },
-    ],
-    ownership: "actor-authorized",
-    authorizationExpiresAt: "2027-12-31",
-    combinationWillingness: "solo",
-    priceBand: "¥ 32 – 48 万",
-    durationBand: "90-120 分钟",
-    audienceScale: "150 – 300 人",
-    typicalScenes: ["年度 Kickoff", "内部年会", "创新论坛开场"],
-    status: "listed",
-    reuseCount: 8,
-    npsAvg: 70,
-    relatedCaseIds: ["case_scitech"],
-  },
-  {
-    id: "sp_hosted_forum",
-    tenantId: "ten_houyang",
-    tenantName: "后仰喜剧",
-    title: "论坛主持模块 · 双语",
-    oneLiner:
-      "仅提供双语主持能力,作为其他主服务方论坛方案的可嵌入模块。",
-    coverImage: "https://picsum.photos/seed/sp-forum-cover/1400/700",
-    gallery: ["https://picsum.photos/seed/sp-forum-1/1200/800"],
-    completeness: "partial",
-    version: "v1.0",
-    versionHistory: [
-      { version: "v1.0", publishedAt: "2026-02-14", changelog: "首次发布。" },
-    ],
-    includedPrograms: [],
-    includedModules: [
-      { kind: "host", label: "双语主持", responsible: "方骑(签约)", scope: "半天 / 全天两档" },
-    ],
-    dependencies: [
-      { kind: "content", label: "议程与嘉宾资料", note: "由主服务方提前 5 天交付" },
-    ],
-    ownership: "actor-authorized",
-    authorizationExpiresAt: "2027-06-30",
-    combinationWillingness: "open",
-    priceBand: "¥ 2.8 – 4.2 万",
-    durationBand: "半天 / 全天",
-    audienceScale: "任意",
-    typicalScenes: ["国际论坛", "颁奖典礼", "跨国发布会"],
-    status: "listed",
-    reuseCount: 15,
-    npsAvg: 72,
-    relatedCaseIds: ["case_finconf"],
-  },
-  {
-    id: "sp_experiment_workshop",
-    tenantId: "ten_houyang",
-    tenantName: "后仰喜剧",
-    title: "喜剧工作坊 · 团建整日",
-    oneLiner:
-      "面向 40-80 人团队的整日喜剧工作坊 + 结营演出,含内容设计与轻量统筹。",
-    coverImage: "https://picsum.photos/seed/sp-workshop-cover/1400/700",
+    id: "sp_sponsorship_wangfujing_1",
+    tenantId: "ten_houyang", tenantName: "后仰喜剧",
+    title: "商演赞助 · 王府井1号馆310座",
+    oneLiner: "借助后仰喜剧现有商业演出，触达稳定的线下年轻观众。标准报价¥6,000–¥8,000/场。",
+    coverImage: "https://picsum.photos/seed/sp-wfj1/1400/700",
     gallery: [],
-    completeness: "complete",
-    version: "v0.9",
-    versionHistory: [
-      { version: "v0.9", publishedAt: "2026-07-01", changelog: "草稿版,复用尚少。" },
-    ],
-    includedPrograms: ["prog_impro"],
-    includedModules: [
-      { kind: "content", label: "工作坊设计", responsible: "林舒 · 编导", scope: "含前 1 周问卷" },
-      { kind: "director", label: "结营演出导演", responsible: "后仰喜剧", scope: "结营 40 分钟展示" },
-      { kind: "logistics", label: "整日落地执行", responsible: "后仰喜剧", scope: "含道具 / 分组 / 计时" },
-    ],
-    dependencies: [
-      { kind: "venue", label: "整日可锁场地", note: "含分组小空间" },
-      { kind: "people", label: "客户方 HR 对接", note: "用于分组与目标设定" },
-    ],
+    completeness: "partial",
+    version: "v1.0", versionHistory: [],
+    includedPrograms: [], includedModules: [],
+    dependencies: [],
     ownership: "tenant-owned",
-    combinationWillingness: "solo",
-    priceBand: "¥ 12 – 18 万",
-    durationBand: "整日 6-8 小时",
-    audienceScale: "40 – 80 人",
-    typicalScenes: ["高管团建", "跨部门融合", "新员工融入"],
-    status: "draft",
-    reuseCount: 1,
-    npsAvg: 65,
-    relatedCaseIds: [],
-    agentAdvice: "复用次数尚少,建议先在私域 3 家客户试点后再发布至公共发现频道。",
+    combinationWillingness: "open",
+    priceBand: "¥6,000–¥8,000/场",
+    durationBand: "按演出档期",
+    audienceScale: "310座", typicalScenes: ["品牌曝光", "线下引流"],
+    status: "listed", reuseCount: 0, npsAvg: 0, relatedCaseIds: [],
+    pricingTiers: [
+      { label: "周一至周四", price: "¥6,000/场" },
+      { label: "周五至周日", price: "¥8,000/场" },
+    ],
+    addOns: [
+      { label: "品牌定制脱口秀内容", price: "¥3,000/分钟 · 3分钟起订" },
+      { label: "视频拍摄及剪辑", price: "另行报价" },
+    ],
+    agentAdvice: "商演赞助不改变演出主体内容，适合品牌曝光而非专属活动需求。",
+  },
+  {
+    id: "sp_sponsorship_wangfujing_2",
+    tenantId: "ten_houyang", tenantName: "后仰喜剧",
+    title: "商演赞助 · 王府井2号馆/招商大魔方150座",
+    oneLiner: "借助后仰喜剧现有商业演出。标准报价¥3,000–¥5,000/场。",
+    coverImage: "https://picsum.photos/seed/sp-wfj2/1400/700",
+    gallery: [], completeness: "partial", version: "v1.0", versionHistory: [],
+    includedPrograms: [], includedModules: [], dependencies: [],
+    ownership: "tenant-owned", combinationWillingness: "open",
+    priceBand: "¥3,000–¥5,000/场", durationBand: "按演出档期",
+    audienceScale: "150座", typicalScenes: ["品牌曝光", "线下引流"],
+    status: "listed", reuseCount: 0, npsAvg: 0, relatedCaseIds: [],
+    pricingTiers: [
+      { label: "周一至周四", price: "¥3,000/场" },
+      { label: "周五至周日", price: "¥5,000/场" },
+    ],
+    addOns: [
+      { label: "品牌定制脱口秀内容", price: "¥3,000/分钟 · 3分钟起订" },
+      { label: "视频拍摄及剪辑", price: "另行报价" },
+    ],
+    agentAdvice: "150座小剧场，适合精准客群曝光。",
+  },
+  {
+    id: "sp_theatre_buyout_wfj1",
+    tenantId: "ten_houyang", tenantName: "后仰喜剧",
+    title: "剧场包场 · 王府井1号馆310座",
+    oneLiner: "独占指定剧场和约定场次，适合企业或品牌专属活动。标准报价¥18,000–¥26,000。",
+    coverImage: "https://picsum.photos/seed/sp-tb1/1400/700",
+    gallery: [], completeness: "complete", version: "v1.0", versionHistory: [],
+    includedPrograms: ["prog_standup_20min"], includedModules: [
+      { kind: "host", label: "主持与流程统筹", responsible: "后仰喜剧", scope: "整场" },
+    ], dependencies: [],
+    ownership: "tenant-owned", combinationWillingness: "invite-only",
+    priceBand: "¥18,000–¥26,000", durationBand: "按约定场次",
+    audienceScale: "310座", typicalScenes: ["企业年会", "品牌专属活动", "客户答谢"],
+    status: "listed", reuseCount: 3, npsAvg: 92, relatedCaseIds: ["case_finconf"],
+    pricingTiers: [
+      { label: "周一至周四", price: "¥20,000" },
+      { label: "周五至周日", price: "¥26,000" },
+      { label: "其他未排演出时间", price: "¥18,000" },
+    ],
+    addOns: [
+      { label: "品牌定制脱口秀内容", price: "¥3,000/分钟 · 3分钟起订" },
+      { label: "增加演员/延长时长", price: "另行报价" },
+      { label: "摄影摄像/视频剪辑", price: "另行报价" },
+    ],
+    agentAdvice: "包场独占整场演出，标准价格不含定制内容。推荐加购¥9,000起定制段子。",
+  },
+  {
+    id: "sp_theatre_buyout_wfj2",
+    tenantId: "ten_houyang", tenantName: "后仰喜剧",
+    title: "剧场包场 · 王府井2号馆/招商大魔方150座",
+    oneLiner: "独占指定剧场。标准报价¥13,000–¥16,000。",
+    coverImage: "https://picsum.photos/seed/sp-tb2/1400/700",
+    gallery: [], completeness: "complete", version: "v1.0", versionHistory: [],
+    includedPrograms: ["prog_standup_20min"], includedModules: [], dependencies: [],
+    ownership: "tenant-owned", combinationWillingness: "invite-only",
+    priceBand: "¥13,000–¥16,000", durationBand: "按约定场次",
+    audienceScale: "150座", typicalScenes: ["企业专属活动", "客户答谢"],
+    status: "listed", reuseCount: 5, npsAvg: 90, relatedCaseIds: [],
+    pricingTiers: [
+      { label: "周一至周四正常档期", price: "¥13,000" },
+      { label: "周五至周日正常档期", price: "¥16,000" },
+      { label: "其他未排演出时间", price: "¥16,000" },
+    ],
+    addOns: [
+      { label: "品牌定制脱口秀内容", price: "¥3,000/分钟 · 3分钟起订" },
+    ],
+    agentAdvice: "150座小剧场包场性价比高，推荐加定制内容。",
+  },
+  {
+    id: "sp_enterprise_20min",
+    tenantId: "ten_houyang", tenantName: "后仰喜剧",
+    title: "企业外出演出 · 20分钟",
+    oneLiner: "演员到甲方指定场地完成脱口秀演出。标准报价¥5,000起。",
+    coverImage: "https://picsum.photos/seed/sp-ent-20/1400/700",
+    gallery: [], completeness: "partial", version: "v1.0", versionHistory: [],
+    includedPrograms: ["prog_standup_20min"], includedModules: [], dependencies: [],
+    ownership: "tenant-owned", combinationWillingness: "open",
+    priceBand: "¥5,000", durationBand: "20分钟",
+    audienceScale: "不限", typicalScenes: ["开场暖场", "短时节目"],
+    status: "listed", reuseCount: 0, npsAvg: 0, relatedCaseIds: [],
+    pricingTiers: [
+      { label: "成都绕城内标准价", price: "¥5,000" },
+      { label: "成都绕城外·大成都", price: "¥5,000 + ¥300/人远程费" },
+      { label: "四川省内·成都外", price: "¥5,000 + ¥1,000/人/天" },
+    ],
+    addOns: [
+      { label: "品牌定制内容", price: "¥3,000/分钟 · 3分钟起订" },
+      { label: "增加演员", price: "另行报价" },
+      { label: "摄影摄像/视频剪辑", price: "另行报价" },
+    ],
+    agentAdvice: "20分钟¥5,000起，适合开场暖场。如需定制内容加¥9,000起。",
+  },
+  {
+    id: "sp_competition",
+    tenantId: "ten_houyang", tenantName: "后仰喜剧",
+    title: "品牌主题脱口秀大赛",
+    oneLiner: "适合打造大型品牌事件、行业话题和长期内容资产。¥80,000/场。",
+    coverImage: "https://picsum.photos/seed/sp-comp/1400/700",
+    gallery: [], completeness: "complete", version: "v1.0", versionHistory: [],
+    includedPrograms: ["prog_brand_custom"], includedModules: [
+      { kind: "content", label: "内容创作", responsible: "编剧团队", scope: "不少于20分钟原创品牌内容" },
+      { kind: "producer", label: "策划执行", responsible: "后仰喜剧", scope: "赛事流程+选手管理+舞台统筹" },
+      { kind: "director", label: "品牌与传播", responsible: "后仰喜剧", scope: "舞台植入+高清录制+推广3次" },
+    ], dependencies: [],
+    ownership: "tenant-owned", combinationWillingness: "solo",
+    priceBand: "¥80,000/场", durationBand: "约120分钟",
+    audienceScale: "不限", typicalScenes: ["大型品牌事件", "行业话题", "内容资产沉淀"],
+    status: "listed", reuseCount: 1, npsAvg: 95, relatedCaseIds: [],
+    pricingTiers: [
+      { label: "标准价", price: "¥80,000/场" },
+    ],
+    addOns: [
+      { label: "特殊舞美/额外灯光音响", price: "另行报价" },
+      { label: "付费投流/电视/户外", price: "另行报价" },
+      { label: "延长肖像或内容授权", price: "另行报价" },
+    ],
+    agentAdvice: "¥80,000/场包含不少于20分钟原创品牌内容和推广3次，适合大型品牌事件。",
+  },
+  {
+    id: "sp_speed_dating",
+    tenantId: "ten_houyang", tenantName: "后仰喜剧",
+    title: "「有点意思·看对眼大会」青年社交IP",
+    oneLiner: "商业体年轻客群招募、互动体验与持续运营。¥20,000/场起。",
+    coverImage: "https://picsum.photos/seed/sp-dating/1400/700",
+    gallery: [], completeness: "complete", version: "v1.0", versionHistory: [],
+    includedPrograms: ["prog_interactive"], includedModules: [
+      { kind: "producer", label: "策划与流程", responsible: "后仰喜剧", scope: "主题设计+用户招募+现场执行" },
+      { kind: "host", label: "主持人+演员", responsible: "后仰喜剧", scope: "1名主持人+1名演员+约6名工作人员" },
+      { kind: "logistics", label: "基础物料", responsible: "后仰喜剧", scope: "资料卡/号码牌/Bingo卡/游戏币/手环/玫瑰" },
+    ], dependencies: [],
+    ownership: "tenant-owned", combinationWillingness: "solo",
+    priceBand: "¥20,000/场", durationBand: "约4小时",
+    audienceScale: "50人起", typicalScenes: ["商业体引流", "青年社交", "联谊活动"],
+    status: "listed", reuseCount: 6, npsAvg: 88, relatedCaseIds: [],
+    pricingTiers: [
+      { label: "单场", price: "¥20,000" },
+      { label: "季度合作(3场)", price: "¥19,000/场" },
+      { label: "半年合作(6场)", price: "¥18,000/场" },
+      { label: "年度合作(12场)", price: "¥17,000/场" },
+    ],
+    addOns: [
+      { label: "扩大人数(每+50人)", price: "+¥5,000" },
+      { label: "定制主题与特殊视觉", price: "另行报价" },
+      { label: "线上社群运营", price: "另行报价" },
+    ],
+    agentAdvice: "¥20,000/场起，含50名单身青年招募。长期合作阶梯价可降至¥17,000/场。",
   },
 ];
+
+export const serviceProductCompletenessLabel: Record<ServiceProductCompleteness, string> = {
+  complete: "完整解决方案",
+  partial: "独立节目/局部服务",
+};
 
 export function getServiceProduct(id: string) {
   return serviceProducts.find((p) => p.id === id);
 }
 
-export const serviceProductCompletenessLabel: Record<ServiceProductCompleteness, string> = {
-  complete: "完整型 · 可整体承接",
-  partial: "局部型 · 仅作模块提供",
-};
-
-export const serviceProductCombinationLabel: Record<ServiceProductCombinationWillingness, string> = {
-  open: "开放组合 · 接受他方邀请",
-  "invite-only": "定向组合 · 仅限特定伙伴",
-  solo: "独立承接 · 不作为模块拆分",
-};
-
-export const serviceProductOwnershipLabel: Record<ServiceProductOwnership, string> = {
-  "tenant-owned": "Tenant 自有",
-  "actor-authorized": "演员授权",
-  "co-owned": "联合所有",
-};
-
-export const serviceProductStatusLabel: Record<ServiceProductStatus, { label: string; state: EvidenceState }> = {
-  draft: { label: "草稿", state: "pending" },
-  listed: { label: "已发布", state: "verified" },
-  paused: { label: "已下架", state: "expired" },
-};
-
-// ── P0-A: MainServiceAssignment ──
-
-export type TenantDecision = "pending" | "accepted" | "declined" | "expired";
-export type CustomerDecision = "pending" | "selected" | "rejected" | "withdrawn";
-export type EngagementType = "main_service" | "module_collaboration";
-export type MSALifecycle = "proposed" | "pending_dual_confirmation" | "active" | "completed" | "expired";
-
-export interface MainServiceAssignment {
-  id: string;
-  demand_id: string;
-  tenant_id: string;
-  tenant_name: string;
-  engagement_type: EngagementType;
-  customer_decision: CustomerDecision;
-  tenant_decision: TenantDecision;
-  lifecycle_status: MSALifecycle;
-  brief_summary: string;
-  city: string;
-  event_date: string;
-  budget_level: string;
-  eligibility_status: string;
-  capacity_status: string;
-  created_at: string;
+export function getProgram(id: string) {
+  return programs.find((p) => p.id === id);
 }
 
-export const msaFixtures: MainServiceAssignment[] = [
-  {
-    id: "msa_001",
-    demand_id: "dmd_neobank",
-    tenant_id: "tnt_houyang",
-    tenant_name: "后仰喜剧",
-    engagement_type: "main_service",
-    customer_decision: "pending",
-    tenant_decision: "pending",
-    lifecycle_status: "proposed",
-    brief_summary: "Neo 银行 2027 年度客户答谢晚宴 · 上海 · 300 人",
-    city: "上海",
-    event_date: "2027-01-18",
-    budget_level: "15-20 万",
-    eligibility_status: "eligible",
-    capacity_status: "available",
-    created_at: "2026-07-20",
-  },
-  {
-    id: "msa_002",
-    demand_id: "dmd_miracle",
-    tenant_id: "tnt_houyang",
-    tenant_name: "后仰喜剧",
-    engagement_type: "main_service",
-    customer_decision: "selected",
-    tenant_decision: "accepted",
-    lifecycle_status: "active",
-    brief_summary: "Miracle 汽车 · 新车区域上市 · 杭州 · 200 人",
-    city: "杭州",
-    event_date: "2026-09-14",
-    budget_level: "10-15 万",
-    eligibility_status: "eligible",
-    capacity_status: "limited",
-    created_at: "2026-06-10",
-  },
-];
+
+export const serviceProductCombinationLabel: Record<string, string> = {
+  open: "开放协作",
+  "invite-only": "仅邀请协作",
+  solo: "独立承接",
+};
+
+export const serviceProductOwnershipLabel: Record<string, string> = {
+  "tenant-owned": "本机构自有",
+  "actor-authorized": "演员授权",
+  "co-owned": "共同持有",
+};
+
+export const msaFixtures: import("./fixtures").MainServiceAssignment[] = [];
+
+export const serviceProductStatusLabel: Record<string, string> = {
+  draft: "草稿",
+  listed: "已上架",
+  paused: "已暂停",
+};
