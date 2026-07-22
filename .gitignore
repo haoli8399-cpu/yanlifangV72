@@ -82,3 +82,5 @@ miniprogram/dist/
 *.cert
 credentials.json
 service-account.json
+codebase/src-v66/
+*.bak

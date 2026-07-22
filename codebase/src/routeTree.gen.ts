@@ -63,6 +63,7 @@ import { Route as ProjectsIdDecisionRouteImport } from './routes/projects.$id.de
 import { Route as ProjectsIdDealRouteImport } from './routes/projects.$id.deal'
 import { Route as ProjectsIdChangesRouteImport } from './routes/projects.$id.changes'
 import { Route as PlansIdPublicRouteImport } from './routes/plans.$id.public'
+import { Route as H5TenantMsaRouteImport } from './routes/h5.tenant.msa'
 import { Route as DiscoverTenantsIdRouteImport } from './routes/discover.tenants.$id'
 import { Route as DiscoverServiceProductsCompareRouteImport } from './routes/discover.service-products.compare'
 import { Route as DiscoverProgramsIdRouteImport } from './routes/discover.programs.$id'
@@ -360,6 +361,11 @@ const PlansIdPublicRoute = PlansIdPublicRouteImport.update({
   path: '/plans/$id/public',
   getParentRoute: () => rootRouteImport,
 } as any)
+const H5TenantMsaRoute = H5TenantMsaRouteImport.update({
+  id: '/h5/tenant/msa',
+  path: '/h5/tenant/msa',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DiscoverTenantsIdRoute = DiscoverTenantsIdRouteImport.update({
   id: '/discover/tenants/$id',
   path: '/discover/tenants/$id',
@@ -524,6 +530,7 @@ export interface FileRoutesByFullPath {
   '/discover/programs/$id': typeof DiscoverProgramsIdRoute
   '/discover/service-products/compare': typeof DiscoverServiceProductsCompareRoute
   '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
+  '/h5/tenant/msa': typeof H5TenantMsaRoute
   '/plans/$id/public': typeof PlansIdPublicRoute
   '/projects/$id/changes': typeof ProjectsIdChangesRoute
   '/projects/$id/deal': typeof ProjectsIdDealRoute
@@ -602,6 +609,7 @@ export interface FileRoutesByTo {
   '/discover/programs/$id': typeof DiscoverProgramsIdRoute
   '/discover/service-products/compare': typeof DiscoverServiceProductsCompareRoute
   '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
+  '/h5/tenant/msa': typeof H5TenantMsaRoute
   '/plans/$id/public': typeof PlansIdPublicRoute
   '/projects/$id/changes': typeof ProjectsIdChangesRoute
   '/projects/$id/deal': typeof ProjectsIdDealRoute
@@ -682,6 +690,7 @@ export interface FileRoutesById {
   '/discover/programs/$id': typeof DiscoverProgramsIdRoute
   '/discover/service-products/compare': typeof DiscoverServiceProductsCompareRoute
   '/discover/tenants/$id': typeof DiscoverTenantsIdRoute
+  '/h5/tenant/msa': typeof H5TenantMsaRoute
   '/plans/$id/public': typeof PlansIdPublicRoute
   '/projects/$id/changes': typeof ProjectsIdChangesRoute
   '/projects/$id/deal': typeof ProjectsIdDealRoute
@@ -763,6 +772,7 @@ export interface FileRouteTypes {
     | '/discover/programs/$id'
     | '/discover/service-products/compare'
     | '/discover/tenants/$id'
+    | '/h5/tenant/msa'
     | '/plans/$id/public'
     | '/projects/$id/changes'
     | '/projects/$id/deal'
@@ -841,6 +851,7 @@ export interface FileRouteTypes {
     | '/discover/programs/$id'
     | '/discover/service-products/compare'
     | '/discover/tenants/$id'
+    | '/h5/tenant/msa'
     | '/plans/$id/public'
     | '/projects/$id/changes'
     | '/projects/$id/deal'
@@ -920,6 +931,7 @@ export interface FileRouteTypes {
     | '/discover/programs/$id'
     | '/discover/service-products/compare'
     | '/discover/tenants/$id'
+    | '/h5/tenant/msa'
     | '/plans/$id/public'
     | '/projects/$id/changes'
     | '/projects/$id/deal'
@@ -1000,6 +1012,7 @@ export interface RootRouteChildren {
   DiscoverProgramsIdRoute: typeof DiscoverProgramsIdRoute
   DiscoverServiceProductsCompareRoute: typeof DiscoverServiceProductsCompareRoute
   DiscoverTenantsIdRoute: typeof DiscoverTenantsIdRoute
+  H5TenantMsaRoute: typeof H5TenantMsaRoute
   PlansIdPublicRoute: typeof PlansIdPublicRoute
   TenantOpportunitiesIdRoute: typeof TenantOpportunitiesIdRoute
   TenantOrdersIdRoute: typeof TenantOrdersIdRoute
@@ -1399,6 +1412,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlansIdPublicRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/h5/tenant/msa': {
+      id: '/h5/tenant/msa'
+      path: '/h5/tenant/msa'
+      fullPath: '/h5/tenant/msa'
+      preLoaderRoute: typeof H5TenantMsaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/discover/tenants/$id': {
       id: '/discover/tenants/$id'
       path: '/discover/tenants/$id'
@@ -1660,6 +1680,7 @@ const rootRouteChildren: RootRouteChildren = {
   DiscoverProgramsIdRoute: DiscoverProgramsIdRoute,
   DiscoverServiceProductsCompareRoute: DiscoverServiceProductsCompareRoute,
   DiscoverTenantsIdRoute: DiscoverTenantsIdRoute,
+  H5TenantMsaRoute: H5TenantMsaRoute,
   PlansIdPublicRoute: PlansIdPublicRoute,
   TenantOpportunitiesIdRoute: TenantOpportunitiesIdRoute,
   TenantOrdersIdRoute: TenantOrdersIdRoute,
