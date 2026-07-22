@@ -26,6 +26,7 @@ import { Route as TenantProgramsRouteImport } from './routes/tenant.programs'
 import { Route as TenantPartnersRouteImport } from './routes/tenant.partners'
 import { Route as TenantExecutionRouteImport } from './routes/tenant.execution'
 import { Route as ProjectsIdRouteImport } from './routes/projects.$id'
+import { Route as H5ActorRouteImport } from './routes/h5.actor'
 import { Route as AgentMemoryRouteImport } from './routes/agent.memory'
 import { Route as AdminPermissionsRouteImport } from './routes/admin.permissions'
 import { Route as AdminIncidentsRouteImport } from './routes/admin.incidents'
@@ -171,6 +172,11 @@ const TenantExecutionRoute = TenantExecutionRouteImport.update({
 const ProjectsIdRoute = ProjectsIdRouteImport.update({
   id: '/projects/$id',
   path: '/projects/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const H5ActorRoute = H5ActorRouteImport.update({
+  id: '/h5/actor',
+  path: '/h5/actor',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AgentMemoryRoute = AgentMemoryRouteImport.update({
@@ -513,6 +519,7 @@ export interface FileRoutesByFullPath {
   '/admin/incidents': typeof AdminIncidentsRoute
   '/admin/permissions': typeof AdminPermissionsRoute
   '/agent/memory': typeof AgentMemoryRoute
+  '/h5/actor': typeof H5ActorRoute
   '/projects/$id': typeof ProjectsIdRouteWithChildren
   '/tenant/execution': typeof TenantExecutionRoute
   '/tenant/partners': typeof TenantPartnersRoute
@@ -593,6 +600,7 @@ export interface FileRoutesByTo {
   '/admin/incidents': typeof AdminIncidentsRoute
   '/admin/permissions': typeof AdminPermissionsRoute
   '/agent/memory': typeof AgentMemoryRoute
+  '/h5/actor': typeof H5ActorRoute
   '/tenant/execution': typeof TenantExecutionRoute
   '/tenant/partners': typeof TenantPartnersRoute
   '/tenant/programs': typeof TenantProgramsRoute
@@ -673,6 +681,7 @@ export interface FileRoutesById {
   '/admin/incidents': typeof AdminIncidentsRoute
   '/admin/permissions': typeof AdminPermissionsRoute
   '/agent/memory': typeof AgentMemoryRoute
+  '/h5/actor': typeof H5ActorRoute
   '/projects/$id': typeof ProjectsIdRouteWithChildren
   '/tenant/execution': typeof TenantExecutionRoute
   '/tenant/partners': typeof TenantPartnersRoute
@@ -755,6 +764,7 @@ export interface FileRouteTypes {
     | '/admin/incidents'
     | '/admin/permissions'
     | '/agent/memory'
+    | '/h5/actor'
     | '/projects/$id'
     | '/tenant/execution'
     | '/tenant/partners'
@@ -835,6 +845,7 @@ export interface FileRouteTypes {
     | '/admin/incidents'
     | '/admin/permissions'
     | '/agent/memory'
+    | '/h5/actor'
     | '/tenant/execution'
     | '/tenant/partners'
     | '/tenant/programs'
@@ -914,6 +925,7 @@ export interface FileRouteTypes {
     | '/admin/incidents'
     | '/admin/permissions'
     | '/agent/memory'
+    | '/h5/actor'
     | '/projects/$id'
     | '/tenant/execution'
     | '/tenant/partners'
@@ -995,6 +1007,7 @@ export interface RootRouteChildren {
   AdminIncidentsRoute: typeof AdminIncidentsRoute
   AdminPermissionsRoute: typeof AdminPermissionsRoute
   AgentMemoryRoute: typeof AgentMemoryRoute
+  H5ActorRoute: typeof H5ActorRoute
   ProjectsIdRoute: typeof ProjectsIdRouteWithChildren
   TenantExecutionRoute: typeof TenantExecutionRoute
   TenantPartnersRoute: typeof TenantPartnersRoute
@@ -1151,6 +1164,13 @@ declare module '@tanstack/react-router' {
       path: '/projects/$id'
       fullPath: '/projects/$id'
       preLoaderRoute: typeof ProjectsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/h5/actor': {
+      id: '/h5/actor'
+      path: '/h5/actor'
+      fullPath: '/h5/actor'
+      preLoaderRoute: typeof H5ActorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/agent/memory': {
@@ -1663,6 +1683,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminIncidentsRoute: AdminIncidentsRoute,
   AdminPermissionsRoute: AdminPermissionsRoute,
   AgentMemoryRoute: AgentMemoryRoute,
+  H5ActorRoute: H5ActorRoute,
   ProjectsIdRoute: ProjectsIdRouteWithChildren,
   TenantExecutionRoute: TenantExecutionRoute,
   TenantPartnersRoute: TenantPartnersRoute,
