@@ -42,8 +42,8 @@ const demandUpdateSchema = z.object({
 
 export async function slice1Routes(app: FastifyInstance) {
 
-  // ---- GET /v1/public/actors/:actor_id ----
-  app.get('/v1/public/actors/:actor_id', async (req: FastifyRequest, reply: FastifyReply) => {
+  // ---- GET /v2/public/actors/:actor_id ----
+  app.get('/v2/public/actors/:actor_id', async (req: FastifyRequest, reply: FastifyReply) => {
     const { actor_id } = req.params as { actor_id: string };
     const result = await query(
       `SELECT id, name, avatar_url, style_tags, introduction AS short_bio, city, status
@@ -72,8 +72,8 @@ export async function slice1Routes(app: FastifyInstance) {
     return reply.send(successResponse(view));
   });
 
-  // ---- POST /v1/demands ----
-  app.post('/v1/demands', { preHandler: [authMiddleware] }, async (req: FastifyRequest, reply: FastifyReply) => {
+  // ---- POST /v2/demands ----
+  app.post('/v2/demands', { preHandler: [authMiddleware] }, async (req: FastifyRequest, reply: FastifyReply) => {
     const body = demandCreateSchema.parse(req.body);
     const userId = (req as Record<string,unknown>).user?.sub as string;
     if (!userId) return reply.status(401).send(errorResponse(4010, '未认证'));
@@ -102,8 +102,8 @@ export async function slice1Routes(app: FastifyInstance) {
     }));
   });
 
-  // ---- GET /v1/demands/:demand_id/brief ----
-  app.get('/v1/demands/:demand_id/brief', { preHandler: [authMiddleware] }, async (req: FastifyRequest, reply: FastifyReply) => {
+  // ---- GET /v2/demands/:demand_id/brief ----
+  app.get('/v2/demands/:demand_id/brief', { preHandler: [authMiddleware] }, async (req: FastifyRequest, reply: FastifyReply) => {
     const { demand_id } = req.params as { demand_id: string };
     const userId = (req as Record<string,unknown>).user?.sub as string;
     const result = await query(`SELECT * FROM v72_demands WHERE id = $1`, [demand_id]);
@@ -161,7 +161,7 @@ export async function slice1Routes(app: FastifyInstance) {
   });
 
 
-  app.patch('/v1/demands/:demand_id', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.patch('/v2/demands/:demand_id', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { demand_id } = req.params;
     const userId = req.user?.sub;
     const r = await query('SELECT * FROM v72_demands WHERE id = $1', [demand_id]);
@@ -176,7 +176,7 @@ export async function slice1Routes(app: FastifyInstance) {
     return reply.send(successResponse({ id: demand_id, lifecycle_status: d.lifecycle }));
   });
 
-  app.post('/v1/demands/:demand_id/withdraw', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.post('/v2/demands/:demand_id/withdraw', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { demand_id } = req.params;
     const userId = req.user?.sub;
     const r = await query('SELECT * FROM v72_demands WHERE id = $1', [demand_id]);
@@ -189,7 +189,7 @@ export async function slice1Routes(app: FastifyInstance) {
     return reply.send(successResponse({ id: demand_id, lifecycle_status: 'withdrawn' }));
   });
 
-  app.post('/v1/demands/:demand_id/brief-versions/generate', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.post('/v2/demands/:demand_id/brief-versions/generate', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { demand_id } = req.params;
     const userId = req.user?.sub;
     const r = await query('SELECT * FROM v72_demands WHERE id = $1', [demand_id]);
@@ -206,7 +206,7 @@ export async function slice1Routes(app: FastifyInstance) {
     return reply.send(successResponse({ demand_id, sequence: seq, status: 'draft' }));
   });
 
-  app.post('/v1/demands/:demand_id/brief-versions/:brief_version_id/confirm', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.post('/v2/demands/:demand_id/brief-versions/:brief_version_id/confirm', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { demand_id, brief_version_id } = req.params;
     const userId = req.user?.sub;
     const r = await query('SELECT * FROM brief_versions WHERE id = $1 AND demand_id = $2', [brief_version_id, demand_id]);
@@ -218,7 +218,7 @@ export async function slice1Routes(app: FastifyInstance) {
     return reply.send(successResponse({ demand_id, brief_version_id, confirmation_status: 'confirmed', lifecycle_status: 'pending_consent' }));
   });
 
-  app.post('/v1/demands/:demand_id/matching-consents', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.post('/v2/demands/:demand_id/matching-consents', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { demand_id } = req.params;
     const userId = req.user?.sub;
     const r = await query('SELECT * FROM v72_demands WHERE id = $1', [demand_id]);
@@ -233,7 +233,7 @@ export async function slice1Routes(app: FastifyInstance) {
     return reply.send(successResponse({ grant_id: g.rows[0].id, status: 'active', expires_at: exp, lifecycle_status: 'matchable' }));
   });
 
-  app.post('/v1/demands/:demand_id/matching-consents/:grant_id/revoke', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.post('/v2/demands/:demand_id/matching-consents/:grant_id/revoke', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { demand_id, grant_id } = req.params;
     const userId = req.user?.sub;
     await query("UPDATE authorization_grants SET status = 'revoked', revoked_at = now() WHERE id = $1 AND grantor_id = $2 AND status = 'active'", [grant_id, userId]);
@@ -243,7 +243,7 @@ export async function slice1Routes(app: FastifyInstance) {
     return reply.send(successResponse({ grant_id, status: 'revoked', lifecycle_status: 'withdrawn' }));
   });
 
-  app.get('/v1/tenant/demands/:demand_id/brief', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.get('/v2/tenant/demands/:demand_id/brief', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { demand_id } = req.params;
     const tid = req.user?.tenant_id;
     if (!tid) return reply.status(404).send(errorResponse(4040, 'No tenant'));
@@ -257,7 +257,7 @@ export async function slice1Routes(app: FastifyInstance) {
   });
 
 
-  app.patch('/v1/demands/:demand_id/brief-versions/:brief_version_id', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.patch('/v2/demands/:demand_id/brief-versions/:brief_version_id', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { demand_id, brief_version_id } = req.params;
     const userId = req.user?.sub;
     const r = await query('SELECT * FROM brief_versions WHERE id = $1 AND demand_id = $2', [brief_version_id, demand_id]);
@@ -277,7 +277,7 @@ export async function slice1Routes(app: FastifyInstance) {
     return reply.send(successResponse({ brief_version_id, status: 'draft' }));
   });
 
-  app.post('/v1/demands/:demand_id/brief-versions/:brief_version_id/revise', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.post('/v2/demands/:demand_id/brief-versions/:brief_version_id/revise', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { demand_id, brief_version_id } = req.params;
     const userId = req.user?.sub;
     const r = await query('SELECT * FROM brief_versions WHERE id = $1', [brief_version_id]);
@@ -298,7 +298,7 @@ export async function slice1Routes(app: FastifyInstance) {
     return reply.send(successResponse({ demand_id, status: 'draft' }));
   });
 
-  app.post('/v1/demands/:demand_id/brief-versions/:brief_version_id/prepare-confirmation', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.post('/v2/demands/:demand_id/brief-versions/:brief_version_id/prepare-confirmation', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { demand_id, brief_version_id } = req.params;
     const userId = req.user?.sub;
     const r = await query('SELECT * FROM brief_versions WHERE id = $1', [brief_version_id]);
@@ -320,7 +320,7 @@ export async function slice1Routes(app: FastifyInstance) {
     return reply.send(successResponse({ demand_id, status: 'ready_for_confirmation', blocker_keys: [] }));
   });
 
-  app.post('/v1/tenant/demands/:demand_id/clarification-requests', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.post('/v2/tenant/demands/:demand_id/clarification-requests', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { demand_id } = req.params;
     const tid = req.user?.tenant_id;
     const userId = req.user?.sub;
@@ -332,7 +332,7 @@ export async function slice1Routes(app: FastifyInstance) {
     return reply.status(201).send(successResponse({ status: 'requested' }));
   });
 
-  app.get('/v1/idempotent-operations/:key', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.get('/v2/idempotent-operations/:key', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { key } = req.params;
     const opResult = await query('SELECT * FROM idempotent_operations WHERE key = $1', [key]);
     if (opResult.rows.length === 0) return reply.status(404).send(errorResponse(4040, 'Operation not found'));
@@ -346,7 +346,7 @@ export async function slice1Routes(app: FastifyInstance) {
 
 
   // ---- MSA: POST candidate ----
-  app.post('/v1/demands/:demand_id/main-service-assignments', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.post('/v2/demands/:demand_id/main-service-assignments', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { demand_id } = req.params;
     const body = req.body;
     const existing = await query("SELECT * FROM main_service_assignments WHERE demand_id = $1 AND lifecycle_status = 'active'", [demand_id]);
@@ -362,7 +362,7 @@ export async function slice1Routes(app: FastifyInstance) {
   });
 
   // ---- MSA: PATCH customer_decision ----
-  app.patch('/v1/main-service-assignments/:id/customer-decision', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.patch('/v2/main-service-assignments/:id/customer-decision', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { id } = req.params; const { decision } = req.body;
     if (!['selected','rejected','withdrawn'].includes(decision)) return reply.status(400).send(errorResponse(4000, 'Invalid decision'));
     await query('UPDATE main_service_assignments SET customer_decision = $1, updated_at = now() WHERE id = $2', [decision, id]);
@@ -372,7 +372,7 @@ export async function slice1Routes(app: FastifyInstance) {
   });
 
   // ---- MSA: PATCH tenant_decision ----
-  app.patch('/v1/main-service-assignments/:id/tenant-decision', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.patch('/v2/main-service-assignments/:id/tenant-decision', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { id } = req.params; const { decision } = req.body;
     if (!['accepted','declined'].includes(decision)) return reply.status(400).send(errorResponse(4000, 'Invalid decision'));
     await query('UPDATE main_service_assignments SET tenant_decision = $1, updated_at = now() WHERE id = $2', [decision, id]);
@@ -382,7 +382,7 @@ export async function slice1Routes(app: FastifyInstance) {
   });
 
   // ---- MSA: POST activate (system gate) ----
-  app.post('/v1/main-service-assignments/:id/activate', { preHandler: [authMiddleware] }, async (req, reply) => {
+  app.post('/v2/main-service-assignments/:id/activate', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { id } = req.params;
     const r = await query('SELECT * FROM main_service_assignments WHERE id = $1', [id]);
     if (r.rows.length === 0) return reply.status(404).send(errorResponse(4040, 'Not found'));
@@ -398,7 +398,7 @@ export async function slice1Routes(app: FastifyInstance) {
   });
 
   // ---- Health check for slice1 ----
-  app.get('/v1/slice1/health', async (_req, reply) => {
+  app.get('/v2/slice1/health', async (_req, reply) => {
     const ok = await (await import('../../utils/db.js')).healthCheck();
     reply.send({ status: ok ? 'ok' : 'degraded', module: 'slice1' });
   });

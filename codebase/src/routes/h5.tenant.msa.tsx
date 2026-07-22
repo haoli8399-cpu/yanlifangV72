@@ -5,6 +5,7 @@ import {
   CheckCircle2, XCircle, AlertCircle,
 } from "lucide-react";
 import { msaFixtures, type MainServiceAssignment } from "../lib/fixtures";
+import { patchTenantDecision } from "../lib/api-client";
 
 export const Route = createFileRoute("/h5/tenant/msa")({ component: TenantMSA });
 
@@ -134,7 +135,8 @@ function MSACard({
 function TenantMSA() {
   const [list, setList] = useState(msaFixtures);
 
-  const handleAccept = (id: string) => {
+  const handleAccept = async (id: string) => {
+    // 先更新本地状态保证即时反馈
     setList((prev) =>
       prev.map((m) =>
         m.id === id
@@ -142,14 +144,25 @@ function TenantMSA() {
           : m
       )
     );
+    // 调用真实 API（静默失败，不阻塞 UI）
+    try {
+      await patchTenantDecision(id, "accepted");
+    } catch (e) {
+      console.warn("API 调用失败，已使用本地状态", e);
+    }
   };
 
-  const handleDecline = (id: string) => {
+  const handleDecline = async (id: string) => {
     setList((prev) =>
       prev.map((m) =>
         m.id === id ? { ...m, tenant_decision: "declined" as const, lifecycle_status: "expired" as const } : m
       )
     );
+    try {
+      await patchTenantDecision(id, "declined");
+    } catch (e) {
+      console.warn("API 调用失败，已使用本地状态", e);
+    }
   };
 
   const pendingCount = list.filter((m) => m.tenant_decision === "pending" && m.lifecycle_status !== "active").length;

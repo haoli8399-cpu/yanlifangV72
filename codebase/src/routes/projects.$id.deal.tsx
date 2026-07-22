@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Receipt, FileText, CreditCard, ShieldCheck, AlertCircle, CheckCircle2 } from "lucide-react";
 import { getProject, type Project } from "@/lib/fixtures";
+import { acceptQuote, confirmCredential, declarePayment } from "@/lib/api-client";
 import { StatusBadge } from "@/components/yanlicube/status-badge";
 
 export const Route = createFileRoute("/projects/$id/deal")({
@@ -55,23 +56,26 @@ function DealPage() {
   // 如果 project 还未加载，显示空状态
   if (!project) return <div className="p-4 text-center text-sm text-muted-foreground">加载中...</div>;
 
-  const handleAccept = () => {
+  const handleAccept = async () => {
     if (!project?.quote) return;
     setProject({ ...project, quote: { ...project.quote, status: "confirmed" } });
+    try { await acceptQuote(project.id); } catch (e) { console.warn("API fail", e); }
   };
   const handleReject = () => {
     if (!project?.quote) return;
     setProject({ ...project, quote: { ...project.quote, status: "draft" } });
   };
-  const handleSign = () => {
+  const handleSign = async () => {
     if (!project?.credential) return;
     setProject({ ...project, credential: { ...project.credential, status: "effective" } });
+    try { await confirmCredential(project.id); } catch (e) { console.warn("API fail", e); }
   };
-  const handlePay = (idx: number) => {
+  const handlePay = async (idx: number) => {
     if (!project?.paymentSchedule) return;
     const ps = [...project.paymentSchedule];
     ps[idx] = { ...ps[idx], status: "paid" };
     setProject({ ...project, paymentSchedule: ps });
+    try { await declarePayment(project.id + "_" + idx); } catch (e) { console.warn("API fail", e); }
   };
 
   if (project.stage === "exploring") {
