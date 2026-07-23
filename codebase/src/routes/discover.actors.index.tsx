@@ -1,6 +1,7 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, MapPin } from "lucide-react";
 import { actors } from "@/lib/fixtures";
+import { useCapabilities } from "@/lib/hooks";
 import { getActorAvatar, AI_AVATAR_NOTE } from "@/lib/actor-avatars";
 import { StatusBadge } from "@/components/yanlicube/status-badge";
 
@@ -21,6 +22,7 @@ const scheduleLabel = {
 };
 
 function ActorsList() {
+  const { data: capabilities } = useCapabilities();
   return (
     <div className="mx-auto max-w-[1400px] px-4 py-6 sm:px-6 sm:py-10">
       <div className="mb-6 sm:mb-8">

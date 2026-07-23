@@ -5,6 +5,7 @@ import {
   MapPin, Clock, User,
 } from "lucide-react";
 import { actors } from "../lib/fixtures";
+import { useCapabilities } from "../lib/hooks";
 import { StatusBadge } from "@/components/yanlicube/status-badge";
 
 export const Route = createFileRoute("/h5/actor")({ component: H5Actor });
@@ -135,6 +136,7 @@ function TaskRow({ t }: { t: (typeof performanceTasks)[number] }) {
 // ── 主页面 ──
 
 function H5Actor() {
+  const { data: capabilities } = useCapabilities();
   const [invites, setInvites] = useState(mockInvitations);
   const actor = actors.find((a) => a.id === "act_hexuan");
 

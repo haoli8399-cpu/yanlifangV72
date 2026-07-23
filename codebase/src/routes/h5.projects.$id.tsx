@@ -1,5 +1,6 @@
 import { createFileRoute, Link, useParams } from "@tanstack/react-router";
 import { ArrowLeft, MapPin, Calendar, Users, ChevronRight } from "lucide-react";
+import { useProject } from "../lib/hooks";
 import { projects } from "../lib/fixtures";
 
 export const Route = createFileRoute("/h5/projects/$id")({ component: H5ProjectDetail });
@@ -11,7 +12,8 @@ const stageLabels: Record<string, string> = {
 
 function H5ProjectDetail() {
   const { id } = useParams({ from: Route.id });
-  const project = projects.find((p) => p.id === id);
+  const { data: projectData } = useProject(id);
+  const project = projectData || projects.find((p) => p.id === id);
 
   if (!project) return <div className="p-4 text-sm text-muted-foreground">项目未找到</div>;
 

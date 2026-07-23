@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Search, Users, Sparkles, FolderOpen, Building2, MapPin } from "lucide-react";
+import { useCapabilities } from "../lib/hooks";
 import { actors } from "../lib/fixtures";
 
 export const Route = createFileRoute("/h5/discover")({ component: H5Discover });
@@ -36,6 +37,7 @@ function ActorCard({ a }: { a: (typeof actors)[number] }) {
 }
 
 function H5Discover() {
+  const { data: capabilities } = useCapabilities();
   const featured = actors.slice(0, 4);
 
   return (

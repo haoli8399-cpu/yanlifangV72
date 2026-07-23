@@ -1,12 +1,11 @@
 {
   "schema_version": 1,
-  "task_id": "V72-FINISH1",
-  "task_summary": "P2前端loader切换+P3 Docker修复",
+  "task_id": "V72-FRONTEND-ALL",
+  "task_summary": "前端剩余页面对接v2 API",
   "modules": [
-    "frontend",
-    "deploy"
+    "frontend"
   ],
-  "executed_at": "2026-07-23T04:15:51.683Z",
+  "executed_at": "2026-07-23T04:56:29.858Z",
   "mode": "openviking",
   "risk": "normal",
   "current_prd_version": "V7.2",
@@ -43,23 +42,23 @@
   ],
   "retrieved_queries": [
     {
-      "query": "当前产品范围和 PRD 规则：P2前端loader切换+P3 Docker修复；frontend,deploy",
+      "query": "当前产品范围和 PRD 规则：前端剩余页面对接v2 API；frontend",
       "ok": true
     },
     {
-      "query": "与任务有关的业务规则和用户流程：P2前端loader切换+P3 Docker修复；frontend,deploy",
+      "query": "与任务有关的业务规则和用户流程：前端剩余页面对接v2 API；frontend",
       "ok": true
     },
     {
-      "query": "与任务有关的 Approved 重大决策：P2前端loader切换+P3 Docker修复；frontend,deploy",
+      "query": "与任务有关的 Approved 重大决策：前端剩余页面对接v2 API；frontend",
       "ok": true
     },
     {
-      "query": "当前开发状态、已知缺口和禁止修改范围：P2前端loader切换+P3 Docker修复；frontend,deploy",
+      "query": "当前开发状态、已知缺口和禁止修改范围：前端剩余页面对接v2 API；frontend",
       "ok": true
     },
     {
-      "query": "历史风险、踩坑和必须执行的测试：P2前端loader切换+P3 Docker修复；frontend,deploy",
+      "query": "历史风险、踩坑和必须执行的测试：前端剩余页面对接v2 API；frontend",
       "ok": true
     }
   ],
@@ -67,7 +66,7 @@
   "source_issues": [],
   "git": {
     "branch": "feat/workspace-version-governance",
-    "head": "737d74ac46408c68a1b51c2fa0f5f097f636a427",
+    "head": "74d4e33af6eb466144a350c52c4eb7b6d286757e",
     "dirty": false,
     "changedFiles": []
   },
