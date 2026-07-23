@@ -15,6 +15,7 @@ import {
   Share2,
 } from "lucide-react";
 import { getProject, cases, type Project, type PlanOption } from "@/lib/fixtures";
+import { listPlans } from "@/lib/api-client";
 import { AgentInlineSuggestion, EvidenceLine } from "@/components/yanlicube/agent";
 import { StatusBadge } from "@/components/yanlicube/status-badge";
 import { NextActionHero, EmptyState } from "@/components/yanlicube/focus-page";
@@ -22,9 +23,11 @@ import { cn } from "@/lib/utils";
 import { demoToast } from "@/lib/demo-toast";
 
 export const Route = createFileRoute("/projects/$id/plans")({
-  loader: ({ params }): { project: Project } => {
+  loader: async ({ params }): Promise<{ project: Project }> => {
     const project = getProject(params.id);
     if (!project) throw new Error("not found");
+    // Try real API for plan data
+    try { const res = await listPlans(params.id); (project as any).realPlanData = res.data; } catch {}
     return { project };
   },
   component: Plans,

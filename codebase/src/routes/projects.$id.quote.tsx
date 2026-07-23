@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { stageBoundaries } from "@/components/yanlicube/stage-error";
 import { FileText, CheckCircle2 } from "lucide-react";
 import { getProject, type Project } from "@/lib/fixtures";
+import { listQuotes } from "@/lib/api-client";
 import { EvidenceLine, AgentInlineSuggestion } from "@/components/yanlicube/agent";
 import { StatusBadge } from "@/components/yanlicube/status-badge";
 import { demoToast } from "@/lib/demo-toast";
@@ -9,9 +10,10 @@ import { EmptyState } from "@/components/yanlicube/focus-page";
 import { StickyActionBar } from "@/components/yanlicube/h5";
 
 export const Route = createFileRoute("/projects/$id/quote")({
-  loader: ({ params }): { project: Project } => {
+  loader: async ({ params }): Promise<{ project: Project }> => {
     const project = getProject(params.id);
     if (!project) throw new Error("not found");
+    try { const res = await listQuotes(params.id); (project as any).realQuoteData = res.data; } catch {}
     return { project };
   },
   component: Quote,

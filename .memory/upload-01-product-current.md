@@ -28,13 +28,13 @@ tags: project=yanlifang,status=approved,type=product,prd=V7.2
 
 <!-- SOURCE_VALIDATION
 {
-  "synced_at": "2026-07-22T08:04:56.225Z",
-  "git_head": "ce62cdd84165f81a8aa97205ae74e5f47c1f0b2d",
+  "synced_at": "2026-07-23T03:05:15.534Z",
+  "git_head": "65e4feb70fb7e4e18260bf90e5620d0ac5df594e",
   "git_branch": "feat/workspace-version-governance",
   "source_hashes": {
-    "docs/PRD.md": "497458e0312e04c17d21354f06f344a350fa42f687f99c0d6e0af04a9397bea3",
-    "docs/PRD_V7.2.md": "32f851784e9ad688dfcfa39e1c51ab266da451ebe306fff61f315387a337645c",
-    "versions.json": "53c0cbd5c2f593c06b90ea6ce48ef569402f600e7b7f049b8d0c969b592b3dbb"
+    "docs/PRD.md": "76658fd5e6246ea60308e17ba04e277d634087027193955c67a7cdfcfab7273d",
+    "docs/PRD_V7.2.md": "3f2b6009dae4aad18703025384caac4c9a529b3eca283f0bee53cb8a24a12207",
+    "versions.json": "eac25c5454f57bcea2893177bf422f34e93b063680fd27f242ffa81ae8094a4c"
   }
 }
 -->

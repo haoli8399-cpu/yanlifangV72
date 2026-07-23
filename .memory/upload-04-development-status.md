@@ -24,13 +24,13 @@ tags: project=yanlifang,status=approved,type=development_status
 
 <!-- SOURCE_VALIDATION
 {
-  "synced_at": "2026-07-22T08:04:56.225Z",
-  "git_head": "ce62cdd84165f81a8aa97205ae74e5f47c1f0b2d",
+  "synced_at": "2026-07-23T03:05:15.534Z",
+  "git_head": "65e4feb70fb7e4e18260bf90e5620d0ac5df594e",
   "git_branch": "feat/workspace-version-governance",
   "source_hashes": {
-    "PROJECT_STATUS.md": "cd14b5b7dda1664fdba0c077111fcf2db51cd3582da745f5c0ea74de1e839416",
+    "PROJECT_STATUS.md": "4e3cbdcedfd6f57c249e7c4376eb1284e14c021ba37d2f280cf0c61db06ad4b1",
     "project-state.json": "550f2f2d975680d0a7cda69d92d231976a835d31f88254407374d37882cee5b8",
-    "versions.json": "53c0cbd5c2f593c06b90ea6ce48ef569402f600e7b7f049b8d0c969b592b3dbb"
+    "versions.json": "eac25c5454f57bcea2893177bf422f34e93b063680fd27f242ffa81ae8094a4c"
   }
 }
 -->

@@ -27,8 +27,8 @@ tags: project=yanlifang,status=approved,type=decision
 
 <!-- SOURCE_VALIDATION
 {
-  "synced_at": "2026-07-22T08:04:56.225Z",
-  "git_head": "ce62cdd84165f81a8aa97205ae74e5f47c1f0b2d",
+  "synced_at": "2026-07-23T03:05:15.534Z",
+  "git_head": "65e4feb70fb7e4e18260bf90e5620d0ac5df594e",
   "git_branch": "feat/workspace-version-governance",
   "source_hashes": {
     "DECISIONS.md": "25deb4df33c2d23a48378c2a06a9acdcc3994163ae7b790a8ec60d798526af5f"

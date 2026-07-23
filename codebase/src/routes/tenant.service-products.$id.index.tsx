@@ -83,7 +83,7 @@ function ServiceProductDetail() {
             <span className="rounded-md border border-border/60 bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">
               {product.version}
             </span>
-            <StatusBadge state={status.state} label={status.label} />
+            <StatusBadge state={product.status as any} label={status} />
           </div>
           <h1 className="text-2xl font-semibold text-foreground">{product.title}</h1>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
@@ -257,7 +257,7 @@ function ServiceProductDetail() {
             <div className="grid gap-3 sm:grid-cols-3">
               <InfoBox label="累计复用" value={`${product.reuseCount} 次`} />
               <InfoBox label="平均 NPS" value={String(product.npsAvg)} />
-              <InfoBox label="发布状态" value={status.label} />
+              <InfoBox label="发布状态" value={status} />
             </div>
             {relatedCases.length > 0 && (
               <div className="mt-4">

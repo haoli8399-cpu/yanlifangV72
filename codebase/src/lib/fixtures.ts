@@ -7,10 +7,10 @@ export type EvidenceState =
   | "pending"       // 待确认
   | "conflict"      // 存在冲突（新增 PRD §15.1）
   | "expired"       // 已过期
-  | "not_public";    // 不可公开
+  | "not_public"    // 不可公开
+  | "ai";           // 兼容旧 AI 推断状态（逐步迁移到 supported/declared）
 
-// 前端兼容旧枚举值「ai」（逐步迁移到 supported/declared）
-export type EvidenceStateCompat = EvidenceState | "ai"; // 已过期
+export type EvidenceStateCompat = EvidenceState; // 已统一为 EvidenceState
 
 export type Actor = {
   id: string;
@@ -78,6 +78,11 @@ export type CaseStudy = {
   outcome: string;
   highlights: string[];
   gallery?: string[];
+  date?: string;
+  tenantName?: string;
+  summary?: string;
+  tags?: string[];
+  images?: string[];
 };
 
 export type Party = {
@@ -159,10 +164,23 @@ export type Project = {
     actors: Party[];
   };
   quote?: {
+    id?: string;
     total: string;
     validUntil: string;
     breakdown: { label: string; amount: string; note?: string }[];
     status: "draft" | "sent" | "confirmed";
+  };
+  paymentSchedule?: Array<{
+    label: string;
+    amount: string;
+    dueDate: string;
+    status: 'pending' | 'paid' | 'overdue';
+  }>;
+  credential?: {
+    type: 'platform_e_contract' | 'external_contract' | 'framework_order' | 'simplified_confirmation';
+    status: 'draft' | 'pending' | 'effective' | 'expired';
+    title: string;
+    signUrl?: string;
   };
   timeline: TimelineEntry[];
   outcome?: {
@@ -411,6 +429,9 @@ export const stageLabel: Record<ProjectStage, string> = {
 export const evidenceLabel: Record<EvidenceState, string> = {
   verified: "已确认",
   declared: "已声明",
+  supported: "来源支持",
+  conflict: "存在冲突",
+  not_public: "不可公开",
   ai: "AI 建议",
   pending: "等待中",
   expired: "已过期",
@@ -715,7 +736,24 @@ export const serviceProductOwnershipLabel: Record<string, string> = {
   "co-owned": "共同持有",
 };
 
-export const msaFixtures: import("./fixtures").MainServiceAssignment[] = [];
+export type MainServiceAssignment = {
+  id: string;
+  demand_id: string;
+  tenant_id?: string;
+  engagement_type: "main_service" | "module_collaboration";
+  lifecycle_status: string;
+  customer_decision: string;
+  tenant_decision: string;
+  brief_summary: string;
+  city: string;
+  event_date: string;
+  budget_level: string;
+  eligibility_status: string;
+  capacity_status: string;
+  created_at?: string;
+};
+
+export const msaFixtures: MainServiceAssignment[] = [];
 
 export const serviceProductStatusLabel: Record<string, string> = {
   draft: "草稿",

@@ -1,11 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
 import {
   Phone, MapPin, Calendar, DollarSign, ChevronRight,
   CheckCircle2, XCircle, AlertCircle,
 } from "lucide-react";
+import { useMSAList, useAcceptMSA, useDeclineMSA } from "../lib/hooks";
 import { msaFixtures, type MainServiceAssignment } from "../lib/fixtures";
-import { patchTenantDecision } from "../lib/api-client";
 
 export const Route = createFileRoute("/h5/tenant/msa")({ component: TenantMSA });
 
@@ -133,39 +132,30 @@ function MSACard({
 // ── 主页 ──
 
 function TenantMSA() {
-  const [list, setList] = useState(msaFixtures);
+  const { data: apiData, isLoading, isError } = useMSAList();
+  const acceptMSA = useAcceptMSA();
+  const declineMSA = useDeclineMSA();
+
+  // 优先使用 API 数据，API 不可用时降级到 Fixtures
+  const list = (apiData || msaFixtures) as MainServiceAssignment[];
 
   const handleAccept = async (id: string) => {
-    // 先更新本地状态保证即时反馈
-    setList((prev) =>
-      prev.map((m) =>
-        m.id === id
-          ? { ...m, tenant_decision: "accepted" as const, lifecycle_status: "pending_dual_confirmation" as const }
-          : m
-      )
-    );
-    // 调用真实 API（静默失败，不阻塞 UI）
-    try {
-      await patchTenantDecision(id, "accepted");
-    } catch (e) {
-      console.warn("API 调用失败，已使用本地状态", e);
-    }
+    acceptMSA.mutate(id);
   };
 
   const handleDecline = async (id: string) => {
-    setList((prev) =>
-      prev.map((m) =>
-        m.id === id ? { ...m, tenant_decision: "declined" as const, lifecycle_status: "expired" as const } : m
-      )
-    );
-    try {
-      await patchTenantDecision(id, "declined");
-    } catch (e) {
-      console.warn("API 调用失败，已使用本地状态", e);
-    }
+    declineMSA.mutate(id);
   };
 
   const pendingCount = list.filter((m) => m.tenant_decision === "pending" && m.lifecycle_status !== "active").length;
+
+  if (isLoading) {
+    return <div className="mx-auto max-w-[480px] p-8 text-center text-sm text-muted-foreground">加载中...</div>;
+  }
+
+  if (isError) {
+    return <div className="mx-auto max-w-[480px] p-8 text-center text-sm text-red-500">加载失败，使用本地演示数据</div>;
+  }
 
   return (
     <div className="mx-auto max-w-[480px] px-4 pb-24 pt-6">
@@ -203,7 +193,7 @@ function TenantMSA() {
 
       {/* 脚注 */}
       <div className="mt-8 border-t border-border/60 pt-4 text-center text-[10px] text-muted-foreground">
-        V7.2 开发中 · 数据为演示 Mock（仅状态联动，不产生真实业务事实）
+        V7.2 开发中 · API 可用时自动切换为真实数据
       </div>
     </div>
   );

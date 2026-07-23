@@ -1,12 +1,22 @@
 import { createFileRoute, Link, useParams } from "@tanstack/react-router";
 import { ArrowLeft, Receipt, FileText, CreditCard, AlertCircle } from "lucide-react";
+import { useProject, useAcceptQuote, useRejectQuote } from "../lib/hooks";
 import { projects } from "../lib/fixtures";
 
-export const Route = createFileRoute("/h5/projects/deal")({ component: H5Deal });
+export const Route = createFileRoute("/h5/projects/deal")({
+  validateSearch: (search: Record<string, unknown>) => ({ id: (search.id as string) || "" }),
+  component: H5Deal,
+});
 
 function H5Deal() {
-  const { id } = useParams({ from: Route.id });
-  const project = projects.find((p) => p.id === id);
+  const { id } = Route.useSearch();
+  // Fallback to params for backwards compatibility
+  const paramId = (useParams({ strict: false }) as any).id;
+  const effectiveId = id || paramId || "";
+  const { data: projectData } = useProject(effectiveId);
+  const acceptQuote = useAcceptQuote();
+  const rejectQuote = useRejectQuote();
+  const project = projectData || projects.find((p) => p.id === effectiveId);
   if (!project) return <div className="p-4 text-sm text-muted-foreground">活动未找到</div>;
 
   return (
@@ -26,8 +36,8 @@ function H5Deal() {
             </div>
             <div className="mt-3 text-2xl font-bold text-foreground">{project.quote.total}</div>
             <div className="mt-3 flex gap-2">
-              <button className="flex-1 rounded-lg bg-primary py-2.5 text-xs font-semibold text-primary-foreground">接受报价</button>
-              <button className="flex-1 rounded-lg border border-border/60 py-2.5 text-xs text-muted-foreground">拒绝</button>
+              <button onClick={() => acceptQuote.mutate(project.quote!.id || project.id)} disabled={acceptQuote.isPending} className="flex-1 rounded-lg bg-primary py-2.5 text-xs font-semibold text-primary-foreground disabled:opacity-50">{acceptQuote.isPending ? "处理中..." : "接受报价"}</button>
+              <button onClick={() => rejectQuote.mutate({ quoteId: project.quote!.id || project.id })} disabled={rejectQuote.isPending} className="flex-1 rounded-lg border border-border/60 py-2.5 text-xs text-muted-foreground">拒绝</button>
             </div>
           </div>
         )}

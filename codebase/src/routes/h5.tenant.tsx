@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import React from "react";
 import {
   Briefcase, Bell, Users, ClipboardList,
   ChevronRight, Clock,
@@ -28,7 +29,7 @@ function TaskRow({
       className="flex items-center gap-3 rounded-lg border border-border/60 bg-card/40 px-3 py-3 active:bg-secondary/40"
     >
       <div className={`flex h-9 w-9 items-center justify-center rounded-lg ${color}`}>
-        {icon({ className: "h-4 w-4" })}
+        {React.createElement(icon, { className: "h-4 w-4" })}
       </div>
       <div className="flex-1 min-w-0">
         <div className="text-sm font-medium text-foreground">{label}</div>
@@ -121,7 +122,7 @@ function H5Tenant() {
       <div className="mb-6">
         <h2 className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">快捷操作</h2>
         <div className="grid grid-cols-2 gap-2">
-          <Link to="/tenant/index" className="flex items-center gap-2 rounded-lg border border-border/60 bg-card/40 px-3 py-2.5 text-sm text-foreground active:bg-secondary/40">
+          <Link to="/h5/tenant" className="flex items-center gap-2 rounded-lg border border-border/60 bg-card/40 px-3 py-2.5 text-sm text-foreground active:bg-secondary/40">
             <ClipboardList className="h-4 w-4 text-primary" />工作台
           </Link>
           <Link to="/tenant/programs" className="flex items-center gap-2 rounded-lg border border-border/60 bg-card/40 px-3 py-2.5 text-sm text-foreground active:bg-secondary/40">

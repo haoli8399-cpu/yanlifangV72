@@ -8,6 +8,9 @@ const styles: Record<EvidenceState, string> = {
     "border-[color:var(--state-verified)]/40 bg-[color:var(--state-verified)]/10 text-[color:var(--state-verified)]",
   declared:
     "border-[color:var(--state-declared)]/40 bg-[color:var(--state-declared)]/10 text-[color:var(--state-declared)]",
+  supported: "border-muted-foreground/30 bg-muted/10 text-muted-foreground",
+  conflict: "border-red-500/40 bg-red-500/10 text-red-500",
+  not_public: "border-muted-foreground/20 bg-muted/5 text-muted-foreground",
   ai: "border-[color:var(--state-ai)]/40 bg-[color:var(--state-ai)]/10 text-[color:var(--state-ai)]",
   pending:
     "border-[color:var(--state-pending)]/40 bg-[color:var(--state-pending)]/10 text-[color:var(--state-pending)]",
@@ -18,6 +21,9 @@ const styles: Record<EvidenceState, string> = {
 const dots: Record<EvidenceState, string> = {
   verified: "bg-[color:var(--state-verified)]",
   declared: "bg-[color:var(--state-declared)]",
+  supported: "bg-muted-foreground",
+  conflict: "bg-red-500",
+  not_public: "bg-muted",
   ai: "bg-[color:var(--state-ai)]",
   pending: "bg-[color:var(--state-pending)] animate-pulse",
   expired: "bg-[color:var(--state-expired)]",

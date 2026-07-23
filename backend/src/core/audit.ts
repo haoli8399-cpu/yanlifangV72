@@ -9,6 +9,10 @@ export type AuditAction =
   | 'brief_generated' | 'brief_revised' | 'brief_prepared' | 'brief_confirmed'
   | 'matching_consent_granted' | 'matching_consent_revoked' | 'matching_consent_expired'
   | 'tenant_brief_read' | 'clarification_requested'
+  | 'engagement_created' | 'engagement_accepted' | 'engagement_declined' | 'engagement_request_supplement' | 'engagement_status_awaiting_response' | 'engagement_status_planning' | 'engagement_status_quoting' | 'engagement_status_selected' | 'engagement_status_not_selected' | 'engagement_status_expired'
+  | 'routing_created' | 'routing_reassigned' | 'routing_withdrawn'
+  | 'customer_selected_tenant'
+  | 'brief_access_granted' | 'brief_access_revoked'
   | 'state_transition' | 'operation' | 'change' | 'permission' | 'security';
 
 export interface AuditEvent {

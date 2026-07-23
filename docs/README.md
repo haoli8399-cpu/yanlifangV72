@@ -11,7 +11,7 @@
 | 研发流程 | [`MVP_DEV_PLAYBOOK.md`](../MVP_DEV_PLAYBOOK.md) | MVP 轻量协作、测试、Git、发布和 PRD 升级 |
 | 重大决策 | [`DECISIONS.md`](../DECISIONS.md) | 已确认长期决策 |
 | 项目总控 | [`PROJECT.md`](PROJECT.md) | 主体、版本与文件地图 |
-| 产品需求 | [`PRD.md`](PRD.md) | V6.6 |
+| 产品需求 | [`PRD.md`](PRD.md) | V7.2 |
 | 技术架构 | [`ARCHITECTURE.md`](ARCHITECTURE.md) | V4.7 as-built |
 | 设计治理 | [`DESIGN.md`](DESIGN.md) | V4.7 / V1.0 |
 | 版本管理 | [`VERSIONING.md`](VERSIONING.md) | 版本、分支、Tag 和归档 |
@@ -29,9 +29,10 @@
 
 ## 产品与架构版本
 
-- [PRD V6.6](PRD_V6.6.md) — 当前产品规格。
-- [PRD V6.5](PRD_V6.5.md) — 上一产品规格。
-- [PRD V6.1](PRD_V6.1.md) — 验证草案。
+- PRD V7.2 — 当前产品规格（[PRD_V7.2.md](PRD_V7.2.md)）。
+- PRD V6.6 — 上一产品规格（已归档）。
+- PRD V6.5 — 再上一产品规格（已归档）。
+- PRD V6.1 — 验证草案（已归档）。
 - [V5 产品技术方案](SOLUTION_V5.md)。
 - [V5 架构](ARCHITECTURE_V5.md)。
 - [V6 架构方案](ARCHITECTURE_V6.md)。

@@ -205,7 +205,7 @@ function ProductCard({ p }: { p: PerformanceServiceProduct }) {
           </span>
         </div>
         <div className="absolute right-2 top-2">
-          <StatusBadge state={status.state} label={status.label} />
+          <StatusBadge state={p.status as any} label={status} />
         </div>
       </div>
       <div className="flex flex-1 flex-col p-4">

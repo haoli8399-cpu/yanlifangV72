@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { stageBoundaries } from "@/components/yanlicube/stage-error";
 import { getProject } from "@/lib/fixtures";
+import { getRoutingDecision } from "@/lib/api-client";
 import { StatusBadge } from "@/components/yanlicube/status-badge";
 import { EvidenceLine } from "@/components/yanlicube/agent";
 import { Building2, CheckCircle2, RotateCcw, UserRoundX, ShieldCheck, Scale } from "lucide-react";
@@ -8,10 +9,15 @@ import { useState } from "react";
 import { demoToast } from "@/lib/demo-toast";
 
 export const Route = createFileRoute("/projects/$id/candidates/")({
-  loader: ({ params }) => {
+  loader: async ({ params }) => {
     const project = getProject(params.id);
     if (!project) throw notFound();
-    return { project };
+    let routingData = null;
+    try {
+      const res = await getRoutingDecision(params.id);
+      routingData = res.data;
+    } catch {}
+    return { project, routingData };
   },
   head: () => ({ meta: [{ title: "候选服务方 · 演立方" }] }),
   component: CandidatesPage,
@@ -91,10 +97,8 @@ const capacityLabel: Record<Candidate["capacity"], string> = {
 };
 
 function CandidatesPage() {
-  const { project } = Route.useLoaderData();
-  const [chosen, setChosen] = useState<string | null>(
-    project.team.main?.id ?? null,
-  );
+  const { project } = Route.useLoaderData() as { project: import("@/lib/fixtures").Project };
+  const [chosen, setChosen] = useState<string | null>(project.team.main?.id ?? null);
   const [dismissed, setDismissed] = useState<string[]>([]);
   const list = initial.filter((c) => !dismissed.includes(c.id));
 

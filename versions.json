@@ -8,11 +8,7 @@
     "spec_status": "approved",
     "current_entry": "docs/PRD_V7.2.md",
     "spec_file": "docs/PRD_V7.2.md",
-    "previous_specs": [
-      "docs/PRD_V6.6.md",
-      "docs/PRD_V6.5.md",
-      "docs/PRD_V6.1.md"
-    ]
+    "previous_specs": []
   },
   "code_release": {
     "implementation_baseline": "V4.7",

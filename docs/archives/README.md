@@ -6,6 +6,8 @@
 
 | 目录 | 内容 | 使用规则 |
 |:---|:---|:---|
+| `trae/` | Trae AI 评估报告：资产复用、当前状态、差距分析、产品对齐审计与计划、UI/UX 基准 | 仅供调研追溯 |
+| `codex-prototype/` | Codex 原型路由与交互设计 | 仅供原型参考 |
 | `product/` | 历史 PRD、修订建议和 V4.7 机器可读版本 | 产品演进追溯 |
 | `product/legacy-prds/` | V1.0–V4.6 的早期文档 | 禁止直接作为开发输入 |
 | `source-snapshots/` | 旧源码压缩包 | 仅用于来源核对，不能替代 Git |
@@ -19,6 +21,19 @@
 - [V4.6 PRD 修订建议](product/V4.6_PRD_修订建议.md)
 - [V3.3.3 PRD](product/legacy-prds/演立方_PRD_V3.3.3.md)
 - [V4.0 产品设计策略](product/legacy-prds/演立方_V4.0_产品设计策略.md)
+
+### Trae 评估报告
+
+- [资产复用计划](trae/ASSET_REUSE_PLAN.md)
+- [当前状态评估](trae/CURRENT_STATE.md)
+- [差距分析](trae/GAP_ANALYSIS.md)
+- [产品对齐审计](trae/PRODUCT_REALIGNMENT_AUDIT.md)
+- [产品对齐计划](trae/PRODUCT_REALIGNMENT_PLAN.md)
+- [UI/UX 基准研究](trae/UI_UX_BENCHMARK_RESEARCH.md)
+
+### Codex 原型
+
+- [原型路由 README](codex-prototype/src/routes/README.md)
 
 ## 规则
 

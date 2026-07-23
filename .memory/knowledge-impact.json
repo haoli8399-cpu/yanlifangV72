@@ -1,45 +1,102 @@
 {
   "schema_version": 1,
-  "task_id": "FE-LANG-CASE-001",
-  "generated_at": "2026-07-22T08:09:21.981Z",
+  "task_id": "V72-90PCT",
+  "generated_at": "2026-07-22T18:02:30.104Z",
   "files": [
     ".memory/cache.json",
     ".memory/context.md",
+    ".memory/knowledge-impact.json",
     ".memory/manifest-upload.json",
+    ".memory/receipt.json",
     ".memory/upload-00-project-context.md",
     ".memory/upload-01-product-current.md",
     ".memory/upload-02-technical-current.md",
     ".memory/upload-03-decisions-current.md",
     ".memory/upload-04-development-status.md",
     ".memory/upload-07-agent-rules.md",
-    "docs/memory/knowledge/00-project-context.md",
-    "docs/memory/knowledge/01-product-current.md",
-    "docs/memory/knowledge/02-technical-current.md",
-    "docs/memory/knowledge/04-development-status.md"
+    "PROJECT_STATUS.md",
+    "backend/src/core/audit.ts",
+    "backend/src/index.ts",
+    "codebase/package.json",
+    "codebase/src/components/yanlicube/status-badge.tsx",
+    "codebase/src/lib/api-client.ts",
+    "codebase/src/lib/fixtures.ts",
+    "codebase/src/lib/hooks.ts",
+    "codebase/src/routes/h5.projects.deal.tsx",
+    "codebase/src/routes/h5.tenant.msa.tsx",
+    "codebase/src/routes/h5.tenant.tsx",
+    "codebase/src/routes/projects.$id.candidates.index.tsx",
+    "codebase/src/routes/projects.$id.plans.tsx",
+    "codebase/src/routes/projects.$id.quote.tsx",
+    "codebase/src/routes/tenant.service-products.$id.index.tsx",
+    "codebase/src/routes/tenant.service-products.index.tsx",
+    "docs/ARCHITECTURE_V6.1.md",
+    "docs/MVP_CURRENT_AUDIT.md",
+    "docs/PRD.md",
+    "docs/PRD_V7.2.md",
+    "docs/README.md",
+    "docs/archives/README.md",
+    "versions.json"
   ],
   "ignored_as_transient": [],
   "candidates": [
     {
-      "file": "docs/memory/knowledge/00-project-context.md",
-      "knowledge_type": "agent_rules_or_memory_system",
+      "file": "PROJECT_STATUS.md",
+      "knowledge_type": "development_status",
       "status": "Proposed",
       "requires_source_validation": true
     },
     {
-      "file": "docs/memory/knowledge/01-product-current.md",
-      "knowledge_type": "agent_rules_or_memory_system",
+      "file": "codebase/package.json",
+      "knowledge_type": "technical_memory",
       "status": "Proposed",
       "requires_source_validation": true
     },
     {
-      "file": "docs/memory/knowledge/02-technical-current.md",
-      "knowledge_type": "agent_rules_or_memory_system",
+      "file": "codebase/src/routes/h5.tenant.msa.tsx",
+      "knowledge_type": "permission_or_tenant",
       "status": "Proposed",
       "requires_source_validation": true
     },
     {
-      "file": "docs/memory/knowledge/04-development-status.md",
-      "knowledge_type": "agent_rules_or_memory_system",
+      "file": "codebase/src/routes/h5.tenant.tsx",
+      "knowledge_type": "permission_or_tenant",
+      "status": "Proposed",
+      "requires_source_validation": true
+    },
+    {
+      "file": "codebase/src/routes/tenant.service-products.$id.index.tsx",
+      "knowledge_type": "permission_or_tenant",
+      "status": "Proposed",
+      "requires_source_validation": true
+    },
+    {
+      "file": "codebase/src/routes/tenant.service-products.index.tsx",
+      "knowledge_type": "permission_or_tenant",
+      "status": "Proposed",
+      "requires_source_validation": true
+    },
+    {
+      "file": "docs/ARCHITECTURE_V6.1.md",
+      "knowledge_type": "technical_memory",
+      "status": "Proposed",
+      "requires_source_validation": true
+    },
+    {
+      "file": "docs/PRD.md",
+      "knowledge_type": "product_baseline",
+      "status": "Proposed",
+      "requires_source_validation": true
+    },
+    {
+      "file": "docs/PRD_V7.2.md",
+      "knowledge_type": "product_baseline",
+      "status": "Proposed",
+      "requires_source_validation": true
+    },
+    {
+      "file": "versions.json",
+      "knowledge_type": "product_baseline",
       "status": "Proposed",
       "requires_source_validation": true
     }

@@ -7,16 +7,7 @@ import { setETag, incrementVersion } from '../../core/concurrency.js';
 import { audit } from '../../core/audit.js';
 
 export async function commercialRoutes(app: FastifyInstance) {
-  // Quote accept
-  app.post('/v2/quotes/:id/accept', { preHandler: [authMiddleware] }, async (req, reply) => {
-    const { id } = req.params;
-    const userId = req.user?.sub;
-    await query("UPDATE quote_versions SET status = 'accepted', updated_at = now() WHERE id = $1 AND status = 'sent'", [id]);
-    const v = incrementVersion(id); setETag(reply, v);
-    await audit({ actor_id: userId, actor_type: 'customer', action: 'quote_accepted', resource_type: 'quote', resource_id: id, resource_version: v, result: 'success' });
-    return reply.send(successResponse({ id, status: 'accepted' }));
-  });
-
+  // Quote accept — moved to quote.ts with full workflow
   // Credential confirm
   app.post('/v2/credentials/:id/confirm', { preHandler: [authMiddleware] }, async (req, reply) => {
     const { id } = req.params;

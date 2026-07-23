@@ -3,8 +3,8 @@
   "project": "yanlifang",
   "project_uri": "viking://user/default/resources/yanlifang-project-memory",
   "product_spec_version": "V7.2",
-  "synced_at": "2026-07-22T08:04:56.225Z",
-  "git_head": "ce62cdd84165f81a8aa97205ae74e5f47c1f0b2d",
+  "synced_at": "2026-07-23T03:05:15.534Z",
+  "git_head": "65e4feb70fb7e4e18260bf90e5620d0ac5df594e",
   "git_branch": "feat/workspace-version-governance",
   "knowledge": [
     {
@@ -17,7 +17,7 @@
       "template_hash": "6a69407ccc49716d9387218550a5913d7ccc9d611a63db77c318776eccee503f",
       "source_hashes": {
         "README.md": "7a217a039f805a6082d71f55812467dec926391ec1dcc72ac8fc4ad1978587f2",
-        "PROJECT_STATUS.md": "cd14b5b7dda1664fdba0c077111fcf2db51cd3582da745f5c0ea74de1e839416",
+        "PROJECT_STATUS.md": "4e3cbdcedfd6f57c249e7c4376eb1284e14c021ba37d2f280cf0c61db06ad4b1",
         "DECISIONS.md": "25deb4df33c2d23a48378c2a06a9acdcc3994163ae7b790a8ec60d798526af5f"
       },
       "tags": [
@@ -35,9 +35,9 @@
       "uri": "viking://user/default/resources/yanlifang-project-memory/01_PRODUCT_MEMORY/01-product-current.md",
       "template_hash": "f31071224a09662481dbc87148e14bb55ce336abf31f2f316aa995fcac3ef0b7",
       "source_hashes": {
-        "docs/PRD.md": "497458e0312e04c17d21354f06f344a350fa42f687f99c0d6e0af04a9397bea3",
-        "docs/PRD_V7.2.md": "32f851784e9ad688dfcfa39e1c51ab266da451ebe306fff61f315387a337645c",
-        "versions.json": "53c0cbd5c2f593c06b90ea6ce48ef569402f600e7b7f049b8d0c969b592b3dbb"
+        "docs/PRD.md": "76658fd5e6246ea60308e17ba04e277d634087027193955c67a7cdfcfab7273d",
+        "docs/PRD_V7.2.md": "3f2b6009dae4aad18703025384caac4c9a529b3eca283f0bee53cb8a24a12207",
+        "versions.json": "eac25c5454f57bcea2893177bf422f34e93b063680fd27f242ffa81ae8094a4c"
       },
       "tags": [
         "project=yanlifang",
@@ -56,8 +56,8 @@
       "template_hash": "26a013b8955d0b362c0adf9ded3f16ed00aef7b27b67f8cd8fddeb325c5e86dc",
       "source_hashes": {
         "docs/ARCHITECTURE.md": "d3d7074a0be5fe131766d662b2656677909d76c053e6ca34049f2c6506ceb396",
-        "docs/MVP_CURRENT_AUDIT.md": "262f44639f656a72eb6c1676fc0d80e224e1b5c765ae5ce6c6bc63f176ed8f3c",
-        "codebase/package.json": "ab2cfe50df5b216952784a57bcaf7da6711b85753a288a61f79b36823f1b05e9",
+        "docs/MVP_CURRENT_AUDIT.md": "947bb03caf7aba3e30491871d518caca6549db49725e7c365e0a8f9c757ec174",
+        "codebase/package.json": "3f6dba18e0db3bb64c681c6a082b01e46a4c584652de2ac728052fa358e4eb44",
         "backend/package.json": "a3c473e9634c3aa186606531e09d3cb7b42b67023157d79e2a78ea0173443ec0",
         "miniprogram/package.json": "a609c31aa8df364ef79bebe7ef3e4df4f1bfa784e7f5b6cc808aa412ba347b12"
       },
@@ -93,9 +93,9 @@
       "uri": "viking://user/default/resources/yanlifang-project-memory/04_DEVELOPMENT_STATUS/04-development-status.md",
       "template_hash": "e5a1bb2468767ff5af7e0432df02a8460e6ef31ee0c792a7a30cd9c5f339d5ae",
       "source_hashes": {
-        "PROJECT_STATUS.md": "cd14b5b7dda1664fdba0c077111fcf2db51cd3582da745f5c0ea74de1e839416",
+        "PROJECT_STATUS.md": "4e3cbdcedfd6f57c249e7c4376eb1284e14c021ba37d2f280cf0c61db06ad4b1",
         "project-state.json": "550f2f2d975680d0a7cda69d92d231976a835d31f88254407374d37882cee5b8",
-        "versions.json": "53c0cbd5c2f593c06b90ea6ce48ef569402f600e7b7f049b8d0c969b592b3dbb"
+        "versions.json": "eac25c5454f57bcea2893177bf422f34e93b063680fd27f242ffa81ae8094a4c"
       },
       "tags": [
         "project=yanlifang",
