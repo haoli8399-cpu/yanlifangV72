@@ -2,13 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Receipt, FileText, CreditCard, ShieldCheck, AlertCircle, CheckCircle2 } from "lucide-react";
 import { getProject, type Project } from "@/lib/fixtures";
-import { acceptQuote, confirmCredential, declarePayment } from "@/lib/api-client";
+import { getProject as getProjectAPI, acceptQuote, confirmCredential, declarePayment } from "@/lib/api-client";
 import { StatusBadge } from "@/components/yanlicube/status-badge";
 
 export const Route = createFileRoute("/projects/$id/deal")({
-  loader: ({ params }): { project: Project } => {
+  loader: async ({ params }): Promise<{ project: Project }> => {
     const project = getProject(params.id);
     if (!project) throw new Error("not found");
+    try { const res = await getProjectAPI(params.id); (project as any).realProjectData = res.data; } catch {}
     return { project };
   },
   component: DealPage,

@@ -2,15 +2,17 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { stageBoundaries } from "@/components/yanlicube/stage-error";
 import { ExternalLink, Sparkles } from "lucide-react";
 import { getProject, type Project } from "@/lib/fixtures";
+import { getProject as getProjectAPI } from "@/lib/api-client";
 import { EvidenceLine } from "@/components/yanlicube/agent";
 import { StatusBadge } from "@/components/yanlicube/status-badge";
 import { WaitingCompanion } from "@/components/yanlicube/waiting";
 import { NextActionHero, DetailBlock, DetailStack, OnboardingSteps } from "@/components/yanlicube/focus-page";
 
 export const Route = createFileRoute("/projects/$id/")({
-  loader: ({ params }): { project: Project } => {
+  loader: async ({ params }): Promise<{ project: Project }> => {
     const project = getProject(params.id);
     if (!project) throw new Error("not found");
+    try { const res = await getProjectAPI(params.id); (project as any).realProjectData = res.data; } catch {}
     return { project };
   },
   component: Overview,

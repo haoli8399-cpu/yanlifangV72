@@ -48,8 +48,13 @@ for i in {1..30}; do
 done
 
 # 6. 运行数据库迁移
+# 注意: migrations 目录通过 docker-compose 挂载到 /docker-entrypoint-initdb.d
+# 初始 schema 在首次启动时自动执行；增量迁移需手动运行
 echo "🗄️  运行数据库迁移..."
-docker compose exec -T supabase-db psql -U postgres -d postgres -f /docker-entrypoint-initdb.d/001_schema.sql 2>/dev/null || echo "⚠️  迁移可能已执行"
+for f in /Users/wudixingyunxingleo/Projects/演立方/backend/migrations/*.sql; do
+  echo "执行迁移: $(basename $f)"
+  docker compose exec -T supabase-db psql -U postgres -d postgres -f /docker-entrypoint-initdb.d/$(basename $f) 2>/dev/null || true
+done
 
 # 7. 健康检查
 echo "🏥 健康检查..."
@@ -65,12 +70,12 @@ check_endpoint() {
     fi
 }
 
-check_endpoint "http://localhost:3001/health" "API 服务"
+check_endpoint "http://localhost:3002/v1/health" "API 服务"
 check_endpoint "http://localhost:3000/" "PostgREST"
 
 echo ""
 echo "=== 部署完成 ==="
-echo "API:     http://localhost:3001/v1/"
+echo "API:     http://localhost:3002/v1/health"
 echo "Auth:    http://localhost:9999/"
 echo "Studio:  http://localhost:8000/"
 echo "Storage: http://localhost:5000/"

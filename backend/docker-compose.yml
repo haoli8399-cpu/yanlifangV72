@@ -150,23 +150,22 @@ services:
     networks:
       - yanchu-net
 
-  # ===== 自建服务 =====
-
-  # 自建 Node.js API 服务
+  # 自建 Node.js API 服务 (V7.2)
   yanchu-api:
-    build: ./backend
+    build: .
     container_name: yanchu-api
     restart: unless-stopped
     environment:
       NODE_ENV: production
-      DATABASE_URL: "postgres://authenticator:${POSTGRES_PASSWORD}@supabase-db:5432/postgres"
+      DB_HOST: supabase-db
+      DB_PORT: "5432"
+      DB_NAME: postgres
+      DB_USER: postgres
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
-      SUPABASE_URL: "http://supabase-rest:3000"
-      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY}
-      DEEPSEEK_BACKUP_API_KEY: ${DEEPSEEK_BACKUP_API_KEY}
-      TENCENT_SMS_APP_ID: ${TENCENT_SMS_APP_ID}
+      CORS_ORIGIN: http://localhost:5173,http://localhost:7777
     ports:
-      - "3001:3001"
+      - "3002:3002"
     depends_on:
       supabase-db:
         condition: service_healthy
