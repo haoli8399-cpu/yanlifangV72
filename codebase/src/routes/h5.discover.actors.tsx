@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Search, MapPin } from "lucide-react";
-import { actors } from "../lib/fixtures";
+import { actors } from "@/lib/fixtures";
+import { DiscoverBottomTabs } from "@/components/yanlicube/h5-discover-nav";
 
 export const Route = createFileRoute("/h5/discover/actors")({ component: H5Actors });
 
@@ -39,6 +40,7 @@ function H5Actors() {
           </Link>
         ))}
       </div>
+      <DiscoverBottomTabs />
     </div>
   );
 }

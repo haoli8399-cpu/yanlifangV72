@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Search, Users, Sparkles, FolderOpen, Building2, MapPin } from "lucide-react";
 import { useCapabilities } from "../lib/hooks";
 import { actors } from "../lib/fixtures";
+import { DiscoverBottomTabs } from "@/components/yanlicube/h5-discover-nav";
 
 export const Route = createFileRoute("/h5/discover")({ component: H5Discover });
 
@@ -98,6 +99,7 @@ function H5Discover() {
       <div className="border-t border-border/60 pt-4 text-center text-[10px] text-muted-foreground">
         Demo 数据 · V7.2 开发中
       </div>
+      <DiscoverBottomTabs />
     </div>
   );
 }

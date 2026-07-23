@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FolderKanban, MapPin, Calendar, ChevronRight } from "lucide-react";
 import { projects } from "../lib/fixtures";
+import { TenantH5BottomTabs } from "@/components/yanlicube/h5-tenant-nav";
 
 export const Route = createFileRoute("/h5/projects")({ component: H5Projects });
 
@@ -75,6 +76,7 @@ function H5Projects() {
       <div className="mt-8 border-t border-border/60 pt-4 text-center text-[10px] text-muted-foreground">
         V7.2 开发中 · 演示数据
       </div>
+      <TenantH5BottomTabs />
     </div>
   );
 }

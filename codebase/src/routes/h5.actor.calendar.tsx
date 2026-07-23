@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CalendarDays, MapPin, Clock, CheckCircle2, XCircle } from "lucide-react";
+import { ActorH5BottomTabs } from "@/components/yanlicube/h5-actor-nav";
 
 export const Route = createFileRoute("/h5/actor/calendar")({ component: H5ActorCalendar });
 
@@ -55,6 +56,7 @@ function H5ActorCalendar() {
       <div className="mt-8 border-t border-border/60 pt-4 text-center text-[10px] text-muted-foreground">
         Demo 数据
       </div>
+      <ActorH5BottomTabs />
     </div>
   );
 }

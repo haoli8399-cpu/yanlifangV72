@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Lightbulb, AlertCircle, HelpCircle, ArrowRight } from "lucide-react";
 
+import { DiscoverBottomTabs } from "@/components/yanlicube/h5-discover-nav";
+
 export const Route = createFileRoute("/h5/snapshot")({ component: H5Snapshot });
 
 function H5Snapshot() {
@@ -51,6 +53,7 @@ function H5Snapshot() {
           </div>
         </div>
       </div>
+      <DiscoverBottomTabs />
     </div>
   );
 }

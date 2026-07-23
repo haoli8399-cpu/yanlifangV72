@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { actors } from "../lib/fixtures";
 import { useCapabilities } from "../lib/hooks";
+import { ActorH5BottomTabs } from "@/components/yanlicube/h5-actor-nav";
 import { StatusBadge } from "@/components/yanlicube/status-badge";
 
 export const Route = createFileRoute("/h5/actor")({ component: H5Actor });
@@ -219,6 +220,7 @@ function H5Actor() {
       <div className="border-t border-border/60 pt-4 text-center text-[10px] text-muted-foreground">
         Demo 数据 · 不产生真实业务事实
       </div>
+      <ActorH5BottomTabs />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Package, ChevronRight } from "lucide-react";
-import { serviceProducts } from "../lib/fixtures";
+import { serviceProducts } from "@/lib/fixtures";
+import { DiscoverBottomTabs } from "@/components/yanlicube/h5-discover-nav";
 
 export const Route = createFileRoute("/h5/discover/service-products")({ component: H5ServiceProducts });
 
@@ -26,6 +27,7 @@ function H5ServiceProducts() {
           </div>
         ))}
       </div>
+      <DiscoverBottomTabs />
     </div>
   );
 }

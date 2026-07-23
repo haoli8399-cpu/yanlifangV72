@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Briefcase, ChevronRight } from "lucide-react";
+import { ActorH5BottomTabs } from "@/components/yanlicube/h5-actor-nav";
 import { programs } from "../lib/fixtures";
 
 export const Route = createFileRoute("/h5/actor/services")({ component: H5ActorServices });
@@ -18,6 +19,7 @@ function H5ActorServices() {
           </div>
         ))}
       </div>
+      <ActorH5BottomTabs />
     </div>
   );
 }

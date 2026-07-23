@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import React from "react";
+import { TenantH5BottomTabs } from "@/components/yanlicube/h5-tenant-nav";
 import {
   Briefcase, Bell, Users, ClipboardList,
   ChevronRight, Clock,
@@ -154,6 +155,7 @@ function H5Tenant() {
       <div className="border-t border-border/60 pt-4 text-center text-[10px] text-muted-foreground">
         Demo 数据 · V7.2 开发中
       </div>
+      <TenantH5BottomTabs />
     </div>
   );
 }

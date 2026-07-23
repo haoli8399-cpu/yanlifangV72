@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FolderOpen, ChevronRight } from "lucide-react";
 import { verifiedCases } from "../lib/verified-cases";
+import { DiscoverBottomTabs } from "@/components/yanlicube/h5-discover-nav";
 
 export const Route = createFileRoute("/h5/discover/cases")({ component: H5Cases });
 
@@ -20,6 +21,7 @@ function H5Cases() {
           </div>
         ))}
       </div>
+      <DiscoverBottomTabs />
     </div>
   );
 }

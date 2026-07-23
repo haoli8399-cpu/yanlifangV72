@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import { useMSAList, useAcceptMSA, useDeclineMSA } from "../lib/hooks";
 import { msaFixtures, type MainServiceAssignment } from "../lib/fixtures";
+import { TenantH5BottomTabs } from "@/components/yanlicube/h5-tenant-nav";
 
 export const Route = createFileRoute("/h5/tenant/msa")({ component: TenantMSA });
 
@@ -195,6 +196,7 @@ function TenantMSA() {
       <div className="mt-8 border-t border-border/60 pt-4 text-center text-[10px] text-muted-foreground">
         V7.2 开发中 · API 可用时自动切换为真实数据
       </div>
+      <TenantH5BottomTabs />
     </div>
   );
 }
