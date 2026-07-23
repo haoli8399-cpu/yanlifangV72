@@ -32,6 +32,16 @@ import {
   submitQuoteForApproval,
   approveQuote,
   sendQuote,
+  // eligibility + capacity
+  createEligibility,
+  listEligibility,
+  createCapacity,
+  getCapacity,
+  // attribution + chargeable
+  createAttribution,
+  listAttributions,
+  createChargeableValue,
+  listChargeableValues,
   type TenantEngagement,
   type PlanVersionSummary,
   type ProjectSummary,
@@ -442,5 +452,93 @@ export function useSendQuote() {
       queryClient.invalidateQueries({ queryKey: ["quotes"] });
       queryClient.invalidateQueries({ queryKey: ["project-status"] });
     },
+  });
+}
+
+// ── Eligibility + Capacity ──
+
+export function useEligibility(tenantId: string | undefined) {
+  return useQuery({
+    queryKey: ["eligibility", tenantId],
+    queryFn: async () => {
+      if (!tenantId) return [];
+      const res = await listEligibility(tenantId);
+      return res.data || [];
+    },
+    enabled: !!tenantId,
+    staleTime: 60_000,
+  });
+}
+
+export function useCreateEligibility() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (data: { tenant_id: string; city: string; event_type: string; scale_max?: number }) => createEligibility(data),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["eligibility"] }),
+  });
+}
+
+export function useCapacity(tenantId: string | undefined) {
+  return useQuery({
+    queryKey: ["capacity", tenantId],
+    queryFn: async () => {
+      if (!tenantId) return [];
+      const res = await getCapacity(tenantId);
+      return res.data || [];
+    },
+    enabled: !!tenantId,
+    staleTime: 30_000,
+  });
+}
+
+export function useCreateCapacity() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (data: { tenant_id: string; status: string; effective_until: string; scope_notes?: string }) => createCapacity(data),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["capacity"] }),
+  });
+}
+
+// ── Attribution + ChargeableValue ──
+
+export function useAttributions(demandId: string | undefined) {
+  return useQuery({
+    queryKey: ["attributions", demandId],
+    queryFn: async () => {
+      if (!demandId) return [];
+      const res = await listAttributions(demandId);
+      return res.data || [];
+    },
+    enabled: !!demandId,
+    staleTime: 30_000,
+  });
+}
+
+export function useCreateAttribution() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (data: { demand_id: string; source_type: string; project_id?: string }) => createAttribution(data),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["attributions"] }),
+  });
+}
+
+export function useChargeableValues(projectId: string | undefined) {
+  return useQuery({
+    queryKey: ["chargeable-values", projectId],
+    queryFn: async () => {
+      if (!projectId) return [];
+      const res = await listChargeableValues(projectId);
+      return res.data || [];
+    },
+    enabled: !!projectId,
+    staleTime: 30_000,
+  });
+}
+
+export function useCreateChargeableValue() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (data: { project_id: string; attribution_id: string; allocated_amount: string; net_revenue_atom_id?: string }) => createChargeableValue(data),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["chargeable-values"] }),
   });
 }

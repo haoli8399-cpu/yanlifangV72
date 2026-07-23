@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "task_id": "V72-PUSH-TEST",
-  "task_summary": "提交推送当前工作 + 后端v2模块集成测试",
+  "task_id": "V72-FRONTEND-HOOKS",
+  "task_summary": "前端hooks补充+页面loader切换v2 API",
   "modules": [
-    "all"
+    "frontend"
   ],
-  "executed_at": "2026-07-23T03:31:08.588Z",
+  "executed_at": "2026-07-23T04:03:03.115Z",
   "mode": "openviking",
   "risk": "normal",
   "current_prd_version": "V7.2",
@@ -42,23 +42,23 @@
   ],
   "retrieved_queries": [
     {
-      "query": "当前产品范围和 PRD 规则：提交推送当前工作 + 后端v2模块集成测试；all",
+      "query": "当前产品范围和 PRD 规则：前端hooks补充+页面loader切换v2 API；frontend",
       "ok": true
     },
     {
-      "query": "与任务有关的业务规则和用户流程：提交推送当前工作 + 后端v2模块集成测试；all",
+      "query": "与任务有关的业务规则和用户流程：前端hooks补充+页面loader切换v2 API；frontend",
       "ok": true
     },
     {
-      "query": "与任务有关的 Approved 重大决策：提交推送当前工作 + 后端v2模块集成测试；all",
+      "query": "与任务有关的 Approved 重大决策：前端hooks补充+页面loader切换v2 API；frontend",
       "ok": true
     },
     {
-      "query": "当前开发状态、已知缺口和禁止修改范围：提交推送当前工作 + 后端v2模块集成测试；all",
+      "query": "当前开发状态、已知缺口和禁止修改范围：前端hooks补充+页面loader切换v2 API；frontend",
       "ok": true
     },
     {
-      "query": "历史风险、踩坑和必须执行的测试：提交推送当前工作 + 后端v2模块集成测试；all",
+      "query": "历史风险、踩坑和必须执行的测试：前端hooks补充+页面loader切换v2 API；frontend",
       "ok": true
     }
   ],
@@ -66,56 +66,9 @@
   "source_issues": [],
   "git": {
     "branch": "feat/workspace-version-governance",
-    "head": "65e4feb70fb7e4e18260bf90e5620d0ac5df594e",
-    "dirty": true,
-    "changedFiles": [
-      "M .memory/cache.json",
-      " M .memory/context.md",
-      " M .memory/knowledge-impact.json",
-      " M .memory/manifest-upload.json",
-      " M .memory/receipt.json",
-      " M .memory/upload-00-project-context.md",
-      " M .memory/upload-01-product-current.md",
-      " M .memory/upload-02-technical-current.md",
-      " M .memory/upload-03-decisions-current.md",
-      " M .memory/upload-04-development-status.md",
-      " M .memory/upload-07-agent-rules.md",
-      " M PROJECT_STATUS.md",
-      " M backend/src/api/v2/commercial.ts",
-      " M backend/src/core/audit.ts",
-      " M backend/src/index.ts",
-      " M codebase/package.json",
-      " M codebase/src/components/yanlicube/status-badge.tsx",
-      " M codebase/src/lib/api-client.ts",
-      " M codebase/src/lib/fixtures.ts",
-      " M codebase/src/lib/hooks.ts",
-      " M codebase/src/routes/h5.projects.deal.tsx",
-      " M codebase/src/routes/h5.tenant.msa.tsx",
-      " M codebase/src/routes/h5.tenant.tsx",
-      " M codebase/src/routes/projects.$id.candidates.index.tsx",
-      " M codebase/src/routes/projects.$id.plans.tsx",
-      " M codebase/src/routes/projects.$id.quote.tsx",
-      " M codebase/src/routes/tenant.service-products.$id.index.tsx",
-      " M codebase/src/routes/tenant.service-products.index.tsx",
-      " M docs/ARCHITECTURE_V6.1.md",
-      " M docs/MVP_CURRENT_AUDIT.md",
-      " M docs/PRD.md",
-      " M docs/PRD_V7.2.md",
-      " M docs/README.md",
-      " M docs/archives/README.md",
-      " M versions.json",
-      "?? backend/migrations/018_engagement_routing.sql",
-      "?? backend/migrations/019_project_plan.sql",
-      "?? backend/migrations/020_plan_item_extend.sql",
-      "?? backend/migrations/021_quote_extend.sql",
-      "?? backend/src/api/v2/collaboration.ts",
-      "?? backend/src/api/v2/eligibility.ts",
-      "?? backend/src/api/v2/engagement-routing.ts",
-      "?? backend/src/api/v2/governance.ts",
-      "?? backend/src/api/v2/plan.ts",
-      "?? backend/src/api/v2/quote.ts",
-      "?? codebase/src/routes/_progress.tsx"
-    ]
+    "head": "880228720834d0ed06f7e2b445aedf70035707b8",
+    "dirty": false,
+    "changedFiles": []
   },
   "manifest_hash": "0e346adf069342f21e5a3b34f17c7acdcd0bbed5a7b6c29e2b0096055d5f0d5f",
   "manifest": {

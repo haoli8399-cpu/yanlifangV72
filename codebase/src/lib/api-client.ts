@@ -282,3 +282,58 @@ export async function confirmCredential(credentialId: string) {
 export async function declarePayment(paymentId: string) {
   return request<V2ApiResponse<{ status: string }>>("POST", `/v2/payments/${paymentId}/declare`);
 }
+
+// ---- Eligibility + Capacity ----
+
+export interface EligibilityRecord {
+  id: string; tenant_id: string; city: string; event_type: string;
+  scale_max: number | null; status: string; evidence: Record<string, unknown>;
+  assessed_by: string | null; assessed_at: string | null; expires_at: string | null;
+}
+
+export interface CapacityDeclaration {
+  id: string; tenant_id: string; status: string; scope_notes: string | null;
+  declared_by: string | null; effective_until: string;
+}
+
+export async function createEligibility(data: { tenant_id: string; city: string; event_type: string; scale_max?: number }) {
+  return request<V2ApiResponse<EligibilityRecord>>("POST", "/v2/eligibility", data);
+}
+
+export async function listEligibility(tenantId: string) {
+  return request<V2ApiResponse<EligibilityRecord[]>>("GET", `/v2/eligibility/tenant/${tenantId}`);
+}
+
+export async function assessEligibility(id: string, status: string) {
+  return request<V2ApiResponse<{ status: string }>>("PATCH", `/v2/eligibility/${id}/assess`, { status });
+}
+
+export async function createCapacity(data: { tenant_id: string; status: string; effective_until: string; scope_notes?: string }) {
+  return request<V2ApiResponse<CapacityDeclaration>>("POST", "/v2/capacity", data);
+}
+
+export async function getCapacity(tenantId: string) {
+  return request<V2ApiResponse<CapacityDeclaration[]>>("GET", `/v2/capacity/tenant/${tenantId}`);
+}
+
+// ---- Attribution + ChargeableValue ----
+
+export async function createAttribution(data: { demand_id: string; source_type: string; project_id?: string }) {
+  return request<V2ApiResponse<any>>("POST", "/v2/attributions", data);
+}
+
+export async function listAttributions(demandId: string) {
+  return request<V2ApiResponse<any[]>>("GET", `/v2/attributions/demand/${demandId}`);
+}
+
+export async function disputeAttribution(id: string, reason: string) {
+  return request<V2ApiResponse<{ status: string }>>("POST", `/v2/attributions/${id}/dispute`, { reason });
+}
+
+export async function createChargeableValue(data: { project_id: string; attribution_id: string; allocated_amount: string; net_revenue_atom_id?: string }) {
+  return request<V2ApiResponse<any>>("POST", "/v2/chargeable-values", data);
+}
+
+export async function listChargeableValues(projectId: string) {
+  return request<V2ApiResponse<any[]>>("GET", `/v2/chargeable-values/project/${projectId}`);
+}
