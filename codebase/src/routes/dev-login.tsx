@@ -163,6 +163,33 @@ const portals: Portal[] = [
       { label: "公开方案页 (M)", to: "/plans/$id/public", params: { id: "proj_neoyear--plan_A" } },
     ],
   },
+  {
+    role: "H5 移动端 · /h5 专用入口",
+    identity: "手机视口 · 真实移动端组件",
+    description: "使用独立 /h5 路由和专用移动组件，已接入真实 v2 API。建议 375-480px 视口打开。",
+    icon: Smartphone,
+    accent: "from-primary/30 to-transparent",
+    entries: [
+      { label: "移动首页 · /m", to: "/m", hint: "H5 聚合入口" },
+      { label: "公共发现 · /h5/discover", to: "/h5/discover", hint: "演员/节目/案例/服务产品" },
+      { label: "演员工作台 · /h5/actor", to: "/h5/actor", hint: "邀约 + 档期" },
+      { label: "演员日历 · /h5/actor/calendar", to: "/h5/actor/calendar" },
+      { label: "演员服务 · /h5/actor/services", to: "/h5/actor/services" },
+      { label: "经营工作台 · /h5/tenant", to: "/h5/tenant", hint: "待办 + 快捷入口" },
+      { label: "服务机会 · /h5/tenant/msa", to: "/h5/tenant/msa", hint: "v2 API 对接" },
+      { label: "订单列表 · /h5/tenant/orders", to: "/h5/tenant/orders" },
+      { label: "节目库 · /h5/tenant/programs", to: "/h5/tenant/programs" },
+      { label: "项目列表 · /h5/projects", to: "/h5/projects" },
+      { label: "项目详情 · /h5/projects/{id}", to: "/h5/projects/$id", params: { id: "proj_neoyear" } },
+      { label: "商务确认 · /h5/projects/deal", to: "/h5/projects/deal", hint: "报价接受/拒绝 v2 API" },
+      { label: "可行性快照 · /h5/snapshot", to: "/h5/snapshot" },
+      { label: "AI 顾问 · /h5/agent", to: "/h5/agent" },
+      { label: "发现 · 演员列表", to: "/h5/discover/actors" },
+      { label: "发现 · 案例列表", to: "/h5/discover/cases" },
+      { label: "发现 · 节目列表", to: "/h5/discover/programs" },
+      { label: "发现 · 服务产品列表", to: "/h5/discover/service-products" },
+    ],
+  },
 ];
 
 function DevLoginPage() {
