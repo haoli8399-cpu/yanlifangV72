@@ -32,8 +32,8 @@ function H5ProjectDetail() {
 
       {/* 快捷操作 */}
       <div className="mt-5 grid grid-cols-2 gap-2">
-        <Link to="/projects/$id" params={{ id }} className="rounded-lg border border-border/60 bg-card/40 px-3 py-3 text-sm text-center text-foreground active:bg-secondary/40">📋 查看详情</Link>
-        <Link to="/projects/$id/deal" params={{ id }} className="rounded-lg border border-border/60 bg-card/40 px-3 py-3 text-sm text-center text-foreground active:bg-secondary/40">💰 商务确认</Link>
+        <Link to="/h5/projects/$id" params={{ id }} className="rounded-lg border border-border/60 bg-card/40 px-3 py-3 text-sm text-center text-foreground active:bg-secondary/40">📋 查看详情</Link>
+        <Link to="/h5/projects/deal" search={{ id }} className="rounded-lg border border-border/60 bg-card/40 px-3 py-3 text-sm text-center text-foreground active:bg-secondary/40">💰 商务确认</Link>
       </div>
 
       <div className="mt-8 border-t border-border/60 pt-4 text-center text-[10px] text-muted-foreground">

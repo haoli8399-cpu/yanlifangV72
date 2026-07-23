@@ -177,7 +177,7 @@ function H5Actor() {
         <Link to="/h5/actor" className="flex flex-col items-center gap-1 rounded-xl bg-primary/10 py-3 text-primary text-xs font-medium">
           <Bell className="h-5 w-5" />邀约
         </Link>
-        <Link to="/actor/calendar" className="flex flex-col items-center gap-1 rounded-xl bg-secondary/30 py-3 text-xs text-muted-foreground">
+        <Link to="/h5/actor/calendar" className="flex flex-col items-center gap-1 rounded-xl bg-secondary/30 py-3 text-xs text-muted-foreground">
           <Calendar className="h-5 w-5" />档期
         </Link>
         <Link to="/h5/actor" className="flex flex-col items-center gap-1 rounded-xl bg-secondary/30 py-3 text-xs text-muted-foreground">
@@ -207,7 +207,7 @@ function H5Actor() {
         <div className="mb-6">
           <div className="mb-2 flex items-center justify-between">
             <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">即将演出</h2>
-            <Link to="/actor/calendar" className="text-xs text-primary/70">查看全部 →</Link>
+            <Link to="/h5/actor/calendar" className="text-xs text-primary/70"> 查看全部 →</Link>
           </div>
           <div className="space-y-2">
             {upcomingTasks.map((t) => <TaskRow key={t.id} t={t} />)}

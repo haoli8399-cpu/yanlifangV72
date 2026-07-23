@@ -117,7 +117,7 @@ function MSACard({
 
       {isActive && (
         <Link
-          to="/projects/$id"
+          to="/h5/projects/$id"
           params={{ id: msa.demand_id.replace("dmd_", "proj_") }}
           className="flex items-center justify-between rounded-lg bg-secondary/30 px-3 py-2.5 text-sm text-primary active:bg-secondary/60"
         >

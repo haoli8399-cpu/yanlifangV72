@@ -18,7 +18,7 @@ function H5Actors() {
       <div className="space-y-3">
         {actors.map((a) => (
           <Link
-            key={a.id} to="/discover/actors/$id" params={{ id: a.id }}
+            key={a.id} to="/h5/discover/actors" params={{ id: a.id }}
             className="flex items-center gap-3 rounded-xl border border-border/60 bg-card p-3 active:bg-secondary/40"
           >
             <div className="h-12 w-12 shrink-0 overflow-hidden rounded-full bg-muted">

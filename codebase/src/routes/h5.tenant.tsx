@@ -54,7 +54,7 @@ function ProjectRow({ p }: { p: (typeof projects)[number] }) {
   };
   return (
     <Link
-      to="/projects/$id"
+      to="/h5/projects/$id"
       params={{ id: p.id } as never}
       className="flex items-center gap-2 rounded-lg border border-border/60 bg-card/30 px-3 py-2.5 active:bg-secondary/30"
     >
@@ -125,13 +125,13 @@ function H5Tenant() {
           <Link to="/h5/tenant" className="flex items-center gap-2 rounded-lg border border-border/60 bg-card/40 px-3 py-2.5 text-sm text-foreground active:bg-secondary/40">
             <ClipboardList className="h-4 w-4 text-primary" />工作台
           </Link>
-          <Link to="/tenant/programs" className="flex items-center gap-2 rounded-lg border border-border/60 bg-card/40 px-3 py-2.5 text-sm text-foreground active:bg-secondary/40">
+          <Link to="/h5/tenant/programs" className="flex items-center gap-2 rounded-lg border border-border/60 bg-card/40 px-3 py-2.5 text-sm text-foreground active:bg-secondary/40">
             <Briefcase className="h-4 w-4 text-primary" />节目库
           </Link>
           <Link to="/tenant/service-products" className="flex items-center gap-2 rounded-lg border border-border/60 bg-card/40 px-3 py-2.5 text-sm text-foreground active:bg-secondary/40">
             <Briefcase className="h-4 w-4 text-primary" />服务产品
           </Link>
-          <Link to="/tenant/orders" className="flex items-center gap-2 rounded-lg border border-border/60 bg-card/40 px-3 py-2.5 text-sm text-foreground active:bg-secondary/40">
+          <Link to="/h5/tenant/orders" className="flex items-center gap-2 rounded-lg border border-border/60 bg-card/40 px-3 py-2.5 text-sm text-foreground active:bg-secondary/40">
             <ClipboardList className="h-4 w-4 text-primary" />订单
           </Link>
         </div>
@@ -142,7 +142,7 @@ function H5Tenant() {
         <div className="mb-6">
           <div className="mb-2 flex items-center justify-between">
             <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">进行中项目</h2>
-            <Link to="/projects" className="text-xs text-primary/70">全部 →</Link>
+            <Link to="/h5/projects" className="text-xs text-primary/70">全部 →</Link>
           </div>
           <div className="space-y-1.5">
             {projects.filter((p) => p.stage !== "completed").slice(0, 3).map((p) => <ProjectRow key={p.id} p={p} />)}
